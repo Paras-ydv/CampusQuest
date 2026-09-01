@@ -1,0 +1,61 @@
+publication_id,professor_id,title,venue,year,research_area
+PB001,F001,Rethinking Robotics with Weak Labels,IEEE Access,2023,Robotics
+PB002,F002,On Signal Processing with Weak Labels,NeurIPS Workshops,2023,Signal Processing
+PB003,F003,Efficient Control Systems with Weak Labels,NeurIPS Workshops,2024,Control Systems
+PB004,F004,Robust Bioinformatics under Constraints,Springer LNCS,2024,Bioinformatics
+PB005,F005,Towards Natural Language Processing under Constraints,Elsevier PMC,2022,Natural Language Processing
+PB006,F006,Towards Computer Architecture for Campus Deployments,Springer LNCS,2026,Computer Architecture
+PB007,F007,Robust VLSI Design under Constraints,IEEE Access,2024,VLSI Design
+PB008,F008,On Machine Learning with Weak Labels,IEEE Access,2023,Machine Learning
+PB009,F009,Towards VLSI Design under Constraints,Elsevier PMC,2024,VLSI Design
+PB010,F010,Robust Control Systems at Scale,CVPR Workshops,2025,Control Systems
+PB011,F011,On Robotics with Weak Labels,ACM TIST,2025,Robotics
+PB012,F012,On Signal Processing for Campus Deployments,IEEE Access,2026,Signal Processing
+PB013,F013,Towards Signal Processing with Weak Labels,Springer LNCS,2022,Signal Processing
+PB014,F014,Towards Control Systems with Weak Labels,NeurIPS Workshops,2026,Control Systems
+PB015,F015,Robust Cybersecurity for Campus Deployments,IEEE Access,2022,Cybersecurity
+PB016,F016,On Machine Learning for Campus Deployments,ACM TIST,2026,Machine Learning
+PB017,F017,On Human-Computer Interaction for Campus Deployments,Springer LNCS,2025,Human-Computer Interaction
+PB018,F018,Towards Signal Processing with Weak Labels,ACM TIST,2024,Signal Processing
+PB019,F019,Robust Natural Language Processing under Constraints,Springer LNCS,2022,Natural Language Processing
+PB020,F020,Rethinking Machine Learning at Scale,IEEE Access,2024,Machine Learning
+PB021,F021,On Computer Vision with Weak Labels,IEEE Access,2025,Computer Vision
+PB022,F022,Efficient Data Mining for Campus Deployments,ACM TIST,2026,Data Mining
+PB023,F023,Robust Signal Processing under Constraints,NeurIPS Workshops,2026,Signal Processing
+PB024,F024,Towards Power Systems for Campus Deployments,Springer LNCS,2023,Power Systems
+PB025,F025,On Robotics with Weak Labels,CVPR Workshops,2026,Robotics
+PB026,F001,Efficient Machine Learning with Weak Labels,Elsevier PMC,2026,Machine Learning
+PB027,F002,Rethinking VLSI Design with Weak Labels,CVPR Workshops,2024,VLSI Design
+PB028,F003,Towards Robotics for Campus Deployments,IEEE Access,2026,Robotics
+PB029,F004,Towards Bioinformatics at Scale,NeurIPS Workshops,2022,Bioinformatics
+PB030,F005,Rethinking Machine Learning with Weak Labels,Elsevier PMC,2023,Machine Learning
+PB031,F006,On VLSI Design under Constraints,CVPR Workshops,2026,VLSI Design
+PB032,F007,Robust VLSI Design at Scale,IEEE Access,2025,VLSI Design
+PB033,F008,On Computer Architecture under Constraints,ACM TIST,2025,Computer Architecture
+PB034,F009,Efficient VLSI Design under Constraints,Elsevier PMC,2024,VLSI Design
+PB035,F010,Robust Robotics for Campus Deployments,Springer LNCS,2026,Robotics
+PB036,F011,Towards Robotics with Weak Labels,Elsevier PMC,2024,Robotics
+PB037,F012,Rethinking Signal Processing under Constraints,Elsevier PMC,2024,Signal Processing
+PB038,F013,On Computer Vision under Constraints,Elsevier PMC,2024,Computer Vision
+PB039,F014,Robust Control Systems at Scale,NeurIPS Workshops,2026,Control Systems
+PB040,F015,On Human-Computer Interaction under Constraints,NeurIPS Workshops,2023,Human-Computer Interaction
+PB041,F016,Towards Computer Architecture at Scale,IEEE Access,2025,Computer Architecture
+PB042,F017,On Distributed Systems at Scale,Springer LNCS,2022,Distributed Systems
+PB043,F018,Towards VLSI Design under Constraints,ACM TIST,2024,VLSI Design
+PB044,F019,Rethinking Natural Language Processing for Campus Deployments,IEEE Access,2023,Natural Language Processing
+PB045,F020,Robust Data Mining with Weak Labels,Springer LNCS,2022,Data Mining
+PB046,F021,Towards Robotics for Campus Deployments,ACM TIST,2025,Robotics
+PB047,F022,Rethinking Human-Computer Interaction at Scale,Elsevier PMC,2022,Human-Computer Interaction
+PB048,F023,On Signal Processing for Campus Deployments,Elsevier PMC,2026,Signal Processing
+PB049,F024,Robust Control Systems at Scale,CVPR Workshops,2023,Control Systems
+PB050,F025,Towards Computer Vision with Weak Labels,ACM TIST,2024,Computer Vision
+PB051,F001,Efficient Robotics at Scale,NeurIPS Workshops,2026,Robotics
+PB052,F002,On Signal Processing under Constraints,Springer LNCS,2022,Signal Processing
+PB053,F003,Towards Control Systems for Campus Deployments,NeurIPS Workshops,2025,Control Systems
+PB054,F004,Efficient Distributed Systems for Campus Deployments,Elsevier PMC,2025,Distributed Systems
+PB055,F005,On Robotics for Campus Deployments,NeurIPS Workshops,2026,Robotics
+PB056,F006,Robust Computer Architecture with Weak Labels,IEEE Access,2022,Computer Architecture
+PB057,F007,Towards VLSI Design at Scale,ACM TIST,2022,VLSI Design
+PB058,F008,Rethinking Computer Architecture for Campus Deployments,NeurIPS Workshops,2022,Computer Architecture
+PB059,F009,Robust VLSI Design with Weak Labels,Springer LNCS,2023,VLSI Design
+PB060,F010,Efficient Control Systems under Constraints,Elsevier PMC,2025,Control Systems

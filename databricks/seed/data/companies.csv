@@ -1,0 +1,31 @@
+company_id,name,sector,tier,campus_recruiter
+C001,Razorpay,Fintech,product,true
+C002,Zerodha,E-commerce,product,false
+C003,Swiggy,SaaS,product,true
+C004,Flipkart,AI,product,true
+C005,PhonePe,IT Services,product,true
+C006,Freshworks,Deep Tech,product,true
+C007,Zoho,Fintech,product,true
+C008,Postman,E-commerce,product,false
+C009,CRED,SaaS,product,false
+C010,Meesho,AI,product,true
+C011,Groww,IT Services,growth,true
+C012,Slice,Deep Tech,growth,true
+C013,Zepto,Fintech,growth,true
+C014,Dunzo,E-commerce,growth,true
+C015,Udaan,SaaS,growth,true
+C016,BrowserStack,AI,growth,true
+C017,Chargebee,IT Services,growth,true
+C018,Hasura,Deep Tech,growth,true
+C019,Atlan,Fintech,growth,false
+C020,Sarvam AI,E-commerce,growth,true
+C021,Infosys,SaaS,service,false
+C022,Wipro,AI,service,false
+C023,TCS,IT Services,service,true
+C024,Mindtree,Deep Tech,service,false
+C025,Mphasis,Fintech,service,false
+C026,Juspay,E-commerce,service,true
+C027,Setu,SaaS,service,true
+C028,Innovaccer,AI,service,true
+C029,Locus,IT Services,service,true
+C030,Netradyne,Deep Tech,service,true

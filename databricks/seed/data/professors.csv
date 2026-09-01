@@ -1,0 +1,26 @@
+professor_id,name,department,designation,accepting_students
+F001,Dr. Manish Bhat,AIML,Professor,true
+F002,Dr. Vikram Chauhan,EEE,Associate Professor,true
+F003,Dr. Aditi Joshi,ME,Professor,true
+F004,Dr. Kavya Hegde,CSE,Associate Professor,true
+F005,Dr. Nandini Hegde,AIML,Professor,false
+F006,Dr. Nikhil Kulkarni,ECE,Associate Professor,false
+F007,Dr. Kavya Desai,EEE,Assistant Professor,false
+F008,Dr. Vikram Shetty,CSE,Professor,true
+F009,Dr. Neha Bhat,EEE,Assistant Professor,true
+F010,Dr. Siddharth Pillai,ME,Professor,true
+F011,Dr. Karthik Menon,ME,Professor,true
+F012,Dr. Pooja Naik,EEE,Associate Professor,true
+F013,Dr. Riya Menon,ECE,Assistant Professor,false
+F014,Dr. Priya Pillai,ME,Assistant Professor,true
+F015,Dr. Vivek Kulkarni,ISE,Associate Professor,true
+F016,Dr. Aditya Joshi,CSE,Associate Professor,true
+F017,Dr. Manish Naik,CSE,Assistant Professor,true
+F018,Dr. Sneha Bhat,ECE,Professor,false
+F019,Dr. Aditya Pillai,CSE,Associate Professor,true
+F020,Dr. Gaurav Kulkarni,ISE,Associate Professor,false
+F021,Dr. Varun Shetty,AIML,Associate Professor,true
+F022,Dr. Sneha Reddy,ISE,Associate Professor,true
+F023,Dr. Divya Kulkarni,ECE,Assistant Professor,true
+F024,Dr. Dev Pillai,EEE,Assistant Professor,true
+F025,Dr. Manish Verma,AIML,Associate Professor,true

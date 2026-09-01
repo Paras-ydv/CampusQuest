@@ -1,0 +1,61 @@
+resource_id,title,provider,resource_type,skill_id,level,estimated_hours,is_free
+L001,Introduction to Python,freeCodeCamp,course,SK001,intro,29,true
+L002,Hands-on Java,NPTEL,tutorial,SK002,intermediate,12,true
+L003,Applied C++,freeCodeCamp,workshop,SK003,intermediate,40,true
+L004,Deep Dive: JavaScript,Udemy,course,SK004,intermediate,36,true
+L005,Introduction to TypeScript,Campus Workshop,tutorial,SK005,intro,22,true
+L006,Hands-on Go,freeCodeCamp,tutorial,SK006,intermediate,10,true
+L007,Applied SQL,NPTEL,course,SK007,intermediate,24,true
+L008,Deep Dive: Data Structures & Algorithms,NPTEL,workshop,SK008,intermediate,31,false
+L009,Introduction to System Design,YouTube,book,SK009,intermediate,6,true
+L010,Hands-on Operating Systems,Coursera,workshop,SK010,advanced,8,false
+L011,Applied Computer Networks,NPTEL,workshop,SK011,intro,27,true
+L012,Deep Dive: DBMS,Databricks Academy,workshop,SK012,intermediate,4,true
+L013,Introduction to Git,Coursera,book,SK013,intro,9,true
+L014,Hands-on Linux,freeCodeCamp,workshop,SK014,intro,19,true
+L015,Applied REST APIs,MIT OCW,course,SK015,intermediate,13,true
+L016,Deep Dive: GraphQL,freeCodeCamp,tutorial,SK016,intermediate,24,false
+L017,Introduction to Node.js,Campus Workshop,book,SK017,intro,17,true
+L018,Hands-on Express,freeCodeCamp,course,SK018,intermediate,6,true
+L019,Applied Spring Boot,Udemy,workshop,SK019,intro,6,true
+L020,Deep Dive: Django,freeCodeCamp,tutorial,SK020,intermediate,20,false
+L021,Introduction to Flask,Databricks Academy,workshop,SK021,intermediate,29,true
+L022,Hands-on React,NPTEL,workshop,SK022,intermediate,36,true
+L023,Applied Next.js,YouTube,course,SK023,intro,32,true
+L024,Deep Dive: Angular,Udemy,workshop,SK024,intro,39,false
+L025,Introduction to Docker,Databricks Academy,workshop,SK025,intro,12,true
+L026,Hands-on Kubernetes,Udemy,book,SK026,intro,23,true
+L027,Applied AWS,Coursera,tutorial,SK027,advanced,13,true
+L028,Deep Dive: Azure,MIT OCW,book,SK028,intro,12,true
+L029,Introduction to CI/CD,MIT OCW,tutorial,SK029,intermediate,25,true
+L030,Hands-on Terraform,YouTube,tutorial,SK030,intro,5,true
+L031,Applied PostgreSQL,freeCodeCamp,workshop,SK031,intro,10,true
+L032,Deep Dive: MongoDB,freeCodeCamp,workshop,SK032,intro,40,true
+L033,Introduction to Redis,Coursera,tutorial,SK033,intro,20,true
+L034,Hands-on Apache Spark,MIT OCW,course,SK034,advanced,40,false
+L035,Applied Kafka,Databricks Academy,tutorial,SK035,intro,20,false
+L036,Deep Dive: Airflow,Databricks Academy,course,SK036,advanced,22,true
+L037,Introduction to Pandas,YouTube,course,SK037,intermediate,29,false
+L038,Hands-on NumPy,freeCodeCamp,course,SK038,intermediate,36,false
+L039,Applied scikit-learn,MIT OCW,course,SK039,intro,27,true
+L040,Deep Dive: PyTorch,Udemy,workshop,SK040,intro,30,true
+L041,Introduction to TensorFlow,Coursera,course,SK041,intro,6,false
+L042,Hands-on Computer Vision,Campus Workshop,book,SK042,intro,18,true
+L043,Applied NLP,Campus Workshop,book,SK043,intro,9,true
+L044,Deep Dive: MLOps,Campus Workshop,workshop,SK044,advanced,38,false
+L045,Introduction to Android,MIT OCW,course,SK045,intermediate,19,true
+L046,Hands-on Figma,YouTube,tutorial,SK046,advanced,12,true
+L047,Applied Python,NPTEL,tutorial,SK001,intro,14,true
+L048,Deep Dive: Java,Campus Workshop,book,SK002,intro,33,false
+L049,Introduction to C++,freeCodeCamp,workshop,SK003,intro,20,false
+L050,Hands-on JavaScript,Databricks Academy,workshop,SK004,advanced,23,false
+L051,Applied TypeScript,Databricks Academy,book,SK005,advanced,13,false
+L052,Deep Dive: Go,Databricks Academy,book,SK006,intro,31,false
+L053,Introduction to SQL,Campus Workshop,book,SK007,advanced,31,true
+L054,Hands-on Data Structures & Algorithms,Campus Workshop,book,SK008,advanced,29,false
+L055,Applied System Design,MIT OCW,tutorial,SK009,intermediate,26,true
+L056,Deep Dive: Operating Systems,freeCodeCamp,tutorial,SK010,advanced,10,true
+L057,Introduction to Computer Networks,freeCodeCamp,book,SK011,intermediate,13,false
+L058,Hands-on DBMS,Udemy,tutorial,SK012,intro,22,true
+L059,Applied Git,freeCodeCamp,book,SK013,intro,5,true
+L060,Deep Dive: Linux,Udemy,workshop,SK014,intermediate,27,true

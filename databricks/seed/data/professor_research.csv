@@ -1,0 +1,58 @@
+professor_id,research_area
+F001,Robotics
+F001,Machine Learning
+F002,Signal Processing
+F002,VLSI Design
+F003,Robotics
+F003,Control Systems
+F004,Bioinformatics
+F004,Distributed Systems
+F005,Robotics
+F005,Machine Learning
+F005,Natural Language Processing
+F006,VLSI Design
+F006,Computer Architecture
+F007,Signal Processing
+F007,VLSI Design
+F008,Computer Architecture
+F008,Machine Learning
+F009,VLSI Design
+F009,Signal Processing
+F009,Power Systems
+F010,Robotics
+F010,Control Systems
+F011,Control Systems
+F011,Robotics
+F012,VLSI Design
+F012,Signal Processing
+F013,Robotics
+F013,Computer Vision
+F013,Signal Processing
+F014,Control Systems
+F014,Robotics
+F015,Human-Computer Interaction
+F015,Cybersecurity
+F015,Distributed Systems
+F016,Machine Learning
+F016,Computer Architecture
+F017,Computer Architecture
+F017,Human-Computer Interaction
+F017,Distributed Systems
+F018,Signal Processing
+F018,VLSI Design
+F019,Natural Language Processing
+F019,Distributed Systems
+F020,Machine Learning
+F020,Data Mining
+F020,Cybersecurity
+F021,Computer Vision
+F021,Robotics
+F022,Human-Computer Interaction
+F022,Data Mining
+F023,Computer Architecture
+F023,Signal Processing
+F024,Power Systems
+F024,Control Systems
+F025,Computer Vision
+F025,Machine Learning
+F025,Robotics

@@ -1,0 +1,206 @@
+role_id,company_id,role_family,year,location
+R0000,C014,Backend Engineer,2025,Remote
+R0001,C006,Backend Engineer,2024,Delhi NCR
+R0002,C014,Backend Engineer,2023,Remote
+R0003,C018,Backend Engineer,2024,Remote
+R0004,C011,Backend Engineer,2023,Pune
+R0005,C017,Backend Engineer,2022,Hyderabad
+R0006,C007,Backend Engineer,2023,Hyderabad
+R0007,C024,Backend Engineer,2025,Hyderabad
+R0008,C017,Backend Engineer,2023,Chennai
+R0009,C015,Backend Engineer,2024,Remote
+R0010,C029,Backend Engineer,2025,Remote
+R0011,C022,Backend Engineer,2025,Pune
+R0012,C024,Backend Engineer,2025,Pune
+R0013,C020,Backend Engineer,2023,Mumbai
+R0014,C017,Backend Engineer,2025,Delhi NCR
+R0015,C012,Backend Engineer,2023,Pune
+R0016,C016,Backend Engineer,2026,Mumbai
+R0017,C007,Backend Engineer,2022,Delhi NCR
+R0018,C023,Backend Engineer,2022,Delhi NCR
+R0019,C028,Backend Engineer,2024,Chennai
+R0020,C013,Backend Engineer,2026,Chennai
+R0021,C020,Backend Engineer,2026,Delhi NCR
+R0022,C027,Software Engineer,2022,Remote
+R0023,C003,Software Engineer,2025,Bengaluru
+R0024,C027,Software Engineer,2023,Delhi NCR
+R0025,C029,Software Engineer,2022,Mumbai
+R0026,C014,Software Engineer,2023,Delhi NCR
+R0027,C028,Software Engineer,2022,Bengaluru
+R0028,C028,Software Engineer,2022,Delhi NCR
+R0029,C008,Software Engineer,2025,Hyderabad
+R0030,C011,Software Engineer,2023,Remote
+R0031,C016,Software Engineer,2026,Delhi NCR
+R0032,C015,Software Engineer,2023,Mumbai
+R0033,C018,Software Engineer,2023,Mumbai
+R0034,C026,Software Engineer,2025,Delhi NCR
+R0035,C011,Software Engineer,2022,Bengaluru
+R0036,C008,Software Engineer,2023,Bengaluru
+R0037,C014,Software Engineer,2023,Hyderabad
+R0038,C030,Software Engineer,2024,Remote
+R0039,C014,Software Engineer,2023,Chennai
+R0040,C014,Software Engineer,2022,Mumbai
+R0041,C013,Software Engineer,2025,Chennai
+R0042,C004,Software Engineer,2024,Remote
+R0043,C001,Software Engineer,2026,Chennai
+R0044,C010,Frontend Engineer,2026,Hyderabad
+R0045,C019,Frontend Engineer,2025,Pune
+R0046,C005,Frontend Engineer,2023,Bengaluru
+R0047,C008,Frontend Engineer,2024,Delhi NCR
+R0048,C002,Frontend Engineer,2024,Delhi NCR
+R0049,C027,Frontend Engineer,2022,Chennai
+R0050,C021,Frontend Engineer,2022,Delhi NCR
+R0051,C028,Frontend Engineer,2026,Hyderabad
+R0052,C008,Frontend Engineer,2022,Bengaluru
+R0053,C024,Frontend Engineer,2022,Pune
+R0054,C014,Frontend Engineer,2022,Mumbai
+R0055,C016,Frontend Engineer,2023,Mumbai
+R0056,C022,Frontend Engineer,2026,Mumbai
+R0057,C014,Frontend Engineer,2023,Mumbai
+R0058,C024,Frontend Engineer,2022,Chennai
+R0059,C030,Frontend Engineer,2025,Hyderabad
+R0060,C026,Frontend Engineer,2025,Pune
+R0061,C018,Frontend Engineer,2024,Delhi NCR
+R0062,C020,Frontend Engineer,2026,Pune
+R0063,C012,Frontend Engineer,2025,Chennai
+R0064,C014,Frontend Engineer,2022,Pune
+R0065,C024,Frontend Engineer,2023,Mumbai
+R0066,C020,Frontend Engineer,2026,Hyderabad
+R0067,C030,Frontend Engineer,2024,Remote
+R0068,C010,Data Engineer,2024,Chennai
+R0069,C020,Data Engineer,2024,Hyderabad
+R0070,C018,Data Engineer,2025,Mumbai
+R0071,C015,Data Engineer,2024,Pune
+R0072,C024,Data Engineer,2025,Delhi NCR
+R0073,C006,Data Engineer,2023,Chennai
+R0074,C020,Data Engineer,2026,Pune
+R0075,C007,Data Engineer,2026,Delhi NCR
+R0076,C009,Data Engineer,2024,Remote
+R0077,C015,Data Engineer,2025,Hyderabad
+R0078,C021,Data Engineer,2026,Mumbai
+R0079,C014,Data Engineer,2023,Remote
+R0080,C017,Data Engineer,2023,Remote
+R0081,C008,Data Engineer,2026,Delhi NCR
+R0082,C008,Data Engineer,2026,Pune
+R0083,C029,Data Engineer,2026,Delhi NCR
+R0084,C007,Data Engineer,2026,Remote
+R0085,C028,Data Engineer,2026,Remote
+R0086,C010,Data Engineer,2023,Bengaluru
+R0087,C017,Data Engineer,2022,Pune
+R0088,C019,ML Engineer,2022,Remote
+R0089,C030,ML Engineer,2023,Mumbai
+R0090,C013,ML Engineer,2023,Remote
+R0091,C020,ML Engineer,2025,Chennai
+R0092,C004,ML Engineer,2022,Delhi NCR
+R0093,C028,ML Engineer,2026,Delhi NCR
+R0094,C027,ML Engineer,2026,Pune
+R0095,C027,ML Engineer,2025,Chennai
+R0096,C013,ML Engineer,2022,Delhi NCR
+R0097,C006,ML Engineer,2026,Chennai
+R0098,C005,ML Engineer,2025,Pune
+R0099,C004,ML Engineer,2026,Hyderabad
+R0100,C003,ML Engineer,2026,Pune
+R0101,C027,ML Engineer,2022,Remote
+R0102,C003,ML Engineer,2023,Delhi NCR
+R0103,C001,ML Engineer,2024,Hyderabad
+R0104,C011,ML Engineer,2025,Mumbai
+R0105,C004,ML Engineer,2024,Chennai
+R0106,C021,ML Engineer,2026,Delhi NCR
+R0107,C027,ML Engineer,2026,Hyderabad
+R0108,C012,ML Engineer,2022,Hyderabad
+R0109,C002,ML Engineer,2024,Delhi NCR
+R0110,C007,Data Analyst,2024,Mumbai
+R0111,C008,Data Analyst,2026,Hyderabad
+R0112,C004,Data Analyst,2022,Bengaluru
+R0113,C029,Data Analyst,2025,Remote
+R0114,C002,Data Analyst,2024,Chennai
+R0115,C007,Data Analyst,2025,Remote
+R0116,C017,Data Analyst,2023,Bengaluru
+R0117,C017,Data Analyst,2023,Chennai
+R0118,C005,Data Analyst,2025,Hyderabad
+R0119,C017,Data Analyst,2022,Remote
+R0120,C026,Data Analyst,2026,Pune
+R0121,C012,Data Analyst,2026,Hyderabad
+R0122,C020,Data Analyst,2022,Bengaluru
+R0123,C002,Data Analyst,2025,Pune
+R0124,C020,Data Analyst,2023,Mumbai
+R0125,C025,Data Analyst,2025,Delhi NCR
+R0126,C004,Data Analyst,2022,Pune
+R0127,C025,Data Analyst,2022,Pune
+R0128,C010,DevOps Engineer,2022,Chennai
+R0129,C028,DevOps Engineer,2022,Delhi NCR
+R0130,C030,DevOps Engineer,2022,Remote
+R0131,C001,DevOps Engineer,2026,Chennai
+R0132,C015,DevOps Engineer,2023,Chennai
+R0133,C030,DevOps Engineer,2023,Mumbai
+R0134,C017,DevOps Engineer,2022,Chennai
+R0135,C023,DevOps Engineer,2026,Bengaluru
+R0136,C011,DevOps Engineer,2025,Hyderabad
+R0137,C003,DevOps Engineer,2025,Bengaluru
+R0138,C004,DevOps Engineer,2026,Remote
+R0139,C029,DevOps Engineer,2023,Hyderabad
+R0140,C018,DevOps Engineer,2024,Bengaluru
+R0141,C030,DevOps Engineer,2026,Delhi NCR
+R0142,C030,DevOps Engineer,2026,Mumbai
+R0143,C027,DevOps Engineer,2025,Pune
+R0144,C006,DevOps Engineer,2023,Mumbai
+R0145,C018,DevOps Engineer,2023,Chennai
+R0146,C008,Mobile Engineer,2023,Pune
+R0147,C026,Mobile Engineer,2022,Pune
+R0148,C023,Mobile Engineer,2026,Chennai
+R0149,C008,Mobile Engineer,2023,Bengaluru
+R0150,C011,Mobile Engineer,2024,Hyderabad
+R0151,C030,Mobile Engineer,2026,Bengaluru
+R0152,C016,Mobile Engineer,2025,Chennai
+R0153,C015,Mobile Engineer,2023,Pune
+R0154,C016,Mobile Engineer,2024,Bengaluru
+R0155,C025,Mobile Engineer,2022,Chennai
+R0156,C001,Mobile Engineer,2024,Remote
+R0157,C027,Mobile Engineer,2026,Hyderabad
+R0158,C030,Mobile Engineer,2022,Hyderabad
+R0159,C022,Mobile Engineer,2024,Remote
+R0160,C015,Mobile Engineer,2024,Mumbai
+R0161,C025,Mobile Engineer,2022,Chennai
+R0162,C023,QA Engineer,2026,Pune
+R0163,C004,QA Engineer,2023,Hyderabad
+R0164,C021,QA Engineer,2024,Bengaluru
+R0165,C008,QA Engineer,2025,Bengaluru
+R0166,C013,QA Engineer,2026,Delhi NCR
+R0167,C017,QA Engineer,2026,Delhi NCR
+R0168,C015,QA Engineer,2023,Remote
+R0169,C014,QA Engineer,2022,Delhi NCR
+R0170,C024,QA Engineer,2026,Pune
+R0171,C018,QA Engineer,2026,Remote
+R0172,C020,QA Engineer,2023,Bengaluru
+R0173,C009,QA Engineer,2024,Delhi NCR
+R0174,C024,QA Engineer,2024,Mumbai
+R0175,C020,QA Engineer,2024,Mumbai
+R0176,C007,Embedded Engineer,2022,Pune
+R0177,C011,Embedded Engineer,2025,Bengaluru
+R0178,C003,Embedded Engineer,2023,Hyderabad
+R0179,C003,Embedded Engineer,2026,Hyderabad
+R0180,C001,Embedded Engineer,2023,Chennai
+R0181,C024,Embedded Engineer,2022,Bengaluru
+R0182,C022,Embedded Engineer,2025,Mumbai
+R0183,C028,Embedded Engineer,2025,Chennai
+R0184,C030,Embedded Engineer,2025,Hyderabad
+R0185,C023,Embedded Engineer,2023,Bengaluru
+R0186,C007,Embedded Engineer,2024,Mumbai
+R0187,C006,Embedded Engineer,2022,Mumbai
+R0188,C008,Embedded Engineer,2024,Chennai
+R0189,C006,Embedded Engineer,2023,Delhi NCR
+R0190,C015,Embedded Engineer,2023,Mumbai
+R0191,C007,Product Engineer,2022,Delhi NCR
+R0192,C023,Product Engineer,2023,Chennai
+R0193,C011,Product Engineer,2024,Delhi NCR
+R0194,C024,Product Engineer,2023,Bengaluru
+R0195,C022,Product Engineer,2022,Pune
+R0196,C001,Product Engineer,2022,Remote
+R0197,C002,Product Engineer,2025,Hyderabad
+R0198,C006,Product Engineer,2023,Hyderabad
+R0199,C007,Product Engineer,2022,Chennai
+R0200,C002,Product Engineer,2022,Remote
+R0201,C008,Product Engineer,2024,Hyderabad
+R0202,C025,Product Engineer,2022,Pune
+R0203,C021,Product Engineer,2025,Delhi NCR
+R0204,C015,Product Engineer,2022,Bengaluru

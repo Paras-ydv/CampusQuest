@@ -1,0 +1,47 @@
+skill_id,slug,name,category
+SK001,python,Python,language
+SK002,java,Java,language
+SK003,cpp,C++,language
+SK004,javascript,JavaScript,language
+SK005,typescript,TypeScript,language
+SK006,go,Go,language
+SK007,sql,SQL,data
+SK008,dsa,Data Structures & Algorithms,practice
+SK009,systemdesign,System Design,systems
+SK010,os,Operating Systems,systems
+SK011,networks,Computer Networks,systems
+SK012,dbms,DBMS,data
+SK013,git,Git,tooling
+SK014,linux,Linux,systems
+SK015,rest,REST APIs,practice
+SK016,graphql,GraphQL,practice
+SK017,node,Node.js,framework
+SK018,express,Express,framework
+SK019,springboot,Spring Boot,framework
+SK020,django,Django,framework
+SK021,flask,Flask,framework
+SK022,react,React,framework
+SK023,nextjs,Next.js,framework
+SK024,angular,Angular,framework
+SK025,docker,Docker,infra
+SK026,kubernetes,Kubernetes,infra
+SK027,aws,AWS,infra
+SK028,azure,Azure,infra
+SK029,cicd,CI/CD,infra
+SK030,terraform,Terraform,infra
+SK031,postgres,PostgreSQL,data
+SK032,mongodb,MongoDB,data
+SK033,redis,Redis,data
+SK034,spark,Apache Spark,data
+SK035,kafka,Kafka,data
+SK036,airflow,Airflow,data
+SK037,pandas,Pandas,ml
+SK038,numpy,NumPy,ml
+SK039,sklearn,scikit-learn,ml
+SK040,pytorch,PyTorch,ml
+SK041,tensorflow,TensorFlow,ml
+SK042,cv,Computer Vision,ml
+SK043,nlp,NLP,ml
+SK044,mlops,MLOps,ml
+SK045,android,Android,framework
+SK046,figma,Figma,tooling
