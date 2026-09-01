@@ -87,16 +87,17 @@ async function runFile(relativePath) {
 
 /** The tables the Agent is allowed to see. Genie answers only over these. */
 const GENIE_TABLES = [
-  "job_postings", "job_required_skills", "job_preferred_skills", "companies",
-  "placement_outcomes", "learning_resources", "skill_graph",
-  "students_analytical", "role_alignment", "skill_gap_view",
+  "skills", "students", "student_skills", "companies", "job_roles",
+  "job_requirements", "placement_history", "opportunities", "opportunity_skills",
+  "learning_resources", "professors", "professor_research", "research_projects",
+  "publications", "role_alignment", "skill_gap_view",
 ];
 
 const SAMPLE_QUESTIONS = [
+  "Which skills appear most often in historical backend and software engineering roles?",
   "What should I learn next for my goal role?",
-  "Which skills do AI/ML Engineer postings require most often?",
-  "How has demand for Docker changed since 2022?",
-  "Which open learning resources close the largest skill gaps?",
+  "Which opportunities close the gaps that matter most?",
+  "I'm interested in computer vision and robotics - who should I approach?",
 ];
 
 /** The API generates ids server-side for existing spaces; new ones need our own. */

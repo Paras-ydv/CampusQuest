@@ -1,0 +1,43 @@
+project_id,professor_id,title,research_area,status,open_positions,year_started
+RP001,F001,Robotics in Real-Time Systems,Robotics,open,3,2026
+RP002,F002,VLSI Design for Low-Resource Settings,VLSI Design,open,3,2026
+RP003,F003,Robotics at Campus Scale,Robotics,ongoing,1,2024
+RP004,F004,Distributed Systems with Limited Supervision,Distributed Systems,open,0,2023
+RP005,F005,Machine Learning on Embedded Hardware,Machine Learning,open,3,2026
+RP006,F006,Computer Architecture with Limited Supervision,Computer Architecture,open,3,2024
+RP007,F007,Signal Processing in Real-Time Systems,Signal Processing,open,2,2026
+RP008,F008,Machine Learning on Embedded Hardware,Machine Learning,open,1,2024
+RP009,F009,Signal Processing with Limited Supervision,Signal Processing,ongoing,2,2025
+RP010,F010,Robotics for Low-Resource Settings,Robotics,open,0,2025
+RP011,F011,Control Systems at Campus Scale,Control Systems,open,1,2026
+RP012,F012,VLSI Design in Real-Time Systems,VLSI Design,open,1,2025
+RP013,F013,Robotics on Embedded Hardware,Robotics,open,2,2025
+RP014,F014,Robotics at Campus Scale,Robotics,open,0,2024
+RP015,F015,Human-Computer Interaction on Embedded Hardware,Human-Computer Interaction,ongoing,3,2025
+RP016,F016,Machine Learning for Low-Resource Settings,Machine Learning,ongoing,1,2024
+RP017,F017,Computer Architecture on Embedded Hardware,Computer Architecture,open,1,2024
+RP018,F018,Signal Processing in Real-Time Systems,Signal Processing,ongoing,2,2024
+RP019,F019,Distributed Systems on Embedded Hardware,Distributed Systems,open,3,2026
+RP020,F020,Data Mining at Campus Scale,Data Mining,open,1,2025
+RP021,F021,Computer Vision on Embedded Hardware,Computer Vision,open,1,2026
+RP022,F022,Human-Computer Interaction for Low-Resource Settings,Human-Computer Interaction,open,2,2024
+RP023,F023,Computer Architecture for Low-Resource Settings,Computer Architecture,open,1,2023
+RP024,F024,Power Systems for Low-Resource Settings,Power Systems,ongoing,1,2024
+RP025,F025,Machine Learning on Embedded Hardware,Machine Learning,open,3,2026
+RP026,F001,Machine Learning in Real-Time Systems,Machine Learning,ongoing,2,2026
+RP027,F002,Signal Processing on Embedded Hardware,Signal Processing,open,0,2024
+RP028,F003,Robotics with Limited Supervision,Robotics,open,3,2024
+RP029,F004,Bioinformatics for Low-Resource Settings,Bioinformatics,open,3,2026
+RP030,F005,Robotics on Embedded Hardware,Robotics,open,2,2026
+RP031,F006,Computer Architecture at Campus Scale,Computer Architecture,open,2,2024
+RP032,F007,Signal Processing at Campus Scale,Signal Processing,ongoing,1,2026
+RP033,F008,Machine Learning with Limited Supervision,Machine Learning,open,0,2026
+RP034,F009,VLSI Design on Embedded Hardware,VLSI Design,open,0,2024
+RP035,F010,Control Systems at Campus Scale,Control Systems,open,0,2023
+RP036,F011,Robotics for Low-Resource Settings,Robotics,open,1,2023
+RP037,F012,VLSI Design at Campus Scale,VLSI Design,open,1,2025
+RP038,F013,Signal Processing with Limited Supervision,Signal Processing,open,3,2026
+RP039,F014,Robotics at Campus Scale,Robotics,ongoing,2,2025
+RP040,F015,Cybersecurity at Campus Scale,Cybersecurity,open,1,2025
+RP041,F016,Machine Learning for Low-Resource Settings,Machine Learning,ongoing,0,2025
+RP042,F017,Computer Architecture at Campus Scale,Computer Architecture,open,2,2026

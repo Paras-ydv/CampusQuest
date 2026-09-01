@@ -1,0 +1,81 @@
+opportunity_id,title,organization,type,domain,deadline,difficulty
+O001,Backend Intern,HackCulture,internship,Backend,2026-11-08,advanced
+O002,Frontend Intern,HackCulture,internship,Frontend,2026-11-18,intermediate
+O003,Data Engineering Intern,BMSCE ACM Chapter,internship,Data,2026-10-22,intermediate
+O004,ML Research Assistantship,Coding Club,research,Machine Learning,2026-09-23,intermediate
+O005,Platform Engineering Intern,Google Developer Groups,internship,DevOps,2026-10-12,advanced
+O006,Vision-Guided Robotics Assistantship,BMSCE ACM Chapter,research,Robotics,2026-11-17,advanced
+O007,ACM ICPC Regionals,Microsoft Learn Student Chapter,competition,Algorithms,2026-10-22,intro
+O008,Android Intern,BMSCE ACM Chapter,internship,Mobile,2026-10-08,advanced
+O009,API Platform Internship,Flipkart,internship,Backend,2026-09-01,intro
+O010,Design Systems Workshop,Razorpay,workshop,Frontend,2026-11-15,intro
+O011,Databricks Campus Hackathon,BMSCE ACM Chapter,hackathon,Data,2026-10-03,advanced
+O012,Applied ML Internship,BMSCE ACM Chapter,internship,Machine Learning,2026-09-17,intermediate
+O013,Kubernetes Workshop,HackCulture,workshop,DevOps,2026-10-19,intermediate
+O014,Autonomous Systems Hackathon,Razorpay,hackathon,Robotics,2026-11-23,advanced
+O015,System Design Primer,Coding Club,workshop,Algorithms,2026-11-25,intermediate
+O016,Mobile App Hackathon,Microsoft Learn Student Chapter,hackathon,Mobile,2026-09-20,intro
+O017,Distributed Systems Workshop,HackCulture,workshop,Backend,2026-11-22,advanced
+O018,React Performance Clinic,BMSCE ACM Chapter,workshop,Frontend,2026-12-13,advanced
+O019,Analytics Case Competition,BMSCE ACM Chapter,competition,Data,2026-11-12,intro
+O020,Kaggle Campus Competition,Flipkart,workshop,Machine Learning,2026-11-07,intermediate
+O021,Site Reliability Bootcamp,HackCulture,workshop,DevOps,2026-09-04,intermediate
+O022,Robotics Build Sprint,Microsoft Learn Student Chapter,workshop,Robotics,2026-12-22,advanced
+O023,Competitive Programming Camp,Flipkart,workshop,Algorithms,2026-12-11,intro
+O024,Cross-Platform Workshop,IEEE BMSCE,workshop,Mobile,2026-11-04,intro
+O025,Scalable Services Bootcamp,Zoho,workshop,Backend,2026-11-03,intermediate
+O026,UI Engineering Sprint,HackCulture,workshop,Frontend,2026-12-22,intermediate
+O027,Data Pipeline Workshop,Google Developer Groups,workshop,Data,2026-09-17,intermediate
+O028,Deep Learning Workshop,Databricks,workshop,Machine Learning,2026-12-13,intro
+O029,CI/CD Clinic,AWS Educate,workshop,DevOps,2026-11-28,advanced
+O030,ROS Workshop,Razorpay,workshop,Robotics,2026-09-01,intermediate
+O031,DSA Intensive,IEEE BMSCE,workshop,Algorithms,2026-11-09,intermediate
+O032,App Performance Clinic,NVIDIA Developer Program,workshop,Mobile,2026-12-13,intro
+O033,Backend Intern,Microsoft Learn Student Chapter,internship,Backend,2026-11-23,advanced
+O034,Frontend Intern,IEEE BMSCE,internship,Frontend,2026-12-14,advanced
+O035,Data Engineering Intern,Zoho,internship,Data,2026-12-15,advanced
+O036,ML Research Assistantship,NVIDIA Developer Program,research,Machine Learning,2026-09-17,advanced
+O037,Platform Engineering Intern,Coding Club,internship,DevOps,2026-12-07,intermediate
+O038,Vision-Guided Robotics Assistantship,HackCulture,research,Robotics,2026-12-28,intro
+O039,ACM ICPC Regionals,Flipkart,competition,Algorithms,2026-10-15,intro
+O040,Android Intern,Microsoft Learn Student Chapter,internship,Mobile,2026-11-21,intro
+O041,API Platform Internship,NVIDIA Developer Program,internship,Backend,2026-09-12,advanced
+O042,Design Systems Workshop,Microsoft Learn Student Chapter,workshop,Frontend,2026-12-02,intermediate
+O043,Databricks Campus Hackathon,AWS Educate,hackathon,Data,2026-10-13,intro
+O044,Applied ML Internship,Flipkart,internship,Machine Learning,2026-09-27,intermediate
+O045,Kubernetes Workshop,NVIDIA Developer Program,workshop,DevOps,2026-12-20,intro
+O046,Autonomous Systems Hackathon,Google Developer Groups,hackathon,Robotics,2026-10-20,intermediate
+O047,System Design Primer,Flipkart,workshop,Algorithms,2026-09-27,intro
+O048,Mobile App Hackathon,Razorpay,hackathon,Mobile,2026-09-27,intro
+O049,Distributed Systems Workshop,BMSCE ACM Chapter,workshop,Backend,2026-09-04,intermediate
+O050,React Performance Clinic,BMSCE ACM Chapter,workshop,Frontend,2026-12-28,intermediate
+O051,Analytics Case Competition,HackCulture,competition,Data,2026-12-04,intro
+O052,Kaggle Campus Competition,Google Developer Groups,workshop,Machine Learning,2026-09-28,advanced
+O053,Site Reliability Bootcamp,Flipkart,workshop,DevOps,2026-11-12,intermediate
+O054,Robotics Build Sprint,Google Developer Groups,workshop,Robotics,2026-12-26,intro
+O055,Competitive Programming Camp,Razorpay,workshop,Algorithms,2026-09-04,advanced
+O056,Cross-Platform Workshop,Coding Club,workshop,Mobile,2026-12-11,advanced
+O057,Scalable Services Bootcamp,HackCulture,workshop,Backend,2026-12-26,intermediate
+O058,UI Engineering Sprint,Razorpay,workshop,Frontend,2026-09-26,intro
+O059,Data Pipeline Workshop,BMSCE ACM Chapter,workshop,Data,2026-12-25,advanced
+O060,Deep Learning Workshop,BMSCE ACM Chapter,workshop,Machine Learning,2026-09-18,advanced
+O061,CI/CD Clinic,Zoho,workshop,DevOps,2026-10-27,intermediate
+O062,ROS Workshop,NVIDIA Developer Program,workshop,Robotics,2026-12-14,intro
+O063,DSA Intensive,Flipkart,workshop,Algorithms,2026-09-14,intro
+O064,App Performance Clinic,IEEE BMSCE,workshop,Mobile,2026-09-17,intro
+O065,Backend Intern,BMSCE ACM Chapter,internship,Backend,2026-11-12,advanced
+O066,Frontend Intern,Flipkart,internship,Frontend,2026-10-21,advanced
+O067,Data Engineering Intern,HackCulture,internship,Data,2026-11-11,advanced
+O068,ML Research Assistantship,AWS Educate,research,Machine Learning,2026-12-18,intro
+O069,Platform Engineering Intern,Razorpay,internship,DevOps,2026-11-23,advanced
+O070,Vision-Guided Robotics Assistantship,AWS Educate,research,Robotics,2026-09-21,advanced
+O071,ACM ICPC Regionals,Microsoft Learn Student Chapter,competition,Algorithms,2026-10-07,intro
+O072,Android Intern,Flipkart,internship,Mobile,2026-09-11,advanced
+O073,API Platform Internship,Databricks,internship,Backend,2026-12-22,intermediate
+O074,Design Systems Workshop,BMSCE ACM Chapter,workshop,Frontend,2026-09-14,intro
+O075,Databricks Campus Hackathon,Razorpay,hackathon,Data,2026-09-18,advanced
+O076,Applied ML Internship,Flipkart,internship,Machine Learning,2026-12-27,intro
+O077,Kubernetes Workshop,Razorpay,workshop,DevOps,2026-11-03,intermediate
+O078,Autonomous Systems Hackathon,Flipkart,hackathon,Robotics,2026-12-21,intro
+O079,System Design Primer,AWS Educate,workshop,Algorithms,2026-12-19,intermediate
+O080,Mobile App Hackathon,Zoho,hackathon,Mobile,2026-09-08,intro
