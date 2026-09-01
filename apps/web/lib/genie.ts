@@ -80,7 +80,20 @@ function fallbackAnswer(question: string): Pick<CacheRecord, "text" | "sql" | "t
   return { text: leading, sql: GENIE_DEMO_SQL, table: GENIE_DEMO_TABLE };
 }
 
-async function createOrContinue(input: RunInput): Promise<{ provider: { conversationId: string; messageId: string } | null; answer: Pick<CacheRecord, "text" | "sql" | "table"> }> {
+/**
+ * Runs the Genie turn, reporting progress as it happens rather than only at
+ * the end.
+ *
+ * Genie exposes its generated SQL roughly ten seconds before it finishes
+ * writing the prose answer, and the warehouse result lands shortly after that.
+ * Waiting for COMPLETED before emitting anything meant the panel sat silent for
+ * the entire turn and then filled in at once. `onProgress` forwards each new
+ * piece the moment it appears.
+ */
+async function createOrContinue(
+  input: RunInput,
+  onProgress: (event: GenieStreamEvent) => void,
+): Promise<{ provider: { conversationId: string; messageId: string } | null; answer: Pick<CacheRecord, "text" | "sql" | "table"> }> {
   if (!configured()) {
     if (!localFallbackEnabled()) throw new Error("Databricks Genie configuration is required in production");
     return { provider: null, answer: fallbackAnswer(input.question) };
@@ -94,14 +107,72 @@ async function createOrContinue(input: RunInput): Promise<{ provider: { conversa
   } else {
     provider = await genie.startConversation(context);
   }
-  const response: GenieResponse = await genie.waitForCompletion(provider.conversationId, provider.messageId);
+
+  // Emit each artefact once, the first time a poll reveals it.
+  //
+  // Genie's own lifecycle oscillates — ASKING_AI, PENDING_WAREHOUSE, then
+  // ASKING_AI again while it writes the prose — so reporting each transition
+  // verbatim makes the panel appear to go backwards from "Querying campus
+  // data" to "Reading your profile". Progress is therefore monotonic: a status
+  // is only forwarded when it represents a later phase than the last one sent.
+  const PHASE: Record<GenieStatus, number> = {
+    pending: 0, interpreting: 1, executing: 2, complete: 3, failed: 3,
+  };
+  let sentStatus: GenieStatus | null = "interpreting";
+  let sentSql = false;
+  let sentTable = false;
+  const response: GenieResponse = await genie.waitForCompletion(
+    provider.conversationId,
+    provider.messageId,
+    (partial) => {
+      const isForward = !sentStatus || PHASE[partial.status] > PHASE[sentStatus];
+      if (isForward && partial.status !== "complete" && partial.status !== "failed") {
+        sentStatus = partial.status;
+        onProgress({ type: "status", status: partial.status });
+      }
+      if (!sentSql && partial.sql) {
+        sentSql = true;
+        onProgress({ type: "sql", sql: partial.sql });
+      }
+      if (!sentTable && partial.table) {
+        sentTable = true;
+        onProgress({ type: "table", table: toTable(partial.table)! });
+      }
+    },
+  );
   return { provider, answer: { text: response.text, sql: response.sql, table: toTable(response.table) } };
+}
+
+/**
+ * Bridges the callback-style progress reporting above into the async generator
+ * the SSE route consumes, without buffering. Events pushed by `emit` are
+ * yielded as soon as the consumer asks for them.
+ */
+function eventBridge() {
+  const queue: GenieStreamEvent[] = [];
+  let wake: (() => void) | null = null;
+  return {
+    emit(event: GenieStreamEvent) {
+      queue.push(event);
+      wake?.();
+      wake = null;
+    },
+    /** Resolves when there is something to drain, or the work settles. */
+    async waitForNext(work: Promise<unknown>): Promise<void> {
+      if (queue.length) return;
+      await Promise.race([work.catch(() => undefined), new Promise<void>((resolve) => { wake = resolve; })]);
+    },
+    drain(): GenieStreamEvent[] {
+      return queue.splice(0, queue.length);
+    },
+  };
 }
 
 /** Returns the exact SSE event lifecycle rendered by P1's Genie panel. */
 export async function* runGenie(input: RunInput): AsyncGenerator<GenieStreamEvent> {
   const requestHash = hashQuestion(input.userId, input.question);
   yield { type: "status", status: "pending" };
+
   const cached = fallbackCache.get(requestHash) ?? await cachedFromDatabase(input.request, input.userId, requestHash);
   if (cached) {
     yield { type: "status", status: "complete" };
@@ -111,10 +182,50 @@ export async function* runGenie(input: RunInput): AsyncGenerator<GenieStreamEven
     yield { type: "done", conversationId: cached.conversationId, messageId: cached.messageId };
     return;
   }
+
   yield { type: "status", status: "interpreting" };
+
+  const bridge = eventBridge();
+  const work = createOrContinue(input, bridge.emit);
+  let settled = false;
+  const tracked = work.then(
+    (value) => { settled = true; bridge.emit({ type: "status", status: "complete" }); return value; },
+    (error) => { settled = true; bridge.emit({ type: "status", status: "failed" }); throw error; },
+  );
+  // Swallow here so an early rejection cannot become an unhandled rejection
+  // while we are still draining; the await below rethrows it in order.
+  tracked.catch(() => undefined);
+
+  // Forward progress as Genie produces it: statuses, then the SQL, then the
+  // result table — each typically seconds ahead of the final prose.
+  let sawSql = false;
+  let sawTable = false;
   try {
-    yield { type: "status", status: "executing" };
-    const { provider, answer } = await createOrContinue(input);
+    while (true) {
+      await bridge.waitForNext(tracked);
+      for (const event of bridge.drain()) {
+        if (event.type === "sql") sawSql = true;
+        if (event.type === "table") sawTable = true;
+        if (event.type === "status" && event.status === "complete") continue;
+        yield event;
+      }
+      if (settled) break;
+    }
+
+    const { provider, answer } = await tracked;
+    for (const event of bridge.drain()) {
+      if (event.type === "status" && event.status === "complete") continue;
+      yield event;
+    }
+
+    yield { type: "status", status: "complete" };
+    // Only emit what progress did not already deliver.
+    if (answer.sql && !sawSql) yield { type: "sql", sql: answer.sql };
+    if (answer.table && !sawTable) yield { type: "table", table: answer.table };
+    if (answer.text) yield { type: "delta", text: answer.text };
+
+    // Persisted after the answer is on screen, not before it: caching is for
+    // the *next* identical question and should not delay this one.
     let stored = await persistDatabase(input, requestHash, provider, answer);
     if (!stored) {
       const conversationId = input.conversationId ?? randomUUID();
@@ -123,10 +234,6 @@ export async function* runGenie(input: RunInput): AsyncGenerator<GenieStreamEven
       stored = { conversationId, messageId, ...answer };
       fallbackCache.set(requestHash, stored);
     }
-    yield { type: "status", status: "complete" };
-    if (stored.sql) yield { type: "sql", sql: stored.sql };
-    if (stored.table) yield { type: "table", table: stored.table };
-    if (stored.text) yield { type: "delta", text: stored.text };
     yield { type: "done", conversationId: stored.conversationId, messageId: stored.messageId };
   } catch (error) {
     yield { type: "status", status: "failed" };
