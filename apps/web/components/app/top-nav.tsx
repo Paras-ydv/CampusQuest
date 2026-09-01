@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { clsx } from "clsx";
+import { NotificationBell } from "./notification-bell";
 import { ThemeToggle } from "./theme-toggle";
 import { Avatar } from "@/components/ui/primitives";
 
@@ -73,6 +74,7 @@ export function TopNav({
           </span>
         </div>
 
+        <NotificationBell />
         <ThemeToggle className="shrink-0" />
 
         {/* The avatar is the way into the profile — the one place a student can
