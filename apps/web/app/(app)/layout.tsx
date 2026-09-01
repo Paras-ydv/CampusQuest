@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import { GenieDock } from "@/components/app/genie-dock";
 import { TopNav } from "@/components/app/top-nav";
 import { Marquee } from "@/components/motion/marquee";
@@ -17,7 +18,20 @@ export default async function AppLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [profile, session] = await Promise.all([getCurrentProfile(), getSession()]);
+  const session = await getSession();
+
+  /**
+   * Every screen behind this layout reads per-user data, so an anonymous
+   * visitor has nothing to render. Without this the page still tried, the
+   * first API call answered 401, and the whole route returned a 500 — which is
+   * what a judge following a link to /journey from the landing page saw.
+   *
+   * Mock mode has a demo session, so this only triggers when Supabase is
+   * configured and nobody is signed in.
+   */
+  if (!session) redirect("/sign-in");
+
+  const profile = await getCurrentProfile();
   // NOTE: getCurrentProfile still returns the demo fixture. Reading the real
   // row is GET /api/profile's job — the session below is already live.
   const signedIn = Boolean(session && !session.isMock);

@@ -88,10 +88,7 @@ export default function LandingPage() {
           </Reveal>
 
           <Reveal index={8} delay={0.35} className="mt-9 flex flex-wrap gap-3">
-            <ButtonLink href="/journey" size="lg" arrow>
-              See the demo
-            </ButtonLink>
-            <ButtonLink href="/onboarding" size="lg" variant="outline">
+            <ButtonLink href="/sign-in" size="lg" arrow>
               Build my journey
             </ButtonLink>
           </Reveal>
@@ -264,7 +261,7 @@ export default function LandingPage() {
           </Reveal>
           <Reveal index={6} className="mt-9">
             <ButtonLink
-              href="/onboarding"
+              href="/sign-in"
               size="lg"
               variant="hot"
               arrow
