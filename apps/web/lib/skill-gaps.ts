@@ -47,10 +47,11 @@ export async function getSkillGapContext(
   }
 
   if (databricksSqlConfigured()) {
+    // An empty result is a real answer — a student with no gaps in their target
+    // family has none. Substituting fixture gaps here would recommend quests
+    // for skills they already hold.
     const gaps = await warehouseSkillGaps(profile as BackendProfile);
-    if (gaps.length) {
-      return { gaps: gaps.map((gap) => ({ skillId: gap.skill.id, impactPct: gap.impactPct })), alignmentPct };
-    }
+    return { gaps: gaps.map((gap) => ({ skillId: gap.skill.id, impactPct: gap.impactPct })), alignmentPct };
   }
 
   const requested = new Set(profile.wantsToLearn);

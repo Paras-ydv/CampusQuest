@@ -68,12 +68,15 @@ export async function requireUser(request?: Request): Promise<Session["user"]> {
 export async function getCurrentProfile(): Promise<Profile> {
   const session = await getSession();
   if (!session || session.isMock) return DEMO_PROFILE;
+  const { getFullProfile } = await import("@/lib/backend/profile");
   try {
-    const { getFullProfile } = await import("@/lib/backend/profile");
     return await getFullProfile(undefined, session.user.id);
-  } catch {
-    // A signed-in user whose row is missing should still get a shell to look
-    // at rather than a crashed layout; onboarding fills the row in.
-    return DEMO_PROFILE;
+  } catch (error) {
+    // Only a genuinely missing row falls back — that is the pre-onboarding
+    // state, and a shell is better than a crashed layout. Any other failure
+    // must surface: silently showing a real signed-in user the demo student's
+    // name, XP and goal role is worse than an error, because it looks correct.
+    if (error instanceof Error && error.message === "NOT_FOUND") return DEMO_PROFILE;
+    throw error;
   }
 }
