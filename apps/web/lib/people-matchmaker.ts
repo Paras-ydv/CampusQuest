@@ -45,13 +45,16 @@ function matchesQuery(candidate: Candidate, query: PeopleQuery): boolean {
   return true;
 }
 
-async function requestRerank(request: Request, current: BackendProfile, peers: PeerMatch[]): Promise<PeerMatch[]> {
+async function requestRerank(request: Request | undefined, current: BackendProfile, peers: PeerMatch[]): Promise<PeerMatch[]> {
   const endpoint = process.env.P2_GENIE_RATIONALE_URL;
   if (!endpoint || peers.length === 0) return peers;
   try {
     const headers: Record<string, string> = { "Content-Type": "application/json" };
-    const authorization = request.headers.get("authorization");
-    const cookie = request.headers.get("cookie");
+    // Server components call this without a Request. The rerank service is an
+    // optional adapter, so forwarding no credentials simply means it declines
+    // and the deterministic ordering stands.
+    const authorization = request?.headers.get("authorization");
+    const cookie = request?.headers.get("cookie");
     if (authorization) headers.Authorization = authorization;
     if (cookie) headers.Cookie = cookie;
     const response = await fetch(endpoint, { method: "POST", headers, body: JSON.stringify({ userId: current.id, candidates: peers.map(({ id, name, complementarySkills, sharedInterests }) => ({ id, name, complementarySkills: complementarySkills.map((skill) => skill.name), sharedInterests })) }), cache: "no-store" });
@@ -69,7 +72,7 @@ async function requestRerank(request: Request, current: BackendProfile, peers: P
   } catch { return peers; }
 }
 
-export async function peopleMatches(request: Request, userId: string, query: PeopleQuery): Promise<PeerMatch[]> {
+export async function peopleMatches(request: Request | undefined, userId: string, query: PeopleQuery): Promise<PeerMatch[]> {
   const current = await getBackendProfile(request, userId);
   const admin = createAdminSupabaseClient();
   let candidates: Candidate[];

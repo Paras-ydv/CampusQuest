@@ -259,12 +259,12 @@ async function warehouseAlignment(profile: BackendProfile, targetRole?: string, 
   };
 }
 
-export async function getAlignment(request: Request, userId: string, targetRole?: string): Promise<AlignmentResponse> {
+export async function getAlignment(request: Request | undefined, userId: string, targetRole?: string): Promise<AlignmentResponse> {
   const profile = await getBackendProfile(request, userId);
   if (!databricksSqlConfigured()) return fallbackAlignment(profile, targetRole);
   return (await warehouseAlignment(profile, targetRole)).alignment;
 }
-export async function getHistoricalRoles(request: Request, userId: string, targetRole?: string): Promise<HistoricalRole[]> {
+export async function getHistoricalRoles(request: Request | undefined, userId: string, targetRole?: string): Promise<HistoricalRole[]> {
   const profile = await getBackendProfile(request, userId);
   if (!databricksSqlConfigured()) return roleMatches(profile, targetRole);
   return (await warehouseAlignment(profile, targetRole, false)).roles;
@@ -291,7 +291,7 @@ async function unlockedOpportunityCount(addedIds: string[]): Promise<number> {
   }
 }
 
-export async function simulateTimeMachine(request: Request, userId: string, input: SimulateInput): Promise<SimulateResponse> {
+export async function simulateTimeMachine(request: Request | undefined, userId: string, input: SimulateInput): Promise<SimulateResponse> {
   const profile = await getBackendProfile(request, userId);
   const existing = new Set(profile.skills.map((item) => item.id));
   const addedSkills = input.skillIds.filter((id) => !existing.has(id)).map((id) => skill(id));

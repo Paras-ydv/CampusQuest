@@ -3,12 +3,12 @@ import { ResearchCard } from "@/components/app/research-card";
 import { Reveal } from "@/components/motion/reveal";
 import { WordRise } from "@/components/motion/word-rise";
 import { Label } from "@/components/ui/primitives";
-import { getProfile, getResearch } from "@/lib/data/client";
+import { getProfile, getResearchData } from "@/lib/data/server";
 
 export const metadata: Metadata = { title: "Research" };
 
 export default async function ResearchPage() {
-  const [matches, profile] = await Promise.all([getResearch(), getProfile()]);
+  const [matches, profile] = await Promise.all([getResearchData(), getProfile()]);
   const heldIds = profile.skills.map((s) => s.skill.id);
 
   return (

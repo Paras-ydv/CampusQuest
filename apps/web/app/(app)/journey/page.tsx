@@ -1,13 +1,6 @@
 import type { Metadata } from "next";
 import { genieSuggestionsFor } from "@/lib/data/genie-context";
-import {
-  getAlignment,
-  getNextQuest,
-  getBadges,
-  getOpportunities,
-  getPeers,
-  getProfile,
-} from "@/lib/data/client";
+import { getAlignmentData, getBadgesData, getNextQuestData, getOpportunitiesData, getPeersData, getProfile } from "@/lib/data/server";
 
 import { BadgeShelf } from "@/components/app/badge-shelf";
 import { GapList } from "@/components/app/gap-list";
@@ -30,11 +23,11 @@ export const metadata: Metadata = { title: "Journey" };
 export default async function JourneyPage() {
   const [profile, alignment, quest, peers, opportunities, badges] = await Promise.all([
     getProfile(),
-    getAlignment(),
-    getNextQuest(),
-    getPeers(),
-    getOpportunities(),
-    getBadges(),
+    getAlignmentData(),
+    getNextQuestData(),
+    getPeersData(),
+    getOpportunitiesData(),
+    getBadgesData(),
   ]);
 
   const xpPct = Math.round((profile.xp / profile.xpToNext) * 100);

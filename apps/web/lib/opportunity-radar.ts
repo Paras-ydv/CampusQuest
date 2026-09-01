@@ -2,8 +2,9 @@ import type { Opportunity, OpportunityKind, OpportunityQuery, Skill } from "@cam
 import { ALL_SKILLS } from "@/lib/data/skills";
 import { getBackendProfile, type BackendProfile } from "@/lib/backend/profile";
 import { resolveRoleFamily } from "@/lib/data/role-families";
+import { invalidateUser } from "@/lib/data/warehouse-cache";
 import { analyticsTable, databricksSqlConfigured, executeDatabricksSql, parseSqlArray } from "@/lib/databricks/sql";
-import { createRequestSupabaseClient } from "@/lib/supabase/server";
+import { createRequestSupabaseClient, supabaseForCaller } from "@/lib/supabase/server";
 
 /**
  * ===========================================================================
@@ -76,8 +77,8 @@ ORDER BY gap_impact DESC, gap_frequency DESC, o.deadline, o.opportunity_id
 LIMIT 200`;
 
 /** Which opportunities this user has saved. Read from Supabase, not Databricks. */
-async function savedIds(request: Request, userId: string): Promise<Set<string>> {
-  const supabase = createRequestSupabaseClient(request);
+async function savedIds(request: Request | undefined, userId: string): Promise<Set<string>> {
+  const supabase = await supabaseForCaller(request);
   if (!supabase) return new Set();
   const { data } = await supabase.from("saved_opportunities").select("opportunity_id").eq("user_id", userId);
   return new Set((data ?? []).map((row) => String(row.opportunity_id)));
@@ -143,7 +144,7 @@ function applyQuery(items: Opportunity[], query: OpportunityQuery, nowMs: number
 }
 
 export async function opportunityRadar(
-  request: Request, userId: string, query: OpportunityQuery = {}, profileOverride?: BackendProfile,
+  request: Request | undefined, userId: string, query: OpportunityQuery = {}, profileOverride?: BackendProfile,
 ): Promise<Opportunity[]> {
   if (!databricksSqlConfigured()) throw new Error("DATABRICKS_NOT_CONFIGURED");
 
@@ -173,9 +174,9 @@ export async function opportunityRadar(
 
 /** Persisted through Supabase RLS, so a user can only save for themselves. */
 export async function setOpportunitySaved(
-  request: Request, userId: string, opportunityId: string, saved: boolean,
+  request: Request | undefined, userId: string, opportunityId: string, saved: boolean,
 ): Promise<{ opportunityId: string; saved: boolean }> {
-  const supabase = createRequestSupabaseClient(request);
+  const supabase = await supabaseForCaller(request);
   if (!supabase) throw new Error("SUPABASE_NOT_CONFIGURED");
   if (saved) {
     const { error } = await supabase
@@ -187,5 +188,6 @@ export async function setOpportunitySaved(
       .from("saved_opportunities").delete().eq("user_id", userId).eq("opportunity_id", opportunityId);
     if (error) throw new Error(`Could not unsave opportunity: ${error.message}`);
   }
+  invalidateUser(userId);
   return { opportunityId, saved };
 }

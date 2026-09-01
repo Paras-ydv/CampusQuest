@@ -2,7 +2,7 @@ import { createHash, randomUUID } from "node:crypto";
 import { GenieClient, type GenieResponse, type GenieResultTable as ProviderTable } from "@campusquest/genie-client";
 import type { GenieResultTable, GenieStatus, GenieStreamEvent } from "@campusquest/shared";
 import { GENIE_DEMO_ANSWER, GENIE_DEMO_SQL, GENIE_DEMO_TABLE } from "@/lib/data/fixtures";
-import { createRequestSupabaseClient, localFallbackEnabled } from "@/lib/supabase/server";
+import { createRequestSupabaseClient, localFallbackEnabled, supabaseForCaller } from "@/lib/supabase/server";
 
 type RunInput = { request: Request; userId: string; question: string; conversationId?: string };
 type CacheRecord = { conversationId: string; messageId: string; text: string; sql: string | null; table: GenieResultTable | null };
@@ -25,7 +25,7 @@ function client(): GenieClient {
 function sseEvent(event: GenieStreamEvent): Uint8Array { return new TextEncoder().encode(`event: ${event.type}\ndata: ${JSON.stringify(event)}\n\n`); }
 
 async function cachedFromDatabase(request: Request, userId: string, requestHash: string): Promise<CacheRecord | null> {
-  const supabase = createRequestSupabaseClient(request);
+  const supabase = await supabaseForCaller(request);
   if (!supabase) return null;
   const { data } = await (supabase.from("genie_messages") as any)
     .select("id, content, generated_sql, result_table, conversation_id")
@@ -35,7 +35,7 @@ async function cachedFromDatabase(request: Request, userId: string, requestHash:
 }
 
 async function persistDatabase(input: RunInput, requestHash: string, provider: { conversationId: string; messageId: string } | null, answer: Pick<CacheRecord, "text" | "sql" | "table">): Promise<CacheRecord | null> {
-  const supabase = createRequestSupabaseClient(input.request);
+  const supabase = await supabaseForCaller(input.request);
   if (!supabase) return null;
   let localConversationId = input.conversationId;
   if (!localConversationId) {
@@ -64,7 +64,7 @@ async function persistDatabase(input: RunInput, requestHash: string, provider: {
 }
 
 async function providerConversationId(request: Request, userId: string, localConversationId: string): Promise<string> {
-  const supabase = createRequestSupabaseClient(request);
+  const supabase = await supabaseForCaller(request);
   if (!supabase) {
     const value = fallbackConversationById.get(localConversationId);
     if (!value) throw new Error("NOT_FOUND");

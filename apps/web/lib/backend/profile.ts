@@ -2,6 +2,7 @@ import { OnboardingInput, Profile, UpdateProfileInput } from "@campusquest/share
 import type { Database } from "@campusquest/db-types";
 import { DEMO_PROFILE } from "@/lib/data/fixtures";
 import { ALL_SKILLS } from "@/lib/data/skills";
+import { invalidateUser } from "@/lib/data/warehouse-cache";
 import { createRequestSupabaseClient, localFallbackEnabled, supabaseForCaller } from "@/lib/supabase/server";
 
 export type BackendProfile = {
@@ -36,8 +37,8 @@ export function demoBackendProfile(userId = DEMO_PROFILE.id): BackendProfile {
   };
 }
 
-export async function getBackendProfile(request: Request, userId: string): Promise<BackendProfile> {
-  const supabase = createRequestSupabaseClient(request);
+export async function getBackendProfile(request: Request | undefined, userId: string): Promise<BackendProfile> {
+  const supabase = await supabaseForCaller(request);
   if (!supabase) {
     if (localFallbackEnabled()) return demoBackendProfile(userId);
     throw new Error("SUPABASE_NOT_CONFIGURED");
@@ -195,6 +196,7 @@ export async function updateProfile(
   if (Object.keys(patch).length) {
     const { error } = await supabase.from("profiles").update(patch).eq("id", userId);
     if (error) throw new Error(`Could not update profile: ${error.message}`);
+    invalidateUser(userId);
   }
   return getFullProfile(request, userId);
 }
@@ -246,5 +248,6 @@ export async function applyOnboarding(
     if (skillsError) throw new Error(`Could not save skills: ${skillsError.message}`);
   }
 
+  invalidateUser(userId);
   return getFullProfile(request, userId);
 }

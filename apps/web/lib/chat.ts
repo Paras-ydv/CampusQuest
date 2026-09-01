@@ -1,5 +1,5 @@
 import type { ChatMessage, CreateThreadInput, MessagePage, Thread } from "@campusquest/shared";
-import { createRequestSupabaseClient, localFallbackEnabled } from "@/lib/supabase/server";
+import { createRequestSupabaseClient, localFallbackEnabled, supabaseForCaller } from "@/lib/supabase/server";
 
 const fallbackThreads = new Map<string, Thread>();
 const fallbackMessages = new Map<string, ChatMessage[]>();
@@ -17,18 +17,18 @@ function parseCursor(cursor: string | null): { createdAt: string; id: string } |
   return { createdAt: cursor.slice(0, index), id: cursor.slice(index + 1) };
 }
 
-export async function listThreads(request: Request, userId: string): Promise<Thread[]> {
-  const supabase = createRequestSupabaseClient(request);
+export async function listThreads(request: Request | undefined, userId: string): Promise<Thread[]> {
+  const supabase = await supabaseForCaller(request);
   if (!supabase) return [...fallbackThreads.values()].filter((thread) => thread.memberIds.includes(userId));
   const { data, error } = await supabase.from("threads").select("*, thread_members(user_id)").order("updated_at", { ascending: false });
   if (error) throw new Error(`Could not load threads: ${error.message}`);
   return (data ?? []).map((row) => mapThread(row as unknown as Parameters<typeof mapThread>[0]));
 }
 
-export async function createThread(request: Request, userId: string, input: CreateThreadInput): Promise<Thread> {
+export async function createThread(request: Request | undefined, userId: string, input: CreateThreadInput): Promise<Thread> {
   if (input.kind !== "direct" || input.memberIds.length !== 1 || input.memberIds[0] === userId) throw new Error("Only a direct thread with one other member is supported");
   const otherUserId = input.memberIds[0]!;
-  const supabase = createRequestSupabaseClient(request);
+  const supabase = await supabaseForCaller(request);
   if (!supabase) {
     if (!localFallbackEnabled()) throw new Error("SUPABASE_NOT_CONFIGURED");
     const memberIds = [userId, otherUserId].sort();
@@ -44,9 +44,9 @@ export async function createThread(request: Request, userId: string, input: Crea
   return mapThread(row as unknown as Parameters<typeof mapThread>[0]);
 }
 
-export async function listMessages(request: Request, userId: string, threadId: string, cursor: string | null, limit: number): Promise<MessagePage> {
+export async function listMessages(request: Request | undefined, userId: string, threadId: string, cursor: string | null, limit: number): Promise<MessagePage> {
   parseCursor(cursor); // reject malformed cursors before querying
-  const supabase = createRequestSupabaseClient(request);
+  const supabase = await supabaseForCaller(request);
   if (!supabase) {
     const thread = fallbackThreads.get(threadId);
     if (!thread) throw new Error("NOT_FOUND");
@@ -68,8 +68,8 @@ export async function listMessages(request: Request, userId: string, threadId: s
   return { items, total: count ?? items.length, cursor: hasMore && items.length ? cursorFor(items[items.length - 1]!) : null };
 }
 
-export async function sendMessage(request: Request, userId: string, threadId: string, body: string): Promise<ChatMessage> {
-  const supabase = createRequestSupabaseClient(request);
+export async function sendMessage(request: Request | undefined, userId: string, threadId: string, body: string): Promise<ChatMessage> {
+  const supabase = await supabaseForCaller(request);
   if (!supabase) {
     if (!localFallbackEnabled()) throw new Error("SUPABASE_NOT_CONFIGURED");
     const thread = fallbackThreads.get(threadId);

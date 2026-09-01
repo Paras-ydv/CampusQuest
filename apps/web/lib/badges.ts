@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { createRequestSupabaseClient, localFallbackEnabled } from "@/lib/supabase/server";
+import { createRequestSupabaseClient, localFallbackEnabled, supabaseForCaller } from "@/lib/supabase/server";
 
 /**
  * ===========================================================================
@@ -29,8 +29,8 @@ export type Badge = z.infer<typeof Badge>;
 
 type Counts = Record<Badge["metric"], number>;
 
-async function countsFor(request: Request, userId: string): Promise<Counts> {
-  const supabase = createRequestSupabaseClient(request);
+async function countsFor(request: Request | undefined, userId: string): Promise<Counts> {
+  const supabase = await supabaseForCaller(request);
   if (!supabase) return { quests_completed: 0, skills_earned: 0, connections: 0, opportunities_saved: 0 };
 
   const [quests, connections, saved] = await Promise.all([
@@ -61,8 +61,8 @@ async function countsFor(request: Request, userId: string): Promise<Counts> {
  * catalogue with progress so the UI can show what is still locked and how far
  * away it is.
  */
-export async function listBadges(request: Request, userId: string): Promise<Badge[]> {
-  const supabase = createRequestSupabaseClient(request);
+export async function listBadges(request: Request | undefined, userId: string): Promise<Badge[]> {
+  const supabase = await supabaseForCaller(request);
   if (!supabase) {
     if (!localFallbackEnabled()) throw new Error("SUPABASE_NOT_CONFIGURED");
     return [];
