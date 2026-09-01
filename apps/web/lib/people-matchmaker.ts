@@ -77,18 +77,42 @@ export async function peopleMatches(request: Request, userId: string, query: Peo
     if (!localFallbackEnabled()) throw new Error("SUPABASE_SERVICE_ROLE_KEY is required for people matching");
     candidates = fallbackCandidates();
   } else {
-    const currentEmbedding = await getOrCreateProfileEmbedding({ userId: current.id, goalRole: current.goalRole, interests: current.interests, skills: current.skills, projects: current.projects, collaborationIntent: current.collaborationIntent });
-    const { data: vectorRows, error: vectorError } = await admin.rpc("match_embeddings", { p_embedding: `[${currentEmbedding.embedding.join(",")}]`, p_entity_type: "profile", p_exclude_id: current.id, p_limit: 80 } as never);
-    if (vectorError) throw new Error(`Could not retrieve profile vectors: ${vectorError.message}`);
-    // A zero-norm stored vector makes pgvector's cosine distance NaN. Treat a
-    // non-finite similarity as "no vector signal" so one degenerate row cannot
-    // turn every score into NaN and fail the response schema.
-    const vectorById = new Map(((vectorRows ?? []) as unknown as { entity_id: string; similarity: number }[])
-      .map((row) => {
-        const similarity = Number(row.similarity);
-        return [row.entity_id, Number.isFinite(similarity) ? similarity : 0] as const;
-      }));
-    const ids = [...vectorById.keys()];
+    /**
+     * Vector retrieval is an *enhancement* to matching, not a precondition for
+     * it. Embeddings deliberately fail closed in production when no provider
+     * is configured, which is correct for the vector itself — but letting that
+     * take down the entire People screen is not. The score is
+     * vector 0.5 / complementary skills 0.3 / shared interests 0.15 /
+     * looking-for-team 0.05, so without vectors the other four still rank
+     * candidates meaningfully.
+     *
+     * The fallback drops the vector term rather than substituting a fabricated
+     * one: every candidate simply scores 0 on that component.
+     */
+    let vectorById = new Map<string, number>();
+    try {
+      const currentEmbedding = await getOrCreateProfileEmbedding({ userId: current.id, goalRole: current.goalRole, interests: current.interests, skills: current.skills, projects: current.projects, collaborationIntent: current.collaborationIntent });
+      const { data: vectorRows, error: vectorError } = await admin.rpc("match_embeddings", { p_embedding: `[${currentEmbedding.embedding.join(",")}]`, p_entity_type: "profile", p_exclude_id: current.id, p_limit: 80 } as never);
+      if (vectorError) throw new Error(vectorError.message);
+      // A zero-norm stored vector makes pgvector's cosine distance NaN. Treat a
+      // non-finite similarity as "no vector signal" so one degenerate row cannot
+      // turn every score into NaN and fail the response schema.
+      vectorById = new Map(((vectorRows ?? []) as unknown as { entity_id: string; similarity: number }[])
+        .map((row) => {
+          const similarity = Number(row.similarity);
+          return [row.entity_id, Number.isFinite(similarity) ? similarity : 0] as const;
+        }));
+    } catch (error) {
+      console.warn("[people] vector retrieval unavailable, ranking without it —", error instanceof Error ? error.message : error);
+    }
+
+    let ids = [...vectorById.keys()];
+    if (!ids.length) {
+      // No vector index to retrieve by: consider every other student instead.
+      const { data: allProfiles, error: allError } = await admin.from("profiles").select("id").neq("id", current.id).limit(80);
+      if (allError) throw new Error(`Could not load matching candidates: ${allError.message}`);
+      ids = (allProfiles ?? []).map((row) => String(row.id));
+    }
     if (!ids.length) return [];
     const [{ data: profiles, error: profilesError }, { data: skillRows, error: skillError }, { data: connections, error: connectionError }, { data: requests, error: requestError }] = await Promise.all([
       admin.from("profiles").select("*").in("id", ids),
