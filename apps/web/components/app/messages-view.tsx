@@ -32,7 +32,8 @@ export function MessagesView({
   const [draft, setDraft] = useState("");
   const [pendingIds, setPendingIds] = useState<Set<string>>(new Set());
   const [error, setError] = useState<string | null>(null);
-  const [live, setLive] = useState(false);
+  const [connected, setConnected] = useState(false);
+  const [presentIds, setPresentIds] = useState<string[]>([]);
 
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -131,16 +132,18 @@ export function MessagesView({
               : prev;
             return [...withoutOptimistic, message];
           }),
-        // "Live" now tracks the actual socket, not merely that we asked for one.
-        onStatus: (status) => setLive(status === "connected"),
+        // Presence tells us who else is actually in this thread right now.
+        onPresence: (ids) => setPresentIds(ids),
+        onStatus: (status) => setConnected(status === "connected"),
       });
     } catch {
       // No Supabase configured — polling is not worth it for a demo surface.
-      setLive(false);
+      setConnected(false);
     }
     return () => {
       void subscription?.unsubscribe();
-      setLive(false);
+      setConnected(false);
+      setPresentIds([]);
     };
   }, [activeId, userId]);
 
@@ -205,27 +208,33 @@ export function MessagesView({
   );
 
   const active = threads.find((t) => t.id === activeId) ?? null;
+  const peerPresent = Boolean(
+    active && active.memberIds.some((id) => id !== userId && presentIds.includes(id)),
+  );
 
   return (
     <div className="mx-auto max-w-[1400px]">
-      <section className="border-b-2 border-ink px-5 py-12">
-        <Label className="mb-4">Messages</Label>
+      {/* A compact header, unlike the other screens. Messaging is a tool you
+          sit inside, and a full-height hero pushed the composer below the fold
+          — you had to scroll the page every time just to type. */}
+      <section className="flex flex-wrap items-baseline gap-x-5 gap-y-2 border-b-2 border-ink px-5 py-6">
+        <Label>Messages</Label>
         <WordRise
           as="h1"
           text="Talk to the people who complete your team."
-          className="k-display max-w-[18ch] text-[clamp(2rem,6vw,4rem)]"
+          className="k-display text-[clamp(1.15rem,2.4vw,1.7rem)]"
         />
-        <Reveal index={5} className="mt-6 max-w-[56ch]">
-          <p className="text-[0.98rem] leading-relaxed text-muted">
-            Every conversation here started from a match. Messages are stored
-            per-thread and only members can read them.
-          </p>
-        </Reveal>
+        <p className="ml-auto hidden font-mono text-[0.6875rem] tracking-[0.06em] text-faint lg:block">
+          Only thread members can read these messages.
+        </p>
       </section>
 
-      <div className="grid lg:grid-cols-[20rem_1fr]">
+      {/* A fixed-height chat surface. Without a bounded height the transcript
+          simply grew and pushed the page down, so the whole document scrolled
+          instead of the message list. */}
+      <div className="grid lg:h-[calc(100dvh-13.5rem)] lg:min-h-[30rem] lg:grid-cols-[20rem_1fr]">
         {/* ------------------------------------------------- thread list -- */}
-        <aside className="border-b-2 border-ink lg:border-r-2 lg:border-b-0">
+        <aside className="flex min-h-0 flex-col overflow-y-auto border-b-2 border-ink lg:border-r-2 lg:border-b-0">
           <p className="k-label border-b-2 border-line-soft px-5 py-4">
             Conversations
           </p>
@@ -288,21 +297,36 @@ export function MessagesView({
         </aside>
 
         {/* ---------------------------------------------------- messages -- */}
-        <section className="flex min-h-[32rem] flex-col">
+        <section className="flex min-h-[28rem] flex-col lg:min-h-0">
           {active ? (
             <>
-              <header className="flex items-center gap-3 border-b-2 border-line-soft px-5 py-4">
+              <header className="flex shrink-0 items-center gap-3 border-b-2 border-line-soft px-5 py-4">
                 <Avatar initials={initialsOf(active)} size="sm" />
                 <span className="text-[0.95rem] font-semibold">{nameOf(active)}</span>
-                {live ? (
-                  <span className="ml-auto flex items-center gap-2 font-mono text-[0.625rem] tracking-[0.12em] text-muted uppercase">
-                    <span className="size-1.5 bg-volt" />
-                    Live
+                {/* "Live" previously meant "our own websocket connected", which
+                    is true for every thread the moment the page loads — so it
+                    read as though everyone was always online. It now reflects
+                    presence: the other member is genuinely in this thread. */}
+                {peerPresent ? (
+                  <span className="ml-auto flex items-center gap-2 font-mono text-[0.625rem] tracking-[0.12em] text-volt uppercase">
+                    <span className="size-1.5 animate-pulse bg-volt" />
+                    Online now
+                  </span>
+                ) : connected ? (
+                  <span className="ml-auto font-mono text-[0.625rem] tracking-[0.12em] text-faint uppercase">
+                    Offline
                   </span>
                 ) : null}
               </header>
 
-              <div ref={scrollRef} onScroll={handleScroll} className="flex-1 overflow-y-auto px-5 py-6">
+              <div
+                ref={scrollRef}
+                onScroll={handleScroll}
+                /* min-h-0 is what actually enables scrolling here: a flex item
+                   defaults to min-height:auto and will not shrink below its
+                   content, so overflow-y never engages without it. */
+                className="min-h-0 flex-1 overflow-y-auto px-5 py-6"
+              >
                 {messages.length === 0 ? (
                   <p className="py-12 text-center font-mono text-[0.8rem] text-muted">
                     No messages yet. Say something.
