@@ -81,6 +81,41 @@ function fallbackAnswer(question: string): Pick<CacheRecord, "text" | "sql" | "t
 }
 
 /**
+ * The profile facts Genie needs, stated inline.
+ *
+ * This used to pass the caller's Supabase user id as `student_id`. The
+ * warehouse keys its own students as S0000, so that id matched nothing:
+ * every personalised question joined `students`, `skill_gap_view` or
+ * `role_alignment` to zero rows and Genie correctly reported that there was no
+ * data — an answer that looked like a product failure. It also leaked a raw
+ * UUID into the SQL shown in the UI.
+ *
+ * Supplying the goal role and held skills instead lets Genie reason about this
+ * student without needing a row for them in the warehouse, which they will
+ * never have: they are an application user, not a synthetic analytical record.
+ */
+async function studentContext(input: RunInput): Promise<string> {
+  try {
+    const { getBackendProfile } = await import("@/lib/backend/profile");
+    const { resolveRoleFamily } = await import("@/lib/data/role-families");
+    const profile = await getBackendProfile(input.request, input.userId);
+    const skills = profile.skills.map((skill) => skill.name).join(", ") || "none recorded";
+    const interests = profile.interests.join(", ") || "none recorded";
+    return [
+      "CampusQuest student context — the person asking is an application user and has NO row in the `students` table.",
+      `Their target role family is "${resolveRoleFamily(profile.goalRole)}", which matches job_roles.role_family.`,
+      `Skills they already hold: ${skills}.`,
+      `Interests: ${interests}.`,
+      "Answer using these facts. Do not filter students, skill_gap_view or role_alignment by a student_id for this person, and never invent one.",
+    ].join("\n");
+  } catch {
+    // Without a profile Genie can still answer aggregate questions, which is
+    // better than failing the whole turn.
+    return "CampusQuest context: answer from the curated campus data. No individual student profile is available for this question.";
+  }
+}
+
+/**
  * Runs the Genie turn, reporting progress as it happens rather than only at
  * the end.
  *
@@ -99,7 +134,7 @@ async function createOrContinue(
     return { provider: null, answer: fallbackAnswer(input.question) };
   }
   const genie = client();
-  const context = `CampusQuest student context: student_id=${input.userId}. Use this only to filter the curated analytical data. Do not reveal it.\n\n${input.question}`;
+  const context = `${await studentContext(input)}\n\n${input.question}`;
   let provider: { conversationId: string; messageId: string };
   if (input.conversationId) {
     const conversationId = await providerConversationId(input.request, input.userId, input.conversationId);
