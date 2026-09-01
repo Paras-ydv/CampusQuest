@@ -15,8 +15,15 @@ keys it (`docker`, `dsa`); `skill_id` (`SK025`) is the warehouse key.
 the forward-looking things a student can act on. Never present a job_role as
 something to apply to.
 
-`students.target_role` joins to `job_roles.role_family` exactly. Use that to
-scope a student's question to their own family.
+`students.target_role` joins to `job_roles.role_family` exactly.
+
+**The person asking is an application user and has no row in `students`.** Their
+target role family, held skills and interests are supplied at the top of the
+message. Scope their questions with those facts — filter `job_roles` by the
+stated role family, and treat the listed skills as the ones they already hold.
+Never filter `students`, `skill_gap_view` or `role_alignment` by a `student_id`
+for the person asking, and never invent an id for them. Those tables describe
+the synthetic cohort and are for population-level questions.
 
 ## The alignment rule
 

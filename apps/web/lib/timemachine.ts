@@ -132,6 +132,13 @@ function mappedRows(result: Awaited<ReturnType<typeof executeDatabricksSql>>): R
   return result.rows.map((row) => Object.fromEntries(result.columns.map((column, index) => [column, row[index]])));
 }
 
+function runRolesQuery(parameters: { name: string; value: string; type: string }[]) {
+  return executeDatabricksSql(
+    rolesSql(analyticsTable("job_roles"), analyticsTable("companies"), analyticsTable("role_requirement_weight")),
+    parameters, 200,
+  );
+}
+
 /**
  * The gap list, on its own. The quest engine ranks against exactly the same
  * evidence the Time Machine displays, so "your biggest gap is Docker" and
@@ -196,7 +203,7 @@ export async function warehouseSkillGaps(profile: BackendProfile, targetRole?: s
   ]);
 }
 
-async function warehouseAlignment(profile: BackendProfile, targetRole?: string): Promise<{ alignment: AlignmentResponse; roles: HistoricalRole[] }> {
+async function warehouseAlignment(profile: BackendProfile, targetRole?: string, withGaps = true): Promise<{ alignment: AlignmentResponse; roles: HistoricalRole[] }> {
   const heldIds = profile.skills.map((item) => item.id);
   // The warehouse can only answer for its own role families, so whatever the
   // student typed or picked is resolved to one first.
@@ -206,11 +213,11 @@ async function warehouseAlignment(profile: BackendProfile, targetRole?: string):
     { name: "held_skills", value: JSON.stringify(heldIds), type: "STRING" },
   ];
   const [roleResult, gaps] = await Promise.all([
-    executeDatabricksSql(
-      rolesSql(analyticsTable("job_roles"), analyticsTable("companies"), analyticsTable("role_requirement_weight")),
-      parameters, 200,
-    ),
-    runGapQuery(parameters),
+    runRolesQuery(parameters),
+    // Skipped entirely when the caller only wants the role list: the gap query
+    // is a second round trip to the warehouse and /api/timemachine/roles has no
+    // use for its result.
+    withGaps ? runGapQuery(parameters) : Promise.resolve([] as SkillGap[]),
   ]);
 
   const rows = mappedRows(roleResult);
@@ -260,7 +267,7 @@ export async function getAlignment(request: Request, userId: string, targetRole?
 export async function getHistoricalRoles(request: Request, userId: string, targetRole?: string): Promise<HistoricalRole[]> {
   const profile = await getBackendProfile(request, userId);
   if (!databricksSqlConfigured()) return roleMatches(profile, targetRole);
-  return (await warehouseAlignment(profile, targetRole)).roles;
+  return (await warehouseAlignment(profile, targetRole, false)).roles;
 }
 /**
  * How many open opportunities teach at least one of the newly added skills.
@@ -312,8 +319,8 @@ export async function simulateTimeMachine(request: Request, userId: string, inpu
   // Both sides are computed with the same weighted rule, so the difference is
   // attributable to the added skills alone.
   const [beforeState, afterState] = await Promise.all([
-    warehouseAlignment(profile, input.targetRole),
-    warehouseAlignment(simulated, input.targetRole),
+    warehouseAlignment(profile, input.targetRole, false),
+    warehouseAlignment(simulated, input.targetRole, false),
   ]);
   const alignedBefore = new Map(beforeState.roles.map((role) => [role.id, role.aligned]));
   // "Unlocked" means the role crossed the 50% alignment bar, not merely that
