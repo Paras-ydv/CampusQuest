@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ResearchCard } from "@/components/app/research-card";
+import { ResearchView } from "@/components/app/research-view";
 import { Reveal } from "@/components/motion/reveal";
 import { WordRise } from "@/components/motion/word-rise";
 import { Label } from "@/components/ui/primitives";
@@ -30,24 +30,15 @@ export default async function ResearchPage() {
         </Reveal>
       </section>
 
-      <section className="px-5 py-9">
-        <Label rule className="mb-7">
-          {matches.length} projects near your interests
-        </Label>
-        <div className="grid gap-5 lg:grid-cols-2">
-          {matches.map((match, i) => (
-            <Reveal key={match.project.id} index={i} className="h-full">
-              <ResearchCard match={match} heldIds={heldIds} />
-            </Reveal>
-          ))}
-        </div>
-      </section>
+      <ResearchView matches={matches} heldIds={heldIds} interests={profile.interests} />
 
       <section className="border-t-2 border-ink px-5 py-9">
         <p className="max-w-[62ch] font-mono text-[0.6875rem] leading-relaxed tracking-[0.04em] text-faint">
-          Researcher and publication records are ingested from OpenAlex and arXiv
-          (P4) and joined to campus research areas in Databricks. Demo data here
-          is synthetic.
+          Projects, professors, research areas and publications are read from
+          Databricks. A project only ever appears under an area its professor
+          actually publishes in. The records are synthetic: they model a
+          plausible campus, and are shaped so an institution could substitute
+          its own without changing this screen.
         </p>
       </section>
     </div>

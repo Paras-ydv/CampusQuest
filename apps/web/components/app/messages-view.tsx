@@ -122,11 +122,18 @@ export function MessagesView({
         threadId: activeId,
         userId,
         onMessage: (message) =>
-          setMessages((prev) =>
-            prev.some((m) => m.id === message.id) ? prev : [...prev, message],
-          ),
+          setMessages((prev) => {
+            if (prev.some((m) => m.id === message.id)) return prev;
+            // Our own optimistic copy may still be in the list under a
+            // temporary id; drop it rather than showing the message twice.
+            const withoutOptimistic = message.senderId === userId
+              ? prev.filter((m) => !(m.id.startsWith("pending-") && m.body === message.body))
+              : prev;
+            return [...withoutOptimistic, message];
+          }),
+        // "Live" now tracks the actual socket, not merely that we asked for one.
+        onStatus: (status) => setLive(status === "connected"),
       });
-      setLive(true);
     } catch {
       // No Supabase configured — polling is not worth it for a demo surface.
       setLive(false);

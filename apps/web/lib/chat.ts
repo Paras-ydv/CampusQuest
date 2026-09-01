@@ -64,8 +64,19 @@ export async function listMessages(request: Request | undefined, userId: string,
   const { data, error, count } = await query;
   if (error) throw new Error(`Could not load messages: ${error.message}`);
   const messages = (data ?? []).map((row) => mapMessage(row));
-  const hasMore = messages.length > limit; const items = hasMore ? messages.slice(0, limit) : messages;
-  return { items, total: count ?? items.length, cursor: hasMore && items.length ? cursorFor(items[items.length - 1]!) : null };
+  const hasMore = messages.length > limit;
+  const page = hasMore ? messages.slice(0, limit) : messages;
+  // The query pages newest-first so the cursor walks backwards through history,
+  // but a transcript reads oldest-first. Returning the query order put the
+  // newest message at the top of the thread.
+  const items = [...page].reverse();
+  return {
+    items,
+    total: count ?? items.length,
+    // The cursor still refers to the oldest row in this page, which is the
+    // last one the query returned, not the last one we render.
+    cursor: hasMore && page.length ? cursorFor(page[page.length - 1]!) : null,
+  };
 }
 
 export async function sendMessage(request: Request | undefined, userId: string, threadId: string, body: string): Promise<ChatMessage> {
