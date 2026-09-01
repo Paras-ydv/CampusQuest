@@ -156,6 +156,38 @@
     color: inherit;
   }
 
+  /*
+   * Browsers give <button> `cursor: default`, which makes every control in the
+   * app feel inert under the mouse. Setting it here rather than adding a class
+   * per component means anything interactive is covered by construction,
+   * including controls added later.
+   *
+   * `[role="button"]` catches the elements that behave like buttons without
+   * being one; `summary` and `label[for]` are clickable by definition.
+   */
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  a[href],
+  label[for],
+  summary,
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled),
+  input[type="range"]:not(:disabled),
+  input[type="submit"]:not(:disabled),
+  input[type="reset"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  /* A disabled control should say so under the mouse, not just visually. */
+  button:disabled,
+  [role="button"][aria-disabled="true"],
+  select:disabled,
+  input:disabled,
+  textarea:disabled {
+    cursor: not-allowed;
+  }
+
   /* Numerals line up in every table, stat and counter in the app. */
   .tnum,
   table,
