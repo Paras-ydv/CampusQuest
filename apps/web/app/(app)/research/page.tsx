@@ -3,7 +3,7 @@ import { ResearchCard } from "@/components/app/research-card";
 import { Reveal } from "@/components/motion/reveal";
 import { WordRise } from "@/components/motion/word-rise";
 import { Label } from "@/components/ui/primitives";
-import { getProfile, getResearch } from "@/lib/data/client";
+import { getProfile, getResearch } from "@/lib/data/server";
 
 export const metadata: Metadata = { title: "Research" };
 

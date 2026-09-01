@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { TimeMachineView } from "@/components/app/time-machine-view";
-import { getAlignment, getHistoricalRoles, getProfile } from "@/lib/data/client";
+import { getAlignment, getHistoricalRoles, getProfile } from "@/lib/data/server";
 
 export const metadata: Metadata = { title: "Time Machine" };
 

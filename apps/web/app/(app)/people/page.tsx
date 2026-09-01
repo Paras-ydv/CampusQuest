@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PeopleView } from "@/components/app/people-view";
-import { getPeers } from "@/lib/data/client";
+import { getPeers } from "@/lib/data/server";
 
 export const metadata: Metadata = { title: "People" };
 

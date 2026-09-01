@@ -1,6 +1,7 @@
 import type { AlignmentResponse, HistoricalRole, SimulateInput, SimulateResponse, Skill, SkillGap } from "@campusquest/shared";
 import { DEMO_ALIGNMENT, DEMO_ROLES } from "@/lib/data/fixtures";
 import { ALL_SKILLS } from "@/lib/data/skills";
+import { cache } from "react";
 import { getBackendProfile, type BackendProfile } from "@/lib/backend/profile";
 import { resolveRoleFamily } from "@/lib/data/role-families";
 import { analyticsTable, databricksSqlConfigured, executeDatabricksSql, parseSqlArray } from "@/lib/databricks/sql";
@@ -132,11 +133,29 @@ function mappedRows(result: Awaited<ReturnType<typeof executeDatabricksSql>>): R
   return result.rows.map((row) => Object.fromEntries(result.columns.map((column, index) => [column, row[index]])));
 }
 
-function runRolesQuery(parameters: { name: string; value: string; type: string }[]) {
-  return executeDatabricksSql(
+/**
+ * Both warehouse queries are memoized for the lifetime of one request, keyed on
+ * the two values that determine their result. `/journey` renders the Time
+ * Machine alignment and the next quest together, and the quest engine ranks on
+ * the same gap evidence the alignment already fetched — so the identical gap
+ * statement was being sent to the warehouse twice, at roughly a second each.
+ *
+ * The key is the parameter values rather than the parameter array, because the
+ * two call sites build separate arrays holding the same contents. Simulations
+ * pass a different held-skill set and so still get their own query.
+ */
+const runRolesQuery = cache((targetRole: string, heldSkills: string) =>
+  executeDatabricksSql(
     rolesSql(analyticsTable("job_roles"), analyticsTable("companies"), analyticsTable("role_requirement_weight")),
-    parameters, 200,
-  );
+    sqlParameters(targetRole, heldSkills), 200,
+  ),
+);
+
+function sqlParameters(targetRole: string, heldSkills: string) {
+  return [
+    { name: "target_role", value: targetRole, type: "STRING" },
+    { name: "held_skills", value: heldSkills, type: "STRING" },
+  ];
 }
 
 /**
@@ -144,10 +163,10 @@ function runRolesQuery(parameters: { name: string; value: string; type: string }
  * evidence the Time Machine displays, so "your biggest gap is Docker" and
  * "your next quest is Dockerize a backend project" can never disagree.
  */
-async function runGapQuery(parameters: { name: string; value: string; type: string }[]): Promise<SkillGap[]> {
+const runGapQuery = cache(async (targetRole: string, heldSkills: string): Promise<SkillGap[]> => {
   const result = await executeDatabricksSql(
     gapsSql(analyticsTable("job_roles"), analyticsTable("role_requirement_weight"), analyticsTable("learning_resources"), analyticsTable("skills")),
-    parameters, 20,
+    sqlParameters(targetRole, heldSkills), 20,
   );
   return mappedRows(result).map((row) => ({
     skill: skill(String(row.skill_id), String(row.skill_name)),
@@ -170,7 +189,7 @@ async function runGapQuery(parameters: { name: string; value: string; type: stri
         }
       : null,
   } satisfies SkillGap));
-}
+});
 
 /**
  * Measured weighted coverage for a profile, with no gap query. Quest
@@ -180,13 +199,9 @@ async function runGapQuery(parameters: { name: string; value: string; type: stri
  */
 export async function warehouseCoveragePct(profile: BackendProfile, targetRole?: string): Promise<number | null> {
   if (!databricksSqlConfigured()) return null;
-  const result = await executeDatabricksSql(
-    rolesSql(analyticsTable("job_roles"), analyticsTable("companies"), analyticsTable("role_requirement_weight")),
-    [
-      { name: "target_role", value: resolveRoleFamily(targetRole ?? profile.goalRole), type: "STRING" },
-      { name: "held_skills", value: JSON.stringify(profile.skills.map((item) => item.id)), type: "STRING" },
-    ],
-    200,
+  const result = await runRolesQuery(
+    resolveRoleFamily(targetRole ?? profile.goalRole),
+    JSON.stringify(profile.skills.map((item) => item.id)),
   );
   const rows = mappedRows(result);
   if (!rows.length) return null;
@@ -197,10 +212,10 @@ export async function warehouseCoveragePct(profile: BackendProfile, targetRole?:
 /** The student's real, evidence-ranked gaps for their goal role. */
 export async function warehouseSkillGaps(profile: BackendProfile, targetRole?: string): Promise<SkillGap[]> {
   if (!databricksSqlConfigured()) return [];
-  return runGapQuery([
-    { name: "target_role", value: resolveRoleFamily(targetRole ?? profile.goalRole), type: "STRING" },
-    { name: "held_skills", value: JSON.stringify(profile.skills.map((item) => item.id)), type: "STRING" },
-  ]);
+  return runGapQuery(
+    resolveRoleFamily(targetRole ?? profile.goalRole),
+    JSON.stringify(profile.skills.map((item) => item.id)),
+  );
 }
 
 async function warehouseAlignment(profile: BackendProfile, targetRole?: string, withGaps = true): Promise<{ alignment: AlignmentResponse; roles: HistoricalRole[] }> {
@@ -208,16 +223,13 @@ async function warehouseAlignment(profile: BackendProfile, targetRole?: string, 
   // The warehouse can only answer for its own role families, so whatever the
   // student typed or picked is resolved to one first.
   const roleFamily = resolveRoleFamily(targetRole ?? profile.goalRole);
-  const parameters = [
-    { name: "target_role", value: roleFamily, type: "STRING" },
-    { name: "held_skills", value: JSON.stringify(heldIds), type: "STRING" },
-  ];
+  const heldSkills = JSON.stringify(heldIds);
   const [roleResult, gaps] = await Promise.all([
-    runRolesQuery(parameters),
+    runRolesQuery(roleFamily, heldSkills),
     // Skipped entirely when the caller only wants the role list: the gap query
     // is a second round trip to the warehouse and /api/timemachine/roles has no
     // use for its result.
-    withGaps ? runGapQuery(parameters) : Promise.resolve([] as SkillGap[]),
+    withGaps ? runGapQuery(roleFamily, heldSkills) : Promise.resolve([] as SkillGap[]),
   ]);
 
   const rows = mappedRows(roleResult);

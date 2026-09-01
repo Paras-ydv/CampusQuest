@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { OnboardingInput, Profile, UpdateProfileInput } from "@campusquest/shared";
 import type { Database } from "@campusquest/db-types";
 import { DEMO_PROFILE } from "@/lib/data/fixtures";
@@ -36,7 +37,22 @@ export function demoBackendProfile(userId = DEMO_PROFILE.id): BackendProfile {
   };
 }
 
-export async function getBackendProfile(request: Request, userId: string): Promise<BackendProfile> {
+/**
+ * Memoized for the lifetime of one request. A single page render fans out to
+ * the radar, the matchmaker, the quest engine and the Time Machine, and every
+ * one of them needs the same profile — without this they each re-read it.
+ *
+ * Keyed on the arguments, so the `request` object has to be the same instance
+ * across those callers. Route handlers pass the one they were given;
+ * `lib/data/server.ts` passes a single synthesized request per render.
+ *
+ * Safe to memoize because nothing writes the profile and then re-reads it
+ * through this function — the writers in this file deliberately call
+ * `readFullProfile` instead.
+ */
+export const getBackendProfile = cache(readBackendProfile);
+
+async function readBackendProfile(request: Request, userId: string): Promise<BackendProfile> {
   const supabase = createRequestSupabaseClient(request);
   if (!supabase) {
     if (localFallbackEnabled()) return demoBackendProfile(userId);
@@ -75,7 +91,14 @@ const XP_PER_LEVEL = 350;
  * engine and matchmaker read it, and they do not need projects or
  * certifications.
  */
-export async function getFullProfile(request: Request | undefined, userId: string): Promise<Profile> {
+export const getFullProfile = cache(readFullProfile);
+
+/**
+ * The uncached read. `updateProfile` and `applyOnboarding` return this rather
+ * than the memoized wrapper: they write and then read back in the same request,
+ * and a memoized read would hand them the row as it was before the write.
+ */
+async function readFullProfile(request: Request | undefined, userId: string): Promise<Profile> {
   const supabase = await supabaseForCaller(request);
   if (!supabase) {
     if (localFallbackEnabled()) return DEMO_PROFILE;
@@ -196,7 +219,7 @@ export async function updateProfile(
     const { error } = await supabase.from("profiles").update(patch).eq("id", userId);
     if (error) throw new Error(`Could not update profile: ${error.message}`);
   }
-  return getFullProfile(request, userId);
+  return readFullProfile(request, userId);
 }
 
 /**
@@ -246,5 +269,5 @@ export async function applyOnboarding(
     if (skillsError) throw new Error(`Could not save skills: ${skillsError.message}`);
   }
 
-  return getFullProfile(request, userId);
+  return readFullProfile(request, userId);
 }

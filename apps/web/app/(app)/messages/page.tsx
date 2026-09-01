@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { MessagesView } from "@/components/app/messages-view";
 import { getCurrentProfile } from "@/lib/auth/session";
-import { getMessages, getPeers, getThreads } from "@/lib/data/client";
+import { getMessages, getPeers, getThreads } from "@/lib/data/server";
 
 export const metadata: Metadata = { title: "Messages" };
 

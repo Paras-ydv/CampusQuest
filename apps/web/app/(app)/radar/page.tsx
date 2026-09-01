@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { RadarView } from "@/components/app/radar-view";
-import { getOpportunities } from "@/lib/data/client";
+import { getOpportunities } from "@/lib/data/server";
 
 export const metadata: Metadata = { title: "Radar" };
 

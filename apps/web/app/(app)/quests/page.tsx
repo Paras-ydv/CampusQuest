@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { QuestBoard } from "@/components/app/quest-board";
-import { getProfile, getQuests } from "@/lib/data/client";
+import { getProfile, getQuests } from "@/lib/data/server";
 
 export const metadata: Metadata = { title: "Quests" };
 

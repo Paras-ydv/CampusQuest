@@ -1,3 +1,4 @@
+import { cache } from "react";
 import type { Profile } from "@campusquest/shared";
 import { DEMO_PROFILE } from "@/lib/data/fixtures";
 import { localFallbackEnabled, supabaseForCaller } from "@/lib/supabase/server";
@@ -37,8 +38,17 @@ const DEMO_SESSION: Session = {
   isMock: true,
 };
 
-/** Returns the signed-in session, or null. Never throws. */
-export async function getSession(request?: Request): Promise<Session | null> {
+/**
+ * Returns the signed-in session, or null. Never throws.
+ *
+ * Memoized per request: `supabase.auth.getUser()` is a network round trip to
+ * the auth server, and the app shell alone used to make three of them before
+ * rendering anything. The session cannot change mid-request, so reusing the
+ * first answer is safe.
+ */
+export const getSession = cache(readSession);
+
+async function readSession(request?: Request): Promise<Session | null> {
   // Route handlers hand us the request they were given; server components have
   // no request object and read the same cookie through next/headers instead.
   const supabase = await supabaseForCaller(request);
@@ -65,7 +75,9 @@ export async function requireUser(request?: Request): Promise<Session["user"]> {
  * render, so it reads through the same backend module `GET /api/profile` uses
  * rather than fetching the route over HTTP.
  */
-export async function getCurrentProfile(): Promise<Profile> {
+export const getCurrentProfile = cache(readCurrentProfile);
+
+async function readCurrentProfile(): Promise<Profile> {
   const session = await getSession();
   if (!session || session.isMock) return DEMO_PROFILE;
   const { getFullProfile } = await import("@/lib/backend/profile");
