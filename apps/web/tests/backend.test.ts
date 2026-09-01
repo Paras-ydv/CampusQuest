@@ -115,7 +115,10 @@ test("Genie client polls a completed response and parses SQL plus a result table
       const target = String(url);
       if (target.endsWith("/start-conversation")) return Response.json({ conversation_id: "provider-conversation", message_id: "provider-message" });
       polls += 1;
-      return Response.json({ status: polls === 1 ? "EXECUTING_QUERY" : "COMPLETED", attachments: [{ text: { content: "Docker is the next skill." } }, { query: { sql: "SELECT 1", statement_response: { result: { manifest: { schema: { columns: [{ name: "skill" }] } }, data_array: [["Docker"]] } } } }] });
+      // Shape captured from a live Databricks response: `manifest` and
+      // `result` are siblings under `statement_response`, and the rows live in
+      // `result.data_array`.
+      return Response.json({ status: polls === 1 ? "EXECUTING_QUERY" : "COMPLETED", attachments: [{ text: { content: "Docker is the next skill." } }, { query: { sql: "SELECT 1", statement_response: { manifest: { schema: { columns: [{ name: "skill" }] } }, result: { data_array: [["Docker"]] } } } }] });
     }) as typeof fetch,
   });
   const started = await client.startConversation("What should I learn?");
@@ -123,6 +126,25 @@ test("Genie client polls a completed response and parses SQL plus a result table
   assert.equal(answer.text, "Docker is the next skill.");
   assert.equal(answer.sql, "SELECT 1");
   assert.deepEqual(answer.table?.rows, [["Docker"]]);
+});
+
+test("Genie client fetches the query-result endpoint when the attachment has no inline rows", async () => {
+  const client = new GenieClient({
+    host: "https://workspace.invalid", token: "token", spaceId: "space", pollIntervalMs: 0,
+    fetch: (async (url) => {
+      const target = String(url);
+      if (target.endsWith("/start-conversation")) return Response.json({ conversation_id: "c1", message_id: "m1" });
+      // What Databricks really returns: metadata only, no data_array.
+      if (target.endsWith("/query-result")) {
+        return Response.json({ statement_response: { manifest: { schema: { columns: [{ name: "posting_year" }, { name: "job_posting_count" }] } }, result: { data_array: [["2022", "36"], ["2023", "36"]] } } });
+      }
+      return Response.json({ status: "COMPLETED", attachments: [{ attachment_id: "a1", query: { query: "SELECT posting_year, COUNT(*) FROM job_postings GROUP BY 1", query_result_metadata: { row_count: 2 } } }] });
+    }) as typeof fetch,
+  });
+  const started = await client.startConversation("How many postings per year?");
+  const answer = await client.waitForCompletion(started.conversationId, started.messageId);
+  assert.deepEqual(answer.table?.columns, ["posting_year", "job_posting_count"]);
+  assert.deepEqual(answer.table?.rows, [["2022", "36"], ["2023", "36"]]);
 });
 
 test("Genie fallback emits the P1 SSE lifecycle and deduplicates an identical question", async () => {

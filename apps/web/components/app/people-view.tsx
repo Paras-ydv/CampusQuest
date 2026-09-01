@@ -13,6 +13,7 @@ export function PeopleView({ initialPeers }: { initialPeers: PeerMatch[] }) {
   const [peers, setPeers] = useState(initialPeers);
   const [search, setSearch] = useState("");
   const [interest, setInterest] = useState<string | null>(null);
+  const [connectError, setConnectError] = useState<string | null>(null);
 
   // Interests are derived from the results rather than hard-coded, so the
   // filter row always reflects what is actually matchable.
@@ -37,11 +38,34 @@ export function PeopleView({ initialPeers }: { initialPeers: PeerMatch[] }) {
     });
   }, [peers, search, interest]);
 
-  function connect(peerId: string) {
-    // → POST /api/connections   (P3). Optimistic until that endpoint exists.
+  /**
+   * Optimistic, then reconciled: the card flips to "requested" immediately and
+   * rolls back if POST /api/people/connection-requests rejects it, so a failed
+   * request never leaves the UI claiming a connection that does not exist.
+   */
+  async function connect(peerId: string) {
+    const previous = peers;
+    setConnectError(null);
     setPeers((prev) =>
       prev.map((p) => (p.id === peerId ? { ...p, connection: "outgoing" } : p)),
     );
+
+    try {
+      const response = await fetch("/api/people/connection-requests", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ peerId }),
+      });
+      if (!response.ok) {
+        const body = await response.json().catch(() => null);
+        throw new Error(body?.message ?? `Could not send the request (${response.status}).`);
+      }
+    } catch (error) {
+      setPeers(previous);
+      setConnectError(
+        error instanceof Error ? error.message : "Could not send the request.",
+      );
+    }
   }
 
   return (
@@ -109,6 +133,15 @@ export function PeopleView({ initialPeers }: { initialPeers: PeerMatch[] }) {
       </section>
 
       <section className="px-5 py-9">
+        {connectError ? (
+          <p
+            role="alert"
+            className="mb-6 border-l-2 border-hot pl-3 font-mono text-[0.6875rem] leading-relaxed tracking-[0.04em] text-hot"
+          >
+            {connectError}
+          </p>
+        ) : null}
+
         {visible.length === 0 ? (
           <p className="py-16 text-center font-mono text-[0.8rem] text-muted">
             Nobody matches that yet. Try a broader search.

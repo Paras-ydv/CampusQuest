@@ -48,9 +48,15 @@ function statusFrom(value: unknown): GenieResponse["status"] {
 }
 
 function tableFrom(value: unknown): GenieResultTable | null {
-  const response = record(value);
-  const result = record(response.result ?? response);
-  const manifest = record(result.manifest);
+  const outer = record(value);
+  // The attachment query-result endpoint wraps its payload in
+  // `statement_response`; an inline attachment is already unwrapped.
+  const response = record(outer.statement_response ?? outer);
+  // `manifest` and `result` are siblings: the column schema lives in the
+  // manifest, the rows in the result. Reading the manifest out of `result`
+  // yields a table with rows and no columns.
+  const result = record(response.result);
+  const manifest = record(response.manifest ?? result.manifest);
   const schema = record(manifest.schema);
   const columns = Array.isArray(schema.columns)
     ? schema.columns.map((column) => text(record(column).name) ?? "value")
@@ -62,7 +68,7 @@ function tableFrom(value: unknown): GenieResultTable | null {
     rows: rawRows.map((row) => Array.isArray(row)
       ? row.map((cell) => typeof cell === "string" || typeof cell === "number" || cell === null ? cell : String(cell))
       : []),
-    truncated: Boolean(result.truncated),
+    truncated: Boolean(manifest.truncated ?? result.truncated),
   };
 }
 

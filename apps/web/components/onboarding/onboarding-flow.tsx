@@ -99,6 +99,38 @@ export function OnboardingFlow() {
   const [skillIds, setSkillIds] = useState<string[]>([]);
   const [interests, setInterests] = useState<string[]>([]);
 
+  const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
+
+  /**
+   * Five steps of answers were previously thrown away on the last click. They
+   * now go to POST /api/onboarding, which fills in the profile row the signup
+   * trigger created. In mock mode the route merges them into the demo profile,
+   * so this path behaves the same with or without a database.
+   */
+  async function finish() {
+    setSaving(true);
+    setSaveError(null);
+    try {
+      const response = await fetch("/api/onboarding", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, branch, year, goalRole, skillIds, interests }),
+      });
+      if (!response.ok) {
+        const body = await response.json().catch(() => null);
+        throw new Error(body?.message ?? `Could not save your profile (${response.status}).`);
+      }
+      // The dashboard reads the profile server-side, so refresh before leaving
+      // or it renders the pre-onboarding row from cache.
+      router.refresh();
+      router.push("/journey");
+    } catch (error) {
+      setSaveError(error instanceof Error ? error.message : "Could not save your profile.");
+      setSaving(false);
+    }
+  }
+
   const canAdvance = useMemo(() => {
     switch (step) {
       case 0:
@@ -361,6 +393,15 @@ export function OnboardingFlow() {
           </AnimatePresence>
 
           {/* ------------------------------------------------------ nav -- */}
+          {saveError ? (
+            <p
+              role="alert"
+              className="mt-8 border-l-2 border-hot pl-3 font-mono text-[0.6875rem] leading-relaxed tracking-[0.04em] text-hot"
+            >
+              {saveError}
+            </p>
+          ) : null}
+
           <div className="mt-12 flex items-center gap-3 border-t-2 border-ink pt-6">
             {step > 0 ? (
               <Button variant="ghost" onClick={() => go(step - 1)}>
@@ -380,12 +421,13 @@ export function OnboardingFlow() {
                 </Button>
               ) : (
                 <Button
-                  onClick={() => router.push("/journey")}
+                  onClick={finish}
+                  disabled={saving}
                   arrow
                   size="lg"
                   variant="hot"
                 >
-                  Enter CampusQuest
+                  {saving ? "Saving…" : "Enter CampusQuest"}
                 </Button>
               )}
             </div>
