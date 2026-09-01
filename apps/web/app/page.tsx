@@ -1,4 +1,5 @@
 import { LandingNav } from "@/components/marketing/landing-nav";
+import { Preloader } from "@/components/marketing/preloader";
 import { GapList } from "@/components/app/gap-list";
 import { Marquee } from "@/components/motion/marquee";
 import { Reveal } from "@/components/motion/reveal";
@@ -60,6 +61,7 @@ const FEATURES = [
 export default function LandingPage() {
   return (
     <div className="flex min-h-dvh flex-col">
+      <Preloader />
       <LandingNav />
 
       {/* ------------------------------------------------------------ hero -- */}
