@@ -125,11 +125,13 @@ message IDs, and cleanly removes its channel.
 
 P2's deployable assets are in `databricks/`:
 
-- `ddl/001_analytical_plane.sql` creates the Delta tables, `role_alignment`, and
-  `skill_gap_view`. Replace `{{catalog}}` and `{{schema}}` before execution.
-- `seed/01_seed_synthetic.py` creates deterministic, responsibly synthetic
-  company and placement data. `seed/02_load_open_data.py` imports governed P4
-  research and course data.
+- `ddl/002_campus_dataset.sql` creates the fourteen dataset tables with the
+  column comments Genie reads; `ddl/003_alignment_views.sql` adds the weighted
+  alignment and gap views.
+- `scripts/generate-campus-dataset.mjs` regenerates `databricks/seed/data/*.csv`
+  deterministically (seed 31), and `scripts/load-campus-dataset.mjs` applies the
+  DDL and loads them through the SQL warehouse — no cluster required.
+  `seed/02_load_open_data.py` remains for importing governed P4 open data.
 - `genie/` contains the Agent instructions, metric definitions, and example SQL.
   Create the Agent in Databricks, attach the listed Unity Catalog assets, then
   set `DATABRICKS_GENIE_SPACE_ID`.
