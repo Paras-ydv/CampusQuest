@@ -80,7 +80,14 @@ export async function peopleMatches(request: Request, userId: string, query: Peo
     const currentEmbedding = await getOrCreateProfileEmbedding({ userId: current.id, goalRole: current.goalRole, interests: current.interests, skills: current.skills, projects: current.projects, collaborationIntent: current.collaborationIntent });
     const { data: vectorRows, error: vectorError } = await admin.rpc("match_embeddings", { p_embedding: `[${currentEmbedding.embedding.join(",")}]`, p_entity_type: "profile", p_exclude_id: current.id, p_limit: 80 } as never);
     if (vectorError) throw new Error(`Could not retrieve profile vectors: ${vectorError.message}`);
-    const vectorById = new Map(((vectorRows ?? []) as unknown as { entity_id: string; similarity: number }[]).map((row) => [row.entity_id, Number(row.similarity)]));
+    // A zero-norm stored vector makes pgvector's cosine distance NaN. Treat a
+    // non-finite similarity as "no vector signal" so one degenerate row cannot
+    // turn every score into NaN and fail the response schema.
+    const vectorById = new Map(((vectorRows ?? []) as unknown as { entity_id: string; similarity: number }[])
+      .map((row) => {
+        const similarity = Number(row.similarity);
+        return [row.entity_id, Number.isFinite(similarity) ? similarity : 0] as const;
+      }));
     const ids = [...vectorById.keys()];
     if (!ids.length) return [];
     const [{ data: profiles, error: profilesError }, { data: skillRows, error: skillError }, { data: connections, error: connectionError }, { data: requests, error: requestError }] = await Promise.all([

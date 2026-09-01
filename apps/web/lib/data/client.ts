@@ -1,6 +1,7 @@
 import type {
   ApiError,
   AlignmentResponse,
+  ChatMessage,
   CompleteQuestResult,
   GenieStreamEvent,
   HistoricalRole,
@@ -9,11 +10,13 @@ import type {
   PeerMatch,
   PeopleQuery,
   Profile,
+  MessagePage,
   Quest,
   ResearchMatch,
   SimulateResponse,
+  Thread,
 } from "@campusquest/shared";
-import { DEMO_OPPORTUNITIES, DEMO_PROFILE } from "./fixtures";
+import { DEMO_OPPORTUNITIES } from "./fixtures";
 
 /**
  * ===========================================================================
@@ -73,8 +76,8 @@ async function apiFetch<T>(path: string, init?: RequestInit): Promise<T> {
 /* --------------------------------------------------------------- Profile -- */
 
 export function getProfile(): Promise<Profile> {
-  // → GET /api/profile
-  return delay(DEMO_PROFILE);
+  // → GET /api/profile   (P1)
+  return apiFetch<Profile>("/api/profile");
 }
 
 /* ---------------------------------------------------------- Time Machine -- */
@@ -159,6 +162,38 @@ export function getPeers(query: PeopleQuery = {}): Promise<PeerMatch[]> {
 export function getResearch(): Promise<ResearchMatch[]> {
   // → GET /api/research/matches   (P3 query layer over P4's ingested data)
   return apiFetch<ResearchMatch[]>("/api/research/matches");
+}
+
+/* ------------------------------------------------------------------ Chat -- */
+
+export function getThreads(): Promise<Thread[]> {
+  // → GET /api/threads   (P3)
+  return apiFetch<Thread[]>("/api/threads");
+}
+
+export function createThread(memberIds: string[]): Promise<Thread> {
+  // → POST /api/threads   (P3)
+  return apiFetch<Thread>("/api/threads", {
+    method: "POST",
+    body: JSON.stringify({ memberIds, kind: memberIds.length > 1 ? "group" : "direct" }),
+  });
+}
+
+export function getMessages(threadId: string, cursor?: string): Promise<MessagePage> {
+  // → GET /api/threads/:id/messages   (P3)
+  const params = new URLSearchParams();
+  if (cursor) params.set("cursor", cursor);
+  return apiFetch<MessagePage>(
+    `/api/threads/${encodeURIComponent(threadId)}/messages${params.size ? `?${params}` : ""}`,
+  );
+}
+
+export function sendMessage(threadId: string, body: string): Promise<ChatMessage> {
+  // → POST /api/threads/:id/messages   (P3)
+  return apiFetch<ChatMessage>(`/api/threads/${encodeURIComponent(threadId)}/messages`, {
+    method: "POST",
+    body: JSON.stringify({ body }),
+  });
 }
 
 /* ----------------------------------------------------------------- Genie -- */

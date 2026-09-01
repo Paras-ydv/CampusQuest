@@ -1,10 +1,6 @@
 import type { Profile } from "@campusquest/shared";
 import { DEMO_PROFILE } from "@/lib/data/fixtures";
-import {
-  createRequestSupabaseClient,
-  createServerSupabaseClient,
-  localFallbackEnabled,
-} from "@/lib/supabase/server";
+import { localFallbackEnabled, supabaseForCaller } from "@/lib/supabase/server";
 
 /**
  * ===========================================================================
@@ -45,9 +41,7 @@ const DEMO_SESSION: Session = {
 export async function getSession(request?: Request): Promise<Session | null> {
   // Route handlers hand us the request they were given; server components have
   // no request object and read the same cookie through next/headers instead.
-  const supabase = request
-    ? createRequestSupabaseClient(request)
-    : await createServerSupabaseClient();
+  const supabase = await supabaseForCaller(request);
   if (!supabase) return localFallbackEnabled() ? DEMO_SESSION : null;
   const { data, error } = await supabase.auth.getUser();
   if (error || !data.user) return null;
@@ -66,8 +60,20 @@ export async function requireUser(request?: Request): Promise<Session["user"]> {
   return session.user;
 }
 
-/** The profile behind the current session. */
+/**
+ * The profile behind the current session. Server components call this during
+ * render, so it reads through the same backend module `GET /api/profile` uses
+ * rather than fetching the route over HTTP.
+ */
 export async function getCurrentProfile(): Promise<Profile> {
-  // → GET /api/profile with the session's token
-  return DEMO_PROFILE;
+  const session = await getSession();
+  if (!session || session.isMock) return DEMO_PROFILE;
+  try {
+    const { getFullProfile } = await import("@/lib/backend/profile");
+    return await getFullProfile(undefined, session.user.id);
+  } catch {
+    // A signed-in user whose row is missing should still get a shell to look
+    // at rather than a crashed layout; onboarding fills the row in.
+    return DEMO_PROFILE;
+  }
 }

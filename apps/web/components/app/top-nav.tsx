@@ -12,6 +12,7 @@ const NAV = [
   { href: "/quests", label: "Quests" },
   { href: "/time-machine", label: "Machine" },
   { href: "/people", label: "People" },
+  { href: "/messages", label: "Messages" },
   { href: "/radar", label: "Radar" },
   { href: "/research", label: "Research" },
 ] as const;

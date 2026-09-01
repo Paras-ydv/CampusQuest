@@ -71,6 +71,16 @@ export async function createServerSupabaseClient(): Promise<SupabaseClient<Datab
   });
 }
 
+/**
+ * Resolves the right client for the caller: route handlers hand over the
+ * request they were given, server components have none and read the cookie
+ * store instead. Passing `undefined` to `createRequestSupabaseClient` would
+ * silently produce an anonymous client, which RLS then answers with nothing.
+ */
+export async function supabaseForCaller(request?: Request): Promise<SupabaseClient<Database> | null> {
+  return request ? createRequestSupabaseClient(request) : createServerSupabaseClient();
+}
+
 /** Service role is deliberately server-only and only used for cross-user matching. */
 export function createAdminSupabaseClient(): SupabaseClient<Database> | null {
   const serviceRole = process.env.SUPABASE_SERVICE_ROLE_KEY;
