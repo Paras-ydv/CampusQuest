@@ -7,8 +7,40 @@ export type Json =
   | Json[]
 
 export type Database = {
+  // Allows to automatically instantiate createClient with right options
+  // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
+  __InternalSupabase: {
+    PostgrestVersion: "14.5"
+  }
   public: {
     Tables: {
+      badges: {
+        Row: {
+          description: string
+          id: string
+          metric: string
+          name: string
+          sort_order: number
+          threshold: number
+        }
+        Insert: {
+          description: string
+          id: string
+          metric: string
+          name: string
+          sort_order?: number
+          threshold: number
+        }
+        Update: {
+          description?: string
+          id?: string
+          metric?: string
+          name?: string
+          sort_order?: number
+          threshold?: number
+        }
+        Relationships: []
+      }
       connection_requests: {
         Row: {
           created_at: string
@@ -647,6 +679,39 @@ export type Database = {
           },
         ]
       }
+      user_badges: {
+        Row: {
+          awarded_at: string
+          badge_id: string
+          user_id: string
+        }
+        Insert: {
+          awarded_at?: string
+          badge_id: string
+          user_id: string
+        }
+        Update: {
+          awarded_at?: string
+          badge_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_badges_badge_id_fkey"
+            columns: ["badge_id"]
+            isOneToOne: false
+            referencedRelation: "badges"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "user_badges_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       user_certifications: {
         Row: {
           created_at: string
@@ -984,4 +1049,3 @@ export const Constants = {
     Enums: {},
   },
 } as const
-

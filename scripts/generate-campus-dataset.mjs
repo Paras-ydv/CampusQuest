@@ -30,7 +30,7 @@ import { fileURLToPath } from "node:url";
 import {
   AREA_DEPARTMENTS, BRANCHES, COMPANY_NAMES, FIRST_NAMES, LAST_NAMES, LOCATIONS,
   OPPORTUNITY_TITLES, OPPORTUNITY_TYPES, ORGANIZATIONS, RESEARCH_AREAS,
-  RESOURCE_PROVIDERS, ROLE_FAMILIES, SKILLS, sk,
+  AREA_SKILLS, RESOURCE_PROVIDERS, ROLE_FAMILIES, SKILLS, sk,
 } from "./dataset/vocabulary.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -246,10 +246,12 @@ for (let i = 0; i < 80; i += 1) {
     opportunity_id: `O${String(i + 1).padStart(3, "0")}`,
     title,
     organization: pick(ORGANIZATIONS),
-    type: title.match(/Hackathon/) ? "hackathon"
-      : title.match(/Workshop|Clinic|Bootcamp|Camp|Primer|Intensive|Sprint/) ? "workshop"
-      : title.match(/Competition|Regionals/) ? "competition"
-      : title.match(/Assistantship|Research/) ? "research"
+    // Order matters, and so do the word boundaries: an unanchored /Camp/ also
+    // matches "Campus", which typed "Kaggle Campus Competition" as a workshop.
+    type: /\bHackathon\b/.test(title) ? "hackathon"
+      : /\b(Competition|Regionals)\b/.test(title) ? "competition"
+      : /\b(Assistantship|Research)\b/.test(title) ? "research"
+      : /\b(Workshop|Clinic|Bootcamp|Camp|Primer|Intensive|Sprint)\b/.test(title) ? "workshop"
       : "internship",
     domain,
     deadline: `2026-${String(month).padStart(2, "0")}-${String(range(1, 28)).padStart(2, "0")}`,
@@ -364,6 +366,17 @@ for (let i = 0; i < 60; i += 1) {
   });
 }
 emit("publications", ["publication_id", "professor_id", "title", "venue", "year", "research_area"], publications);
+
+// 15. research_area_skills — what an area asks of a student. Lets the
+//     matchmaker say "this project needs PyTorch, which you already have"
+//     instead of scoring every project identically.
+const researchAreaSkills = [];
+for (const [area, names] of Object.entries(AREA_SKILLS)) {
+  for (const name of names) {
+    researchAreaSkills.push({ research_area: area, skill_id: sk(name) });
+  }
+}
+emit("research_area_skills", ["research_area", "skill_id"], researchAreaSkills);
 
 /* ------------------------------------------------------------------ report */
 

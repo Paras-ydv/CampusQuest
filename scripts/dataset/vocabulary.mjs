@@ -188,6 +188,29 @@ export const AREA_DEPARTMENTS = {
   "Power Systems": ["EEE"], "Control Systems": ["EEE", "ME"], "Data Mining": ["ISE", "CSE"],
 };
 
+/**
+ * Which skills a research area actually calls for. Without this, the Research
+ * Matchmaker has no way to tell a student what a project would require of them,
+ * and every project scores identically on the skill term.
+ */
+export const AREA_SKILLS = {
+  "Computer Vision": ["Computer Vision", "PyTorch", "Python", "NumPy"],
+  "Robotics": ["C++", "Python", "Operating Systems", "Linux"],
+  "Natural Language Processing": ["NLP", "PyTorch", "Python"],
+  "Machine Learning": ["scikit-learn", "Python", "NumPy", "Pandas"],
+  "Distributed Systems": ["System Design", "Kubernetes", "Docker", "Go"],
+  "Computer Architecture": ["C++", "Operating Systems"],
+  "Wireless Networks": ["Computer Networks", "C++"],
+  "VLSI Design": ["C++"],
+  "Signal Processing": ["Python", "NumPy", "C++"],
+  "Cybersecurity": ["Linux", "Computer Networks", "Python"],
+  "Human-Computer Interaction": ["Figma", "JavaScript", "React"],
+  "Bioinformatics": ["Python", "Pandas", "scikit-learn"],
+  "Power Systems": ["Python", "NumPy"],
+  "Control Systems": ["C++", "Python", "NumPy"],
+  "Data Mining": ["SQL", "Python", "Pandas", "scikit-learn"],
+};
+
 export const OPPORTUNITY_TYPES = ["internship", "hackathon", "workshop", "competition", "research"];
 
 /**

@@ -78,17 +78,19 @@ export const DEMO_PROFILE: Profile = {
 /* ------------------------------------------------------------------ Gaps -- */
 
 export const DEMO_GAPS: SkillGap[] = [
-  { skill: skill("docker"), frequencyPct: 68, impactPct: 12, roleCount: 41 },
-  { skill: skill("systemdesign"), frequencyPct: 57, impactPct: 9, roleCount: 41 },
-  { skill: skill("kubernetes"), frequencyPct: 41, impactPct: 7, roleCount: 41 },
-  { skill: skill("mlops"), frequencyPct: 38, impactPct: 6, roleCount: 41 },
+  { skill: skill("docker"), frequencyPct: 68, impactPct: 12, roleCount: 41, importance: "core", resource: null },
+  { skill: skill("systemdesign"), frequencyPct: 57, impactPct: 9, roleCount: 41, importance: "core", resource: null },
+  { skill: skill("kubernetes"), frequencyPct: 41, impactPct: 7, roleCount: 41, importance: "core", resource: null },
+  { skill: skill("mlops"), frequencyPct: 38, impactPct: 6, roleCount: 41, importance: "core", resource: null },
 ];
 
 export const DEMO_ALIGNMENT: AlignmentResponse = {
   currentPct: 62,
   roleCount: 41,
+  alignedRoleCount: 24,
   yearsCovered: "2022–2025",
   targetRole: "AI/ML Engineer",
+  roleFamily: "ML Engineer",
   gaps: DEMO_GAPS,
   heldSkills: skills("python", "pytorch", "sql", "rest", "git", "linux", "sklearn"),
 };
@@ -105,7 +107,9 @@ export const DEMO_ROLES: HistoricalRole[] = [
     company: "Nimbus Labs",
     year: 2025,
     requiredSkills: skills("python", "docker", "kubernetes", "sql"),
+    coreSkills: skills("python", "docker", "kubernetes", "sql"),
     matchPct: 50,
+    aligned: true,
   },
   {
     id: "role_2",
@@ -113,7 +117,9 @@ export const DEMO_ROLES: HistoricalRole[] = [
     company: "Meridian Systems",
     year: 2025,
     requiredSkills: skills("python", "sql", "rest", "docker", "systemdesign"),
+    coreSkills: skills("python", "sql", "rest", "docker", "systemdesign"),
     matchPct: 60,
+    aligned: true,
   },
   {
     id: "role_3",
@@ -121,7 +127,9 @@ export const DEMO_ROLES: HistoricalRole[] = [
     company: "Cobalt AI",
     year: 2025,
     requiredSkills: skills("python", "pytorch", "sklearn"),
+    coreSkills: skills("python", "pytorch", "sklearn"),
     matchPct: 100,
+    aligned: true,
   },
   {
     id: "role_4",
@@ -129,7 +137,9 @@ export const DEMO_ROLES: HistoricalRole[] = [
     company: "Orbit Retail",
     year: 2024,
     requiredSkills: skills("linux", "docker", "kubernetes", "cicd"),
+    coreSkills: skills("linux", "docker", "kubernetes", "cicd"),
     matchPct: 25,
+    aligned: false,
   },
   {
     id: "role_5",
@@ -137,7 +147,9 @@ export const DEMO_ROLES: HistoricalRole[] = [
     company: "Northwind Analytics",
     year: 2024,
     requiredSkills: skills("python", "sql", "spark", "docker"),
+    coreSkills: skills("python", "sql", "spark", "docker"),
     matchPct: 50,
+    aligned: true,
   },
   {
     id: "role_6",
@@ -145,7 +157,9 @@ export const DEMO_ROLES: HistoricalRole[] = [
     company: "Helix Health",
     year: 2024,
     requiredSkills: skills("python", "pytorch", "mlops", "docker"),
+    coreSkills: skills("python", "pytorch", "mlops", "docker"),
     matchPct: 50,
+    aligned: true,
   },
   {
     id: "role_7",
@@ -153,7 +167,9 @@ export const DEMO_ROLES: HistoricalRole[] = [
     company: "Paperplane",
     year: 2023,
     requiredSkills: skills("typescript", "react", "rest", "postgres"),
+    coreSkills: skills("typescript", "react", "rest", "postgres"),
     matchPct: 50,
+    aligned: true,
   },
   {
     id: "role_8",
@@ -161,7 +177,9 @@ export const DEMO_ROLES: HistoricalRole[] = [
     company: "Meridian Systems",
     year: 2023,
     requiredSkills: skills("cpp", "linux", "distributed", "systemdesign"),
+    coreSkills: skills("cpp", "linux", "distributed", "systemdesign"),
     matchPct: 25,
+    aligned: false,
   },
 ];
 

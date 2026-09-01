@@ -3,6 +3,7 @@
 import type { PeerMatch } from "@campusquest/shared";
 import { clsx } from "clsx";
 import { Avatar, Chip } from "@/components/ui/primitives";
+import { WhyThis } from "./why-this";
 
 const CONNECTION_COPY: Record<PeerMatch["connection"], string> = {
   none: "Connect",
@@ -79,6 +80,24 @@ export function PeerCard({
       >
         {CONNECTION_COPY[peer.connection]}
       </button>
+
+      <div className="mt-3 border-t-2 border-line-soft pt-3">
+        <WhyThis
+          kind="person"
+          title={peer.name}
+          facts={[
+            `Match score ${peer.matchPct}% for this student.`,
+            peer.complementarySkills.length
+              ? `Skills they bring that the student lacks: ${peer.complementarySkills.map((s) => s.name).join(", ")}.`
+              : "No complementary skills recorded.",
+            peer.youBring.length
+              ? `Skills the student brings that they lack: ${peer.youBring.map((s) => s.name).join(", ")}.`
+              : "The student brings no skills they lack.",
+            peer.sharedInterests.length ? `Shared interests: ${peer.sharedInterests.join(", ")}.` : "No shared interests.",
+            `They are looking for: ${peer.lookingFor}.`,
+          ]}
+        />
+      </div>
     </article>
   );
 }

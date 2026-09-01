@@ -3,6 +3,7 @@
 import type { Opportunity } from "@campusquest/shared";
 import { clsx } from "clsx";
 import { Chip } from "@/components/ui/primitives";
+import { WhyThis } from "./why-this";
 import { deadlineLabel, titleCase } from "@/lib/format";
 
 /**
@@ -82,6 +83,23 @@ export function OpportunityCard({
             {o.saved ? "Saved" : ""}
           </span>
         )}
+      </div>
+
+      <div className="mt-3 border-t-2 border-line-soft pt-3">
+        <WhyThis
+          kind="opportunity"
+          title={o.title}
+          facts={[
+            `Match score ${o.matchPct}% for this student.`,
+            `Type: ${o.kind}, difficulty ${o.difficulty}, run by ${o.org}.`,
+            o.skillsGained.length
+              ? `Closes these skill gaps: ${o.skillsGained.map((s) => s.name).join(", ")}.`
+              : "Closes no current skill gaps for this student.",
+            o.requiredSkills.length
+              ? `Skills the student already holds for it: ${o.requiredSkills.map((s) => s.name).join(", ")}.`
+              : "The student holds none of its skills yet.",
+          ]}
+        />
       </div>
     </article>
   );

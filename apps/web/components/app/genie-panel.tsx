@@ -1,10 +1,6 @@
 "use client";
 
-import type {
-  GenieResultTable,
-  GenieStatus,
-  GenieSuggestion,
-} from "@campusquest/shared";
+import type { GenieResultTable, GenieStatus, GenieSuggestion } from "@campusquest/shared";
 import { AnimatePresence, motion } from "motion/react";
 import { useRef, useState } from "react";
 import { clsx } from "clsx";
@@ -19,161 +15,151 @@ const STATUS_COPY: Record<GenieStatus, string> = {
   failed: "Something went wrong",
 };
 
+/** One question and everything Genie returned for it. */
+type Turn = {
+  question: string;
+  status: GenieStatus | null;
+  text: string;
+  sql: string | null;
+  table: GenieResultTable | null;
+  error: string | null;
+};
+
+const emptyTurn = (question: string): Turn => ({
+  question, status: "pending", text: "", sql: null, table: null, error: null,
+});
+
 export function GeniePanel({
   suggestions,
+  scopeLabel = "campus data",
+  className,
 }: {
   suggestions: GenieSuggestion[];
+  /** What the current screen is about, so the header reads in context. */
+  scopeLabel?: string;
+  className?: string;
 }) {
+  const [turns, setTurns] = useState<Turn[]>([]);
   const [question, setQuestion] = useState("");
-  const [asked, setAsked] = useState<string | null>(null);
-  const [status, setStatus] = useState<GenieStatus | null>(null);
-  const [text, setText] = useState("");
-  const [table, setTable] = useState<GenieResultTable | null>(null);
-  const [sql, setSql] = useState<string | null>(null);
-  const [showSql, setShowSql] = useState(false);
+  const [openSql, setOpenSql] = useState<number | null>(null);
+  // Genie keeps prior turns as context; holding the id is what makes a
+  // follow-up a continuation rather than a fresh, contextless question.
+  const conversationId = useRef<string | null>(null);
   const running = useRef(false);
 
-  async function ask(q: string) {
-    if (running.current || !q.trim()) return;
+  const busy = turns.some((turn) =>
+    turn.status === "pending" || turn.status === "interpreting" || turn.status === "executing");
+
+  function patchLast(patch: Partial<Turn>) {
+    setTurns((prev) => prev.map((turn, index) => (index === prev.length - 1 ? { ...turn, ...patch } : turn)));
+  }
+
+  async function ask(value: string) {
+    const q = value.trim();
+    if (running.current || !q) return;
     running.current = true;
 
-    setAsked(q);
     setQuestion("");
-    setText("");
-    setTable(null);
-    setSql(null);
-    setShowSql(false);
-    setStatus("pending");
+    setTurns((prev) => [...prev, emptyTurn(q)]);
 
     try {
-      // Consumes exactly the frames `/api/genie/ask` will emit over SSE.
-      for await (const event of askGenie(q)) {
+      for await (const event of askGenie(q, conversationId.current ?? undefined)) {
         switch (event.type) {
-          case "status":
-            setStatus(event.status);
-            break;
-          case "delta":
-            setText((prev) => prev + event.text);
-            break;
-          case "table":
-            setTable(event.table);
-            break;
-          case "sql":
-            setSql(event.sql);
-            break;
+          case "status": patchLast({ status: event.status }); break;
+          case "delta": setTurns((prev) => prev.map((turn, i) => (i === prev.length - 1 ? { ...turn, text: turn.text + event.text } : turn))); break;
+          case "table": patchLast({ table: event.table }); break;
+          case "sql": patchLast({ sql: event.sql }); break;
           case "done":
-            setStatus("complete");
+            conversationId.current = event.conversationId;
+            patchLast({ status: "complete" });
             break;
-          case "error":
-            setStatus("failed");
-            setText(event.message);
-            break;
+          case "error": patchLast({ status: "failed", error: event.message }); break;
         }
       }
+    } catch (error) {
+      patchLast({ status: "failed", error: error instanceof Error ? error.message : "Genie is unavailable." });
     } finally {
       running.current = false;
     }
   }
 
-  const busy = status === "pending" || status === "interpreting" || status === "executing";
+  function reset() {
+    conversationId.current = null;
+    setTurns([]);
+    setOpenSql(null);
+  }
 
   return (
-    <section className="border-2 border-ink">
-      <div className="border-b-2 border-ink px-5 py-3.5">
-        <Label>Ask the campus data</Label>
+    <section className={clsx("border-2 border-ink", className)}>
+      <div className="flex items-center gap-3 border-b-2 border-ink px-5 py-3.5">
+        <Label>Ask about {scopeLabel}</Label>
+        {turns.length ? (
+          <button
+            type="button"
+            onClick={reset}
+            className="ml-auto font-mono text-[0.625rem] tracking-[0.12em] text-muted uppercase transition-colors hover:text-hot"
+          >
+            New thread
+          </button>
+        ) : (
+          <span className="ml-auto font-mono text-[0.625rem] tracking-[0.1em] text-faint uppercase">
+            Databricks Genie
+          </span>
+        )}
       </div>
 
-      <div className="p-5">
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            void ask(question);
-          }}
-          className="flex flex-col gap-3 sm:flex-row"
-        >
-          <input
-            value={question}
-            onChange={(e) => setQuestion(e.target.value)}
-            placeholder="What should I learn next, and why?"
-            aria-label="Ask a question about your campus data"
-            className="min-w-0 flex-1 border-2 border-ink bg-surface px-4 py-3 font-mono text-[0.8rem] placeholder:text-faint focus:outline-none focus-visible:border-volt"
-          />
-          <button
-            type="submit"
-            disabled={busy || !question.trim()}
-            className="shrink-0 border-2 border-ink bg-ink px-6 py-3 font-mono text-[0.6875rem] font-bold tracking-[0.14em] text-paper uppercase transition-colors duration-300 hover:bg-hot hover:border-hot hover:text-on-hot disabled:opacity-40 disabled:hover:bg-ink disabled:hover:border-ink disabled:hover:text-paper"
-          >
-            {busy ? "Working" : "Ask"}
-          </button>
-        </form>
-
-        {!asked ? (
-          <div className="mt-4 flex flex-wrap gap-2">
-            {suggestions.map((s) => (
-              <button
-                key={s.id}
-                type="button"
-                onClick={() => void ask(s.question)}
-                className="border-2 border-line-soft px-3 py-1.5 font-mono text-[0.6875rem] tracking-[0.06em] text-muted transition-colors duration-200 hover:border-ink hover:text-ink"
-              >
-                {s.label}
-              </button>
-            ))}
-          </div>
+      <div className="max-h-[32rem] overflow-y-auto p-5">
+        {turns.length === 0 ? (
+          <p className="mb-4 max-w-[52ch] text-[0.85rem] leading-relaxed text-muted">
+            Ask in plain English. Every answer is produced by SQL against the
+            campus warehouse — you can open the query behind any result.
+          </p>
         ) : null}
 
-        <AnimatePresence mode="wait">
-          {asked ? (
-            <motion.div
-              key={asked}
-              initial={{ opacity: 0, y: 10 }}
+        <ul className="flex flex-col gap-6">
+          {turns.map((turn, index) => (
+            <motion.li
+              key={`${index}-${turn.question}`}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-6 border-t-2 border-line-soft pt-5"
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className={index > 0 ? "border-t-2 border-line-soft pt-5" : undefined}
             >
-              <p className="font-display text-[1.02rem] font-bold tracking-[-0.02em]">
-                {asked}
-              </p>
+              <p className="font-display text-[1rem] font-bold tracking-[-0.02em]">{turn.question}</p>
 
-              {status && status !== "complete" ? (
+              {turn.status && turn.status !== "complete" && turn.status !== "failed" ? (
                 <p className="mt-3 flex items-center gap-2 font-mono text-[0.6875rem] tracking-[0.14em] text-muted uppercase">
                   <span className="relative flex size-2">
                     <span className="absolute inline-flex size-full animate-ping bg-hot opacity-70" />
                     <span className="relative inline-flex size-2 bg-hot" />
                   </span>
-                  {STATUS_COPY[status]}
+                  {STATUS_COPY[turn.status]}
                 </p>
               ) : null}
 
-              {table ? (
-                <div className="mt-5 overflow-x-auto border-2 border-line-soft">
+              {turn.error ? (
+                <p role="alert" className="mt-3 border-l-2 border-hot pl-3 font-mono text-[0.6875rem] leading-relaxed text-hot">
+                  {turn.error}
+                </p>
+              ) : null}
+
+              {turn.table ? (
+                <div className="mt-4 overflow-x-auto border-2 border-line-soft">
                   <table className="w-full border-collapse text-left text-[0.78rem]">
                     <thead>
                       <tr className="border-b-2 border-line-soft bg-sunk">
-                        {table.columns.map((c) => (
-                          <th
-                            key={c}
-                            className="px-3 py-2 font-mono text-[0.625rem] tracking-[0.14em] font-normal text-muted uppercase"
-                          >
+                        {turn.table.columns.map((c) => (
+                          <th key={c} className="px-3 py-2 font-mono text-[0.625rem] font-normal tracking-[0.14em] text-muted uppercase">
                             {c}
                           </th>
                         ))}
                       </tr>
                     </thead>
                     <tbody>
-                      {table.rows.map((row, i) => (
-                        <tr
-                          key={i}
-                          className="border-b border-line-soft last:border-b-0"
-                        >
+                      {turn.table.rows.map((row, i) => (
+                        <tr key={i} className="border-b border-line-soft last:border-b-0">
                           {row.map((cell, j) => (
-                            <td
-                              key={j}
-                              className={clsx(
-                                "px-3 py-2 tabular-nums",
-                                j === 0 && "font-semibold",
-                              )}
-                            >
+                            <td key={j} className={clsx("px-3 py-2 tabular-nums", j === 0 && "font-semibold")}>
                               {cell}
                             </td>
                           ))}
@@ -184,43 +170,77 @@ export function GeniePanel({
                 </div>
               ) : null}
 
-              {text ? (
-                <p className="mt-5 max-w-[62ch] text-[0.9rem] leading-relaxed text-ink-2">
-                  {text}
-                  {busy ? (
-                    <span className="ml-0.5 inline-block h-[0.9em] w-[0.45em] translate-y-[0.1em] bg-hot" />
-                  ) : null}
+              {turn.text ? (
+                <p className="mt-4 max-w-[62ch] text-[0.9rem] leading-relaxed break-words text-ink-2">
+                  {turn.text}
                 </p>
               ) : null}
 
-              {sql ? (
-                <div className="mt-5">
+              {turn.sql ? (
+                <div className="mt-4">
+                  {/* Provenance is the point: a judge should be able to see that
+                      the number above came out of the warehouse, not a model. */}
                   <button
                     type="button"
-                    onClick={() => setShowSql((v) => !v)}
-                    className="font-mono text-[0.6875rem] tracking-[0.14em] text-muted uppercase underline decoration-line-soft underline-offset-4 transition-colors hover:text-ink"
+                    onClick={() => setOpenSql(openSql === index ? null : index)}
+                    className="font-mono text-[0.6875rem] tracking-[0.12em] text-muted uppercase underline decoration-line-soft underline-offset-4 transition-colors hover:text-ink"
                   >
-                    {showSql ? "Hide" : "Show"} the query behind this
+                    {openSql === index ? "Hide" : "Show"} the SQL Databricks ran
                   </button>
                   <AnimatePresence initial={false}>
-                    {showSql ? (
+                    {openSql === index ? (
                       <motion.pre
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                        className="mt-3 overflow-x-auto border-2 border-line-soft bg-sunk p-4 font-mono text-[0.7rem] leading-relaxed text-ink-2"
+                        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                        className="mt-3 overflow-x-auto border-2 border-line-soft bg-sunk p-4 font-mono text-[0.7rem] leading-relaxed whitespace-pre text-ink-2"
                       >
-                        {sql}
+                        {turn.sql}
                       </motion.pre>
                     ) : null}
                   </AnimatePresence>
                 </div>
               ) : null}
-            </motion.div>
-          ) : null}
-        </AnimatePresence>
+            </motion.li>
+          ))}
+        </ul>
+
+        {turns.length === 0 ? (
+          <div className="flex flex-wrap gap-2">
+            {suggestions.map((s) => (
+              <button
+                key={s.id}
+                type="button"
+                onClick={() => void ask(s.question)}
+                className="border-2 border-line-soft px-3 py-1.5 text-left font-mono text-[0.6875rem] tracking-[0.06em] text-muted transition-colors duration-200 hover:border-ink hover:text-ink"
+              >
+                {s.label}
+              </button>
+            ))}
+          </div>
+        ) : null}
       </div>
+
+      <form
+        onSubmit={(e) => { e.preventDefault(); void ask(question); }}
+        className="flex flex-col gap-3 border-t-2 border-ink p-5 sm:flex-row"
+      >
+        <input
+          value={question}
+          onChange={(e) => setQuestion(e.target.value)}
+          placeholder={turns.length ? "Ask a follow-up…" : "What should I learn next, and why?"}
+          aria-label="Ask a question about your campus data"
+          className="min-w-0 flex-1 border-2 border-ink bg-surface px-4 py-3 font-mono text-[0.8rem] placeholder:text-faint focus:outline-none focus-visible:border-volt"
+        />
+        <button
+          type="submit"
+          disabled={busy || !question.trim()}
+          className="shrink-0 border-2 border-ink bg-ink px-6 py-3 font-mono text-[0.6875rem] font-bold tracking-[0.14em] text-paper uppercase transition-colors duration-300 hover:border-hot hover:bg-hot hover:text-on-hot disabled:opacity-40 disabled:hover:border-ink disabled:hover:bg-ink disabled:hover:text-paper"
+        >
+          {busy ? "Working" : turns.length ? "Follow up" : "Ask"}
+        </button>
+      </form>
     </section>
   );
 }

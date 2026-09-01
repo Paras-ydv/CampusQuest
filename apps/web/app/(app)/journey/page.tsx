@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
-import { GENIE_SUGGESTIONS } from "@/lib/data/fixtures";
+import { genieSuggestionsFor } from "@/lib/data/genie-context";
 import {
   getAlignment,
   getNextQuest,
+  getBadges,
   getOpportunities,
   getPeers,
   getProfile,
 } from "@/lib/data/client";
 
+import { BadgeShelf } from "@/components/app/badge-shelf";
 import { GapList } from "@/components/app/gap-list";
 import { JourneyMascot } from "@/components/app/journey-mascot";
 import { GeniePanel } from "@/components/app/genie-panel";
@@ -26,12 +28,13 @@ import { ButtonLink } from "@/components/ui/button";
 export const metadata: Metadata = { title: "Journey" };
 
 export default async function JourneyPage() {
-  const [profile, alignment, quest, peers, opportunities] = await Promise.all([
+  const [profile, alignment, quest, peers, opportunities, badges] = await Promise.all([
     getProfile(),
     getAlignment(),
     getNextQuest(),
     getPeers(),
     getOpportunities(),
+    getBadges(),
   ]);
 
   const xpPct = Math.round((profile.xp / profile.xpToNext) * 100);
@@ -154,9 +157,18 @@ export default async function JourneyPage() {
         </div>
       </section>
 
+      {/* ------------------------------------------------------ progression -- */}
+      <section className="border-t-2 border-ink px-5 py-11">
+        <div className="mx-auto max-w-[1400px]">
+          <Reveal index={2}>
+            <BadgeShelf badges={badges} />
+          </Reveal>
+        </div>
+      </section>
+
       {/* ----------------------------------------------------------- genie -- */}
       <section className="border-t-2 border-ink px-5 py-11">
-        <GeniePanel suggestions={GENIE_SUGGESTIONS} />
+        <GeniePanel suggestions={genieSuggestionsFor("/journey")} scopeLabel="your journey" />
       </section>
 
       {/* ------------------------------------------- build with + on your radar */}

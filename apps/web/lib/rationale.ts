@@ -2,7 +2,7 @@ import { genieNarrative } from "@/lib/genie";
 
 export type RecommendationEvidence = {
   studentId: string;
-  kind: "quest" | "person" | "opportunity";
+  kind: "quest" | "person" | "opportunity" | "research";
   title: string;
   facts: string[];
 };
