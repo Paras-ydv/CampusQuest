@@ -146,7 +146,11 @@ export class GenieClient {
       ? attachments.map(record).find((item) => text(item.attachment_id) && item.query)
       : undefined;
     const attachmentId = text(record(attachment).attachment_id);
-    if (attachmentId && response.status === "complete" && !response.table) {
+    // Not gated on `complete`: the query result is usually available while
+    // Genie is still composing its answer, and surfacing the table early is
+    // most of the perceived speed-up. A miss here is cheap — the call simply
+    // fails and we try again on the next poll.
+    if (attachmentId && !response.table) {
       try {
         const result = await this.call(`/conversations/${encodeURIComponent(conversationId)}/messages/${encodeURIComponent(messageId)}/attachments/${encodeURIComponent(attachmentId)}/query-result`);
         response.table = tableFrom(result);
@@ -157,12 +161,18 @@ export class GenieClient {
 
   async waitForCompletion(conversationId: string, messageId: string, onPoll?: (response: GenieResponse) => void): Promise<GenieResponse> {
     const deadline = Date.now() + this.timeoutMs;
+    let attempt = 0;
     while (Date.now() < deadline) {
       const response = await this.getMessage(conversationId, messageId);
       onPoll?.(response);
       if (response.status === "complete") return response;
       if (response.status === "failed") throw new Error("Databricks Genie could not complete the message");
-      await new Promise((resolve) => setTimeout(resolve, this.pollIntervalMs));
+      // Tight early, looser later. The transitions worth catching promptly —
+      // the SQL appearing, the warehouse finishing — happen in the first few
+      // seconds; after that a slower cadence costs nothing and spares the API.
+      const interval = attempt < 8 ? Math.max(300, this.pollIntervalMs / 2) : this.pollIntervalMs;
+      attempt += 1;
+      await new Promise((resolve) => setTimeout(resolve, interval));
     }
     throw new Error("Databricks Genie polling timed out");
   }
