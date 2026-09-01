@@ -1,5 +1,6 @@
 import type { ConnectionRequest as ConnectionRequestType, ConnectionRequestInput } from "@campusquest/shared";
-import { createRequestSupabaseClient, localFallbackEnabled } from "@/lib/supabase/server";
+import { createRequestSupabaseClient, localFallbackEnabled, supabaseForCaller } from "@/lib/supabase/server";
+import { invalidateUser } from "@/lib/data/warehouse-cache";
 
 type StoredRequest = ConnectionRequestType;
 const fallbackRequests = new Map<string, StoredRequest>();
@@ -9,7 +10,7 @@ function mapRequest(row: { id: string; requester_id: string; recipient_id: strin
 }
 
 export async function listConnectionRequests(request: Request, userId: string): Promise<ConnectionRequestType[]> {
-  const supabase = createRequestSupabaseClient(request);
+  const supabase = await supabaseForCaller(request);
   if (!supabase) return [...fallbackRequests.values()].filter((item) => item.requesterId === userId || item.recipientId === userId);
   const { data, error } = await supabase.from("connection_requests").select("*").or(`requester_id.eq.${userId},recipient_id.eq.${userId}`).order("created_at", { ascending: false });
   if (error) throw new Error(`Could not load connection requests: ${error.message}`);
@@ -18,14 +19,15 @@ export async function listConnectionRequests(request: Request, userId: string): 
 
 export async function createConnectionRequest(request: Request, userId: string, input: ConnectionRequestInput): Promise<ConnectionRequestType> {
   if (input.peerId === userId) throw new Error("FORBIDDEN");
-  const supabase = createRequestSupabaseClient(request);
+  const supabase = await supabaseForCaller(request);
   if (!supabase) {
     if (!localFallbackEnabled()) throw new Error("SUPABASE_NOT_CONFIGURED");
     const existing = [...fallbackRequests.values()].find((item) => item.requesterId === userId && item.recipientId === input.peerId);
     if (existing) return existing;
     const result: ConnectionRequestType = { id: crypto.randomUUID(), requesterId: userId, recipientId: input.peerId, message: input.message ?? null, status: "pending", createdAt: new Date().toISOString(), respondedAt: null };
     fallbackRequests.set(result.id, result);
-    return result;
+    invalidateUser(userId);
+  return result;
   }
   const { data, error } = await supabase.from("connection_requests").upsert({ requester_id: userId, recipient_id: input.peerId, message: input.message ?? null, status: "pending" }, { onConflict: "requester_id,recipient_id", ignoreDuplicates: true }).select("*").maybeSingle();
   if (error) throw new Error(`Could not create connection request: ${error.message}`);
@@ -36,7 +38,7 @@ export async function createConnectionRequest(request: Request, userId: string, 
 }
 
 export async function respondToConnectionRequest(request: Request, userId: string, id: string, status: "accepted" | "rejected" | "cancelled"): Promise<ConnectionRequestType> {
-  const supabase = createRequestSupabaseClient(request);
+  const supabase = await supabaseForCaller(request);
   if (!supabase) {
     const current = fallbackRequests.get(id);
     if (!current || (status === "cancelled" ? current.requesterId : current.recipientId) !== userId) throw new Error("FORBIDDEN");

@@ -3,8 +3,9 @@ import { DEMO_QUESTS } from "@/lib/data/fixtures";
 import { getBackendProfile, type BackendProfile } from "@/lib/backend/profile";
 import { getSkillGapContext, type SkillGapContext } from "@/lib/skill-gaps";
 import { resolveRoleFamily } from "@/lib/data/role-families";
+import { invalidateUser } from "@/lib/data/warehouse-cache";
 import { warehouseCoveragePct } from "@/lib/timemachine";
-import { createRequestSupabaseClient, localFallbackEnabled } from "@/lib/supabase/server";
+import { createRequestSupabaseClient, localFallbackEnabled, supabaseForCaller } from "@/lib/supabase/server";
 
 type QuestRecord = Quest & { difficulty: "intro" | "intermediate" | "advanced"; goalRoles: string[] };
 const fallbackCompletions = new Map<string, CompleteQuestResult>();
@@ -45,19 +46,19 @@ function toQuestRecord(row: Record<string, unknown>): QuestRecord {
   };
 }
 
-export async function getQuestRecords(request: Request, userId: string): Promise<QuestRecord[]> {
-  const supabase = createRequestSupabaseClient(request);
+export async function getQuestRecords(request: Request | undefined, userId: string): Promise<QuestRecord[]> {
+  const supabase = await supabaseForCaller(request);
   if (!supabase) return localFallbackEnabled() ? demoQuestRecords() : Promise.reject(new Error("SUPABASE_NOT_CONFIGURED"));
   const { data, error } = await supabase.from("quests").select("*, quest_steps(*), quest_skills(skills(*)), user_quests(status)");
   if (error) throw new Error(`Could not load quests: ${error.message}`);
   return ((data ?? []) as unknown as Record<string, unknown>[]).map(toQuestRecord);
 }
 
-export async function listQuests(request: Request, userId: string): Promise<Quest[]> {
+export async function listQuests(request: Request | undefined, userId: string): Promise<Quest[]> {
   return (await getQuestRecords(request, userId)).map(({ difficulty: _difficulty, goalRoles: _goalRoles, ...quest }) => quest);
 }
 
-export async function nextQuest(request: Request, userId: string): Promise<Quest> {
+export async function nextQuest(request: Request | undefined, userId: string): Promise<Quest> {
   const [profile, quests] = await Promise.all([getBackendProfile(request, userId), getQuestRecords(request, userId)]);
   const gaps = await getSkillGapContext(profile);
   const next = rankQuests(quests.filter((quest) => quest.status !== "completed"), profile, gaps)[0];
@@ -81,13 +82,13 @@ async function notifyProfileSync(userId: string, questId: string): Promise<void>
   } catch { /* durable activity is already committed */ }
 }
 
-export async function completeQuest(request: Request, userId: string, questId: string): Promise<CompleteQuestResult> {
+export async function completeQuest(request: Request | undefined, userId: string, questId: string): Promise<CompleteQuestResult> {
   const [profile, quests] = await Promise.all([getBackendProfile(request, userId), getQuestRecords(request, userId)]);
   const quest = quests.find((item) => item.id === questId);
   if (!quest) throw new Error("NOT_FOUND");
   const gapsBefore = await getSkillGapContext(profile);
   const relevance = Math.max(0, ...quest.skillsGained.map((skill) => gapsBefore.gaps.find((gap) => gap.skillId === skill.id)?.impactPct ?? 0));
-  const supabase = createRequestSupabaseClient(request);
+  const supabase = await supabaseForCaller(request);
   if (!supabase) {
     if (!localFallbackEnabled()) throw new Error("SUPABASE_NOT_CONFIGURED");
     const key = `${userId}:${questId}`;
@@ -97,7 +98,10 @@ export async function completeQuest(request: Request, userId: string, questId: s
     const level = Math.floor(xp / 350) + 1;
     const result: CompleteQuestResult = { questId, xpAwarded: quest.xp, xp, level, leveledUp: level > profile.level, skillsGained: quest.skillsGained, alignmentBeforePct: gapsBefore.alignmentPct, alignmentAfterPct: Math.min(100, gapsBefore.alignmentPct + relevance), completedAt: new Date().toISOString() };
     fallbackCompletions.set(key, result);
-    await notifyProfileSync(userId, questId);
+    // The student's skills just changed, so alignment, gaps, the recommended
+  // quest and the opportunity ranking are all stale.
+  invalidateUser(userId);
+  await notifyProfileSync(userId, questId);
     return result;
   }
   const { data, error } = await supabase.rpc("complete_quest", { p_quest_id: questId });
@@ -120,6 +124,9 @@ export async function completeQuest(request: Request, userId: string, questId: s
     measuredAfter ?? Math.min(100, gapsBefore.alignmentPct + relevance),
   );
   const result: CompleteQuestResult = { questId, xpAwarded: row.xp_awarded, xp: row.xp, level: row.level, leveledUp: row.leveled_up, skillsGained: quest.skillsGained, alignmentBeforePct: measuredBefore ?? gapsBefore.alignmentPct, alignmentAfterPct: measuredAfter ?? gapsAfter.alignmentPct, completedAt: row.completed_at };
+  // The student's skills just changed, so alignment, gaps, the recommended
+  // quest and the opportunity ranking are all stale.
+  invalidateUser(userId);
   await notifyProfileSync(userId, questId);
   return result;
 }
