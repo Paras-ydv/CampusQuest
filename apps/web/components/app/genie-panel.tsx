@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useRef, useState } from "react";
 import { clsx } from "clsx";
 import { askGenie } from "@/lib/data/client";
+import { GenieAnswer } from "./genie-answer";
 import { Label } from "@/components/ui/primitives";
 
 const STATUS_COPY: Record<GenieStatus, string> = {
@@ -171,9 +172,10 @@ export function GeniePanel({
               ) : null}
 
               {turn.text ? (
-                <p className="mt-4 max-w-[62ch] text-[0.9rem] leading-relaxed break-words text-ink-2">
-                  {turn.text}
-                </p>
+                <GenieAnswer
+                  text={turn.text}
+                  className="mt-4 max-w-[62ch] text-[0.9rem] leading-relaxed text-ink-2"
+                />
               ) : null}
 
               {turn.sql ? (
