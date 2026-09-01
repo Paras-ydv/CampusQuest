@@ -19,3 +19,6 @@ yarn-error.log*
 # Supabase local CLI state
 supabase/.branches
 supabase/.temp
+
+# Generated env bundle for the Vercel dashboard — contains real secrets.
+vercel-env.txt
