@@ -5,30 +5,52 @@ import type { Database } from "@campusquest/db-types";
 const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
+/**
+ * The Supabase project this deployment talks to. Auth cookies are named
+ * `sb-<ref>-auth-token`, so the ref is what distinguishes our session cookie
+ * from one left behind by a different project.
+ */
+const projectRef = url?.match(/^https?:\/\/([a-z0-9]+)\.supabase\./)?.[1];
+
+/** True for `sb-<our-ref>-auth-token`, including its `.0` / `.1` chunks. */
+function isOurAuthCookie(name: string): boolean {
+  return projectRef
+    ? new RegExp(`^sb-${projectRef}-auth-token(?:\\.\\d+)?$`).test(name)
+    : /-auth-token(?:\.\d+)?$/.test(name);
+}
+
 function accessTokenFromRequest(request?: Request): string | undefined {
   const header = request?.headers.get("authorization")?.replace(/^Bearer\s+/i, "");
   if (header) return header;
   const cookie = request?.headers.get("cookie");
-  if (!cookie) { console.error("[DEBUG accessToken] no cookie header on request", request?.url); return undefined; }
+  if (!cookie) return undefined;
   const entries = cookie.split(/;\s*/).map((part) => {
     const index = part.indexOf("=");
     return index < 0 ? [part, ""] : [part.slice(0, index), decodeURIComponent(part.slice(index + 1))];
   });
-  console.error("[DEBUG accessToken] cookie names:", entries.map(([n]) => n).join(","));
-  const authPieces = entries.filter(([name]) => /-auth-token(?:\.\d+)?$/.test(name)).sort(([left], [right]) => left.localeCompare(right)).map(([, value]) => value).join("");
-  console.error("[DEBUG accessToken] authPieces len:", authPieces.length, "prefix:", authPieces.slice(0, 12));
+  // Scoped to our own project. A cookie from another Supabase project parses
+  // perfectly well and then fails getUser(), which surfaces as an opaque 401
+  // on every route — so it is ignored here rather than forwarded.
+  const authPieces = entries
+    .filter(([name]) => isOurAuthCookie(name))
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([, value]) => value)
+    .join("");
   if (!authPieces) return undefined;
   try {
     const decoded = authPieces.startsWith("base64-")
       ? Buffer.from(authPieces.slice("base64-".length), "base64url").toString("utf8")
       : authPieces;
     const session = JSON.parse(decoded) as { access_token?: unknown } | [unknown, unknown?];
-    const tok = typeof session === "object" && !Array.isArray(session) && typeof session.access_token === "string"
+    return typeof session === "object" && !Array.isArray(session) && typeof session.access_token === "string"
       ? session.access_token
       : Array.isArray(session) && typeof session[0] === "string" ? session[0] : undefined;
-    console.error("[DEBUG accessToken] parsed token?", Boolean(tok), "shape:", Array.isArray(session) ? "array" : typeof session);
-    return tok;
-  } catch (e) { console.error("[DEBUG accessToken] parse threw:", (e as Error).message, "decoded head:", (authPieces.startsWith("base64-") ? Buffer.from(authPieces.slice(7), "base64url").toString("utf8") : authPieces).slice(0, 40)); return undefined; }
+  } catch { return undefined; }
+}
+
+/** Exported for the proxy, which clears cookies belonging to other projects. */
+export function isForeignAuthCookie(name: string): boolean {
+  return /^sb-[a-z0-9]+-auth-token(?:\.\d+)?$/.test(name) && !isOurAuthCookie(name);
 }
 
 export function isSupabaseConfigured(): boolean {

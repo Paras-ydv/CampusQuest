@@ -1,5 +1,9 @@
+// Must precede every other import: it clears service configuration so the
+// suite always exercises the fallback paths, whatever the shell exports.
+import "./env-setup";
 import assert from "node:assert/strict";
 import test from "node:test";
+
 import { DEMO_PROFILE, DEMO_QUESTS } from "../lib/data/fixtures";
 import { deterministicEmbedding, EMBEDDING_DIMENSIONS, getOrCreateProfileEmbedding, validateEmbedding } from "../lib/embeddings";
 import { rankQuests, completeQuest } from "../lib/quest-engine";

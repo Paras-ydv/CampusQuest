@@ -177,9 +177,11 @@ export async function updateProfile(
   }
 
   // Only send columns the caller actually supplied; the input is partial.
-  const patch: Database["public"]["Tables"]["profiles"]["Update"] = {
-    updated_at: new Date().toISOString(),
-  };
+  // `updated_at` is deliberately absent: the migration grants `authenticated`
+  // column-level UPDATE on profiles covering only the user-editable fields, so
+  // touching any other column fails the whole statement with "permission
+  // denied for table profiles".
+  const patch: Database["public"]["Tables"]["profiles"]["Update"] = {};
   if (input.name !== undefined) {
     patch.name = input.name;
     patch.initials = initialsFor(input.name);
@@ -189,8 +191,11 @@ export async function updateProfile(
   if (input.goalRole !== undefined) patch.goal_role = input.goalRole;
   if (input.interests !== undefined) patch.interests = input.interests;
 
-  const { error } = await supabase.from("profiles").update(patch).eq("id", userId);
-  if (error) throw new Error(`Could not update profile: ${error.message}`);
+  // A fully empty PATCH is a no-op, not an error.
+  if (Object.keys(patch).length) {
+    const { error } = await supabase.from("profiles").update(patch).eq("id", userId);
+    if (error) throw new Error(`Could not update profile: ${error.message}`);
+  }
   return getFullProfile(request, userId);
 }
 
@@ -219,7 +224,6 @@ export async function applyOnboarding(
       academic_year: input.year,
       goal_role: input.goalRole,
       interests: input.interests,
-      updated_at: new Date().toISOString(),
     })
     .eq("id", userId);
   if (profileError) throw new Error(`Could not save onboarding: ${profileError.message}`);
