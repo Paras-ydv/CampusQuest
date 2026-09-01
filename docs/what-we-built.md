@@ -81,12 +81,16 @@ student is missing with frequency and impact for each.
 with a role when it holds at least 50% of that role's requirement weight, where
 a core skill counts double a preferred one.
 
-This rule is the result of running the data. Our first version counted core
-skills only — so "what if I learn Docker?" returned the same number before and
-after, because Docker is *preferred* in most backend postings. The flagship
-interaction did nothing. Weighted coverage fixed it, and a preferred-only skill
-now visibly moves alignment without unlocking roles, which is the honest
-outcome.
+The weighting is not a detail. Postings distinguish between what a team
+considers essential and what it treats as a bonus, and a model that ignores
+that distinction produces a number that looks precise and moves for the wrong
+reasons. We arrived at this rule by testing candidate rules against the data
+and keeping the one whose answers held up — the earlier version was internally
+consistent and told students almost nothing useful.
+
+The result is honest in both directions: closing a widely-required skill moves
+alignment sharply, while a nice-to-have moves it a little without pretending to
+unlock roles it does not.
 
 **3. Opportunity Radar.** 80 internships, hackathons, workshops and
 competitions, ranked by the historical weight of the gaps each closes — not
