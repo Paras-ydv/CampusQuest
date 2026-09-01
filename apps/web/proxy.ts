@@ -1,5 +1,6 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { isForeignAuthCookie } from "@/lib/supabase/server";
 
 /**
  * ===========================================================================
@@ -43,6 +44,15 @@ export async function proxy(request: NextRequest) {
 
   // This call is the refresh. Removing it silently expires every session.
   await supabase.auth.getUser();
+
+  // Repointing the app at a different Supabase project leaves the old
+  // project's auth cookie in the browser. It parses fine and then fails
+  // getUser(), so every route answers 401 with no explanation and no amount of
+  // signing in helps — the stale cookie is still there. Clear it so the next
+  // sign-in can take effect.
+  for (const { name } of request.cookies.getAll()) {
+    if (isForeignAuthCookie(name)) response.cookies.delete(name);
+  }
 
   return response;
 }
