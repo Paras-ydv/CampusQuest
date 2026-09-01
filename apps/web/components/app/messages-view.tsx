@@ -30,7 +30,7 @@ export function MessagesView({
   const [activeId, setActiveId] = useState<string | null>(initialThreads[0]?.id ?? null);
   const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
   const [draft, setDraft] = useState("");
-  const [pending, setPending] = useState(false);
+  const [pendingIds, setPendingIds] = useState<Set<string>>(new Set());
   const [error, setError] = useState<string | null>(null);
   const [live, setLive] = useState(false);
 
@@ -59,10 +59,38 @@ export function MessagesView({
     [peerById, userId],
   );
 
-  // Keep the newest message in view as the list grows.
+  /**
+   * Follow the conversation without hijacking it.
+   *
+   * Scrolling to the bottom on every change yanked the view away from anyone
+   * reading back through the thread, and made the list visibly jump each time
+   * a message arrived. We only follow when the reader is already at the
+   * bottom — and jump instantly rather than smoothly when the thread changes,
+   * because animating a fresh thread from the top is the "up and down" motion.
+   */
+  const atBottomRef = useRef(true);
+  const lastThreadRef = useRef<string | null>(null);
+
+  function handleScroll() {
+    const el = scrollRef.current;
+    if (!el) return;
+    atBottomRef.current = el.scrollHeight - el.scrollTop - el.clientHeight < 80;
+  }
+
   useEffect(() => {
-    scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight });
-  }, [messages]);
+    const el = scrollRef.current;
+    if (!el) return;
+    const threadChanged = lastThreadRef.current !== activeId;
+    lastThreadRef.current = activeId;
+    if (threadChanged) {
+      el.scrollTop = el.scrollHeight;      // no animation on arrival
+      atBottomRef.current = true;
+      return;
+    }
+    if (atBottomRef.current) {
+      el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
+    }
+  }, [messages, activeId]);
 
   // Swap the loaded conversation when the selection changes.
   useEffect(() => {
@@ -109,19 +137,47 @@ export function MessagesView({
     };
   }, [activeId, userId]);
 
+  /**
+   * Optimistic send. The message appears the instant you hit enter and the
+   * input clears immediately; waiting for the round trip before showing your
+   * own words is what made the thread feel laggy.
+   *
+   * The temporary row is replaced by the persisted one when it returns, and
+   * removed if the send fails, so the transcript never keeps a message the
+   * server rejected.
+   */
   async function send() {
     const body = draft.trim();
-    if (!body || !activeId || pending) return;
-    setPending(true);
+    if (!body || !activeId) return;
+
+    const tempId = `pending-${Date.now()}`;
+    const optimistic: ChatMessage = {
+      id: tempId, threadId: activeId, senderId: userId, body,
+      createdAt: new Date().toISOString(), editedAt: null,
+    };
+
+    setDraft("");
     setError(null);
+    setPendingIds((prev) => new Set(prev).add(tempId));
+    setMessages((prev) => [...prev, optimistic]);
+
     try {
       const saved = await sendMessage(activeId, body);
-      setDraft("");
-      setMessages((prev) => (prev.some((m) => m.id === saved.id) ? prev : [...prev, saved]));
+      setMessages((prev) => {
+        // Realtime may have delivered the persisted copy already.
+        const withoutTemp = prev.filter((m) => m.id !== tempId);
+        return withoutTemp.some((m) => m.id === saved.id) ? withoutTemp : [...withoutTemp, saved];
+      });
     } catch (sendError) {
+      setMessages((prev) => prev.filter((m) => m.id !== tempId));
+      setDraft(body);
       setError(sendError instanceof Error ? sendError.message : "Could not send that message.");
     } finally {
-      setPending(false);
+      setPendingIds((prev) => {
+        const next = new Set(prev);
+        next.delete(tempId);
+        return next;
+      });
     }
   }
 
@@ -239,7 +295,7 @@ export function MessagesView({
                 ) : null}
               </header>
 
-              <div ref={scrollRef} className="flex-1 overflow-y-auto px-5 py-6">
+              <div ref={scrollRef} onScroll={handleScroll} className="flex-1 overflow-y-auto px-5 py-6">
                 {messages.length === 0 ? (
                   <p className="py-12 text-center font-mono text-[0.8rem] text-muted">
                     No messages yet. Say something.
@@ -271,10 +327,12 @@ export function MessagesView({
                                 mine ? "text-paper/55" : "text-faint",
                               )}
                             >
-                              {new Date(message.createdAt).toLocaleTimeString([], {
-                                hour: "2-digit",
-                                minute: "2-digit",
-                              })}
+                              {pendingIds.has(message.id)
+                                ? "Sending…"
+                                : new Date(message.createdAt).toLocaleTimeString([], {
+                                    hour: "2-digit",
+                                    minute: "2-digit",
+                                  })}
                             </time>
                           </div>
                         </li>
@@ -308,8 +366,10 @@ export function MessagesView({
                   aria-label="Message"
                   className="min-w-0 flex-1 border-2 border-line-soft bg-transparent px-3 py-2.5 text-[0.9rem] outline-none focus:border-volt"
                 />
-                <Button type="submit" disabled={pending || !draft.trim()}>
-                  {pending ? "Sending…" : "Send"}
+                {/* Never disabled while sending: the message is already on
+                    screen, so the composer stays ready for the next one. */}
+                <Button type="submit" disabled={!draft.trim()}>
+                  Send
                 </Button>
               </form>
             </>
