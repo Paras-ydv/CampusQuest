@@ -74,20 +74,21 @@ export function TopNav({
         </div>
 
         <ThemeToggle className="shrink-0" />
-        <Avatar initials={initials} size="sm" />
 
-        {signedIn ? (
-          // A form, not a link: /auth/sign-out is POST-only so a prefetch or a
-          // third-party image tag cannot end the session.
-          <form action="/auth/sign-out" method="post" className="shrink-0">
-            <button
-              type="submit"
-              className="font-mono text-[0.6875rem] font-semibold tracking-[0.13em] text-muted uppercase transition-colors duration-200 hover:text-hot"
-            >
-              Sign out
-            </button>
-          </form>
-        ) : null}
+        {/* The avatar is the way into the profile — the one place a student can
+            change the goal role everything else is measured against. */}
+        <Link
+          href="/profile"
+          aria-label="Your profile"
+          aria-current={pathname === "/profile" ? "page" : undefined}
+          className={clsx(
+            "shrink-0 rounded-full transition-opacity duration-200 hover:opacity-80",
+            pathname === "/profile" && "ring-2 ring-hot ring-offset-2 ring-offset-paper",
+          )}
+        >
+          <Avatar initials={initials} size="sm" />
+        </Link>
+
       </div>
     </header>
   );
