@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { ROLE_FAMILIES } from "@/lib/data/role-families";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { clsx } from "clsx";
@@ -20,16 +21,10 @@ const BRANCHES = [
   "Chemical",
 ];
 
-const GOAL_ROLES = [
-  "AI/ML Engineer",
-  "Backend Engineer",
-  "Full-stack Engineer",
-  "Data Engineer",
-  "Research Scientist",
-  "Platform / DevOps Engineer",
-  "Robotics Engineer",
-  "Product Engineer",
-];
+// The eleven families the historical dataset can actually analyse. Offering a
+// title outside this list produces an empty Time Machine, so the vocabulary is
+// shared with the backend rather than duplicated here.
+const GOAL_ROLES = [...ROLE_FAMILIES];
 
 const INTERESTS = [
   "Machine learning",

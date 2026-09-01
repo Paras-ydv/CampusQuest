@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { clsx } from "clsx";
 import { OpportunityCard } from "./opportunity-card";
+import { setOpportunitySaved } from "@/lib/data/client";
 import { Reveal } from "@/components/motion/reveal";
 import { WordRise } from "@/components/motion/word-rise";
 import { Label } from "@/components/ui/primitives";
@@ -58,9 +59,22 @@ export function RadarView({
     [items, kind, difficulty, savedOnly, closingSoon, now],
   );
 
-  function toggleSave(id: string, saved: boolean) {
-    // → POST /api/saved   (P1's own route handler). Optimistic for now.
+  const [saveError, setSaveError] = useState<string | null>(null);
+
+  /**
+   * Optimistic, then reconciled. A failed write rolls the toggle back rather
+   * than leaving the card claiming a save that was never persisted.
+   */
+  async function toggleSave(id: string, saved: boolean) {
+    const previous = items;
+    setSaveError(null);
     setItems((prev) => prev.map((o) => (o.id === id ? { ...o, saved } : o)));
+    try {
+      await setOpportunitySaved(id, saved);
+    } catch (error) {
+      setItems(previous);
+      setSaveError(error instanceof Error ? error.message : "Could not update saved opportunities.");
+    }
   }
 
   const urgent = items.filter(
@@ -164,6 +178,12 @@ export function RadarView({
       </section>
 
       <section className="px-5 py-9">
+        {saveError ? (
+          <p role="alert" className="mb-6 border-l-2 border-hot pl-3 font-mono text-[0.6875rem] leading-relaxed tracking-[0.04em] text-hot">
+            {saveError}
+          </p>
+        ) : null}
+
         {visible.length === 0 ? (
           <p className="py-16 text-center font-mono text-[0.8rem] text-muted">
             Nothing matches those filters right now.

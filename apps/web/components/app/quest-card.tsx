@@ -4,6 +4,7 @@ import { WordRise } from "@/components/motion/word-rise";
 import { Reveal } from "@/components/motion/reveal";
 import { ButtonLink } from "@/components/ui/button";
 import { Chip, Label } from "@/components/ui/primitives";
+import { WhyThis } from "./why-this";
 
 const RARITY_LABEL: Record<Quest["rarity"], string> = {
   common: "Common",
@@ -85,6 +86,21 @@ export function QuestCard({ quest }: { quest: Quest }) {
           Start quest
         </ButtonLink>
       </Reveal>
+
+      <div className="mt-3 border-t-2 border-line-soft pt-3">
+        <WhyThis
+          kind="quest"
+          title={quest.title}
+          facts={[
+            `Worth ${quest.xp} XP over roughly ${quest.estimatedHours} hours.`,
+            quest.skillsGained.length
+              ? `Skills earned on completion: ${quest.skillsGained.map((s) => s.name).join(", ")}.`
+              : "No new skills are recorded for this quest.",
+            `Category ${quest.category}, ${quest.rarity} rarity.`,
+            quest.why ? `Ranking reason already computed: ${quest.why}` : "",
+          ].filter(Boolean)}
+        />
+      </div>
     </article>
   );
 }

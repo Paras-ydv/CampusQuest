@@ -14,6 +14,40 @@ function required(name: string): string {
   return value;
 }
 
+const identifier = /^[A-Za-z_][A-Za-z0-9_]*$/;
+
+/**
+ * Fully-qualified, backtick-quoted name for a table in the analytical schema.
+ * Catalogue, schema and table are all validated as plain identifiers: they come
+ * from configuration, and a quoted name is not a substitute for checking them.
+ */
+export function analyticsTable(name: string): string {
+  const catalog = process.env.DATABRICKS_CATALOG ?? "main";
+  const schema = process.env.DATABRICKS_SCHEMA ?? "campusquest";
+  if (![catalog, schema, name].every((part) => identifier.test(part))) {
+    throw new Error("Databricks catalogue, schema, and table names must be safe identifiers");
+  }
+  return `\`${catalog}\`.\`${schema}\`.\`${name}\``;
+}
+
+/**
+ * Array columns do not arrive as arrays. The Statement Execution API's
+ * JSON_ARRAY disposition serialises every non-scalar cell to a *string*, so an
+ * `ARRAY<STRING>` column comes back as the text `["a","b"]`. Calling
+ * Array.isArray on it silently yields an empty list rather than an error,
+ * which is how a populated column turns into a blank card.
+ */
+export function parseSqlArray(value: unknown): string[] {
+  if (Array.isArray(value)) return value.map(String);
+  if (typeof value !== "string" || !value.trim()) return [];
+  try {
+    const parsed = JSON.parse(value);
+    return Array.isArray(parsed) ? parsed.map(String) : [];
+  } catch {
+    return [];
+  }
+}
+
 export function databricksSqlConfigured(): boolean {
   return Boolean(process.env.DATABRICKS_HOST && process.env.DATABRICKS_TOKEN && process.env.DATABRICKS_SQL_WAREHOUSE_ID);
 }

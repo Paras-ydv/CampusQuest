@@ -1,5 +1,6 @@
 import type { ResearchMatch } from "@campusquest/shared";
 import { Avatar, Chip } from "@/components/ui/primitives";
+import { WhyThis } from "./why-this";
 
 /**
  * A research match. The interesting part is the path — interest → area →
@@ -93,6 +94,24 @@ export function ResearchCard({
           <span className="font-semibold text-ink">Matched via</span>{" "}
           {match.viaInterests.join(", ")} — {match.why}
         </p>
+      </div>
+
+      <div className="mt-3 border-t-2 border-line-soft pt-3">
+        <WhyThis
+          kind="research"
+          title={match.project.title}
+          facts={[
+            `Match score ${match.matchPct}% for this student.`,
+            `Research area: ${match.project.area}, led by ${match.project.lead.name} (${match.project.lead.department}).`,
+            match.viaInterests.length
+              ? `Connected through the student's interests: ${match.viaInterests.join(", ")}.`
+              : "No direct interest overlap.",
+            `${match.project.openings} open ${match.project.openings === 1 ? "position" : "positions"}; lead ${match.project.lead.openToStudents ? "is" : "is not"} accepting students.`,
+            match.project.requiredSkills.length
+              ? `Skills the project calls for: ${match.project.requiredSkills.map((s) => s.name).join(", ")}.`
+              : "No specific skills recorded.",
+          ]}
+        />
       </div>
     </article>
   );

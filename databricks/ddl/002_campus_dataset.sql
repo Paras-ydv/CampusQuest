@@ -96,6 +96,11 @@ CREATE OR REPLACE TABLE {{catalog}}.{{schema}}.learning_resources (
   is_free BOOLEAN COMMENT 'Whether the resource is free to access.'
 ) USING DELTA COMMENT 'Concrete next steps, so every surfaced gap can be answered with something to do.';
 
+CREATE OR REPLACE TABLE {{catalog}}.{{schema}}.research_area_skills (
+  research_area STRING NOT NULL COMMENT 'Matches professor_research.research_area and research_projects.research_area.',
+  skill_id STRING NOT NULL COMMENT 'References skills.skill_id — a skill this research area calls for.'
+) USING DELTA COMMENT 'Skills each research area requires. Join through this to tell a student what a project would ask of them and which requirements they already meet.';
+
 -- ----------------------------------------------------------------- research
 
 CREATE OR REPLACE TABLE {{catalog}}.{{schema}}.professors (

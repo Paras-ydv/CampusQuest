@@ -16,7 +16,7 @@ import type {
   SimulateResponse,
   Thread,
 } from "@campusquest/shared";
-import { DEMO_OPPORTUNITIES } from "./fixtures";
+import type { Badge } from "@/lib/badges";
 
 /**
  * ===========================================================================
@@ -123,26 +123,23 @@ export function completeQuest(questId: string): Promise<CompleteQuestResult> {
 export function getOpportunities(
   query: OpportunityQuery = {},
 ): Promise<Opportunity[]> {
-  // → GET /api/opportunities   (P4)
-  let items = [...DEMO_OPPORTUNITIES];
+  // → GET /api/opportunities   (ranked server-side against Databricks; the UI
+  //   never computes a match score)
+  const params = new URLSearchParams();
+  if (query.kinds?.length) params.set("kinds", query.kinds.join(","));
+  if (query.difficulty) params.set("difficulty", query.difficulty);
+  if (query.closingWithinDays) params.set("closingWithinDays", String(query.closingWithinDays));
+  if (query.savedOnly) params.set("savedOnly", "true");
+  if (query.search) params.set("search", query.search);
+  return apiFetch<Opportunity[]>(`/api/opportunities${params.size ? `?${params}` : ""}`);
+}
 
-  if (query.kinds?.length) {
-    items = items.filter((o) => query.kinds!.includes(o.kind));
-  }
-  if (query.difficulty) {
-    items = items.filter((o) => o.difficulty === query.difficulty);
-  }
-  if (query.savedOnly) {
-    items = items.filter((o) => o.saved);
-  }
-  if (query.search) {
-    const q = query.search.toLowerCase();
-    items = items.filter(
-      (o) =>
-        o.title.toLowerCase().includes(q) || o.org.toLowerCase().includes(q),
-    );
-  }
-  return delay(items.sort((a, b) => b.matchPct - a.matchPct));
+export function setOpportunitySaved(opportunityId: string, saved: boolean): Promise<{ opportunityId: string; saved: boolean }> {
+  // → POST /api/opportunities
+  return apiFetch<{ opportunityId: string; saved: boolean }>("/api/opportunities", {
+    method: "POST",
+    body: JSON.stringify({ opportunityId, saved }),
+  });
 }
 
 /* ----------------------------------------------------------------- Peers -- */
@@ -162,6 +159,13 @@ export function getPeers(query: PeopleQuery = {}): Promise<PeerMatch[]> {
 export function getResearch(): Promise<ResearchMatch[]> {
   // → GET /api/research/matches   (P3 query layer over P4's ingested data)
   return apiFetch<ResearchMatch[]>("/api/research/matches");
+}
+
+/* ---------------------------------------------------------------- Badges -- */
+
+export function getBadges(): Promise<Badge[]> {
+  // → GET /api/badges   (evaluated server-side from real activity)
+  return apiFetch<Badge[]>("/api/badges");
 }
 
 /* ------------------------------------------------------------------ Chat -- */
@@ -207,8 +211,17 @@ export function sendMessage(threadId: string, body: string): Promise<ChatMessage
  */
 export async function* askGenie(
   question: string,
+  /**
+   * Continue an existing conversation instead of starting a new one. Genie
+   * keeps the earlier turns as context, so "what about Kubernetes?" resolves
+   * against the question before it.
+   */
+  conversationId?: string,
 ): AsyncGenerator<GenieStreamEvent> {
-  const response = await fetch(apiUrl("/api/genie/ask"), {
+  const path = conversationId
+    ? `/api/genie/${encodeURIComponent(conversationId)}/follow-up`
+    : "/api/genie/ask";
+  const response = await fetch(apiUrl(path), {
     method: "POST",
     headers: { Accept: "text/event-stream", "Content-Type": "application/json" },
     body: JSON.stringify({ question }),

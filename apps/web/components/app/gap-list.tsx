@@ -4,9 +4,12 @@ import type { SkillGap } from "@campusquest/shared";
 import { motion, useReducedMotion } from "motion/react";
 
 /**
- * The four skills historical roles kept asking for that this student doesn't
- * hold. The bar encodes frequency; the +n encodes what closing it is worth.
- * Both come from SQL, so they are safe to state as fact.
+ * The skills historical roles kept asking for that this student doesn't hold.
+ * The bar encodes frequency; the +n encodes what closing it is worth. Both
+ * come from SQL, so they are safe to state as fact.
+ *
+ * Each gap carries the best matching resource from the warehouse catalogue, so
+ * the screen answers "what do I do about it" rather than only "what is wrong".
  */
 export function GapList({ gaps }: { gaps: SkillGap[] }) {
   const reduced = useReducedMotion();
@@ -45,6 +48,28 @@ export function GapList({ gaps }: { gaps: SkillGap[] }) {
           <span className="flex items-baseline gap-3 font-mono text-[0.72rem] tracking-[0.06em] tabular-nums sm:order-3">
             <span className="text-muted">{gap.frequencyPct}%</span>
             <span className="text-hot">+{gap.impactPct}</span>
+          </span>
+
+          <span className="col-span-2 flex flex-wrap items-center gap-x-3 gap-y-1.5 sm:col-span-3 sm:order-4">
+            <span
+              className={
+                gap.importance === "core"
+                  ? "border-2 border-ink px-1.5 py-0.5 font-mono text-[0.5625rem] tracking-[0.12em] uppercase"
+                  : "border-2 border-line-soft px-1.5 py-0.5 font-mono text-[0.5625rem] tracking-[0.12em] text-muted uppercase"
+              }
+            >
+              {gap.importance === "core" ? "Core requirement" : "Preferred"}
+            </span>
+
+            {gap.resource ? (
+              <span className="font-mono text-[0.625rem] tracking-[0.04em] text-muted">
+                Next step —{" "}
+                <span className="text-ink">{gap.resource.title}</span>{" "}
+                ({gap.resource.provider}
+                {gap.resource.estimatedHours ? `, ~${gap.resource.estimatedHours}h` : ""}
+                {gap.resource.isFree ? ", free" : ""})
+              </span>
+            ) : null}
           </span>
         </li>
       ))}

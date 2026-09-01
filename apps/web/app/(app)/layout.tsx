@@ -1,3 +1,4 @@
+import { GenieDock } from "@/components/app/genie-dock";
 import { TopNav } from "@/components/app/top-nav";
 import { Marquee } from "@/components/motion/marquee";
 import { getCurrentProfile, getSession } from "@/lib/auth/session";
@@ -45,6 +46,9 @@ export default async function AppLayout({
       </div>
 
       <main className="flex-1">{children}</main>
+
+      {/* Genie on every screen behind the shell, with per-route suggestions. */}
+      <GenieDock />
 
       <footer className="border-t-2 border-ink px-5 py-5">
         <div className="mx-auto flex max-w-[1400px] flex-wrap items-center gap-x-6 gap-y-2">

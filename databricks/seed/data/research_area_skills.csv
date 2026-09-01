@@ -1,0 +1,46 @@
+research_area,skill_id
+Computer Vision,SK042
+Computer Vision,SK040
+Computer Vision,SK001
+Computer Vision,SK038
+Robotics,SK003
+Robotics,SK001
+Robotics,SK010
+Robotics,SK014
+Natural Language Processing,SK043
+Natural Language Processing,SK040
+Natural Language Processing,SK001
+Machine Learning,SK039
+Machine Learning,SK001
+Machine Learning,SK038
+Machine Learning,SK037
+Distributed Systems,SK009
+Distributed Systems,SK026
+Distributed Systems,SK025
+Distributed Systems,SK006
+Computer Architecture,SK003
+Computer Architecture,SK010
+Wireless Networks,SK011
+Wireless Networks,SK003
+VLSI Design,SK003
+Signal Processing,SK001
+Signal Processing,SK038
+Signal Processing,SK003
+Cybersecurity,SK014
+Cybersecurity,SK011
+Cybersecurity,SK001
+Human-Computer Interaction,SK046
+Human-Computer Interaction,SK004
+Human-Computer Interaction,SK022
+Bioinformatics,SK001
+Bioinformatics,SK037
+Bioinformatics,SK039
+Power Systems,SK001
+Power Systems,SK038
+Control Systems,SK003
+Control Systems,SK001
+Control Systems,SK038
+Data Mining,SK007
+Data Mining,SK001
+Data Mining,SK037
+Data Mining,SK039

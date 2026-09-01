@@ -2,6 +2,8 @@ import type { CompleteQuestResult, Quest, Skill } from "@campusquest/shared";
 import { DEMO_QUESTS } from "@/lib/data/fixtures";
 import { getBackendProfile, type BackendProfile } from "@/lib/backend/profile";
 import { getSkillGapContext, type SkillGapContext } from "@/lib/skill-gaps";
+import { resolveRoleFamily } from "@/lib/data/role-families";
+import { warehouseCoveragePct } from "@/lib/timemachine";
 import { createRequestSupabaseClient, localFallbackEnabled } from "@/lib/supabase/server";
 
 type QuestRecord = Quest & { difficulty: "intro" | "intermediate" | "advanced"; goalRoles: string[] };
@@ -17,7 +19,8 @@ export function rankQuests(quests: QuestRecord[], profile: Pick<BackendProfile, 
   return [...quests].sort((left, right) => {
     const score = (quest: QuestRecord) => {
       const gap = Math.max(0, ...quest.skillsGained.map((skill) => impactBySkill.get(skill.id) ?? 0));
-      const goal = quest.goalRoles.some((role) => normalize(role) === normalize(profile.goalRole)) ? 1 : 0.5;
+      const target = resolveRoleFamily(profile.goalRole);
+      const goal = quest.goalRoles.some((role) => resolveRoleFamily(role) === target) ? 1 : 0.5;
       const distance = Math.abs(difficultyOrder[quest.difficulty] - difficultyOrder[targetDifficulty]);
       const difficulty = distance === 0 ? 1 : distance === 1 ? 0.6 : 0.2;
       return gap * 0.6 + goal * 0.25 + difficulty * 0.15;
@@ -56,7 +59,7 @@ export async function listQuests(request: Request, userId: string): Promise<Ques
 
 export async function nextQuest(request: Request, userId: string): Promise<Quest> {
   const [profile, quests] = await Promise.all([getBackendProfile(request, userId), getQuestRecords(request, userId)]);
-  const gaps = await getSkillGapContext(userId, profile.wantsToLearn, profile.alignmentPct);
+  const gaps = await getSkillGapContext(profile);
   const next = rankQuests(quests.filter((quest) => quest.status !== "completed"), profile, gaps)[0];
   if (!next) throw new Error("NOT_FOUND");
   const { difficulty: _difficulty, goalRoles: _goalRoles, ...quest } = next;
@@ -82,7 +85,7 @@ export async function completeQuest(request: Request, userId: string, questId: s
   const [profile, quests] = await Promise.all([getBackendProfile(request, userId), getQuestRecords(request, userId)]);
   const quest = quests.find((item) => item.id === questId);
   if (!quest) throw new Error("NOT_FOUND");
-  const gapsBefore = await getSkillGapContext(userId, profile.wantsToLearn, profile.alignmentPct);
+  const gapsBefore = await getSkillGapContext(profile);
   const relevance = Math.max(0, ...quest.skillsGained.map((skill) => gapsBefore.gaps.find((gap) => gap.skillId === skill.id)?.impactPct ?? 0));
   const supabase = createRequestSupabaseClient(request);
   if (!supabase) {
@@ -100,8 +103,23 @@ export async function completeQuest(request: Request, userId: string, questId: s
   const { data, error } = await supabase.rpc("complete_quest", { p_quest_id: questId });
   if (error || !data?.[0]) throw new Error(`Could not complete quest: ${error?.message ?? "no result"}`);
   const row = data[0];
-  const gapsAfter = await getSkillGapContext(userId, profile.wantsToLearn.filter((skill) => !quest.skillsGained.some((earned) => earned.id === skill)), Math.min(100, gapsBefore.alignmentPct + relevance));
-  const result: CompleteQuestResult = { questId, xpAwarded: row.xp_awarded, xp: row.xp, level: row.level, leveledUp: row.leveled_up, skillsGained: quest.skillsGained, alignmentBeforePct: gapsBefore.alignmentPct, alignmentAfterPct: gapsAfter.alignmentPct, completedAt: row.completed_at };
+  // Recomputed with the quest's skills now held, so the "alignment after"
+  // figure reflects the completion rather than an optimistic guess.
+  const profileAfter = {
+    ...profile,
+    skills: [...profile.skills, ...quest.skillsGained.map((earned) => ({ id: earned.id, name: earned.name, category: earned.category }))],
+    wantsToLearn: profile.wantsToLearn.filter((skill) => !quest.skillsGained.some((earned) => earned.id === skill)),
+  };
+  // Measure both sides rather than projecting the second from the first.
+  const [measuredBefore, measuredAfter] = await Promise.all([
+    warehouseCoveragePct(profile).catch(() => null),
+    warehouseCoveragePct(profileAfter).catch(() => null),
+  ]);
+  const gapsAfter = await getSkillGapContext(
+    profileAfter,
+    measuredAfter ?? Math.min(100, gapsBefore.alignmentPct + relevance),
+  );
+  const result: CompleteQuestResult = { questId, xpAwarded: row.xp_awarded, xp: row.xp, level: row.level, leveledUp: row.leveled_up, skillsGained: quest.skillsGained, alignmentBeforePct: measuredBefore ?? gapsBefore.alignmentPct, alignmentAfterPct: measuredAfter ?? gapsAfter.alignmentPct, completedAt: row.completed_at };
   await notifyProfileSync(userId, questId);
   return result;
 }
