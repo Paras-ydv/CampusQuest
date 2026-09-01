@@ -1,0 +1,11 @@
+import type { Metadata } from "next";
+import { QuestBoard } from "@/components/app/quest-board";
+import { getProfile, getQuests } from "@/lib/data/client";
+
+export const metadata: Metadata = { title: "Quests" };
+
+export default async function QuestsPage() {
+  const [quests, profile] = await Promise.all([getQuests(), getProfile()]);
+
+  return <QuestBoard initialQuests={quests} profile={profile} />;
+}

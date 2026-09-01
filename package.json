@@ -1,0 +1,29 @@
+{
+  "name": "campusquest",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=@campusquest/web",
+    "build": "npm run build --workspace=@campusquest/web",
+    "start": "npm run start --workspace=@campusquest/web",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "db:reset": "supabase db reset",
+    "db:types": "supabase gen types typescript --local --schema public > packages/db-types/src/database.types.ts",
+    "db:types:check": "supabase gen types typescript --local --schema public | node scripts/check-db-types.mjs",
+    "db:test": "supabase test db",
+    "test": "npm run test --workspace=@campusquest/web --if-present"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.112.4"
+  },
+  "devDependencies": {
+    "supabase": "^2.116.0"
+  }
+}

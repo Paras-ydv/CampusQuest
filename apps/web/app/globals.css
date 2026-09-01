@@ -1,0 +1,311 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   CampusQuest — "Kinetic" design system
+   ----------------------------------------------------------------------------
+   Bright, high-contrast, hard-edged editorial. Structure comes from 2px rules
+   and a strict grid; personality comes from motion, not ornament. One accent
+   (hot) carries emphasis, one secondary (volt) carries interactive state.
+
+   Rules of the system:
+     · Corners are square. Radius is reserved for pills and avatars.
+     · Borders are 2px and use --line, which flips with the theme.
+     · Labels are uppercase mono with wide tracking. Numbers are tabular.
+     · Emphasis inverts (ink ground, paper text) rather than tinting.
+     · Every colour is a token. Nothing is hard-coded in a component.
+   ========================================================================== */
+
+/* ---------- Light (primary identity) ---------- */
+:root {
+  --paper: #f1f1ee;
+  --surface: #ffffff;
+  --sunk: #e7e7e2;
+  --ink: #0a0a0a;
+  --ink-2: #3a3a37;
+  --muted: #6c6c68;
+  --faint: #9c9c96;
+  --line: #0a0a0a;
+  --line-soft: #d2d2cc;
+
+  --hot: #ff3b1f;
+  --on-hot: #ffffff;
+  --volt: #0a2fff;
+  --on-volt: #ffffff;
+
+  --ok: #15803d;
+  --warn: #b45309;
+
+  --shadow-hard: 6px 6px 0 var(--ink);
+  --shadow-soft: 0 18px 40px -28px rgb(10 10 10 / 0.5);
+}
+
+/* ---------- Dark (system preference, when no explicit choice) ---------- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0b0b0a;
+    --surface: #151513;
+    --sunk: #1e1e1b;
+    --ink: #f4f4f1;
+    --ink-2: #c9c9c3;
+    --muted: #8d8d86;
+    --faint: #63635d;
+    --line: #f4f4f1;
+    --line-soft: #2d2d29;
+
+    --hot: #ff5436;
+    --on-hot: #14100f;
+    --volt: #6b80ff;
+    --on-volt: #0a0d1f;
+
+    --ok: #4ade80;
+    --warn: #f59e0b;
+
+    --shadow-hard: 6px 6px 0 var(--ink);
+    --shadow-soft: 0 18px 40px -28px rgb(0 0 0 / 0.9);
+  }
+}
+
+/* ---------- Dark (explicit choice — wins over OS) ---------- */
+:root[data-theme="dark"] {
+  --paper: #0b0b0a;
+  --surface: #151513;
+  --sunk: #1e1e1b;
+  --ink: #f4f4f1;
+  --ink-2: #c9c9c3;
+  --muted: #8d8d86;
+  --faint: #63635d;
+  --line: #f4f4f1;
+  --line-soft: #2d2d29;
+
+  --hot: #ff5436;
+  --on-hot: #14100f;
+  --volt: #6b80ff;
+  --on-volt: #0a0d1f;
+
+  --ok: #4ade80;
+  --warn: #f59e0b;
+
+  --shadow-hard: 6px 6px 0 var(--ink);
+  --shadow-soft: 0 18px 40px -28px rgb(0 0 0 / 0.9);
+}
+
+/* ---------- Expose tokens to Tailwind (inline = emit var(), stays dynamic) --- */
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-sunk: var(--sunk);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-line-soft: var(--line-soft);
+  --color-hot: var(--hot);
+  --color-on-hot: var(--on-hot);
+  --color-volt: var(--volt);
+  --color-on-volt: var(--on-volt);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-jb), ui-monospace, "SFMono-Regular", monospace;
+
+  /* Kinetic's easing vocabulary — one spring-ish curve, used everywhere. */
+  --ease-kinetic: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-snap: cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+/* ---------- Base ---------- */
+@layer base {
+  * {
+    border-color: var(--line-soft);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--hot);
+    color: var(--on-hot);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--volt);
+    outline-offset: 2px;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+    color: inherit;
+  }
+
+  /* Numerals line up in every table, stat and counter in the app. */
+  .tnum,
+  table,
+  [data-numeric] {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ---------- Kinetic idioms ---------- */
+@layer components {
+  /* Oversized display type. Kinetic's loudest voice. */
+  .k-display {
+    font-family: var(--font-display);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    line-height: 0.92;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+
+  .k-headline {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+
+  /* Uppercase mono eyebrow. Used for every section label in the app. */
+  .k-label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* Label with a rule that runs to the end of the container. */
+  .k-label-rule {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .k-label-rule::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background: var(--line);
+  }
+
+  /* The structural 2px rule that defines every Kinetic boundary. */
+  .k-rule {
+    border-color: var(--line);
+  }
+
+  /* A hard-edged surface panel. */
+  .k-panel {
+    background: var(--surface);
+    border: 2px solid var(--line);
+  }
+
+  /* Mono data chip. */
+  .k-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.5rem;
+    border: 2px solid var(--line);
+    white-space: nowrap;
+  }
+  .k-chip--fill {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .k-chip--hot {
+    background: var(--hot);
+    border-color: var(--hot);
+    color: var(--on-hot);
+  }
+  .k-chip--soft {
+    border-color: var(--line-soft);
+    color: var(--muted);
+  }
+
+  /* Clipped-word rise. The wrapper hides the word until it animates up. */
+  .k-mask {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+  }
+}
+
+/* ---------- Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Segment snap — each bar segment scales in from its left edge. */
+@keyframes k-seg {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Dot pop — each dot in the Journey companion scales in on its own beat. */
+@keyframes k-pop {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Marquee — used on the app shell ticker and the landing page. */
+@keyframes k-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.k-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: k-marquee var(--marquee-duration, 40s) linear infinite;
+  will-change: transform;
+}
+.k-marquee:hover .k-marquee-track {
+  animation-play-state: paused;
+}
+
+/* Thin scrollbars that match the theme rather than the OS. */
+@supports (scrollbar-width: thin) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--line-soft) transparent;
+  }
+}
