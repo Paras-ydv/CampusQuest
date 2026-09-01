@@ -40,12 +40,15 @@ export function Preloader() {
   const [phase, setPhase] = useState<"intro" | "exit">("intro");
   const [done, setDone] = useState(false);
 
+  // Lock scroll only while the overlay is up. `Preloader` stays mounted after
+  // `done` (it just renders null), so the release has to key off `done` — a
+  // bare unmount cleanup would never run.
   useEffect(() => {
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = done ? "" : "hidden";
     return () => {
       document.body.style.overflow = "";
     };
-  }, []);
+  }, [done]);
 
   // The overlay must never be able to strand itself over the page.
   useEffect(() => {

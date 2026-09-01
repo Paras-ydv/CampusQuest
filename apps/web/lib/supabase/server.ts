@@ -9,22 +9,26 @@ function accessTokenFromRequest(request?: Request): string | undefined {
   const header = request?.headers.get("authorization")?.replace(/^Bearer\s+/i, "");
   if (header) return header;
   const cookie = request?.headers.get("cookie");
-  if (!cookie) return undefined;
+  if (!cookie) { console.error("[DEBUG accessToken] no cookie header on request", request?.url); return undefined; }
   const entries = cookie.split(/;\s*/).map((part) => {
     const index = part.indexOf("=");
     return index < 0 ? [part, ""] : [part.slice(0, index), decodeURIComponent(part.slice(index + 1))];
   });
+  console.error("[DEBUG accessToken] cookie names:", entries.map(([n]) => n).join(","));
   const authPieces = entries.filter(([name]) => /-auth-token(?:\.\d+)?$/.test(name)).sort(([left], [right]) => left.localeCompare(right)).map(([, value]) => value).join("");
+  console.error("[DEBUG accessToken] authPieces len:", authPieces.length, "prefix:", authPieces.slice(0, 12));
   if (!authPieces) return undefined;
   try {
     const decoded = authPieces.startsWith("base64-")
       ? Buffer.from(authPieces.slice("base64-".length), "base64url").toString("utf8")
       : authPieces;
     const session = JSON.parse(decoded) as { access_token?: unknown } | [unknown, unknown?];
-    return typeof session === "object" && !Array.isArray(session) && typeof session.access_token === "string"
+    const tok = typeof session === "object" && !Array.isArray(session) && typeof session.access_token === "string"
       ? session.access_token
       : Array.isArray(session) && typeof session[0] === "string" ? session[0] : undefined;
-  } catch { return undefined; }
+    console.error("[DEBUG accessToken] parsed token?", Boolean(tok), "shape:", Array.isArray(session) ? "array" : typeof session);
+    return tok;
+  } catch (e) { console.error("[DEBUG accessToken] parse threw:", (e as Error).message, "decoded head:", (authPieces.startsWith("base64-") ? Buffer.from(authPieces.slice(7), "base64url").toString("utf8") : authPieces).slice(0, 40)); return undefined; }
 }
 
 export function isSupabaseConfigured(): boolean {
