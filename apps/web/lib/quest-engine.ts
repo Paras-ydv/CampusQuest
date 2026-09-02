@@ -139,7 +139,7 @@ export async function completeQuest(request: Request | undefined, userId: string
   // figure reflects the completion rather than an optimistic guess.
   const profileAfter = {
     ...profile,
-    skills: [...profile.skills, ...quest.skillsGained.map((earned) => ({ id: earned.id, name: earned.name, category: earned.category }))],
+    skills: [...profile.skills, ...quest.skillsGained.map((earned) => ({ id: earned.id, name: earned.name, category: earned.category, proficiency: "working" as const, source: "quest" as const }))],
     wantsToLearn: profile.wantsToLearn.filter((skill) => !quest.skillsGained.some((earned) => earned.id === skill)),
   };
   // Measure both sides rather than projecting the second from the first.

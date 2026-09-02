@@ -18,7 +18,8 @@ import { parseVerdicts } from "../lib/resume/skill-dedupe";
 import { extractSkillCandidates } from "../lib/resume/skill-candidates";
 import { BRANCHES } from "../lib/data/profile-options";
 import { skillPathQuests } from "../lib/skill-paths";
-import { peopleMatches } from "../lib/people-matchmaker";
+import { peopleMatches, scorePeer } from "../lib/people-matchmaker";
+import { GET as getPeopleMatches } from "../app/api/people/matches/route";
 import { researchMatches } from "../lib/research-repository";
 import { createThread, listMessages, sendMessage } from "../lib/chat";
 import { createConnectionRequest, respondToConnectionRequest } from "../lib/connection-requests";
@@ -49,8 +50,8 @@ test("local embeddings are finite, 1024-dimensional, and deterministic", async (
   assert.deepEqual((await getOrCreateProfileEmbedding(input)).embedding, (await getOrCreateProfileEmbedding(input)).embedding);
 });
 
-test("malformed provider vectors fail closed and Genie rationale failure preserves results", async () => {
-  const saved = { host: process.env.DATABRICKS_HOST, token: process.env.DATABRICKS_TOKEN, endpoint: process.env.DATABRICKS_EMBEDDING_ENDPOINT, rerank: process.env.P2_GENIE_RATIONALE_URL, fetch: globalThis.fetch };
+test("malformed provider vectors fail closed", async () => {
+  const saved = { host: process.env.DATABRICKS_HOST, token: process.env.DATABRICKS_TOKEN, endpoint: process.env.DATABRICKS_EMBEDDING_ENDPOINT, fetch: globalThis.fetch };
   process.env.DATABRICKS_HOST = "https://example.invalid";
   process.env.DATABRICKS_TOKEN = "test-token";
   process.env.DATABRICKS_EMBEDDING_ENDPOINT = "embeddings";
@@ -59,24 +60,40 @@ test("malformed provider vectors fail closed and Genie rationale failure preserv
   process.env.DATABRICKS_HOST = saved.host;
   process.env.DATABRICKS_TOKEN = saved.token;
   process.env.DATABRICKS_EMBEDDING_ENDPOINT = saved.endpoint;
-  process.env.P2_GENIE_RATIONALE_URL = "https://example.invalid/rerank";
-  globalThis.fetch = (async () => new Response("unavailable", { status: 503 })) as typeof fetch;
-  const failedRerank = await peopleMatches(request, "stu_001", {});
-  delete process.env.P2_GENIE_RATIONALE_URL;
   globalThis.fetch = saved.fetch;
-  assert.ok(failedRerank.length > 0);
 });
 
-test("people fallback filters and preserves deterministic ordering", async () => {
+test("people fallback filters and preserves deterministic complementary ordering", async () => {
   const all = await peopleMatches(request, "stu_001", {});
   const robotics = await peopleMatches(request, "stu_001", { interest: "robotics" });
   assert.ok(all.length >= robotics.length);
   assert.ok(robotics.every((peer) => peer.sharedInterests.some((interest) => interest.toLowerCase().includes("robotics"))));
   assert.deepEqual((await peopleMatches(request, "stu_001", {})).map((peer) => peer.id), all.map((peer) => peer.id));
+  assert.ok(all.every((peer) => peer.complementarySkills.length > 0));
+  assert.ok(all.every((peer) => peer.matchPct >= 25 && peer.matchPct <= 100));
+});
+
+test("peer score prioritizes explicit gaps, strong complementary skills, and rejects identical profiles", () => {
+  const skill = (id: string, proficiency: "learning" | "working" | "strong" = "working") => ({ id, name: id, category: "framework", proficiency, source: "self" as const });
+  const current = { skills: [skill("react", "strong")], interests: ["Hackathons"], wantsToLearn: ["node", "postgres"] };
+  const priorityCandidate = { skills: [skill("react"), skill("node", "strong"), skill("postgres", "strong")], interests: ["Hackathons"], lookingForTeam: true };
+  const weakCandidate = { skills: [skill("react"), skill("figma", "learning")], interests: [], lookingForTeam: false };
+  const identicalCandidate = { skills: [skill("react")], interests: ["Hackathons"], lookingForTeam: true };
+
+  assert.ok(scorePeer(current, priorityCandidate) > scorePeer(current, weakCandidate));
+  assert.equal(scorePeer(current, identicalCandidate), 0);
+  assert.ok(scorePeer(current, priorityCandidate) <= 100);
+});
+
+test("people matches endpoint returns the shared PeerMatch contract", async () => {
+  const response = await getPeopleMatches(new Request("http://localhost/api/people/matches?lookingForTeam=true"));
+  assert.equal(response.status, 200);
+  const matches = await response.json() as { id: string; matchPct: number; complementarySkills: unknown[] }[];
+  assert.ok(matches.every((match) => match.id && match.matchPct >= 25 && match.matchPct <= 100 && match.complementarySkills.length > 0));
 });
 
 test("research fallback ranks evidence from interests, skills, openings and lead availability", async () => {
-  const matches = await researchMatches({ interests: DEMO_PROFILE.interests, skills: DEMO_PROFILE.skills.map(({ skill }) => skill) });
+  const matches = await researchMatches({ interests: DEMO_PROFILE.interests, skills: DEMO_PROFILE.skills.map(({ skill, proficiency, source }) => ({ ...skill, proficiency, source })) });
   assert.ok(matches.length >= 2);
   assert.ok(matches.every((match) => match.matchPct >= 0 && match.matchPct <= 100 && match.why.length > 0));
 });

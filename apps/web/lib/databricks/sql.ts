@@ -67,7 +67,9 @@ export async function executeDatabricksSql(statement: string, parameters: SqlPar
       statement,
       parameters,
       wait_timeout: "10s",
-      on_wait_timeout: "CANCEL",
+      // Long-running or cold-warehouse statements return a statement ID here;
+      // the polling loop below continues waiting instead of canceling them.
+      on_wait_timeout: "CONTINUE",
       disposition: "INLINE",
       format: "JSON_ARRAY",
       row_limit: rowLimit,

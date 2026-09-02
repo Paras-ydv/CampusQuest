@@ -297,7 +297,7 @@ export async function simulateTimeMachine(request: Request | undefined, userId: 
   const addedSkills = input.skillIds.filter((id) => !existing.has(id)).map((id) => skill(id));
   const simulated: BackendProfile = {
     ...profile,
-    skills: [...profile.skills, ...addedSkills.map((item) => ({ id: item.id, name: item.name, category: item.category }))],
+    skills: [...profile.skills, ...addedSkills.map((item) => ({ id: item.id, name: item.name, category: item.category, proficiency: "working" as const, source: "self" as const }))],
   };
 
   if (!databricksSqlConfigured()) {
