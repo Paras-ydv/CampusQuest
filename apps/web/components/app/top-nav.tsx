@@ -17,6 +17,7 @@ const NAV = [
   { href: "/messages", label: "Messages" },
   { href: "/radar", label: "Radar" },
   { href: "/research", label: "Research" },
+  { href: "/placements", label: "Placements" },
 ] as const;
 
 export function TopNav({
@@ -65,7 +66,7 @@ export function TopNav({
             Campus<span className="text-hot">Quest</span>
           </Link>
 
-          {/* Seven links only fit inline once the viewport is wide enough to
+          {/* The links only fit inline once the viewport is wide enough to
               lay them all out. Below that they shared a ~27px scroll window
               with no scrollbar to say so, which is what felt congested — so
               they move into the drawer instead. */}

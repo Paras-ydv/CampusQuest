@@ -22,3 +22,7 @@ supabase/.temp
 
 # Generated env bundle for the Vercel dashboard — contains real secrets.
 vercel-env.txt
+
+# Real placement records loaded into Databricks. Aggregate-safe by design, but
+# they are the placement cell's data, not the repo's — keep the template only.
+databricks/data/placements.csv

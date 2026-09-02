@@ -1,0 +1,5 @@
+student_ref,company_name,company_sector,company_tier,role_family,branch,location,placement_year,outcome,package_lpa,source
+grad-0001,Zoho,SaaS,product,Backend Engineer,CSE,Chennai,2025,placed,12.5,2025 drive register
+grad-0001,Freshworks,SaaS,product,Backend Engineer,CSE,Chennai,2025,not_placed,,2025 drive register
+grad-0002,Razorpay,Fintech,product,Frontend Engineer,IT,Bengaluru,2025,placed,,2025 drive register
+grad-0003,,,,Data Analyst,ECE,Remote,2025,not_placed,,2025 drive register
