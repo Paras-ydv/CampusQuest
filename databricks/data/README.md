@@ -29,7 +29,7 @@ sat four companies contributes four rows. This is what lets the views separate
 the placement rate (share of students with at least one offer) from the offer
 conversion rate (share of processes that ended in an offer).
 
-The one panel that cannot follow real records is **skills that paid off** — the
-export carries no skills and `student_ref` is opaque, so there is nothing to
-join on. That view returns no rows once real records are present, rather than
-showing synthetic numbers beside real ones.
+`placement_skill_edge` cannot follow real records — the export carries no
+skills and `student_ref` is opaque, so there is nothing to join on. The view
+returns no rows once real records are present, rather than showing synthetic
+numbers beside real ones, and the dashboard no longer has a panel for it.

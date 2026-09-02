@@ -16,7 +16,9 @@
     "db:types": "supabase gen types typescript --local --schema public > packages/db-types/src/database.types.ts",
     "db:types:check": "supabase gen types typescript --local --schema public | node scripts/check-db-types.mjs",
     "db:test": "supabase test db",
-    "test": "npm run test --workspace=@campusquest/web --if-present"
+    "test": "npm run test --workspace=@campusquest/web --if-present",
+    "quests:build": "node scripts/roadmap/build-skill-paths.mjs",
+    "quests:check": "node scripts/roadmap/build-skill-paths.mjs --check"
   },
   "engines": {
     "node": ">=20"

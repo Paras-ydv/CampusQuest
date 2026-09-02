@@ -5,7 +5,7 @@ import { Pager, usePaged } from "@/components/ui/pager";
 import { useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { clsx } from "clsx";
-import { completeQuest, verifyQuestStep } from "@/lib/data/client";
+import { completeQuest, setQuestStepDone, verifyQuestStep } from "@/lib/data/client";
 import { Odometer } from "@/components/motion/odometer";
 import { Reveal } from "@/components/motion/reveal";
 import { WordRise } from "@/components/motion/word-rise";
@@ -69,6 +69,7 @@ export function QuestBoard({
     () => Object.fromEntries(initialQuests.map((quest) => [quest.id, quest.repositoryUrl ?? ""])),
   );
   const [verifying, setVerifying] = useState<string | null>(null);
+  const [toggling, setToggling] = useState<string | null>(null);
   const [verificationMessage, setVerificationMessage] = useState<Record<string, string>>({});
 
   /**
@@ -159,6 +160,35 @@ export function QuestBoard({
           reduced ? 4000 : 7000,
         );
       }, reduced ? 0 : 180);
+  }
+
+  /**
+   * Ticks a step off, or takes the tick back.
+   *
+   * Optimistic, because the round trip is a single row write and the square
+   * filling in is the whole feedback loop; a failure puts it back.
+   */
+  async function toggleStep(quest: Quest, step: Quest["steps"][number]) {
+    if (quest.status === "completed") return;
+    // A verified step is proved. Untickng it here would only clear the weaker
+    // self-report and leave the box filled, which reads as a broken control.
+    if (step.verifiedAt) return;
+
+    const next = !step.done;
+    const key = `${quest.id}:${step.id}`;
+    setToggling(key);
+    setQuests((previous) => previous.map((item) => item.id === quest.id
+      ? { ...item, steps: item.steps.map((s) => (s.id === step.id ? { ...s, done: next } : s)) }
+      : item));
+    try {
+      await setQuestStepDone(quest.id, step.id, next);
+    } catch {
+      setQuests((previous) => previous.map((item) => item.id === quest.id
+        ? { ...item, steps: item.steps.map((s) => (s.id === step.id ? { ...s, done: !next } : s)) }
+        : item));
+    } finally {
+      setToggling(null);
+    }
   }
 
   async function verify(quest: Quest, stepId: string) {
@@ -303,6 +333,7 @@ export function QuestBoard({
                 const busy = busyId === quest.id;
                 const technical = Boolean(quest.pathSkillId) || quest.steps.some((step) => step.verification === "github_file" || step.verification === "github_workflow");
                 const verifiedCount = quest.steps.filter((step) => step.done).length;
+                const provenCount = quest.steps.filter((step) => step.verifiedAt).length;
                 const allVerified = verifiedCount === quest.steps.length;
 
                 return (
@@ -343,15 +374,23 @@ export function QuestBoard({
                             <span className="font-mono text-[0.625rem] text-faint tabular-nums">
                               {String(i + 1).padStart(2, "0")}
                             </span>
-                            <motion.span
-                              animate={{
-                                backgroundColor: step.done
-                                  ? "var(--ink)"
-                                  : "rgba(0,0,0,0)",
-                              }}
-                              transition={{ duration: 0.3 }}
-                              className="size-2.5 shrink-0 border-2 border-ink"
-                            />
+                            <button
+                              type="button"
+                              role="checkbox"
+                              aria-checked={step.done}
+                              aria-label={step.label}
+                              disabled={done || toggling === `${quest.id}:${step.id}`}
+                              onClick={() => void toggleStep(quest, step)}
+                              className="shrink-0 disabled:cursor-default"
+                            >
+                              <motion.span
+                                animate={{
+                                  backgroundColor: step.done ? "var(--ink)" : "rgba(0,0,0,0)",
+                                }}
+                                transition={{ duration: 0.3 }}
+                                className="block size-2.5 border-2 border-ink"
+                              />
+                            </button>
                             <span
                               className={clsx(
                                 "transition-colors duration-300",
@@ -360,14 +399,22 @@ export function QuestBoard({
                             >
                               {step.label}
                             </span>
-                            {technical && !done ? (
+                            {/* Proof outranks a tick, so it gets its own mark. */}
+                            {step.verifiedAt ? (
+                              <span
+                                title={step.verificationMessage ?? "Verified against your repository"}
+                                className="ml-auto shrink-0 font-mono text-[0.5625rem] tracking-[0.12em] text-ok uppercase"
+                              >
+                                Verified
+                              </span>
+                            ) : technical && !done ? (
                               <button
                                 type="button"
-                                disabled={verifying !== null || step.done}
+                                disabled={verifying !== null}
                                 onClick={() => void verify(quest, step.id)}
                                 className="ml-auto shrink-0 border border-ink px-2.5 py-1 font-mono text-[0.625rem] font-bold tracking-[0.12em] uppercase hover:bg-ink hover:text-paper disabled:opacity-45"
                               >
-                                {verifying === `${quest.id}:${step.id}` ? "Checking..." : step.done ? "Verified" : "Verify"}
+                                {verifying === `${quest.id}:${step.id}` ? "Checking..." : "Verify"}
                               </button>
                             ) : null}
                           </li>
@@ -387,7 +434,10 @@ export function QuestBoard({
                             placeholder="https://github.com/you/project"
                             className="w-full border-2 border-ink bg-transparent px-3 py-2.5 font-mono text-sm text-ink outline-none placeholder:text-faint focus:border-hot"
                           />
-                          <p className="mt-2 text-[0.75rem] text-muted">{verifiedCount}/{quest.steps.length} tasks verified.</p>
+                          <p className="mt-2 text-[0.75rem] text-muted">
+                            {verifiedCount}/{quest.steps.length} tasks done
+                            {provenCount > 0 ? `, ${provenCount} verified against your repository` : ""}.
+                          </p>
                           {verificationMessage[quest.id] ? <p className="mt-2 text-[0.75rem] text-hot">{verificationMessage[quest.id]}</p> : null}
                         </div>
                       ) : null}

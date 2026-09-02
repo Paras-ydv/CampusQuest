@@ -141,3 +141,68 @@ export async function roadmapWithProgress(
     progressAvailable: stored !== null,
   });
 }
+
+/** Whether every leaf of an outline is ticked. */
+export function isComplete(outline: RoadmapOutline, progress: TopicProgress[]): boolean {
+  const leaves = leafNodeIds(outline);
+  if (!leaves.length) return false;
+  const done = new Set(progress.filter((p) => p.status === "done").map((p) => p.nodeId));
+  return leaves.every((id) => done.has(id));
+}
+
+/**
+ * Every roadmap this student has ticked end to end.
+ *
+ * One read for all of them rather than one per skill: the gap list shows up to
+ * a page of skills at a time, and asking "is this one finished?" thirty times
+ * over would be thirty round trips to answer a question about a handful of
+ * rows.
+ *
+ * A slug is only considered when the student has at least one tick against it,
+ * so the outlines loaded here are the few they have actually worked on, not
+ * the whole committed catalogue.
+ */
+export async function completedSlugs(
+  request: Request | undefined,
+  userId: string,
+): Promise<string[]> {
+  const supabase = createRequestSupabaseClient(request);
+  const bySlug = new Map<string, Set<string>>();
+
+  if (!supabase) {
+    if (!localFallbackEnabled()) throw new Error("SUPABASE_NOT_CONFIGURED");
+    for (const [key, store] of fallback.entries()) {
+      if (!key.startsWith(`${userId}:`)) continue;
+      const slug = key.slice(userId.length + 1);
+      const done = new Set(
+        [...store.entries()].filter(([, status]) => status === "done").map(([nodeId]) => nodeId),
+      );
+      if (done.size) bySlug.set(slug, done);
+    }
+  } else {
+    const { data, error } = await supabase
+      .from("user_topic_progress")
+      .select("roadmap_slug, node_id")
+      .eq("user_id", userId)
+      .eq("status", "done");
+    // As in listProgress: no table means the migration has not been applied,
+    // which is "nothing is assessable yet" rather than a failed request.
+    if (error?.code === "PGRST205") return [];
+    if (error) throw new Error(`Could not load roadmap progress: ${error.message}`);
+    for (const row of data ?? []) {
+      const slug = String(row.roadmap_slug);
+      const set = bySlug.get(slug) ?? new Set<string>();
+      set.add(String(row.node_id));
+      bySlug.set(slug, set);
+    }
+  }
+
+  const complete: string[] = [];
+  for (const [slug, done] of bySlug) {
+    const outline = await loadOutline(slug);
+    if (!outline) continue;
+    const leaves = leafNodeIds(outline);
+    if (leaves.length && leaves.every((id) => done.has(id))) complete.push(slug);
+  }
+  return complete.sort();
+}

@@ -13,7 +13,14 @@ const SUGGESTIONS: Record<string, GenieSuggestion[]> = {
   "/journey": [
     { id: "j1", label: "What should I learn next?", question: "What should I learn next for my goal role, and why?" },
     { id: "j2", label: "Where do I stand?", question: "How many historical roles in my target family do I currently align with?" },
-    { id: "j3", label: "Biggest gap", question: "Which single skill would improve my alignment the most, and how many roles ask for it?" },
+    /*
+     * Two measures, named separately. Asked as one question — "how many roles
+     * ask for it" — Genie computed the roles the skill would newly align the
+     * student with (9) and reported it under the words of the other measure,
+     * the roles that request the skill at all (21). Both numbers are useful
+     * and neither is wrong; the sentence was.
+     */
+    { id: "j3", label: "Biggest gap", question: "Which single skill would improve my alignment the most? Report both how many roles in my target family request that skill, and how many additional roles I would align with after learning it." },
   ],
   "/time-machine": [
     { id: "t1", label: "Most-wanted skills", question: "What skills are most important for my target role in historical postings?" },

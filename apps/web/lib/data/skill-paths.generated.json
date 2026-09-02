@@ -1,0 +1,1811 @@
+{
+  "generatedFrom": "apps/web/lib/roadmap/outlines",
+  "paths": [
+    {
+      "skillId": "android",
+      "displayName": "Android",
+      "skillName": "Android",
+      "skillCategory": "framework",
+      "roadmapSlug": "android",
+      "roadmapTitle": "Android Developer",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "Mobile Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Pick a Language — Kotlin, Java",
+            "The Fundamentals — Development IDE, Basics of Kotlin, Basics of OOP",
+            "Version Control — Git, GitHub, Bitbucket",
+            "App Components — Activity",
+            "Interface & Navigation — Jetpack Compose, Text, Image"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Design & Architecture — Scaffold, NavHost, ViewModel state",
+            "Storage — Shared Preferences, DataStore, MVI",
+            "Asynchronism — Coroutines, Threads, RxJava",
+            "Network — Repository Pattern, Builder Pattern, Factory Pattern",
+            "Common Services — Google Admob, Google Play Services, Google Maps"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Linting — WorkManager, Timber, Leak Canary",
+            "Debugging — Dependency Injection, Chucker, Jetpack Benchmark",
+            "Distribution — Firebase Distribution, Signed APK, Google Playstore",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "angular",
+      "displayName": "Angular",
+      "skillName": "Angular",
+      "skillCategory": "framework",
+      "roadmapSlug": "angular",
+      "roadmapTitle": "Angular Developer",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "Frontend Engineer",
+        "Full-stack Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Introduction to Angular — Component Anatomy, Creating Components, Angular and History",
+            "Modules — Module Architecture, Creating Modules, Feature Modules",
+            "Templates — Structural Directives, Attribute Directives",
+            "Template Syntax — Component Lifecycle, Dynamic Components, @else",
+            "Directives — Custom Directives, Configuration"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Routing — Lazy Loading, Router Outlets, Router Links",
+            "Forms — Reactive Forms, Typed Forms, Template-driven Forms",
+            "RxJS Basics — Router Events, Guards, Observable Pattern",
+            "Zones — Zoneless Applications",
+            "Signals — Observable Lifecycle, RxJS vs Promises, RxJS Interop"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "SSR — NgRx, Queries as Signals, Model Inputs",
+            "Security — End-to-End Testing, Using Libraries, Schematics",
+            "Performance — Deferrable Views, Image Optimization, Zone Pollution",
+            "Testing — Testing Services, Testing Pipes, Hydration",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "aws",
+      "displayName": "AWS",
+      "skillName": "AWS",
+      "skillCategory": "infra",
+      "roadmapSlug": "aws",
+      "roadmapTitle": "AWS Roadmap",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "Cloud Engineer",
+        "DevOps Engineer",
+        "MLOps Engineer",
+        "Backend Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Introduction — What is Cloud Computing?, IaaS vs PaaS vs SaaS",
+            "EC2 — Instance Types, CPU Credits, Storage / Volumes",
+            "VPC — CIDR Blocks, Route Tables",
+            "IAM — Security Groups, Internet Gateway, NAT Gateway",
+            "SES — Sandbox / Sending Limits, Identity Verification, DKIM Setup"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Auto-Scaling — AMIs, Launch Templates",
+            "Route53 — Hosted Zones, Routing Policies, Health Checks",
+            "Storage Types — Bucket / Object Lifecycle, Auto-Scaling Groups, Scaling Policies",
+            "Cloudwatch — Metrics, Events, Logs",
+            "RDS — DB Instances, Storage Types, Backup / Restore"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "ElastiCache — Quotas",
+            "ECR — Backup / Restore",
+            "Cloudfront — Magnetic, Distributions, Policies",
+            "ECS — Clusters / ECS Container Agents, Services",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "cicd",
+      "displayName": "CI/CD",
+      "skillName": "CI/CD",
+      "skillCategory": "infra",
+      "roadmapSlug": "devops",
+      "roadmapTitle": "DevOps Roadmap",
+      "roadmapMatch": "broader",
+      "roadmapNote": "CI/CD sits inside the DevOps roadmap",
+      "goalRoles": [
+        "DevOps Engineer",
+        "Cloud Engineer",
+        "Site Reliability Engineer",
+        "QA Engineer",
+        "Full-stack Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Learn a Programming Language — Python, Ruby, Go",
+            "Operating System — Windows",
+            "Terminal Knowledge — Bash, Power Shell, Process Monitoring",
+            "VCS Hosting — GitHub, GitLab, Bitbucket",
+            "Containers — Docker, LXC"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Configuration Management — Chef, Ansible, Salt",
+            "Provisioning — AWS CDK, CloudFormation",
+            "CI / CD Tools — Buildkite, Jenkins, Pulumi",
+            "Infrastructure Monitoring — Prometheus, Grafana",
+            "Secret Management — Sealed Secrets, ESO, Vault"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Observability — Zabbix, Datadog, Jaeger",
+            "Artifact Management — Nexus, Cloud Smith",
+            "GitOps — ArgoCD, FluxCD",
+            "Service Mesh — Istio, Consul, Linkerd",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "cpp",
+      "displayName": "C++",
+      "skillName": "C++",
+      "skillCategory": "language",
+      "roadmapSlug": "cpp",
+      "roadmapTitle": "C++ Developer Roadmap",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "Embedded Engineer",
+        "Software Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Introduction to Language — What is C++?, Why use C++, C vs C++",
+            "Setting up your Environment — Installing C++, Code Editors / IDEs",
+            "Basic Operations — Arithmetic Operators, Logical Operators",
+            "Pointers and References — Running your First Program, References, Memory Model",
+            "Data Types — Bitwise Operators, Static Typing, Dynamic Typing"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Structuring Codebase — Forward Declaration, Headers / CPP Files, Namespaces",
+            "Structures and Classes — Virtual Methods, Virtual Tables, Dynamic Polymorphism",
+            "Language Concepts — auto (Automatic Type Deduction), Type Casting",
+            "Standard Library + STL — Access Violations, Undefined Behavior (UB)",
+            "Templates — Variadic Templates"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Standards — Containers, C++ 11 / 14, C++ 23",
+            "Idioms — Non-Copyable / Non-Moveable, Erase-Remove, Copy and Swap",
+            "Build Systems — CMAKE, Makefile, Ninja",
+            "Package Managers — Spack, vcpkg, NuGet",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "django",
+      "displayName": "Django",
+      "skillName": "Django",
+      "skillCategory": "framework",
+      "roadmapSlug": "django",
+      "roadmapTitle": "Django",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "Backend Engineer",
+        "Full-stack Engineer",
+        "Software Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Introduction — How the Web Works, Why use web frameworks, The MVC Model",
+            "Views — Function-based views, Class-based views",
+            "Customizing Views — Generic views",
+            "Models — Fields types, Field options, Custom fields",
+            "Model inheritance — Querying data, Create, Update, Delete, Aggregations"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Static Files — Whitenoise",
+            "Django Admin — Admin Customization",
+            "Middleware — Fixtures, Query Optimization, Customization",
+            "Authentication — Built-in user model, Custom user model, django-allauth",
+            "Authorization — Users & Permissions"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Django  REST Framework — Serializers, Views & ViewSets, Routers",
+            "Debugging — Error Pages, debug_toolbar, PDB, IPDB",
+            "Django Test Framework — pytest, Celery, unittest & TestCase",
+            "Deployment — Background Tasks, Localization, Production Checklist",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "docker",
+      "displayName": "Docker",
+      "skillName": "Docker",
+      "skillCategory": "infra",
+      "roadmapSlug": "docker",
+      "roadmapTitle": "Docker Roadmap",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "DevOps Engineer",
+        "Cloud Engineer",
+        "MLOps Engineer",
+        "Site Reliability Engineer",
+        "Backend Engineer",
+        "Cybersecurity Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Introduction — What are Containers?, Why do we need Containers?",
+            "Underlying Technologies — Namespaces, cgroups, Union Filesystems",
+            "Installation / Setup — Docker Desktop (Win/Mac/Linux), Docker Engine ( Linux )",
+            "Using 3rd Party Container Images — Databases, Command Line Utilities"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Data Persistence — Ephemeral Container Filesystem, Volume Mounts, Bind Mounts",
+            "Container Registries — Dockerhub, Others (ghcr, ecr, gcr, acr, etc)",
+            "Running Containers — docker compose, docker run, Runtime Configuration Options",
+            "Building Container Images — Dockerfiles, Efficient Layer Caching, Image Size and Security"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Docker CLI — Images, Containers, Volumes",
+            "Container Security — Image Security, Runtime Security",
+            "Developer Experience — Hot Reloading, Debuggers, Tests",
+            "Deploying Containers — Kubernetes, PaaS Options, Nomad",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "dsa",
+      "displayName": "Data structures & algorithms",
+      "skillName": "Data structures & algorithms",
+      "skillCategory": "practice",
+      "roadmapSlug": "datastructures-and-algorithms",
+      "roadmapTitle": "Data Structures & Algorithms",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "Software Engineer",
+        "Backend Engineer",
+        "Frontend Engineer",
+        "ML Engineer",
+        "Mobile Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Pick a Language — JavaScript, C#, Java",
+            "Programming Fundamentals — Language Syntax, Control Structures, Python",
+            "Basic Data Structures — Linked Lists, Constant, Queues",
+            "Algorithmic Complexity — Linear, Time vs Space Complexity, Polynomial",
+            "Sorting Algorithms — Big-O Notation, Big-θ Notation, Bubble Sort"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Search Algorithms — Factorial, Binary Search, Linear Search",
+            "Graph Data Structures — Big-Ω Notation, Directed Graph, Undirected Graph",
+            "Tree Data Structures — Search Algorithms, Breadth First Search, Depth First Search",
+            "Advanced Data Structures — Binary Search Trees, AVL Trees, B-Trees",
+            "Complex Data Structures — 2-3 Trees, B/B+ Trees, Skip List"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Indexing — Linear, Tree-Based",
+            "Problem Solving Techniques — Backtracking, Greedy Algorithms, Randomised Algorithms",
+            "Platforms to Practice — Edabit, Merge Intervals, Cyclic Sort",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "fastapi",
+      "displayName": "Backend",
+      "skillName": "FastAPI",
+      "skillCategory": "framework",
+      "roadmapSlug": "backend",
+      "roadmapTitle": "Backend Developer",
+      "roadmapMatch": "broader",
+      "roadmapNote": "Closest published roadmap is Backend",
+      "goalRoles": [
+        "Backend Engineer",
+        "AI Engineer",
+        "ML Engineer",
+        "Software Engineer"
+      ],
+      "alsoCovers": [
+        "flask"
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Introduction — How does the internet work?, Go, What is HTTP?",
+            "Frontend Basics — HTML, CSS",
+            "Version Control Systems — JavaScript, Git",
+            "Repo Hosting Services — GitHub, GitLab",
+            "Learn about APIs — Open API Specs"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Learn about Web Servers — Nginx, Apache, Caddy",
+            "Learn the Basics — How LLMs work, AI vs Traditional Coding, Embeddings",
+            "AI Assisted Coding — Claude Code, Cursor, Copilot",
+            "Integration Patterns — Streaming, Structured Outputs, Function Calling",
+            "Testing — Integration Testing, Unit Testing, Functional Testing"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Architectural Patterns — Monolith, Microservices, SOA",
+            "Search Engines — Elasticsearch, Solr, Server Sent Events",
+            "Scaling Databases — Database Indexes, Data Replication, Sharding Strategies",
+            "NoSQL Databases — Redis, MongoDB, Firebase",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "figma",
+      "displayName": "Figma",
+      "skillName": "Figma",
+      "skillCategory": "tooling",
+      "roadmapSlug": "ux-design",
+      "roadmapTitle": "UX Design",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "Product Engineer",
+        "Frontend Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Human Decision Making — Nudge Theory, BJ Fogg's Behavior Model, Persuasive Technology",
+            "Behavior Change Strategies — BJ Fogg's Behavior Grid",
+            "Cheating — Defaulting, Making it Incidental, Automate the Act of Repetition"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Support Conscious Action — Educate & Encourage User, Help User think about their Action",
+            "Understanding the Product — Target Outcome, Target Actor, Target Action",
+            "Conceptual Design — Create User Personas, User Stories"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Prototyping — Make progress meaningful to reward user, Balsamiq",
+            "UX Best Practices — Tell User what the Action is and ask for it",
+            "Measuring the Impact — Deploy Strong Authority on Subject, Be Authentic and Personal",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "git",
+      "displayName": "Git",
+      "skillName": "Git",
+      "skillCategory": "tooling",
+      "roadmapSlug": "git-github",
+      "roadmapTitle": "Learn Git and GitHub",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "Backend Engineer",
+        "Software Engineer",
+        "Frontend Engineer",
+        "Data Engineer",
+        "ML Engineer",
+        "Data Analyst",
+        "DevOps Engineer",
+        "Mobile Engineer",
+        "QA Engineer",
+        "Embedded Engineer",
+        "Product Engineer",
+        "AI Engineer",
+        "Data Scientist",
+        "MLOps Engineer",
+        "Cloud Engineer",
+        "Site Reliability Engineer",
+        "Cybersecurity Engineer",
+        "Full-stack Engineer",
+        "Analytics Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Learn the Basics — What is Version Control?, Why use Version Control?",
+            "What is a Repository — Cloning Repositories, Managing Remotes",
+            "Git Remotes — Pushing / Pulling Changes, Fetch without Merge, .gitignore",
+            "Merge Strategies — Fast-Forward vs Non-FF, Rebase, Squash",
+            "Documentation — Private vs Public, Markdown, Branch Naming"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "GitHub Projects — Contribution Guidelines, Clean Git History, Project Planning",
+            "Working in a Team — Collaborators / Members, GitHub Organizations",
+            "Undoing Changes — git revert, --soft, --hard",
+            "Rewriting History — git commit --amend, git rebase, git filter-branch",
+            "Git hooks — What and Why?, Client vs Server Hooks"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "GitHub Actions — Usecases, YAML Syntax, Workflow Triggers",
+            "GitHub CLI — Git Reflog, Installation and Setup, Git Bisect",
+            "GitHub API — Git Worktree, Git Attributes, Git LFS",
+            "GitHub Pages — Custom Domains, Static Site Generators",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "go",
+      "displayName": "Go",
+      "skillName": "Go",
+      "skillCategory": "language",
+      "roadmapSlug": "golang",
+      "roadmapTitle": "Go Developer",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "Backend Engineer",
+        "DevOps Engineer",
+        "Cloud Engineer",
+        "Site Reliability Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Introduction to Go — Why use Go, History of Go, Setting up the Environment",
+            "Variables & Constants — var vs :=, Zero Values, const and iota",
+            "Slices — Capacity and Growth, make(), Type Conversion",
+            "Structs — Struct Tags & JSON, Embedding Structs",
+            "Conditionals — if, if-else, switch"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Pointers — Pointers Basics, Anonymous Functions, Pointers with Structs",
+            "Generics — Why Generics?, Generic Functions, Generic Types / Interfaces",
+            "Modules & Dependencies — go mod init, go mod tidy, go mod vendor",
+            "Package Import Rules — errors.New, fmt.Errorf",
+            "Publishing Modules — Sentinel Errors, Deadlines & Cancellations"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "`context` Package — Common Usecases",
+            "`sync` Package — Mutexes, WaitGroups, `testing` package basics",
+            "Building CLIs — Coverage, Cobra, urfave/cli",
+            "ORMs & DB Access — pgx, GORM",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "graphql",
+      "displayName": "GraphQL",
+      "skillName": "GraphQL",
+      "skillCategory": "practice",
+      "roadmapSlug": "graphql",
+      "roadmapTitle": "GraphQL",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "Frontend Engineer",
+        "Full-stack Engineer",
+        "Backend Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Introduction — What is GraphQL, Problems GraphQL Solves, Thinking in Graphs",
+            "GraphQL Queries — What are Queries?, Fields, Variables",
+            "Mutations — What are Mutations?, Multiple Fields in Mutation, Operation Name"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Subscriptions — Type System, What are Subscriptions, Fields",
+            "Schema — Scalars, Enums, Objects",
+            "Validation — Root Fields, Lists, Interfaces"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Serving over Internet — Validation",
+            "Pagination — Producing the Result",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "java",
+      "displayName": "Java",
+      "skillName": "Java",
+      "skillCategory": "language",
+      "roadmapSlug": "java",
+      "roadmapTitle": "Java Developer",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "Backend Engineer",
+        "Software Engineer",
+        "Mobile Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Learn the Basics — Strings and Methods, Basic Syntax, Math Operations",
+            "Cryptography — volatile keyword",
+            "Date and Time — Java Memory Model",
+            "Concurrency — Virtual Threads, Threads, Maven"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "File Operations — JDBC, EBean",
+            "Database Access — Hibernate, Spring Data JPA",
+            "Web Frameworks — Spring (Spring Boot), Quarkus, Javalin",
+            "Build Tools — Gradle, Bazel"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Documentation — Javadoc",
+            "Logging Frameworks — Logback, Log4j2, TinyLog",
+            "Testing — SLF4J, Mocking > Mockito",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "javascript",
+      "displayName": "JavaScript",
+      "skillName": "JavaScript",
+      "skillCategory": "language",
+      "roadmapSlug": "javascript",
+      "roadmapTitle": "JavaScript Roadmap",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "Frontend Engineer",
+        "Full-stack Engineer",
+        "Software Engineer",
+        "Product Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Introduction to JavaScript — var, let, const",
+            "All about Variables — Variable Declarations, Hoisting, Variable Naming Rules",
+            "Data Types — Object, Built-in Objects, typeof operator",
+            "Type Casting — Type Conversion vs Coercion, Implicit Type Casting",
+            "Data Structures — JSON, Map, Structured Data"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Loops and Iterations — break / continue, do...while, for...of loop",
+            "Expressions & Operators — Conditional Operators, Comma Operators, Unary Operators",
+            "Control Flow — Conditional Statements, Exceptional Handling, Default Params",
+            "Functions — Function Parameters, Arrow Functions, IIFEs",
+            "Using (this) keyword — in a method, in a function, using it alone"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Modules in JavaScript — CommonJS, ESM",
+            "Iterators and Generators — call, apply, bind",
+            "Working with APIs — XMLHTTPRequest, Fetch",
+            "Memory Management — Memory Lifecycle, Garbage Collection",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "kubernetes",
+      "displayName": "Kubernetes",
+      "skillName": "Kubernetes",
+      "skillCategory": "infra",
+      "roadmapSlug": "kubernetes",
+      "roadmapTitle": "Kubernetes Roadmap",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "DevOps Engineer",
+        "Cloud Engineer",
+        "Site Reliability Engineer",
+        "MLOps Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Introduction — Overview of Kubernetes, Why use Kubernetes?",
+            "Setting up Kubernetes — Deploying your First Application, Choosing a Managed Provider",
+            "Running Applications — Pods, ReplicaSets, Deployments",
+            "Configuration Management — Injecting Pod Config with ConfigMaps",
+            "Services and Networking — External Access to Services, Load Balancing"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Resource Management — Setting Resource Requests and Limits",
+            "Security — Role Based Access Control (RBAC), Network Security",
+            "Monitoring and Logging — Traces, Resource Health, Observability Engines",
+            "Storage and Volumes — Monitoring & Optimizing Resource Usage, CSI Drivers",
+            "Scheduling — Logs, Metrics, Basics"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Autoscaling — Horizontal Pod Autoscaler (HPA), Vertical Pod Autoscaler (VPA)",
+            "Deployment Patterns — Stateful Applications, Pod Priorities, Evictions",
+            "Advanced Topics — Custom Schedulers and Extenders",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "linux",
+      "displayName": "Linux",
+      "skillName": "Linux",
+      "skillCategory": "systems",
+      "roadmapSlug": "linux",
+      "roadmapTitle": "Linux Roadmap",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "DevOps Engineer",
+        "Cloud Engineer",
+        "Site Reliability Engineer",
+        "Cybersecurity Engineer",
+        "Embedded Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Navigation Basics — Basic Commands, Moving Files / Directories",
+            "Editing Files — Vim, Nano",
+            "Shell and Other Basics — Command Path, stdout / stdin / stderr, cut",
+            "Working with Files — File Permissions, Archiving and Compressing",
+            "Text Processing — split, pipe, tee"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Server Review — Uptime and Load, Authentication Logs, Services Running",
+            "User Management — Create / Delete / Update, Process Signals, Users and Groups",
+            "Service Management (systemd) — Creating New Services, Checking Service Logs",
+            "Package Management — Package Repositories, Snap, Finding & Installing Packages",
+            "Disks and Filesystems — Inodes, Filesystems, Mounts"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Networking — TCP/IP Stack, Subnetting, Ethernet & arp/rarp",
+            "Shell Programming — Literals, Variables, Loops",
+            "Troubleshooting — ICMP, traceroute, netstat",
+            "Containerization — ulimits, cgroups, Container Runtime",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "mlops",
+      "displayName": "MLOps",
+      "skillName": "MLOps",
+      "skillCategory": "ml",
+      "roadmapSlug": "mlops",
+      "roadmapTitle": "MLOps Roadmap",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "MLOps Engineer",
+        "ML Engineer",
+        "AI Engineer",
+        "DevOps Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Version Control Systems — Git, GitHub, DVC",
+            "Programming Fundamentals — Bash, Python, SQL",
+            "CI/CD — GItLab, GitHub Actions"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Cloud Computing — AWS / Azure / GCP, Cloud-native ML Services, Terraform",
+            "Containerization — Docker, Kubernetes",
+            "Orchestration & Deployment — Airflow, KubeFlow"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Monitoring & Observability — Prometheus, Grafana",
+            "Edge AI — TFLite, PyTorch Mobile, Jetson",
+            "Explainable AI — LIME, SHAP",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "mongodb",
+      "displayName": "MongoDB",
+      "skillName": "MongoDB",
+      "skillCategory": "data",
+      "roadmapSlug": "mongodb",
+      "roadmapTitle": "MongoDB",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "Backend Engineer",
+        "Full-stack Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "MongoDB Basics — BSON vs JSON, SQL vs NoSQL, Embedded Objects & Arrays",
+            "Data Model & Data Types — Undefined, Binary Data, Boolean",
+            "Collections & Methods — Counting Documents, insert() and relevant, Regular Expression"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Creating Indexes — Min Key, Read / Write Concerns, Cursors",
+            "Performance Optimization — Atlas Search Indexes, Query Optimization, Language Drivers",
+            "Aggregation — Pipelines, Stages and Operators"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Scaling MongoDB — Replicasets, Sharded Clusters, Tuning Configuration",
+            "MongoDB Security — Role-based Access Control, X.509 Certificate Auth",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "nextjs",
+      "displayName": "Next.js",
+      "skillName": "Next.js",
+      "skillCategory": "framework",
+      "roadmapSlug": "nextjs",
+      "roadmapTitle": "Next.js",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "Frontend Engineer",
+        "Full-stack Engineer",
+        "Product Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "React Frameworks — Why Next.js, Next.js, Remix",
+            "Introduction — JavaScript Basics, Why Frontend Frameworks, Why React",
+            "Rendering Strategies — CSR, SSG",
+            "Types of routers — Pages, App, Why use App Router?",
+            "Routing Patterns — Parallel Routes, Intercepting Routes"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "API Endpoints — Static vs Dynamic, Caching, Streaming",
+            "Middleware — Use cases, Route Matcher, Using Cookies",
+            "Fetching Locations — Client, Server",
+            "Data Fetching Patterns — Parallel vs Sequential, Preloading Data",
+            "Caching Data — Memoization in Fetch, React Cache"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Runtimes and Types — Node.js, Edge",
+            "Global CSS — Revalidating Cached Data, Revalidation Errors",
+            "Setting things Up — TypeScript, ESLint, Prettier",
+            "Deployment Options — Node.js Server, Docker Container, Static Export",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "node",
+      "displayName": "Node.js",
+      "skillName": "Node.js",
+      "skillCategory": "framework",
+      "roadmapSlug": "nodejs",
+      "roadmapTitle": "Node.js Developer",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "Backend Engineer",
+        "Full-stack Engineer",
+        "Software Engineer"
+      ],
+      "alsoCovers": [
+        "express"
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Introduction to Node.js — What is Node.js?, Why use Node.js?, History of Node.js",
+            "Modules — CommonJS, ESM, Creating & Importing",
+            "npm — npx, Semantic Versioning, Updating Packages",
+            "Error Handling — [global] keyword",
+            "Async Programming — Event Emitter, Running Scripts, Event Loop"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Command Line Apps — Exitting / Exit Codes",
+            "Working with Files — __dirname, Using Debugger, __filename",
+            "Monitor Changes (Dev) — --watch, nodemon",
+            "Template Engines — ejs, pug, marko",
+            "Testing — Vitest, Jest, node:test"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Logging — Winston, Morgan",
+            "Keep app Running — pm2",
+            "Threads — Child Process, Cluster, Worker Threads",
+            "Streams — Garbage Collection",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "os",
+      "displayName": "Computer Science",
+      "skillName": "Operating Systems",
+      "skillCategory": "systems",
+      "roadmapSlug": "computer-science",
+      "roadmapTitle": "Computer Science",
+      "roadmapMatch": "broader",
+      "roadmapNote": "Operating systems sit inside Computer Science",
+      "goalRoles": [
+        "Software Engineer",
+        "Embedded Engineer",
+        "Site Reliability Engineer",
+        "DevOps Engineer",
+        "Cybersecurity Engineer"
+      ],
+      "alsoCovers": [
+        "networks"
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Pick a Language — Python, Go, C#",
+            "Data Structures — Array, Linked List, Stack",
+            "Asymptotic Notation — Complete Binary Tree, Big Omega, Polynomial",
+            "Endianess — Big Endian",
+            "String Search & Manipulations — Search Pattern in Text, Suffix Arrays, Substring Search"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Design Patterns — GoF Design Patterns, Little Endian, Architectural Patterns",
+            "Common UML Diagrams — Class Diagrams, Usecase Diagrams",
+            "Basic Math Skills — Activity Diagrams, Statemachine Diagrams, Probability",
+            "NP Complete — Co-NP, NP Hard, SQL vs NoSQL Databases",
+            "Databases — Normalization / Denormalization, Entity-Relationship Model, DDL"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Balanced Search Trees — AVL Trees, Red / Black Trees, 2 3 Search Trees",
+            "Networking — OSI Model, TCP/IP Model, DNS",
+            "Security — Database Federation, Replication, Sharding",
+            "How Computers Work — How CPU Executes Programs, Registers and RAM",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "pandas",
+      "displayName": "Python for Data Analysis",
+      "skillName": "Pandas",
+      "skillCategory": "ml",
+      "roadmapSlug": "python-data-analysis",
+      "roadmapTitle": "Python for Data Analysis",
+      "roadmapMatch": "broader",
+      "roadmapNote": "Pandas is part of Python Data Analysis",
+      "goalRoles": [
+        "Data Analyst",
+        "Data Scientist",
+        "ML Engineer",
+        "Analytics Engineer",
+        "AI Engineer"
+      ],
+      "alsoCovers": [
+        "numpy"
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Introduction — Arithmetic, Comparison, Logical",
+            "Functions & Methods — Built-in Functions, Defining Functions, args & kwargs",
+            "SQL Fundamentals — sqlite3, SQLAlchemy, DuckDB",
+            "NumPy — Arrays & ndarray, Array Operations, Indexing & Slicing",
+            "Pandas — Indexing & Slicing, Polars, Filtering & Querying"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Reading Local Files — Merging & Joining, CSV, Excel",
+            "Reading Web Data — APIs with requests, BeautifulSoup, scrapy",
+            "Matplotlib — Plot Categories, Subplots and figures, Customizing Plots",
+            "Seaborn — Distribution plots, Categorical Plots, Regression Plots",
+            "Interactive Visualization — Plotly"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Dashboards — Streamlit, Dash, Power BI / Tableau",
+            "Statistics & ML — SciPy, Scikit-learn",
+            "Geospatial Analysis — GeoPandas",
+            "Big Data Tools — Dask, PySpark",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "postgres",
+      "displayName": "PostgreSQL",
+      "skillName": "PostgreSQL",
+      "skillCategory": "data",
+      "roadmapSlug": "postgresql-dba",
+      "roadmapTitle": "PostgreSQL DBA",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "Backend Engineer",
+        "Data Engineer",
+        "Analytics Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Introduction — What are Relational Databases?, RDBMS Benefits and Limitations",
+            "Object Model — Queries, Data Types, Rows",
+            "High Level Database Concepts — ACID, MVCC, Transactions",
+            "Relational Model — Domains, Attributes, Tuples"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Installation and Setup — NULL",
+            "Learn SQL — Package Managers, Connect using `psql`",
+            "Configuring — Deployment in Cloud, Reporting Logging & Statistics",
+            "Security — Grant / Revoke, Write-ahead Log, Object Privileges"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Infrastructure Skills — SELinux",
+            "Indexes and their Usecases — B-Tree, BRIN, GiST",
+            "Get Involved in Development — Mailing Lists, Reviewing Patches, Writing Patches",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "python",
+      "displayName": "Python",
+      "skillName": "Python",
+      "skillCategory": "language",
+      "roadmapSlug": "python",
+      "roadmapTitle": "Python Developer",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "ML Engineer",
+        "AI Engineer",
+        "Data Scientist",
+        "Data Engineer",
+        "Data Analyst",
+        "Backend Engineer",
+        "Software Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Learn the Basics — Basic Syntax, Lists, Tuples",
+            "Data Structures & Algorithms — PyPI, Pip, Arrays and Linked Lists",
+            "Modules — Type Annot., Builtin, Custom",
+            "Package Managers — Conda, uv, Poetry"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Common Packages — pyproject.toml",
+            "Variable Scope — typing, mypy",
+            "Object Oriented Programming — Binary Search Tree, Recursion, Sorting Algorithms",
+            "Static Typing — pyright, pyre, Pydantic"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Concurrency — Inheritance, Encapsulation, Multiprocessing",
+            "Code Formatting — yapf, black, ruff",
+            "File Handling — Threading, glob",
+            "Testing — tox, unittest / pyUnit, doctest",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "react",
+      "displayName": "React",
+      "skillName": "React",
+      "skillCategory": "framework",
+      "roadmapSlug": "react",
+      "roadmapTitle": "React Developer",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "Frontend Engineer",
+        "Full-stack Engineer",
+        "Product Engineer",
+        "Mobile Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "CLI Tools — Vite",
+            "Components — Component Lifecycle, Lists and Keys, Render Props",
+            "Rendering — Refs, Events, High Order Components",
+            "Hooks — Creating Custom Hooks, Hooks Best Practices",
+            "Routers — React Router, Tanstack Router"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "State Management — Zustand, Jotai, Context",
+            "Writing CSS — Panda CSS, MobX, CSS Modules",
+            "Component / Libraries — Material UI, Chakra UI, Shadcn UI",
+            "Headless Components — Radix UI, React Aria, Ark UI",
+            "Testing — Playwright, Vitest, react-testing-library"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Forms — React Hook Form, Formish",
+            "Frameworks — react-router, Formik, Astro",
+            "Types & Validation — TypeScript, Zod, Valibot",
+            "Animation — Framer Motion, react spring, GSock",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "redis",
+      "displayName": "Redis",
+      "skillName": "Redis",
+      "skillCategory": "data",
+      "roadmapSlug": "redis",
+      "roadmapTitle": "Redis Roadmap",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "Backend Engineer",
+        "Cloud Engineer",
+        "Site Reliability Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Strings — Data Persistence Options, Rich Data Structures",
+            "Hashes — Overview of Data Types"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Persistence Options — No Persistence Option",
+            "Clustering — Search, RedisTimeSeries"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Redis Modules — RedisBloom, RedisJSON",
+            "Redis Enterprise — When to consider enterprise?",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "rest",
+      "displayName": "REST APIs",
+      "skillName": "REST APIs",
+      "skillCategory": "practice",
+      "roadmapSlug": "api-design",
+      "roadmapTitle": "API Design",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "Backend Engineer",
+        "Full-stack Engineer",
+        "Frontend Engineer",
+        "Mobile Engineer",
+        "Product Engineer",
+        "QA Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Learn the Basics — What are APIs, URL, Query & Path Parameters, Content Negotiation",
+            "Different API Styles — RESTful APIs, Simple JSON APIs, SOAP APIs",
+            "Real-time APIs — Web Sockets, Server Sent Events, Streaming Responses",
+            "Authentication Methods — Basic Auth, JWT, Token Based Auth",
+            "Authorization Methods — ABAC, DAC, PBAC"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "API Keys & Management — Key Generation & Rotation, Scopes & Permissions",
+            "API Documentation Tools — Swagger / Open API, Readme.com, Stoplight",
+            "API Security — Best Practices, Common Vulnerabilities, Performance Metrics",
+            "API Performance — Caching Strategies, Load Balancing, Rate Limiting / Throttling",
+            "API Integration Patterns — Performance Testing, Event Driven Architecture"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "API Testing — Unit Testing, Webhooks vs Polling, Integration Testing",
+            "Observability — Messaging Queues, Mocking APIs, Contract Testing",
+            "API Lifecycle Management — GDPR, CCPA",
+            "Standards and Compliance — PII, PCI DSS, HIPAA",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "sklearn",
+      "displayName": "Machine Learning",
+      "skillName": "scikit-learn",
+      "skillCategory": "ml",
+      "roadmapSlug": "machine-learning",
+      "roadmapTitle": "Machine Learning",
+      "roadmapMatch": "broader",
+      "roadmapNote": "Machine Learning covers scikit-learn",
+      "goalRoles": [
+        "ML Engineer",
+        "Data Scientist",
+        "AI Engineer",
+        "Data Analyst"
+      ],
+      "alsoCovers": [
+        "pytorch",
+        "tensorflow",
+        "transformers",
+        "nlp",
+        "cv"
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Introduction — What is an ML Engineer?, ML Engineer vs AI Engineer",
+            "Calculus — Derivatives, Partial Derivatives, Chain rule of derivation",
+            "Probability — Random Variances, PDFs, Types of Distribution",
+            "Object Oriented Programming — Matplotlib, Numpy",
+            "Essential libraries — Seaborn, Pandas"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Data Formats — CSV, Excel, JSON",
+            "Preprocessing Techniques — Conditionals, Exceptions, Functions, Builtin Functions",
+            "Scikit-learn — Data Loading, Train - Test Data, Data Preparation",
+            "Regression — Linear Regression, Polynomial Regression, Lasso",
+            "Dimensionality Reduction — ElasticNet Regularization, Principal Component Analysis"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Validation Techniques — K-Fold Cross Validation, LOOCV",
+            "Deep Learning Libraries — TensorFlow, Keras, Scikit-learn",
+            "Recurrent Neural Networks — Convolution, Padding, Loss Functions",
+            "Attention Mechanisms — Self-Attention, Transformers, Multi-head Attention",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "spark",
+      "displayName": "Data Engineer",
+      "skillName": "Spark",
+      "skillCategory": "data",
+      "roadmapSlug": "data-engineer",
+      "roadmapTitle": "Data Engineer Roadmap",
+      "roadmapMatch": "broader",
+      "roadmapNote": "Spark sits inside the Data Engineer roadmap",
+      "goalRoles": [
+        "Data Engineer",
+        "Data Scientist",
+        "Analytics Engineer",
+        "Backend Engineer",
+        "MLOps Engineer"
+      ],
+      "alsoCovers": [
+        "kafka",
+        "airflow"
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Introduction — What is Data Engineering?, Data Engineering vs Data Science",
+            "Programming Skills — Python, Java, Scala",
+            "Distributed Systems Basics — Data Normalization, Data Modelling Techniques",
+            "Data Collection Considerations — IoT, Learn SQL",
+            "Document — Star vs Snowflake Schema, MongoDB, ElasticSearch"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Data Warehousing Architectures — Data Mart",
+            "Data Warehouse — Google BigQuery, Snowflake, Amazon Redshift",
+            "Cloud Computing — Cloud Architectures",
+            "Cluster Computing Basics — What is Cluster Computing, Distributed File Systems",
+            "Containers & Orchestration — Docker, Kubernetes, Google Cloud GKE"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Monitoring — Prometheus, Datadog, Sentry",
+            "Testing — Unit Testing, Integration Testing, End-to-End Testing",
+            "Infrastructure as Code - IaC — Declarative vs Imperative, Idempotency, Reusability",
+            "Reverse ETL — ETL vs Reverse ETL, Reverse ETL Usecases",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "springboot",
+      "displayName": "Spring Boot",
+      "skillName": "Spring Boot",
+      "skillCategory": "framework",
+      "roadmapSlug": "spring-boot",
+      "roadmapTitle": "Spring Boot Developer",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "Backend Engineer",
+        "Software Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Introduction — Terminology, Architecture, Why use Spring?",
+            "Spring Security — Authentication, Authorization, OAuth2",
+            "Autoconfiguration — Spring Cloud Gateway",
+            "Actuators — Cloud Config"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Hibernate — Transactions, Relationships, Entity Lifecycle",
+            "Embedded Server — Spring Cloud Circuit Breaker",
+            "Spring Data — Spring Data JPA, Spring Data MongoDB, Spring Data JDBC",
+            "Microservices — Spring Cloud, Spring Cloud Open Feign"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Spring MVC — Micrometer, Eureka, Servlet",
+            "Testing — Mock MVC, @SpringBootTest Annotation, @MockBean Annotation",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "sql",
+      "displayName": "SQL",
+      "skillName": "SQL",
+      "skillCategory": "data",
+      "roadmapSlug": "sql",
+      "roadmapTitle": "SQL Roadmap",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "Data Analyst",
+        "Analytics Engineer",
+        "Data Engineer",
+        "Data Scientist",
+        "Backend Engineer",
+        "Software Engineer"
+      ],
+      "alsoCovers": [
+        "dbms"
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Learn the Basics — What are Relational Databases?, RDBMS Benefits and Limitations",
+            "Basic SQL Syntax — SQL Keywords, Data Types, Operators",
+            "Data Definition Language (DDL) — Truncate Table, Alter Table, Create Table",
+            "Data Manipulation Language (DML) — Select, WHERE, JOINs",
+            "Aggregate Queries — SUM, COUNT, FROM"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Data Constraints — Primary Key, ORDER BY, HAVING",
+            "Subqueries — Nested Subqueries, Correlated Subqueries",
+            "JOIN Queries — INNER JOIN, LEFT JOIN, RIGHT JOIN",
+            "Views — Creating Views, Modifying Views, Dropping Views",
+            "Indexes — Self Join, Cross Join, Managing Indexes"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Data Integrity & Security — Data Integrity Constraints, GRANT and Revoke, rank",
+            "Transactions — ACID, BEGIN, COMMIT",
+            "Performance Optimization — Query Analysis Techniques",
+            "Advanced SQL — Row_number, Window Functions, Recursive Queries",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "systemdesign",
+      "displayName": "System Design",
+      "skillName": "System design",
+      "skillCategory": "systems",
+      "roadmapSlug": "system-design",
+      "roadmapTitle": "System Design Roadmap",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "Backend Engineer",
+        "Software Engineer",
+        "Full-stack Engineer",
+        "Site Reliability Engineer",
+        "Data Engineer"
+      ],
+      "alsoCovers": [
+        "distributed"
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Introduction — What is System Design?, How to approach System Design?",
+            "Consistency Patterns — Weak Consistency, Eventual Consistency, Strong Consistency",
+            "Background Jobs — Event-Driven, Schedule Driven",
+            "Domain Name System — Returning Results, Microservices",
+            "Content Delivery Networks — Pull CDNs, Push CDNs"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Load Balancers — LB vs Reverse Proxy, Load Balancing Algorithms",
+            "Databases — SQL vs NoSQL",
+            "Asynchronism — Back Pressure, Task Queues, Message Queues",
+            "Communication — HTTP, TCP, UDP",
+            "Performance Antipatterns — Busy Database, Improper Instantiation, Busy Frontend"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Design & Implementation — Strangler Fig, Sidecar, Static Content Hosting",
+            "Messaging — Sequential Convoy, Scheduling Agent Supervisor",
+            "High Availability — Deployment Stamps, Geodes, Bulkhead",
+            "Resiliency — Bulkhead, Circuit Breaker, Compensating Transaction",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "terraform",
+      "displayName": "Terraform",
+      "skillName": "Terraform",
+      "skillCategory": "infra",
+      "roadmapSlug": "terraform",
+      "roadmapTitle": "Terraform Roadmap",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "Cloud Engineer",
+        "DevOps Engineer",
+        "Site Reliability Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Introduction — What is Infrastructure as Code?, What is Terraform?",
+            "Hashicorp Config. Language (HCL) — What is HCL?, Basic Syntax",
+            "Providers — Terraform Registry, Configuring Providers, Versions",
+            "Resources — Resource Behavior, Resource Lifecycle, Meta Arguments",
+            "Outputs — Output Syntax, Sensitive Outputs, Preconditions"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "Format & Validate — terraform fmt, terraform validate, TFLint",
+            "State — Splitting State Files, Import Existing Resources, State Locking",
+            "Clean Up — terraform destroy",
+            "Modules — Root vs Child Modules, Published Modules Usage",
+            "Provisioners — When to Use?, Creation / Destroy Time, file provisioner"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "CI / CD Integration — GitHub Actions, Circle CI, GitLab CI",
+            "Scaling Terraform — Splitting Large State, Parallelism, Deployment Workflow",
+            "Testing — Unit Testing, Contract Testing, Integration Testing",
+            "Security — Secret Management, Compliance / Sentinel, Terrascan",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    },
+    {
+      "skillId": "typescript",
+      "displayName": "TypeScript",
+      "skillName": "TypeScript",
+      "skillCategory": "language",
+      "roadmapSlug": "typescript",
+      "roadmapTitle": "TypeScript",
+      "roadmapMatch": "exact",
+      "roadmapNote": null,
+      "goalRoles": [
+        "Frontend Engineer",
+        "Full-stack Engineer",
+        "Product Engineer",
+        "Backend Engineer",
+        "Software Engineer",
+        "Mobile Engineer"
+      ],
+      "alsoCovers": [],
+      "levels": [
+        {
+          "level": 1,
+          "name": "Foundation",
+          "steps": [
+            "Introduction to TypeScript — TS Playground, tsc, ts-node",
+            "Type Inference — tsconfig.json, Compiler Options",
+            "TypeScript Types — Non-null Assertion",
+            "Type Compatibility — Union Types, Intersection Types",
+            "Combining Types — Type Aliases, keyof Operator"
+          ]
+        },
+        {
+          "level": 2,
+          "name": "Applied practice",
+          "steps": [
+            "TypeScript Interfaces — satisfies keyword, Types vs Interfaces, Extending Interfaces",
+            "Type Guards / Narrowing — instanceof, typeof, Equality",
+            "TypeScript Functions — Typing Functions, Function Overloading, Partial",
+            "Classes — Constructor Params",
+            "Generics — Generic Types, Generic Constraints, Access Modifiers"
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Portfolio capstone",
+          "steps": [
+            "Utility Types — Pick, Omit, Readonly",
+            "Decorators — Inheritance vs Polymorphism, Method Overriding",
+            "Advanced Types — Mapped Types, Conditional Types, Literal Types",
+            "TypeScript Modules — Ambient Modules, External Modules, Namespace Augmentation",
+            "Pass the GitHub Actions workflow"
+          ]
+        }
+      ]
+    }
+  ]
+}

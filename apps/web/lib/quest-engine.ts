@@ -4,6 +4,7 @@ import { SKILL_PATH_GOALS, skillPathQuests } from "@/lib/skill-paths";
 import { getBackendProfile, type BackendProfile } from "@/lib/backend/profile";
 import { getSkillGapContext, type SkillGapContext } from "@/lib/skill-gaps";
 import { resolveRoleFamily } from "@/lib/data/role-families";
+import { SKILLS } from "@/lib/data/skills";
 import { invalidateUser } from "@/lib/data/warehouse-cache";
 import { warehouseCoveragePct } from "@/lib/timemachine";
 import { createRequestSupabaseClient, localFallbackEnabled, supabaseForCaller } from "@/lib/supabase/server";
@@ -11,6 +12,7 @@ import { createRequestSupabaseClient, localFallbackEnabled, supabaseForCaller } 
 type QuestRecord = Quest & { difficulty: "intro" | "intermediate" | "advanced"; goalRoles: string[] };
 const fallbackCompletions = new Map<string, CompleteQuestResult>();
 const fallbackVerifications = new Map<string, VerifyQuestStepResult>();
+const fallbackSelfReports = new Set<string>();
 
 const difficultyOrder = { intro: 0, intermediate: 1, advanced: 2 } as const;
 function normalize(value: string): string { return value.toLowerCase().replace(/[^a-z0-9]/g, ""); }
@@ -21,7 +23,19 @@ export function rankQuests(quests: QuestRecord[], profile: Pick<BackendProfile, 
   const impactBySkill = new Map(gaps.gaps.map((gap) => [gap.skillId, gap.impactPct / highestImpact]));
   return [...quests].sort((left, right) => {
     const score = (quest: QuestRecord) => {
-      const gap = Math.max(0, ...quest.skillsGained.map((skill) => impactBySkill.get(skill.id) ?? 0));
+      /*
+       * Scored on the skill the path teaches, not on what the quest grants.
+       * Only the capstone carries `skillsGained`, and a capstone is locked
+       * behind its prerequisites — so every quest a student could actually see
+       * scored zero on the gap term, and the board fell back to sorting by
+       * hours and then id. For a frontend student that put Angular above
+       * React, with React the larger measured gap of the two.
+       */
+      const gap = Math.max(
+        impactBySkill.get(quest.pathSkillId ?? "") ?? 0,
+        ...quest.skillsGained.map((skill) => impactBySkill.get(skill.id) ?? 0),
+        0,
+      );
       const target = resolveRoleFamily(profile.goalRole);
       const goal = quest.goalRoles.some((role) => resolveRoleFamily(role) === target) ? 1 : 0.5;
       const distance = Math.abs(difficultyOrder[quest.difficulty] - difficultyOrder[targetDifficulty]);
@@ -41,8 +55,10 @@ function demoQuestRecords(userId: string): QuestRecord[] {
     ...quest,
     status: completed.has(quest.id) ? "completed" : quest.status,
     steps: quest.steps.map((step) => {
-      const verified = fallbackVerifications.get(`${userId}:${quest.id}:${step.id}`);
-      return verified?.passed ? { ...step, done: true, verifiedCommit: verified.commit, verifiedAt: new Date().toISOString(), verificationMessage: verified.message } : step;
+      const key = `${userId}:${quest.id}:${step.id}`;
+      const verified = fallbackVerifications.get(key);
+      if (verified?.passed) return { ...step, done: true, verifiedCommit: verified.commit, verifiedAt: new Date().toISOString(), verificationMessage: verified.message };
+      return fallbackSelfReports.has(key) ? { ...step, done: true } : step;
     }),
     difficulty: quest.pathLevel === 1 ? "intro" : quest.pathLevel === 3 ? "advanced" : "intermediate",
     goalRoles: quest.pathSkillId ? (SKILL_PATH_GOALS[quest.pathSkillId] ?? []) : ["AI/ML Engineer", "Backend Engineer", "Data Engineer", "Product Engineer"],
@@ -50,12 +66,15 @@ function demoQuestRecords(userId: string): QuestRecord[] {
 }
 
 function toQuestRecord(row: Record<string, unknown>): QuestRecord {
-  const progress = ((row.user_quests ?? []) as { status: Quest["status"]; repository_url?: string | null; user_quest_steps?: { quest_step_id: string; verified_at: string | null; verified_commit: string | null; verification_message: string | null }[] }[])[0];
+  const progress = ((row.user_quests ?? []) as { status: Quest["status"]; repository_url?: string | null; user_quest_steps?: { quest_step_id: string; verified_at: string | null; self_reported_at?: string | null; verified_commit: string | null; verification_message: string | null }[] }[])[0];
   const verified = new Map((progress?.user_quest_steps ?? []).map((step) => [step.quest_step_id, step]));
   const technical = String(row.id) !== "q_team";
   const steps = ((row.quest_steps ?? []) as { id: string; label: string; sort_order: number; verification_type?: "github_file" | "github_workflow" | "manual" }[]).sort((a, b) => a.sort_order - b.sort_order).map((step) => {
     const result = verified.get(step.id);
-    return { id: step.id, label: step.label, done: Boolean(result?.verified_at), verification: technical ? (step.verification_type ?? "github_file") : "manual", verifiedAt: result?.verified_at ?? null, verifiedCommit: result?.verified_commit ?? null, verificationMessage: result?.verification_message ?? null };
+    // Done covers both routes; `verifiedAt` stays null for a self-report so the
+    // UI can show which steps are actually proved.
+    const done = Boolean(result?.verified_at || result?.self_reported_at);
+    return { id: step.id, label: step.label, done, verification: technical ? (step.verification_type ?? "github_file") : "manual", verifiedAt: result?.verified_at ?? null, verifiedCommit: result?.verified_commit ?? null, verificationMessage: result?.verification_message ?? null };
   });
   const skillsGained = ((row.quest_skills ?? []) as { skills?: Skill | null }[]).flatMap((entry) => entry.skills ? [entry.skills] : []);
   return {
@@ -71,7 +90,7 @@ function toQuestRecord(row: Record<string, unknown>): QuestRecord {
 export async function getQuestRecords(request: Request | undefined, userId: string): Promise<QuestRecord[]> {
   const supabase = await supabaseForCaller(request);
   if (!supabase) return localFallbackEnabled() ? demoQuestRecords(userId) : Promise.reject(new Error("SUPABASE_NOT_CONFIGURED"));
-  const { data, error } = await supabase.from("quests").select("*, quest_steps(*), quest_skills(skills(*)), user_quests(status, repository_url, user_quest_steps(quest_step_id, verified_at, verified_commit, verification_message))");
+  const { data, error } = await supabase.from("quests").select("*, quest_steps(*), quest_skills(skills(*)), user_quests(status, repository_url, user_quest_steps(quest_step_id, verified_at, self_reported_at, verified_commit, verification_message))");
   if (error) throw new Error(`Could not load quests: ${error.message}`);
   const records = ((data ?? []) as unknown as Record<string, unknown>[])
     .filter((row) => row.is_retired !== true)
@@ -93,20 +112,95 @@ export async function getQuestRecords(request: Request | undefined, userId: stri
  * removing it would erase visible progress, and a quest that grants no skills
  * at all, like the collaboration one.
  */
+/**
+ * Whether a quest moves the student towards the job they said they want.
+ *
+ * The goal they picked is checked first, because that is the answer they gave.
+ * The warehouse family is only a fallback: it is much coarser — Cloud, MLOps,
+ * SRE and Cybersecurity all resolve to DevOps Engineer — so matching on family
+ * alone would put an application-security quest on a cloud engineer's board.
+ */
+function servesGoalExactly(quest: QuestRecord, goalRole: string): boolean {
+  // No roles stated means role-neutral, like the team-up quest.
+  return quest.goalRoles.length === 0 || quest.goalRoles.includes(goalRole);
+}
+
+function servesGoalFamily(quest: QuestRecord, goalRole: string): boolean {
+  const family = resolveRoleFamily(goalRole);
+  return quest.goalRoles.some((role) => resolveRoleFamily(role) === family);
+}
+
+/** Below this a board looks broken, so the coarser family match is let in. */
+const MIN_BOARD_SIZE = 6;
+
+/**
+ * The reason a quest is on *this* student's board.
+ *
+ * The stored `why_template` names the first three goals the skill serves, which
+ * is a fixed string written when the catalogue was seeded. On a backend
+ * student's board that rendered as "AWS is a tracked skill gap for Cloud
+ * Engineer, DevOps Engineer, MLOps Engineer" — every word true, and it reads
+ * like the board is showing somebody else's quests. Naming the goal they chose
+ * costs nothing and is the whole point of the sentence.
+ */
+function whyFor(quest: QuestRecord, goalRole: string): string {
+  if (!quest.pathSkillId) return quest.why;
+  // The title, not the skill catalogue: a shared path is titled after its
+  // roadmap ("Machine Learning"), and the reason should agree with the card.
+  const name = quest.title.split(":")[0].trim() || SKILLS[quest.pathSkillId as keyof typeof SKILLS]?.name || quest.pathSkillId;
+  if (quest.goalRoles.includes(goalRole)) {
+    return `${name} is a tracked skill gap for ${goalRole}.`;
+  }
+  // Only reachable through the family fallback, so say that rather than imply
+  // the skill is listed against their goal.
+  const adjacent = quest.goalRoles.slice(0, 2).join(" and ");
+  return adjacent
+    ? `${name} is a tracked skill gap for ${adjacent}, next door to ${goalRole}.`
+    : quest.why;
+}
+
+/**
+ * The board a student actually sees: their own quests, best first.
+ *
+ * This used to return the `quests` table in whatever order Postgres handed it
+ * back, filtered only by which skills the student already holds — so a student
+ * aiming at Frontend Engineer got the same list as everyone else, opening with
+ * Docker, System design and PyTorch. Ranking already existed; it was only ever
+ * applied to the single "recommended next" quest.
+ */
 export async function listQuests(request: Request | undefined, userId: string): Promise<Quest[]> {
   const [records, profile] = await Promise.all([
     getQuestRecords(request, userId),
     getBackendProfile(request, userId),
   ]);
+  const gaps = await getSkillGapContext(profile);
   const held = new Set(profile.skills.map((skill) => skill.id));
 
-  return records
-    .filter((quest) =>
-      quest.status !== "available" ||
-      quest.skillsGained.length === 0 ||
-      quest.skillsGained.some((skill) => !held.has(skill.id)),
-    )
-    .map(({ difficulty: _difficulty, goalRoles: _goalRoles, ...quest }) => quest);
+  const worthDoing = records.filter((quest) =>
+    quest.status !== "available" ||
+    quest.skillsGained.length === 0 ||
+    quest.skillsGained.some((skill) => !held.has(skill.id)),
+  );
+
+  const exact = worthDoing.filter((quest) => servesGoalExactly(quest, profile.goalRole));
+  const relevant = exact.length >= MIN_BOARD_SIZE
+    ? exact
+    : worthDoing.filter(
+        (quest) => servesGoalExactly(quest, profile.goalRole) || servesGoalFamily(quest, profile.goalRole),
+      );
+
+  /*
+   * Completed quests stay on the board whichever goal is current. They are the
+   * student's own history, and dropping them when someone changes direction
+   * would silently erase the XP trail the Journey screen is built on.
+   */
+  const relevantIds = new Set(relevant.map((quest) => quest.id));
+  const history = worthDoing.filter((quest) => quest.status === "completed" && !relevantIds.has(quest.id));
+
+  return [...rankQuests(relevant, profile, gaps), ...history].map((record) => {
+    const { difficulty: _difficulty, goalRoles: _goalRoles, ...quest } = record;
+    return { ...quest, why: whyFor(record, profile.goalRole) };
+  });
 }
 
 export async function nextQuest(request: Request | undefined, userId: string): Promise<Quest> {
@@ -234,4 +328,44 @@ export async function verifyQuestStep(request: Request | undefined, userId: stri
   }
   await (supabase as any).rpc("verify_quest_step", { p_quest_id: questId, p_step_id: stepId, p_repository_url: repoUrl, p_passed: passed, p_commit: tree.sha, p_message: message });
   return { questId, stepId, passed, message, commit: tree.sha };
+}
+
+/**
+ * Records — or withdraws — the student's own claim that a step is done.
+ *
+ * Every skill-path step is mapped to a GitHub check, but nothing verifies
+ * those unless a repository is connected, and `complete_quest` refused to
+ * finish a quest with unverified steps. That made every path quest impossible
+ * to complete and left XP frozen. Self-reporting reopens the loop; the
+ * verification mapping stays on the step, ready for when the verifier runs.
+ */
+export async function setQuestStepDone(
+  request: Request | undefined,
+  userId: string,
+  questId: string,
+  stepId: string,
+  done: boolean,
+): Promise<void> {
+  const quest = (await getQuestRecords(request, userId)).find((item) => item.id === questId);
+  if (!quest?.steps.some((step) => step.id === stepId)) throw new Error("NOT_FOUND");
+
+  const supabase = await supabaseForCaller(request);
+  if (!supabase) {
+    if (!localFallbackEnabled()) throw new Error("SUPABASE_NOT_CONFIGURED");
+    const key = `${userId}:${questId}:${stepId}`;
+    if (done) fallbackSelfReports.add(key);
+    else fallbackSelfReports.delete(key);
+    invalidateUser(userId);
+    return;
+  }
+
+  const { error } = await supabase.rpc(
+    done ? "self_report_quest_step" : "clear_quest_step",
+    { p_quest_id: questId, p_step_id: stepId } as never,
+  );
+  if (error) throw new Error(`Could not update that task: ${error.message}`);
+  // The quests page reads through a 60s per-user cache. Without this the tick
+  // is written, the optimistic UI shows it, and a reload inside the minute
+  // serves the pre-write board — so the step appears to un-tick itself.
+  invalidateUser(userId);
 }

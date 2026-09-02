@@ -41,7 +41,8 @@
         "       years_in_window, presence_pct, last_seen_year, processes_run,\n",
         "       total_offers, best_package_lpa\n",
         "FROM {{catalog}}.{{schema}}.placement_company_recurrence\n",
-        "ORDER BY presence_pct DESC, best_package_lpa DESC"
+        "ORDER BY years_recruited DESC, presence_pct DESC, best_package_lpa DESC\n",
+        "LIMIT 12"
       ]
     },
     {
@@ -63,17 +64,6 @@
         "FROM {{catalog}}.{{schema}}.placement_branch_summary\n",
         "ORDER BY median_package_lpa DESC"
       ]
-    },
-    {
-      "name": "ds_skill_edge",
-      "displayName": "Skills the placed students held",
-      "queryLines": [
-        "SELECT skill_name, category, placed_holders, campus_holders,\n",
-        "       placed_holding_pct, campus_holding_pct, lift_pct_points\n",
-        "FROM {{catalog}}.{{schema}}.placement_skill_edge\n",
-        "ORDER BY lift_pct_points DESC\n",
-        "LIMIT 15"
-      ]
     }
   ],
   "pages": [
@@ -84,7 +74,7 @@
         {
           "widget": {
             "name": "intro",
-            "textbox_spec": "# Campus placements\n\nWhat happened across the recruiting years on record \u2014 who hired, who kept coming back, and what they paid. Every number on this page is produced by SQL over the campus dataset; nothing here is a forecast.\n\n**Placement rate** counts *students* who left the drive with at least one offer. **Offer conversion** counts *processes* that ended in an offer. A student sits several company processes in a year, so the two are different numbers and are never mixed."
+            "textbox_spec": "# Campus placements\n\nWhat happened across the recruiting years on record — who hired, who kept coming back, and what they paid. Every number on this page is produced by SQL over the campus dataset; nothing here is a forecast.\n\n**Placement rate** counts *students* who left the drive with at least one offer. **Offer conversion** counts *processes* that ended in an offer. A student sits several company processes in a year, so the two are different numbers and are never mixed."
           },
           "position": {
             "x": 0,
@@ -486,7 +476,7 @@
         },
         {
           "widget": {
-            "name": "table_recurrence",
+            "name": "bar_recurrence",
             "queries": [
               {
                 "name": "main_query",
@@ -498,24 +488,8 @@
                       "expression": "`company_name`"
                     },
                     {
-                      "name": "return_outlook",
-                      "expression": "`return_outlook`"
-                    },
-                    {
                       "name": "years_recruited",
                       "expression": "`years_recruited`"
-                    },
-                    {
-                      "name": "presence_pct",
-                      "expression": "`presence_pct`"
-                    },
-                    {
-                      "name": "last_seen_year",
-                      "expression": "`last_seen_year`"
-                    },
-                    {
-                      "name": "best_package_lpa",
-                      "expression": "`best_package_lpa`"
                     }
                   ],
                   "disaggregated": true
@@ -523,50 +497,26 @@
               }
             ],
             "spec": {
-              "version": 1,
-              "widgetType": "table",
+              "version": 3,
+              "widgetType": "bar",
               "encodings": {
-                "columns": [
-                  {
-                    "fieldName": "company_name",
-                    "displayName": "Company",
-                    "type": "string",
-                    "order": 0
+                "x": {
+                  "fieldName": "years_recruited",
+                  "scale": {
+                    "type": "quantitative"
                   },
-                  {
-                    "fieldName": "return_outlook",
-                    "displayName": "Pattern",
-                    "type": "string",
-                    "order": 1
+                  "displayName": "Years on campus"
+                },
+                "y": {
+                  "fieldName": "company_name",
+                  "scale": {
+                    "type": "categorical"
                   },
-                  {
-                    "fieldName": "years_recruited",
-                    "displayName": "Years on campus",
-                    "type": "integer",
-                    "order": 2
-                  },
-                  {
-                    "fieldName": "presence_pct",
-                    "displayName": "Presence %",
-                    "type": "integer",
-                    "order": 3
-                  },
-                  {
-                    "fieldName": "last_seen_year",
-                    "displayName": "Last seen",
-                    "type": "integer",
-                    "order": 4
-                  },
-                  {
-                    "fieldName": "best_package_lpa",
-                    "displayName": "Best package (LPA)",
-                    "type": "float",
-                    "order": 5
-                  }
-                ]
+                  "displayName": "Company"
+                }
               },
               "frame": {
-                "title": "Who keeps coming back (historical recurrence, not a forecast)",
+                "title": "Who keeps coming back (years on campus, not a forecast)",
                 "showTitle": true
               }
             }
@@ -688,66 +638,12 @@
         },
         {
           "widget": {
-            "name": "bar_skill_edge",
-            "queries": [
-              {
-                "name": "main_query",
-                "query": {
-                  "datasetName": "ds_skill_edge",
-                  "fields": [
-                    {
-                      "name": "skill_name",
-                      "expression": "`skill_name`"
-                    },
-                    {
-                      "name": "lift_pct_points",
-                      "expression": "`lift_pct_points`"
-                    }
-                  ],
-                  "disaggregated": true
-                }
-              }
-            ],
-            "spec": {
-              "version": 3,
-              "widgetType": "bar",
-              "encodings": {
-                "x": {
-                  "fieldName": "lift_pct_points",
-                  "scale": {
-                    "type": "quantitative"
-                  },
-                  "displayName": "Points above campus average"
-                },
-                "y": {
-                  "fieldName": "skill_name",
-                  "scale": {
-                    "type": "categorical"
-                  },
-                  "displayName": "Skill"
-                }
-              },
-              "frame": {
-                "title": "Skills placed students held more often than campus",
-                "showTitle": true
-              }
-            }
+            "name": "method",
+            "textbox_spec": "**How to read this page.** *Who keeps coming back* counts the years a company ran a process on campus, out of every year in the dataset, and shows the twelve that came back most often — it describes the past and does not predict the next drive. Branch figures pool every year and are hidden below five students, so no individual is identifiable from this page."
           },
           "position": {
             "x": 0,
             "y": 27,
-            "width": 12,
-            "height": 7
-          }
-        },
-        {
-          "widget": {
-            "name": "method",
-            "textbox_spec": "**How to read this page.** *Who keeps coming back* counts the years a company ran a process on campus, out of every year in the dataset \u2014 it describes the past and does not predict the next drive. *Skills placed students held* compares how often a skill appears among students who received an offer against the campus-wide rate; it is a correlation, not a cause, and that panel is empty whenever the placement cell's own records are loaded, because those records carry no skills. Branch figures pool every year and are hidden below five students, so no individual is identifiable from this page."
-          },
-          "position": {
-            "x": 0,
-            "y": 34,
             "width": 12,
             "height": 3
           }

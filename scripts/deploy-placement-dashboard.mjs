@@ -28,8 +28,12 @@ import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SOURCE = join(root, "databricks/dashboards/placement_insights.lvdash.json");
-const WORKSPACE_PATH = "/Workspace/Shared/campusquest/dashboards/placement_insights.lvdash.json";
 const DISPLAY_NAME = "CampusQuest — Placement insights";
+// The file name has to match DISPLAY_NAME. Setting a display name renames the
+// workspace object, so importing to any other path is only idempotent once: the
+// next run finds nothing at the old path, creates a *second* dashboard, and then
+// fails renaming it into a name that is already taken.
+const WORKSPACE_PATH = `/Workspace/Shared/campusquest/dashboards/${DISPLAY_NAME}.lvdash.json`;
 
 const HOST = (process.env.DATABRICKS_HOST ?? "").replace(/\/$/, "");
 const TOKEN = process.env.DATABRICKS_TOKEN ?? "";
