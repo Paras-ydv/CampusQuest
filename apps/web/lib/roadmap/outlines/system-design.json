@@ -1,0 +1,737 @@
+{
+  "slug": "system-design",
+  "title": "System Design Roadmap",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "_hYN0gEi9BL24nptEtXWU",
+      "label": "Introduction",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "idLHBxhvcIqZTqmh_E8Az",
+          "label": "What is System Design?"
+        },
+        {
+          "nodeId": "os3Pa6W9SSNEzgmlBbglQ",
+          "label": "How to approach System Design?"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:MRD8SlWGmk8hoaZL6U690",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "tcGdVQsCEobdV9hgOq3eG",
+          "label": "CAP Theorem"
+        }
+      ]
+    },
+    {
+      "nodeId": "e_15lymUjFc6VWqzPnKxG",
+      "label": "Performance vs Scalability",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "O3wAHLnzrkvLWr4afHDdr",
+      "label": "Latency vs Throughput",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "uJc27BNAuP321HQNbjftn",
+      "label": "Availability vs Consistency",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "GHe8V-REu1loRpDnHbyUn",
+      "label": "Consistency Patterns",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "EKD5AikZtwjtsEYRPJhQ2",
+          "label": "Weak Consistency"
+        },
+        {
+          "nodeId": "rRDGVynX43inSeQ9lR_FS",
+          "label": "Eventual Consistency"
+        },
+        {
+          "nodeId": "JjB7eB8gdRCAYf5M0RcT7",
+          "label": "Strong Consistency"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:sM7epahS3ZKtTKcpC7aYw",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "L_jRfjvMGjFbHEbozeVQl",
+          "label": "Fail-Over"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:vJkqOyqXGa-aRjx3M1H-K",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "0RQ5jzZKdadYY0h_QZ0Bb",
+          "label": "Replication"
+        }
+      ]
+    },
+    {
+      "nodeId": "ezptoTqeaepByegxS5kHL",
+      "label": "Availability Patterns",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:urVudVWogiwLJMybuf7f8",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "uHdrZllrZFAnVkwIB3y5-",
+          "label": "Availability in Numbers"
+        }
+      ]
+    },
+    {
+      "nodeId": "DOESIlBThd_wp2uOSd_CS",
+      "label": "Background Jobs",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "NEsPjQifNDlZJE-2YLVl1",
+          "label": "Event-Driven"
+        },
+        {
+          "nodeId": "zoViI4kzpKIxpU20T89K_",
+          "label": "Schedule Driven"
+        }
+      ]
+    },
+    {
+      "nodeId": "Uk6J8JRcKVEFz4_8rLfnQ",
+      "label": "Domain Name System",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "2gRIstNT-fTkv5GZ692gx",
+          "label": "Returning Results"
+        },
+        {
+          "nodeId": "UKTiaHCzYXnrNw31lHriv",
+          "label": "Microservices"
+        }
+      ]
+    },
+    {
+      "nodeId": "O730v5Ww3ByAiBSs6fwyM",
+      "label": "Content Delivery Networks",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "HkXiEMLqxJoQyAHav3ccL",
+          "label": "Pull CDNs"
+        },
+        {
+          "nodeId": "uIerrf_oziiLg-KEyz8WM",
+          "label": "Push CDNs"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:Abp4pD1x7gM8zFInV-6SK",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "KFtdmmce4bRkDyvFXZzLN",
+          "label": "Key-Value Store"
+        },
+        {
+          "nodeId": "didEznSlVHqqlijtyOSr3",
+          "label": "Document Store"
+        },
+        {
+          "nodeId": "WHq1AdISkcgthaugE9uY7",
+          "label": "Wide Column Store"
+        },
+        {
+          "nodeId": "6RLgnL8qLBzYkllHeaI-Z",
+          "label": "Graph Databases"
+        }
+      ]
+    },
+    {
+      "nodeId": "XXuzTrP5UNVwSpAk-tAGr",
+      "label": "Application Layer",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "Nt0HUWLOl4O77elF8Is1S",
+          "label": "Service Discovery"
+        }
+      ]
+    },
+    {
+      "nodeId": "14KqLKgh090Rb3MDwelWY",
+      "label": "Load Balancers",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "ocdcbhHrwjJX0KWgmsOL6",
+          "label": "LB vs Reverse Proxy"
+        },
+        {
+          "nodeId": "urSjLyLTE5IIz0TFxMBWL",
+          "label": "Load Balancing Algorithms"
+        },
+        {
+          "nodeId": "e69-JVbDj7dqV_p1j1kML",
+          "label": "Layer 7 Load Balancing"
+        },
+        {
+          "nodeId": "MpM9rT1-_LGD7YbnBjqOk",
+          "label": "Layer 4 Load Balancing"
+        },
+        {
+          "nodeId": "IkUCfSWNY-02wg2WCo1c6",
+          "label": "Horizontal Scaling"
+        }
+      ]
+    },
+    {
+      "nodeId": "5FXwwRMNBhG7LT5ub6t2L",
+      "label": "Databases",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "KLnpMR2FxlQkCHZP6-tZm",
+          "label": "SQL vs NoSQL"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:FWDXTm_Fu7E2X0r6L4xkf",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "dc-aIbBwUdlwgwQKGrq49",
+          "label": "Replication"
+        },
+        {
+          "nodeId": "FX6dcV_93zOfbZMdM_-li",
+          "label": "Sharding"
+        },
+        {
+          "nodeId": "DGmVRI7oWdSOeIUn_g0rI",
+          "label": "Federation"
+        },
+        {
+          "nodeId": "Zp9D4--DgtlAjE2nIfaO_",
+          "label": "Denormalization"
+        },
+        {
+          "nodeId": "fY8zgbB13wxZ1CFtMSdZZ",
+          "label": "SQL Tuning"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:vwomvb6mMBiKcd9jg7iWI",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "Bgqgl67FK56ioLNFivIsc",
+          "label": "Refresh Ahead"
+        },
+        {
+          "nodeId": "vNndJ-MWetcbaF2d-3-JP",
+          "label": "Write-behind"
+        },
+        {
+          "nodeId": "RNITLR1FUQWkRbSBXTD_z",
+          "label": "Write-through"
+        },
+        {
+          "nodeId": "bffJlvoLHFldS0CluWifP",
+          "label": "Cache Aside"
+        }
+      ]
+    },
+    {
+      "nodeId": "-X4g8kljgVBOBcf1DDzgi",
+      "label": "Caching",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "84N4XY31PwXRntXX1sdCU",
+      "label": "Asynchronism",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "YiYRZFE_zwPMiCZxz9FnP",
+          "label": "Back Pressure"
+        },
+        {
+          "nodeId": "a9wGW_H1HpvvdYCXoS-Rf",
+          "label": "Task Queues"
+        },
+        {
+          "nodeId": "37X1_9eCmkZkz5RDudE5N",
+          "label": "Message Queues"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:rLSI7a7h09MxAXM86LfpN",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "RHNRb6QWiGvCK3KQOPK3u",
+          "label": "Client Caching"
+        },
+        {
+          "nodeId": "Kisvxlrjb7XnKFCOdxRtb",
+          "label": "CDN Caching"
+        },
+        {
+          "nodeId": "o532nPnL-d2vXJn9k6vMl",
+          "label": "Web Server Caching"
+        },
+        {
+          "nodeId": "BeIg4jzbij2cwc_a_VpYG",
+          "label": "Database Caching"
+        },
+        {
+          "nodeId": "5Ux_JBDOkflCaIm4tVBgO",
+          "label": "Application Caching"
+        }
+      ]
+    },
+    {
+      "nodeId": "uQFzD_ryd-8Dr1ppjorYJ",
+      "label": "Communication",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "I_nR6EwjNXSG7_hw-_VhX",
+          "label": "HTTP"
+        },
+        {
+          "nodeId": "2nF5uC6fYKbf0RFgGNHiP",
+          "label": "TCP"
+        },
+        {
+          "nodeId": "LC5aTmUKNiw9RuSUt3fSE",
+          "label": "UDP"
+        }
+      ]
+    },
+    {
+      "nodeId": "3pRi8M4xQXsehkdfUNtYL",
+      "label": "Idempotent Operations",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:O3b90NuLijJq9a-WuPXDs",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "ixqucoAkgnphWYAFnsMe-",
+          "label": "RPC"
+        },
+        {
+          "nodeId": "Hw2v1rCYn24qxBhhmdc28",
+          "label": "gRPC"
+        },
+        {
+          "nodeId": "6-bgmfDTAQ9zABhpmVoHV",
+          "label": "REST"
+        },
+        {
+          "nodeId": "jwv2g2Yeq-6Xv5zSd746R",
+          "label": "GraphQL"
+        }
+      ]
+    },
+    {
+      "nodeId": "p--uEm6klLx_hKxKJiXE5",
+      "label": "Performance Antipatterns",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "hxiV2uF7tvhZKe4K-4fTn",
+          "label": "Busy Database"
+        },
+        {
+          "nodeId": "lwMs4yiUHF3nQwcvauers",
+          "label": "Improper Instantiation"
+        },
+        {
+          "nodeId": "i_2M3VloG-xTgWDWp4ngt",
+          "label": "Busy Frontend"
+        },
+        {
+          "nodeId": "p1QhCptnwzTGUXVMnz_Oz",
+          "label": "Monolithic Persistence"
+        },
+        {
+          "nodeId": "0IzQwuYi_E00bJwxDuw2B",
+          "label": "Chatty I/O"
+        },
+        {
+          "nodeId": "r7uQxmurvfsYtTCieHqly",
+          "label": "Noisy Neighbor"
+        },
+        {
+          "nodeId": "Ihnmxo_bVgZABDwg1QGGk",
+          "label": "Synchronous I/O"
+        }
+      ]
+    },
+    {
+      "nodeId": "hDFYlGFYwcwWXLmrxodFX",
+      "label": "Monitoring",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "hkjYvLoVt9xKDzubm0Jy3",
+          "label": "Health Monitoring"
+        },
+        {
+          "nodeId": "LNmAJmh2ndFtOQIpvX_ga",
+          "label": "Retry Storm"
+        },
+        {
+          "nodeId": "rVrwaioGURvrqNBufF2dj",
+          "label": "Availability Monitoring"
+        },
+        {
+          "nodeId": "klvHk1_e03Jarn5T46QNi",
+          "label": "No Caching"
+        },
+        {
+          "nodeId": "6u3XmtJFWyJnyZUnJcGYb",
+          "label": "Extraneous Fetching"
+        },
+        {
+          "nodeId": "x1i3qWFtNNjd00-kAvFHw",
+          "label": "Performance Monitoring"
+        },
+        {
+          "nodeId": "I_NfmDcBph8-oyFVFTknL",
+          "label": "Security Monitoring"
+        },
+        {
+          "nodeId": "eSZq74lROh5lllLyTBK5a",
+          "label": "Usage Monitoring"
+        },
+        {
+          "nodeId": "Q0fKphqmPwjTD0dhqiP6K",
+          "label": "Instrumentation"
+        },
+        {
+          "nodeId": "IwMOTpsYHApdvHZOhXtIw",
+          "label": "Visualization & Alerts"
+        }
+      ]
+    },
+    {
+      "nodeId": "THlzcZTNnPGLRiHPWT-Jv",
+      "label": "Cloud Design Patterns",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "PtJ7-v1VCLsyaWWYHYujV",
+      "label": "Design & Implementation",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "VIbXf7Jh9PbQ9L-g6pHUG",
+          "label": "Strangler Fig"
+        },
+        {
+          "nodeId": "AAgOGrra5Yz3_eG6tD2Fx",
+          "label": "Sidecar"
+        },
+        {
+          "nodeId": "izPT8NfJy1JC6h3i7GJYl",
+          "label": "Static Content Hosting"
+        },
+        {
+          "nodeId": "beWKUIB6Za27yhxQwEYe3",
+          "label": "Leader Election"
+        },
+        {
+          "nodeId": "ivr3mh0OES5n86FI1PN4N",
+          "label": "CQRS"
+        },
+        {
+          "nodeId": "WkoFezOXLf1H2XI9AtBtv",
+          "label": "Pipes & Filters"
+        },
+        {
+          "nodeId": "Hja4YF3JcgM6CPwB1mxmo",
+          "label": "Ambassador"
+        },
+        {
+          "nodeId": "LXH_mDlILqcyIKtMYTWqy",
+          "label": "Gateway Routing"
+        },
+        {
+          "nodeId": "0SOWAA8hrLM-WsG5k66fd",
+          "label": "Gateway Offloading"
+        },
+        {
+          "nodeId": "bANGLm_5zR9mqMd6Oox8s",
+          "label": "Gateway Aggregation"
+        },
+        {
+          "nodeId": "BrgXwf7g2F-6Rqfjryvpj",
+          "label": "External Config Store"
+        },
+        {
+          "nodeId": "ODjVoXnvJasPvCS2A5iMO",
+          "label": "Compute Resource Consolidation"
+        },
+        {
+          "nodeId": "n4It-lr7FFtSY83DcGydX",
+          "label": "Backends for Frontend"
+        },
+        {
+          "nodeId": "4hi7LvjLcv8eR6m-uk8XQ",
+          "label": "Anti-Corruption Layer"
+        }
+      ]
+    },
+    {
+      "nodeId": "W0cUCrhiwH_Nrzxw50x3L",
+      "label": "Data Management",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "dsWpta3WIBvv2K9pNVPo0",
+      "label": "Messaging",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "VgvUWAC6JYFyPZKBRoEqf",
+          "label": "Sequential Convoy"
+        },
+        {
+          "nodeId": "uR1fU6pm7zTtdBcNgSRi4",
+          "label": "Scheduling Agent Supervisor"
+        },
+        {
+          "nodeId": "LncTxPg-wx8loy55r5NmV",
+          "label": "Queue-Based Load Leveling"
+        },
+        {
+          "nodeId": "2ryzJhRDTo98gGgn9mAxR",
+          "label": "Publisher/Subscriber"
+        },
+        {
+          "nodeId": "DZcZEOi7h3u0744YhASet",
+          "label": "Priority Queue"
+        },
+        {
+          "nodeId": "siXdR3TB9-4wx_qWieJ5w",
+          "label": "Pipes and Filters"
+        },
+        {
+          "nodeId": "9Ld07KLOqP0ICtXEjngYM",
+          "label": "Competing Consumers"
+        },
+        {
+          "nodeId": "aCzRgUkVBvtHUeLU6p5ZH",
+          "label": "Choreography"
+        },
+        {
+          "nodeId": "kl4upCnnZvJSf2uII1Pa0",
+          "label": "Claim Check"
+        },
+        {
+          "nodeId": "eNFNXPsFiryVxFe4unVxk",
+          "label": "Async Request Reply"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:UQKMEfR6t72oqk0qTfYi9",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "stZOcr8EUBOK_ZB48uToj",
+          "label": "Valet Key"
+        },
+        {
+          "nodeId": "-lKq-LT7EPK7r3xbXLgwS",
+          "label": "Static Content Hosting"
+        },
+        {
+          "nodeId": "R6YehzA3X6DDo6oGBoBAx",
+          "label": "Sharding"
+        },
+        {
+          "nodeId": "WB7vQ4IJ0TPh2MbZvxP6V",
+          "label": "Materialized View"
+        },
+        {
+          "nodeId": "AH0nVeVsfYOjcI3vZvcdz",
+          "label": "Index Table"
+        },
+        {
+          "nodeId": "7OgRKlwFqrk3XO2z49EI1",
+          "label": "Event Sourcing"
+        },
+        {
+          "nodeId": "LTD3dn05c0ruUJW0IQO7z",
+          "label": "CQRS"
+        },
+        {
+          "nodeId": "PK4V9OWNVi8StdA2N13X2",
+          "label": "Cache-Aside"
+        }
+      ]
+    },
+    {
+      "nodeId": "DYkdM_L7T2GcTPAoZNnUR",
+      "label": "Reliability Patterns",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "Xzkvf4naveszLGV9b-8ih",
+      "label": "Availability",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "FPPJw-I1cw8OxKwmDh0dT",
+          "label": "Deployment Stamps"
+        },
+        {
+          "nodeId": "6YVkguDOtwveyeP4Z1NL3",
+          "label": "Throttling"
+        },
+        {
+          "nodeId": "Ml9lPDGjRAJTHkBnX51Un",
+          "label": "Geodes"
+        },
+        {
+          "nodeId": "cNJQoMNZmxNygWAJIA8HI",
+          "label": "Health Endpoint Monitoring"
+        },
+        {
+          "nodeId": "-M3Zd8w79sKBAY6_aJRE8",
+          "label": "Queue-Based Load Leveling"
+        }
+      ]
+    },
+    {
+      "nodeId": "wPe7Xlwqws7tEpTAVvYjr",
+      "label": "High Availability",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "Ze471tPbAwlwZyU4oIzH9",
+          "label": "Deployment Stamps"
+        },
+        {
+          "nodeId": "6hOSEZJZ7yezVN67h5gmS",
+          "label": "Geodes"
+        },
+        {
+          "nodeId": "IR2_kgs2U9rnAJiDBmpqK",
+          "label": "Bulkhead"
+        }
+      ]
+    },
+    {
+      "nodeId": "wlAWMjxZF6yav3ZXOScxH",
+      "label": "Resiliency",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "PLn9TF9GYnPcbpTdDMQbG",
+          "label": "Bulkhead"
+        },
+        {
+          "nodeId": "O4zYDqvVWD7sMI27k_0Nl",
+          "label": "Circuit Breaker"
+        },
+        {
+          "nodeId": "MNlWNjrG8eh5OzPVlbb9t",
+          "label": "Compensating Transaction"
+        },
+        {
+          "nodeId": "CKCNk3obx4u43rBqUj2Yf",
+          "label": "Health Endpoint Monitoring"
+        },
+        {
+          "nodeId": "AJLBFyAsEdQYF6ygO0MmQ",
+          "label": "Leader Election"
+        },
+        {
+          "nodeId": "NybkOwl1lgaglZPRJQJ_Z",
+          "label": "Queue-Based Load Leveling"
+        },
+        {
+          "nodeId": "xX_9VGUaOkBYFH3jPjnww",
+          "label": "Retry "
+        },
+        {
+          "nodeId": "RTEJHZ26znfBLrpQPtNvn",
+          "label": "Scheduler Agent Supervisor"
+        }
+      ]
+    },
+    {
+      "nodeId": "ZvYpE6-N5dAtRDIwqcAu6",
+      "label": "Security",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "uK5o7NgDvr2pV0ulF0Fh9",
+          "label": "Health Endpoint Monitoring"
+        },
+        {
+          "nodeId": "D1OmCoqvd3-_af3u0ciHr",
+          "label": "Circuit Breaker"
+        },
+        {
+          "nodeId": "lHPl-kr1ArblR7bJeQEB9",
+          "label": "Federated Identity"
+        },
+        {
+          "nodeId": "DTQJu0AvgWOhMFcOYqzTD",
+          "label": "Gatekeeper"
+        },
+        {
+          "nodeId": "VltZgIrApHOwZ8YHvdmHB",
+          "label": "Valet Key"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,741 @@
+{
+  "slug": "git-github",
+  "title": "Learn Git and GitHub",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "section:CK9zYMrsw7Rl1ux4PU5wl",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "1iOkbO5juk2LO-WZHx_W6",
+          "label": "git init"
+        },
+        {
+          "nodeId": "NMCWgzhhfUvFOMO5GbF_u",
+          "label": "git config"
+        },
+        {
+          "nodeId": "tVvxC5JQgUb_B8kOqYpD8",
+          "label": "Local vs Global Config"
+        },
+        {
+          "nodeId": "Sv36oxTZwlUv-i1K28NeP",
+          "label": "Working Directory"
+        },
+        {
+          "nodeId": "h71Tx3nkfUrnhaqcHlDkQ",
+          "label": "Staging Area"
+        },
+        {
+          "nodeId": "2_z3R7seCvQVj-Na4H1SV",
+          "label": "Committing Changes"
+        }
+      ]
+    },
+    {
+      "nodeId": "HlUUGj3dOZ68t4gIjerXh",
+      "label": "Learn the Basics",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "bY6b1GV2XQQ52NOx8gWFj",
+          "label": "What is Version Control?"
+        },
+        {
+          "nodeId": "dhIx1GnynvbSUriqYLUt0",
+          "label": "Why use Version Control?"
+        },
+        {
+          "nodeId": "_jSTrYN9G8EsGHkbusKPU",
+          "label": "Git vs Other VCS"
+        },
+        {
+          "nodeId": "v7hCNbgPByi3YiLSs46BK",
+          "label": "Installing Git Locally"
+        }
+      ]
+    },
+    {
+      "nodeId": "PtU5Qwfzn3N1i3oRlCGoR",
+      "label": "What is a Repository",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "1Koej79yTv-OAswVZwgGq",
+          "label": "Cloning Repositories"
+        },
+        {
+          "nodeId": "sBQOInoFBU9XfkPZ-JlyT",
+          "label": "Managing Remotes"
+        }
+      ]
+    },
+    {
+      "nodeId": "bXfCUG3h1TIFPgD4WUDph",
+      "label": "Branching Basics",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "OegitQ5Ngjvd3ZfMpfrkM",
+          "label": "Creating Branch"
+        },
+        {
+          "nodeId": "_dPOVUbxApx0pfKPH8fgr",
+          "label": "Renaming Branch"
+        },
+        {
+          "nodeId": "1uDenoQ6zu7CT69FR2iQB",
+          "label": "Deleting Branch"
+        }
+      ]
+    },
+    {
+      "nodeId": "aWx9WHUrgofcTr8B-fQYe",
+      "label": "Git Remotes",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "ZVMCh9om37ee1qsecFa-N",
+          "label": "Pushing / Pulling Changes"
+        },
+        {
+          "nodeId": "Gybnekbd1rJKTOf4hJ4Sh",
+          "label": "Fetch without Merge"
+        },
+        {
+          "nodeId": "oz2oRAhaEQb0Fm3aRJQG8",
+          "label": ".gitignore"
+        },
+        {
+          "nodeId": "IfUm5D_zNaUKMd4HX4Fi4",
+          "label": "Viewing Commit History"
+        }
+      ]
+    },
+    {
+      "nodeId": "NeSvgS2yA5x8qbcJHrV__",
+      "label": "GitHub Essentials",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "PtRo-wGiNAagZ6CykfvMr",
+          "label": "Checkout Branch"
+        },
+        {
+          "nodeId": "sNuy6NMjLOEkJlqdEjFPq",
+          "label": "Merging Basics"
+        },
+        {
+          "nodeId": "i7fIIHcBEk473te8bniJ5",
+          "label": "Creating Account"
+        },
+        {
+          "nodeId": "qZFtRABvlBbVvsy6T00J2",
+          "label": "GitHub Interface"
+        },
+        {
+          "nodeId": "GS3f1FKFVKT0-GJQrgCm8",
+          "label": "Setting up Profile"
+        },
+        {
+          "nodeId": "KbVvFVQ4k77R2_ddsc7WT",
+          "label": "Profile Readme"
+        },
+        {
+          "nodeId": "c_FO6xMixrrMo6iisfsvl",
+          "label": "Creating Repositories"
+        },
+        {
+          "nodeId": "7lRUYWNSpHvJ-QyIE8RMa",
+          "label": "Commit Messages"
+        }
+      ]
+    },
+    {
+      "nodeId": "0rHDUbAdXqH9zQW2VfJ8v",
+      "label": "Merge Strategies",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "agtPWS8j6i6wQPk10cy8E",
+          "label": "Fast-Forward vs Non-FF"
+        },
+        {
+          "nodeId": "99FVJ3Zs8n6lr8L95mG6g",
+          "label": "Rebase"
+        },
+        {
+          "nodeId": "Z-srOhYFGVEKDexlJ6cjt",
+          "label": "Squash"
+        },
+        {
+          "nodeId": "9Dt4Gyiiq5jteWSKxsRMK",
+          "label": "Handling Conflicts"
+        },
+        {
+          "nodeId": "eFf2fesrs-1aVM5tH3ORQ",
+          "label": "Cherry Picking Commits"
+        },
+        {
+          "nodeId": "l1Wf7Pe_ah8ycCgslfSK4",
+          "label": "Forking vs Cloning"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:uDsTnM22jHuGBvJfRgv9v",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "dQS1V0zZxeKhHhUo3STBK",
+          "label": "Saved Replies"
+        },
+        {
+          "nodeId": "oWMaOWU06juoIuzXNe-wt",
+          "label": "Mentions"
+        },
+        {
+          "nodeId": "XstmIysIi_lWo6RzszLBt",
+          "label": "Reactions"
+        }
+      ]
+    },
+    {
+      "nodeId": "d_GNnB6PBINz1jxGNWAE-",
+      "label": "Collaboration on GitHub",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "crdllx5cH_seIpgVPvHg_",
+          "label": "Issues"
+        },
+        {
+          "nodeId": "8lXXVFkgK6n5IHaYkYe3l",
+          "label": "PR from a Fork"
+        },
+        {
+          "nodeId": "x6eILrLCQrVpz4j8uOuy6",
+          "label": "Pull Requests"
+        },
+        {
+          "nodeId": "r-u1vTpUyuvsB0revOU0C",
+          "label": "Collaborators"
+        },
+        {
+          "nodeId": "y4DkB5NvTh41IeT0G2gr-",
+          "label": "Labelling Issues / PRs"
+        }
+      ]
+    },
+    {
+      "nodeId": "D2WIExwfSnkAPIa5O-Hp5",
+      "label": "Documentation",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "HEqBbw_A4ZbJI5zEy8ViN",
+          "label": "Private vs Public"
+        },
+        {
+          "nodeId": "1Ulxl4VUvRSfyCPpi-iv8",
+          "label": "Markdown"
+        },
+        {
+          "nodeId": "ks1Pip-RM-UWD6zuF2j4n",
+          "label": "Branch Naming"
+        },
+        {
+          "nodeId": "WIVr7JxO1AJTNObW8mtY3",
+          "label": "Project Readme"
+        },
+        {
+          "nodeId": "GwDNk2HBjASr_NWIL4G3-",
+          "label": "PR Guidelines"
+        },
+        {
+          "nodeId": "lONqOqD-4slxa9B5i9ADX",
+          "label": "GitHub Wikis"
+        },
+        {
+          "nodeId": "Ddkss13_qDJTquDHbVTVs",
+          "label": "CITATION files"
+        },
+        {
+          "nodeId": "xLB2fhsOm0Vu3xg_PusJB",
+          "label": "Code Reviews"
+        }
+      ]
+    },
+    {
+      "nodeId": "X9K3PBpGsMoXkJsKdJPI7",
+      "label": "Git Stash Basics",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "snWQHCQECZyUXHdn6ppIk",
+          "label": "GitHub Discussions"
+        }
+      ]
+    },
+    {
+      "nodeId": "DzFJDdqnSy5GeGHWOpcVo",
+      "label": "GitHub Projects",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "pJ-najh7dXhhYA_0bDiR5",
+          "label": "Contribution Guidelines"
+        },
+        {
+          "nodeId": "i3AbARgzQtxtlB-1AS8zv",
+          "label": "Clean Git History"
+        },
+        {
+          "nodeId": "q0zy_hXav5iXw8LpGVJVd",
+          "label": "Project Planning"
+        },
+        {
+          "nodeId": "RFJgfuxoVxt22QlwLI5mW",
+          "label": "Kanban Boards"
+        }
+      ]
+    },
+    {
+      "nodeId": "yMx3LdadPz4g25CL3N8da",
+      "label": "Working in a Team",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "_ft-uvXt6s_xrcMT3fbSF",
+          "label": "Collaborators / Members"
+        },
+        {
+          "nodeId": "RMrxQLhrINO5g4Mhxh5qS",
+          "label": "GitHub Organizations"
+        },
+        {
+          "nodeId": "wydgCxR5VnieBpRolXt8i",
+          "label": "Teams within Organization"
+        }
+      ]
+    },
+    {
+      "nodeId": "zen3RRdK9_nPAYgicRoHk",
+      "label": "History",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "lXC07j6dOa3rQixY1P-Ob",
+          "label": "Linear vs Non-Linear"
+        },
+        {
+          "nodeId": "V8nLIvddyOKTzEjOJX5GW",
+          "label": "HEAD"
+        },
+        {
+          "nodeId": "0cLf7FiI9CX--UX45sm2f",
+          "label": "Detached HEAD"
+        },
+        {
+          "nodeId": "qFEonbCMLri8iA0yONwuf",
+          "label": "git log options"
+        }
+      ]
+    },
+    {
+      "nodeId": "0Yi4cryT2v2SGBjouOas3",
+      "label": "Undoing Changes",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "dLr55Om7IOvI53c1DgTKc",
+          "label": "git revert"
+        },
+        {
+          "nodeId": "Uc7FyfAKpDFRGRNHwztFo",
+          "label": "--soft"
+        },
+        {
+          "nodeId": "V_joZNpQsS9G9PI-o-GmC",
+          "label": "--hard"
+        },
+        {
+          "nodeId": "igrR7LguU1jemg_mf_AD6",
+          "label": "git reset"
+        },
+        {
+          "nodeId": "qis7Z5VRxMcOmbesQlegZ",
+          "label": "--mixed"
+        }
+      ]
+    },
+    {
+      "nodeId": "-0zQvCHG8jS_ghSjmTeIx",
+      "label": "Viewing Diffs",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "sxvT2hGko2PDRBoBrCGWD",
+          "label": "Roadmaps"
+        },
+        {
+          "nodeId": "TNBz5755PhI6iKxTQTqcS",
+          "label": "Automations"
+        },
+        {
+          "nodeId": "Rwpeltygwzcf6hnuZNURE",
+          "label": "Between Commits"
+        },
+        {
+          "nodeId": "O-zoAWkDvyn7B8_TmY257",
+          "label": "Between Branches"
+        },
+        {
+          "nodeId": "mzjtCdpke1ayHcEuS-YUS",
+          "label": "Staged Changes"
+        },
+        {
+          "nodeId": "uxqJzQFRcALqatNRIWR0w",
+          "label": "Unstaged Changes"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:e5O8lUSSEOEFR-dlZV5wN",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "jzYjHx-gIKSP8dQUTqWVw",
+          "label": "commit-msg"
+        },
+        {
+          "nodeId": "SANEQI2rgOtsMQyn4qUCq",
+          "label": "post-checkout"
+        },
+        {
+          "nodeId": "buxb5TpzQ-xxn0vqtGdS3",
+          "label": "post-update"
+        },
+        {
+          "nodeId": "HhpAIzYMlMiQ9msrYZyDB",
+          "label": "pre-commit"
+        },
+        {
+          "nodeId": "j5kWEUKwBFg5EMm8-61K9",
+          "label": "pre-push"
+        }
+      ]
+    },
+    {
+      "nodeId": "sOoC-XxEoIvwKct00oKlX",
+      "label": "Rewriting History",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "NjPnEXLf1Lt9qzgxccogv",
+          "label": "git commit --amend"
+        },
+        {
+          "nodeId": "HMEfUFNu_Wp_Pac7VWHr-",
+          "label": "git rebase"
+        },
+        {
+          "nodeId": "BKVA6Q7DXemAYjyQOA0nh",
+          "label": "git filter-branch"
+        },
+        {
+          "nodeId": "OQOmxg9mCfcjt80hpvXkA",
+          "label": "git push --force"
+        }
+      ]
+    },
+    {
+      "nodeId": "fjAFNjNNbPOzme9Uk_fDV",
+      "label": "Submodules",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "d0-u_-_vtPK8tnUpnj_NB",
+          "label": "What and Why use?"
+        },
+        {
+          "nodeId": "x4bnsPVTiX2xOCSyrgWpF",
+          "label": "Adding / Updating"
+        }
+      ]
+    },
+    {
+      "nodeId": "sFf1PdFfmEdQxsEntfeFq",
+      "label": "Git Patch",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "pqBV7BMAs0z6qpfZeW2XP",
+      "label": "Git hooks",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "v7uabKuMQPOD_hBIaHOVT",
+          "label": "What and Why?"
+        },
+        {
+          "nodeId": "zsU6R2zvJKnYNU2ac4o4p",
+          "label": "Client vs Server Hooks"
+        }
+      ]
+    },
+    {
+      "nodeId": "iFJBF-EEnLjQVsFSXjo_i",
+      "label": "Tagging",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "NeU38WPbEphJuJ_AMkH82",
+          "label": "Managing Tags"
+        },
+        {
+          "nodeId": "E3HAGNM-kXLL4Oci5JzpQ",
+          "label": "Pushing Tags"
+        },
+        {
+          "nodeId": "62E1tDMXB6K74OEN0WsS0",
+          "label": "Checkout Tags"
+        },
+        {
+          "nodeId": "Ni3HKVLanFvSrJ3u8i5I1",
+          "label": "What are these?"
+        },
+        {
+          "nodeId": "YmnTrjJtqHPXbEVrP8vd7",
+          "label": "GitHub Releases"
+        }
+      ]
+    },
+    {
+      "nodeId": "AmetdCURXXob5TUsikAab",
+      "label": "GitHub Actions",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "PUnYNBrAZWoZiopjtNgnA",
+          "label": "Usecases"
+        },
+        {
+          "nodeId": "p6rq3lQ9YRrTqwcc31O23",
+          "label": "YAML Syntax"
+        },
+        {
+          "nodeId": "55uHPFNwYPVZx8Cy3c985",
+          "label": "Workflow Triggers"
+        },
+        {
+          "nodeId": "uS1H9KoKGNONvETCuFBbz",
+          "label": "Scheduled Worfklows"
+        },
+        {
+          "nodeId": "6QwlY3dEvjfAOPALcWKXQ",
+          "label": "Workflow Runners"
+        },
+        {
+          "nodeId": "BnPiTu1Jw2kIW560a2A5T",
+          "label": "Workflow Context"
+        }
+      ]
+    },
+    {
+      "nodeId": "h9cf_dh_pwjialOXOlNW-",
+      "label": "GitHub CLI",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "hru0sL1-D4bJSQI1efEyU",
+          "label": "Git Reflog"
+        },
+        {
+          "nodeId": "vHfpoVbOW0DHNtiy0VN4X",
+          "label": "Installation and Setup"
+        },
+        {
+          "nodeId": "ExXuwTQSI_lg4SRGW3Iu1",
+          "label": "Git Bisect"
+        },
+        {
+          "nodeId": "lw4zHuhtxIO4kDvbyiVfq",
+          "label": "Repository management"
+        },
+        {
+          "nodeId": "kGnZifvXbHBf5zXIsfAQw",
+          "label": "Issue Management"
+        },
+        {
+          "nodeId": "s3MzDYFPMASqiS8UnvWzW",
+          "label": "Pull Requests"
+        }
+      ]
+    },
+    {
+      "nodeId": "5Oax1p7zIZ9HD2hmENPof",
+      "label": "Creating Apps",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "Y0EWgPsS4kZxH3y53jNxY",
+          "label": "Use in Automation"
+        },
+        {
+          "nodeId": "560GJXFTt7DPdJjKtSDOo",
+          "label": "GitHub Apps"
+        },
+        {
+          "nodeId": "qrdOARfqGPF9xhF6snbAn",
+          "label": "OAuth Apps"
+        }
+      ]
+    },
+    {
+      "nodeId": "NV2HAXLEN7tskfgyFrbaf",
+      "label": "GitHub API",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "4dxVN81rXWn6VZqK99yq0",
+          "label": "Git Worktree"
+        },
+        {
+          "nodeId": "CGj_UX5JMOOCKinedsNRc",
+          "label": "Git Attributes"
+        },
+        {
+          "nodeId": "zdunaucVe8J1tKf_z-NQo",
+          "label": "Git LFS"
+        },
+        {
+          "nodeId": "lSCnKhmRr6xrKVYxO8idD",
+          "label": "REST API"
+        },
+        {
+          "nodeId": "KlXPt-K6br8PtpLgELaCj",
+          "label": "GraphQL API"
+        }
+      ]
+    },
+    {
+      "nodeId": "MoG7D9kqPuA6o52-z_WDN",
+      "label": "Webhooks",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "aflP7oWsQzAr4YPo2LLiQ",
+          "label": "Secrets and Env Vars"
+        },
+        {
+          "nodeId": "HMNhzzV6ApTKj4I_FOmUB",
+          "label": "Caching Dependencies"
+        },
+        {
+          "nodeId": "alysXC4b1hGi9ZdQ5-40y",
+          "label": "Storing Artifacts"
+        },
+        {
+          "nodeId": "jc4R1zhd1YeCEbVuxwJWy",
+          "label": "Workflow Status"
+        },
+        {
+          "nodeId": "SsogoCgJIbeTD6tk8UhTe",
+          "label": "Marketplace Actions"
+        },
+        {
+          "nodeId": "ZHplGidvhxEIC3HN8KqRa",
+          "label": "Deploying Static Websites"
+        }
+      ]
+    },
+    {
+      "nodeId": "iWn3zDMOfLLjSp6f1jQoE",
+      "label": "GitHub Copilot",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "M2_hBvXou7cCNqsMnexCt",
+      "label": "GitHub Gists",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "4slyjdk2Eeg5VYY6gCDG6",
+      "label": "GitHub Models",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "rqPCHh25xX_ROMr-ULpaw",
+      "label": "GitHub Packages",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "bnai6R6pOq_L5CPdbVwMW",
+      "label": "GitHub Pages",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "VdoxEWaU56-QCbHFRw649",
+          "label": "Custom Domains"
+        },
+        {
+          "nodeId": "iwfNYDlAgbA_rpWYcoHCC",
+          "label": "Static Site Generators"
+        }
+      ]
+    },
+    {
+      "nodeId": "R20LXLLEzNn-SpyFDMRXj",
+      "label": "GitHub Marketplace",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "NdfwgwMOewiyEAFyC2l7U",
+      "label": "GitHub Codespaces",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "pFyMiyNQ16-kP7jKaKKEU",
+      "label": "GitHub Education",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "XRSVRl6iHncMmgSXoB7Lq",
+          "label": "Student Developer Pack"
+        },
+        {
+          "nodeId": "Pg6G4fzYb_RUhANeRKlRX",
+          "label": "GitHub Classroom"
+        },
+        {
+          "nodeId": "B1KiSOt2b8t8FYD7Jxw2A",
+          "label": "Campus Program"
+        }
+      ]
+    },
+    {
+      "nodeId": "f2PG4t6iVtfIH8BVe5H7f",
+      "label": "GitHub Security",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "vhdGUhMAyre_Xya6IxZ-t",
+      "label": "GitHub Sponsors",
+      "hasBody": true,
+      "subtopics": []
+    }
+  ]
+}

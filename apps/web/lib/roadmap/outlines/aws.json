@@ -1,0 +1,485 @@
+{
+  "slug": "aws",
+  "title": "AWS Roadmap",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "Py9nst2FDJ1_hoXeX_qSF",
+      "label": "Introduction",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "74JxgfJ_1qmVNZ_QRp9Ne",
+          "label": "What is Cloud Computing?"
+        },
+        {
+          "nodeId": "i4ijY3T5gLgNz0XqRipXe",
+          "label": "IaaS vs PaaS vs SaaS"
+        },
+        {
+          "nodeId": "3hatcMVLDbMuz73uTx-9P",
+          "label": "Public vs Private vs Hybrid Cloud"
+        },
+        {
+          "nodeId": "Dg1v9TV-wGSNLPfAals_y",
+          "label": "Introduction to AWS"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:UUo6bRfaJCrawShMMcduC",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "z9R1BWUGalmnw0E7QqiW6",
+          "label": "AWS Global Infrastructure"
+        },
+        {
+          "nodeId": "0flGtxZmxQKxO3c3sguwp",
+          "label": "Shared Responsibility Model"
+        },
+        {
+          "nodeId": "eKuC7VmkGVYFnbC2Rvn8D",
+          "label": "Well Architected Framework"
+        }
+      ]
+    },
+    {
+      "nodeId": "cL7vis8H5L2vv6LqJ5wvC",
+      "label": "EC2",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "VHD2ISW9WoSWjp8Hh6Zft",
+          "label": "Instance Types"
+        },
+        {
+          "nodeId": "_U2bKjxIrAAk7TMrPttpb",
+          "label": "CPU Credits"
+        },
+        {
+          "nodeId": "A0u7CJwj5ULAMiAm12vZI",
+          "label": "Storage / Volumes"
+        },
+        {
+          "nodeId": "wFT-fddGn__DRoqG0joFk",
+          "label": "Keypairs"
+        },
+        {
+          "nodeId": "DCvkZSp25pjaimG0THLTu",
+          "label": "Elastic IP"
+        },
+        {
+          "nodeId": "ZKjjgXZ89zV2atWcSal-s",
+          "label": "User Data Scripts"
+        },
+        {
+          "nodeId": "8v9T6Y6JC7qaqIgkbT-nr",
+          "label": "Purchasing Options"
+        }
+      ]
+    },
+    {
+      "nodeId": "Sv2aT8eI1RvJhvoKVYQEX",
+      "label": "VPC",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "2hFBv2fhKDYBN-9ITs82J",
+          "label": "CIDR Blocks"
+        },
+        {
+          "nodeId": "FCdOnwQubhOnCFFnF8uJN",
+          "label": "Route Tables"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:PpuIbv7DvcoSOCHewWKZX",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "Y64TE0U20kllmykjdfhHp",
+          "label": "Subnets"
+        },
+        {
+          "nodeId": "ymuURDwW8JG3NSIXcl0FL",
+          "label": "Private Subnet"
+        },
+        {
+          "nodeId": "ABCH1rATHmecyWHyK3n-m",
+          "label": "Public Subnet"
+        }
+      ]
+    },
+    {
+      "nodeId": "xmKeB4hEi2DunmhAsvS1X",
+      "label": "IAM",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "Cd9gdbkCFdrTLrnJMy5F3",
+          "label": "Security Groups"
+        },
+        {
+          "nodeId": "Le8yOJzpzxH1xgd7XEU2B",
+          "label": "Internet Gateway"
+        },
+        {
+          "nodeId": "6D-gs32jrCyvMVhr9PSAY",
+          "label": "NAT Gateway"
+        },
+        {
+          "nodeId": "cwGuOrmbSTcSoH80skLTk",
+          "label": "Identity-based"
+        },
+        {
+          "nodeId": "eQAn3e-k9WNufPqOnwY_K",
+          "label": "Policies"
+        },
+        {
+          "nodeId": "v_YmmlOk-DkzJ8mI5Ftgr",
+          "label": "Resource-based"
+        },
+        {
+          "nodeId": "Nn2zawk6A31NwZa40jOhX",
+          "label": "Users / User Groups"
+        },
+        {
+          "nodeId": "7nI202hX41mI5ms9LZonh",
+          "label": "Roles"
+        }
+      ]
+    },
+    {
+      "nodeId": "-bwXo6xvF1yzyWEm5oZhJ",
+      "label": "SES",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "kG7tlZjv_hJbHGooBkxS0",
+          "label": "Sandbox / Sending Limits"
+        },
+        {
+          "nodeId": "bTCVHXPG-LtaaFmgiB2SL",
+          "label": "Identity Verification"
+        },
+        {
+          "nodeId": "zwVd1vNm1ks6MdHZoi-5W",
+          "label": "DKIM Setup"
+        },
+        {
+          "nodeId": "0NWTFssjg9SbDXQRkN5kF",
+          "label": "Feedback Handling"
+        },
+        {
+          "nodeId": "4svXYQYmqjUZU39z8OyhD",
+          "label": "Configuration Sets"
+        },
+        {
+          "nodeId": "Vo_PBfB7LxYL27nBBVoVp",
+          "label": "Sender Reputation"
+        },
+        {
+          "nodeId": "pnX1dfkjS8woWc4KGXlh_",
+          "label": "Dedicated IP"
+        }
+      ]
+    },
+    {
+      "nodeId": "PN3xAYfQ-_QgZCRCnsEca",
+      "label": "S3",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "i7X1GfOx5AZYFskepW4Zr",
+          "label": "Instance Profiles"
+        },
+        {
+          "nodeId": "0IMdO7g_5El1elvDXJJ_0",
+          "label": "Assuming Roles"
+        },
+        {
+          "nodeId": "rTgjDj5HqbjRpcJ7PR-EC",
+          "label": "Buckets / Objects"
+        }
+      ]
+    },
+    {
+      "nodeId": "dOAZG-NbjWiVdPKYEhWxj",
+      "label": "Auto-Scaling",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "AfagmWcllSi81D2XIQz0V",
+          "label": "AMIs"
+        },
+        {
+          "nodeId": "K0GCk5_HDvP0_ZqsUc3tG",
+          "label": "Launch Templates"
+        }
+      ]
+    },
+    {
+      "nodeId": "f89qL7Cg9R_LTxBEG4jUK",
+      "label": "Route53",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "z-o-2cGYSM6KW_CNJyw3p",
+          "label": "Hosted Zones"
+        },
+        {
+          "nodeId": "IQhPG1La7dZeSXnX23D1n",
+          "label": "Routing Policies"
+        },
+        {
+          "nodeId": "LXG_znJ3XzPAlDxUH2-Xp",
+          "label": "Health Checks"
+        }
+      ]
+    },
+    {
+      "nodeId": "PJaAqax4fABnkObY5UwNp",
+      "label": "Storage Types",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "8i6zpjkMC_Pg-tDNmrx4n",
+          "label": "Bucket / Object Lifecycle"
+        },
+        {
+          "nodeId": "gBKHVG7FvlCEgINKmw00s",
+          "label": "Auto-Scaling Groups"
+        },
+        {
+          "nodeId": "fRBaiw8Qx8kapzCphmM4v",
+          "label": "Scaling Policies"
+        },
+        {
+          "nodeId": "YAZPKMbmrxYNqF6alXMyL",
+          "label": "Elastic Load Balancers"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:RdhSdx2ZwScg4yimdWUU4",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "Ll5FPCtkpYq_niJd7WoTC",
+          "label": "Standard"
+        },
+        {
+          "nodeId": "JlkLNQ8wRzGkjaootNKOD",
+          "label": "S3-IA"
+        },
+        {
+          "nodeId": "IikKYP58sT2H1lM8glm-g",
+          "label": "Glacier"
+        }
+      ]
+    },
+    {
+      "nodeId": "VAYxwJH10PFjGS8poKd9-",
+      "label": "Cloudwatch",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "2vQPmVNk1QpMM-15RKG8b",
+          "label": "Metrics"
+        },
+        {
+          "nodeId": "tHQ6NRVDPCPEOmzgjQDLX",
+          "label": "Events"
+        },
+        {
+          "nodeId": "oC6KIjWAXw0hLl4FwkB9F",
+          "label": "Logs"
+        }
+      ]
+    },
+    {
+      "nodeId": "fkMF-2PQZ00UdwxhQt1ds",
+      "label": "RDS",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "l9oq3LiEd8ZrPtupPk-Fn",
+          "label": "DB Instances"
+        },
+        {
+          "nodeId": "Xs057ESpvxXg2r_rDQnOa",
+          "label": "Storage Types"
+        },
+        {
+          "nodeId": "tBKc7tHOiJaTmwEl3q--Y",
+          "label": "Backup / Restore"
+        }
+      ]
+    },
+    {
+      "nodeId": "wGb0TEDnSe_bmv9Krx4qB",
+      "label": "DynamoDB",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "DN_iuLo9gYDqU8JleE1WJ",
+          "label": "Tables / Items / Attributes"
+        },
+        {
+          "nodeId": "oWtWgaFznTPJhQIyfIIQf",
+          "label": "Primary Keys / Secondary Indexes"
+        },
+        {
+          "nodeId": "aU1lv80xXNkQTD41Qfln5",
+          "label": "Data Modeling"
+        },
+        {
+          "nodeId": "0C3GCGdSXozJK2MNeWerg",
+          "label": "Streams"
+        },
+        {
+          "nodeId": "KtXww9J0znwzTwL7GKfaY",
+          "label": "Capacity Settings"
+        },
+        {
+          "nodeId": "uo5HIyePegnJooortvWLu",
+          "label": "General Purpose"
+        },
+        {
+          "nodeId": "0ctJa-V6aenimSr5h303J",
+          "label": "Limits"
+        },
+        {
+          "nodeId": "3l1ji4JToj277vpgONmLw",
+          "label": "Provisioned IOPS"
+        },
+        {
+          "nodeId": "yauCWo1VoG-X483-4mfdn",
+          "label": "DynamoDB Local"
+        }
+      ]
+    },
+    {
+      "nodeId": "9TcYdsdmvKWWHoyE6uNbC",
+      "label": "ElastiCache",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "PYgs4niQRlLKCBMfM4qf9",
+          "label": "Quotas"
+        }
+      ]
+    },
+    {
+      "nodeId": "_c_Wq84yIu4ac7e0RzDtC",
+      "label": "ECR",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "NWvasq-AcwxmOKZPDv3ue",
+          "label": "Backup / Restore"
+        }
+      ]
+    },
+    {
+      "nodeId": "zFgnu2fL0EUKIMz9tVH1j",
+      "label": "Cloudfront",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "y0CoNcEFHyz350f7pNddt",
+          "label": "Magnetic"
+        },
+        {
+          "nodeId": "fAK7GRKunmoidlD32OBma",
+          "label": "Distributions"
+        },
+        {
+          "nodeId": "dO9ZfUyNia7L_fCh4d0n7",
+          "label": "Policies"
+        },
+        {
+          "nodeId": "hRXbAADgRTXEFwbBXeNu7",
+          "label": "Invalidations"
+        }
+      ]
+    },
+    {
+      "nodeId": "kvHzEDZQV72AUjqisg8PB",
+      "label": "EKS",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "EqUT0wpdPRDGtGAZ7nneY",
+      "label": "ECS",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "PphzNicIJawVElmY5rn8f",
+          "label": "Clusters / ECS Container Agents"
+        },
+        {
+          "nodeId": "zSiSbIdBgFLBBAnp4I9vX",
+          "label": "Services"
+        },
+        {
+          "nodeId": "1r2FL3OEOh0S9ee0OVnrN",
+          "label": "Launch Config / Autoscaling Groups"
+        },
+        {
+          "nodeId": "OI8y54RhFpfS_l1L9VTZe",
+          "label": "Fargate"
+        }
+      ]
+    },
+    {
+      "nodeId": "741vsAPTXJLVUlazFg0q4",
+      "label": "Lambda",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "SdCNevKjyhFcreMSWY6BT",
+          "label": "Creating / Invoking Functions"
+        },
+        {
+          "nodeId": "CL93C0NGFQmScVnftnRtO",
+          "label": "Layers"
+        },
+        {
+          "nodeId": "KWjIAakMIlxn_jso22h0M",
+          "label": "Custom Runtimes"
+        },
+        {
+          "nodeId": "75ZjuGozDfoZPLj32P2t2",
+          "label": "Versioning / Aliases"
+        },
+        {
+          "nodeId": "1lHXxpoF11yE3rfoQCbTG",
+          "label": "Tasks"
+        },
+        {
+          "nodeId": "0CUfDEMwCwSHVdqkP8lOG",
+          "label": "Event Bridge / Scheduled Execution"
+        },
+        {
+          "nodeId": "EuOv19jDSj56Cy7PqvtNv",
+          "label": "Cold Start and Limitations"
+        },
+        {
+          "nodeId": "T0dvezPWX6rAiKweT0TkG",
+          "label": "API Gateway"
+        },
+        {
+          "nodeId": "5SF5nO94NFDkHY8UJoeAY",
+          "label": "Lambda@Edge"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,601 @@
+{
+  "slug": "nodejs",
+  "title": "Node.js Developer",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "KDd40JOAvZ8O1mfhTYB3K",
+      "label": "Introduction to Node.js",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "Mp056kNnwsRWeEXuhGPy-",
+          "label": "What is Node.js?"
+        },
+        {
+          "nodeId": "ex8FOKrUlbu4MuEq2czyW",
+          "label": "Why use Node.js?"
+        },
+        {
+          "nodeId": "Vrcv5px-3fqmyJnQv3WBK",
+          "label": "History of Node.js"
+        },
+        {
+          "nodeId": "ebVb0anYmbD1Y9ZTFXKFp",
+          "label": "Node.js vs Browser"
+        },
+        {
+          "nodeId": "uPJqdMQQJRkTMMhNORDeH",
+          "label": "Running Node.js Code"
+        }
+      ]
+    },
+    {
+      "nodeId": "mbGFT6S7mL3bHHEZv0_s2",
+      "label": "Modules",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "mhjswf17nhq075NTYV5gE",
+          "label": "CommonJS"
+        },
+        {
+          "nodeId": "mKccfWOhC1Aj4VnaOqryA",
+          "label": "ESM"
+        },
+        {
+          "nodeId": "EEnmOcDKPZzY_O1NwP_5j",
+          "label": "Creating & Importing"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:PCnnW6w1BsBIIKsM-H9P1",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "l24OMkPAEDnEDAVAMrMuG",
+          "label": "Global Installation"
+        },
+        {
+          "nodeId": "oYeux7PbveYaVwXRzAg5x",
+          "label": "Local Installation"
+        }
+      ]
+    },
+    {
+      "nodeId": "jQJ9aOKtg-O-GhWk5OgCK",
+      "label": "npm",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "YdpJ-DUo8Q5ATRmF4s4YS",
+          "label": "npx"
+        },
+        {
+          "nodeId": "dOlzIXBfAPmbY542lNOe6",
+          "label": "Semantic Versioning"
+        },
+        {
+          "nodeId": "bYBz12FUiJ1qLgdQSGyGK",
+          "label": "Updating Packages"
+        }
+      ]
+    },
+    {
+      "nodeId": "t_kfKdNSKVBPYQ9zF9VqQ",
+      "label": "Error Handling",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "PEGHvFT2Eg-1OyfhxYu22",
+          "label": "[global] keyword"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:gLEIlNbhJ2CzjjPCflwog",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "05YY-AhLKzn4Ypr4eow5E",
+          "label": "System Errors"
+        },
+        {
+          "nodeId": "wQ4i6_a1EFk9HHc6Sll-3",
+          "label": "User Specified Errors"
+        },
+        {
+          "nodeId": "do-tdCUfDtiZHBg4ZO3dC",
+          "label": "Assertion Errors"
+        },
+        {
+          "nodeId": "Wg7KSpAPxjeFMxC6PBnHO",
+          "label": "JavaScript Errors"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:ztNOp7Rs6jcpjUR2vszxU",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "QcOqhuKWOUUUBSiu5Oelv",
+          "label": "Promises"
+        },
+        {
+          "nodeId": "a26qNCyMcT5GsVzxeNCLk",
+          "label": "async/await"
+        },
+        {
+          "nodeId": "GwInWcbQn18PnzKGXzmln",
+          "label": "Callbacks"
+        },
+        {
+          "nodeId": "W2Dbj4Y78Bgdx7og5xkrg",
+          "label": "setTimeout"
+        },
+        {
+          "nodeId": "T5I-mFKK6bKzXrzkECI0P",
+          "label": "setInterval"
+        },
+        {
+          "nodeId": "YvTPpoIiSqjDYi0Q10kWh",
+          "label": "setImmediate"
+        },
+        {
+          "nodeId": "ATu9-29yJWcDOik5FTOgf",
+          "label": "process.nextTick"
+        }
+      ]
+    },
+    {
+      "nodeId": "uE7fvHSTSdebMf5RsNyaY",
+      "label": "Async Programming",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "bgEHTBYzRDJqZ6gLqLbsz",
+          "label": "Event Emitter"
+        },
+        {
+          "nodeId": "64pgc7rcgboFcNYuOlX8e",
+          "label": "Running Scripts"
+        },
+        {
+          "nodeId": "b679H8gEBuvrHQ8ik7e96",
+          "label": "Event Loop"
+        },
+        {
+          "nodeId": "WvxCGVKLvTUVEHeOcUQPg",
+          "label": "npm workspaces"
+        },
+        {
+          "nodeId": "Uh9hmEy7o1EJLg4E--ku2",
+          "label": "Creating Packages"
+        },
+        {
+          "nodeId": "uzOmaTZrHhBxx5plb345Z",
+          "label": "Uncaught Exceptions"
+        },
+        {
+          "nodeId": "3MpxV23lNpuKg0--e_9m7",
+          "label": "Handling Async Errors"
+        },
+        {
+          "nodeId": "wIieXdFtoZWJ-ht8qqWbp",
+          "label": "Callstack / Stack Trace"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:lY0EOkj4UwEQtbHbEnlwS",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "wthXp2YGg3eTMbxsek77C",
+          "label": "process.env"
+        },
+        {
+          "nodeId": "fE9C7Resn4EcL-hYHbsaZ",
+          "label": "dotenv package"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:XWHqY5mvMV3eYkysx0Zfp",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "betuntelnEMSHdatO6VPl",
+          "label": "process.stdin"
+        },
+        {
+          "nodeId": "WFJJtIqVoBIhK10XY-d7l",
+          "label": "Inquirer Package"
+        },
+        {
+          "nodeId": "xgsKrUdfB0g0DMQCLK3aY",
+          "label": "prompts package"
+        }
+      ]
+    },
+    {
+      "nodeId": "Ce-dP-OXu0mEm30rzp2hW",
+      "label": "Command Line Apps",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "XteNExIZN3_g95_dPCopY",
+          "label": "Exitting / Exit Codes"
+        }
+      ]
+    },
+    {
+      "nodeId": "wEK77A6MPQBCBUSJKMiaY",
+      "label": "Working with Files",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "1AaGG660rvZlNYMOA35qO",
+          "label": "__dirname"
+        },
+        {
+          "nodeId": "XEGTeGWw05xWYOfUo3POE",
+          "label": "Using Debugger"
+        },
+        {
+          "nodeId": "P2gdwx1qCxvg1Ppfw0aqQ",
+          "label": "__filename"
+        },
+        {
+          "nodeId": "QT2QE2FLkyUDpwMKYkFQL",
+          "label": "process.cwd()"
+        },
+        {
+          "nodeId": "Blzb-fdQZMu6Xq5JDJW0_",
+          "label": "path module"
+        },
+        {
+          "nodeId": "b1r1X3XCoPSayQjDBcy54",
+          "label": "fs module"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:Gwet2IxFjSbwkn_hSERlZ",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "CWH0ZsxJ8beLvwMYJyH52",
+          "label": "glob"
+        },
+        {
+          "nodeId": "HYTw74rrd7kkOemCxfT9I",
+          "label": "globby"
+        },
+        {
+          "nodeId": "zDmWGRrgwq3Gjfkyk6crK",
+          "label": "fs-extra"
+        },
+        {
+          "nodeId": "een1zhvgN_33Cu6OiWtyX",
+          "label": "chokidar"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:bMMlYdl4jaQnT-rRHGfBc",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "N2vR1_NyDn4rYLXJzxWBZ",
+          "label": "stdout / stderr"
+        },
+        {
+          "nodeId": "V4OWIC1cnw8EFyu26Y_dA",
+          "label": "chalk package"
+        },
+        {
+          "nodeId": "PHLdJylzNZDJBGi8FFsfO",
+          "label": "figlet package"
+        },
+        {
+          "nodeId": "iW9je5Pq7bjxWZDERv_p5",
+          "label": "cli-progress"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:k7wjZ_qFjqBLJlxsNkoK-",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "7u2WMxjLx3mMtn0cha4M7",
+          "label": "jsonwebtoken"
+        },
+        {
+          "nodeId": "mIyv6S9a5dCHkk-JhhjKV",
+          "label": "passport.js"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:_FZLVUJZlMUkDB2imFhH_",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "Sjc1YDtbzXyLQH711_3nj",
+          "label": "http module"
+        },
+        {
+          "nodeId": "BOLiZg8YDKADMwP01U5ph",
+          "label": "axios"
+        },
+        {
+          "nodeId": "-_2letLUta5Ymc5eEOKhn",
+          "label": "ky"
+        },
+        {
+          "nodeId": "B_3rTGQxJneMREXoi2gQn",
+          "label": "fetch"
+        },
+        {
+          "nodeId": "6stiDKubT6XVAOGiJ6wsx",
+          "label": "got package"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:iYn8WyQohBdoi35AxL4-z",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "1vq_KcYR_pkfp1MtXaL75",
+          "label": "Express.js"
+        },
+        {
+          "nodeId": "WkU_rI4i-UmNSxb5F9TI-",
+          "label": "fastify"
+        },
+        {
+          "nodeId": "tGD8XLHnfspfv8CbguGwV",
+          "label": "NestJS"
+        },
+        {
+          "nodeId": "Xa-lA1wbZ9JZ_XpXfhhw5",
+          "label": "Hono"
+        }
+      ]
+    },
+    {
+      "nodeId": "fFVCb6aZWRHdNDFt5C09R",
+      "label": "Building & Consuming APIs",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:0PrEMLItU5sYKGVCUNt-x",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "lT2DDRtbFfEjb_cmsQx8i",
+          "label": "process.argv"
+        },
+        {
+          "nodeId": "BxxLQUI7JcQgF6TK3L5uU",
+          "label": "commander"
+        }
+      ]
+    },
+    {
+      "nodeId": "swp4wBgA7z-sd64VDkMrw",
+      "label": "Monitor Changes (Dev)",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "812bVEzxwTsYzLG_PmLqN",
+          "label": "--watch"
+        },
+        {
+          "nodeId": "2Ym2jMvov0lZ79aJFaw29",
+          "label": "nodemon"
+        }
+      ]
+    },
+    {
+      "nodeId": "J0ErCAZT5B97ZMogU2JHd",
+      "label": "Template Engines",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "L-_N7OxxuHCXsdWYBgZGu",
+          "label": "ejs"
+        },
+        {
+          "nodeId": "O67e2qyhxP5joR5LGyZ2N",
+          "label": "pug"
+        },
+        {
+          "nodeId": "f2DyjBIglAZ6NoHaRnlzt",
+          "label": "marko"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:GKLqJSMrljLEoBM_smemV",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "NDf-o-WECK02mVnZ8IFxy",
+          "label": "Mongoose"
+        },
+        {
+          "nodeId": "3Qxtf8n6gJYdnRsuqa52Q",
+          "label": "Prisma"
+        },
+        {
+          "nodeId": "5WqLm53CHDT5uBoMH-iPl",
+          "label": "Native Drivers"
+        }
+      ]
+    },
+    {
+      "nodeId": "5l-lZ8gwVLqqAF_n99vIO",
+      "label": "Working with Databases",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "90NIFfbWjTbyKZKwyJlfI",
+      "label": "Testing",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "qjToBaMenW3SDtEfoCbQ6",
+          "label": "Vitest"
+        },
+        {
+          "nodeId": "5xrbKv2stKPJRv7Vzf9nM",
+          "label": "Jest"
+        },
+        {
+          "nodeId": "oSLpy31XEcA2nRq9ks_LJ",
+          "label": "node:test"
+        },
+        {
+          "nodeId": "3Fh3-V1kCZtlUTvEoloIO",
+          "label": "Cypress"
+        },
+        {
+          "nodeId": "Ix-g9pgJjEI04bSfROvlq",
+          "label": "Playwright"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:AoZfjDaReVr2O4qsoc4vM",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "JXQF9H4_N0rM7ZDKcCZNn",
+          "label": "Drizzle"
+        },
+        {
+          "nodeId": "rk5FtAPDi1TpvWd0yBbtl",
+          "label": "TypeORM"
+        },
+        {
+          "nodeId": "HDDnt79_PCB5JU-KnHKUh",
+          "label": "Knex"
+        },
+        {
+          "nodeId": "fOm-ktIaLqrmA0zln0Bga",
+          "label": "Sequelize"
+        },
+        {
+          "nodeId": "O7Cy2g_GPxKU6vPfEmNyi",
+          "label": "Prisma"
+        },
+        {
+          "nodeId": "KpC-QYKalUp7VUvnMKBoW",
+          "label": "Native Drivers"
+        }
+      ]
+    },
+    {
+      "nodeId": "b7ZAEqo0ZU6TNf18Bo0mI",
+      "label": "Logging",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "Oe9cQCz2lwSaot7miZOta",
+          "label": "Winston"
+        },
+        {
+          "nodeId": "CTHFGgtXFpke4aPhh5vRY",
+          "label": "Morgan"
+        }
+      ]
+    },
+    {
+      "nodeId": "af7n-J7VvbdpZh9lwA773",
+      "label": "Keep app Running",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "7WAuMMyelUbgwEHtnMmJv",
+          "label": "pm2 "
+        }
+      ]
+    },
+    {
+      "nodeId": "KzUmXkwrmU_ssVBjSHAiY",
+      "label": "Threads",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "lzPrWD3pxQmpbqgYPL-zW",
+          "label": "Child Process"
+        },
+        {
+          "nodeId": "PkQ_sQ0YFPCZGx4BRgG0t",
+          "label": "Cluster"
+        },
+        {
+          "nodeId": "bH2Iv3BX0ZiWD3lOmC_m_",
+          "label": "Worker Threads"
+        }
+      ]
+    },
+    {
+      "nodeId": "WrnjjUDXQwwMXQjmgK72U",
+      "label": "Streams",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "SJ01N7vMZkNiIuMYQhdpj",
+          "label": "Garbage Collection"
+        }
+      ]
+    },
+    {
+      "nodeId": "ZLNUuDKhJ03Kw7xMVc7IR",
+      "label": "Debugging",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "oU9I7KBZoTSXXFmYscEIq",
+          "label": "Memory Leaks"
+        },
+        {
+          "nodeId": "DcmGcVlEHL4IV7yPMDpVa",
+          "label": "node --inspect"
+        },
+        {
+          "nodeId": "CvkjlOpT34lOHgzQHL40s",
+          "label": "Using APM"
+        }
+      ]
+    },
+    {
+      "nodeId": "M62lAWBOrTe99TfpFOQ-Y",
+      "label": "Common Built-in Modules",
+      "hasBody": true,
+      "subtopics": []
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import type { Profile, Quest, QuestCategory, QuestStatus } from "@campusquest/shared";
+import { Pager, usePaged } from "@/components/ui/pager";
 import { useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { clsx } from "clsx";
@@ -153,6 +154,8 @@ export function QuestBoard({
 
   const xpPct = Math.min(100, Math.round((xp / profile.xpToNext) * 100));
 
+
+  const paged = usePaged(visible);
   return (
     <div className="mx-auto max-w-[1400px]">
       {/* ---------------------------------------------------- level-up band */}
@@ -263,7 +266,7 @@ export function QuestBoard({
         ) : (
           <motion.ul layout className="grid gap-5 lg:grid-cols-2">
             <AnimatePresence mode="popLayout">
-              {visible.map((quest) => {
+              {paged.items.map((quest) => {
                 const done = quest.status === "completed";
                 const busy = busyId === quest.id;
 
@@ -370,6 +373,8 @@ export function QuestBoard({
             </AnimatePresence>
           </motion.ul>
         )}
+
+        <Pager paged={paged} label="quests" />
       </section>
     </div>
   );

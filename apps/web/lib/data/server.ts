@@ -15,6 +15,13 @@ import { researchMatches } from "@/lib/research-repository";
 import { getAlignment, getHistoricalRoles } from "@/lib/timemachine";
 import { getBackendProfile } from "@/lib/backend/profile";
 import { cachedForUser } from "./warehouse-cache";
+import { outlineForSkill } from "@/lib/roadmap/outlines";
+import { roadmapWithProgress } from "@/lib/roadmap/progress";
+import type { RoadmapLink } from "@/lib/roadmap/skill-map";
+import type { RoadmapWithProgress } from "@campusquest/shared";
+
+/** A roadmap plus how it was matched, so the UI can say "broader" out loud. */
+export type SkillRoadmapView = RoadmapWithProgress & { link: RoadmapLink };
 
 /**
  * ===========================================================================
@@ -92,6 +99,25 @@ export const getBadgesData = cache(async (): Promise<Badge[]> => {
 export const getThreadsData = cache(async (): Promise<Thread[]> => {
   const user = await currentUser();
   return listThreads(undefined, user.id);
+});
+
+/* --------------------------------------------------------------- Roadmap -- */
+
+/**
+ * The learning outline for a skill, with this student's ticks.
+ *
+ * Not put through `cachedForUser`: the outline is committed data already in
+ * memory, and the progress read is a single indexed Supabase query. There is
+ * nothing here worth a warehouse-shaped cache.
+ */
+export const getSkillRoadmap = cache(async (skillId: string): Promise<SkillRoadmapView | null> => {
+  const found = await outlineForSkill(skillId);
+  if (!found) return null;
+  const user = await currentUser();
+  return {
+    link: found.link,
+    ...(await roadmapWithProgress(undefined, user.id, found.outline)),
+  };
 });
 
 export async function getMessagesData(threadId: string): Promise<ChatMessage[]> {

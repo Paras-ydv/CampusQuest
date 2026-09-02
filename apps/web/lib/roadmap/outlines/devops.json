@@ -1,0 +1,662 @@
+{
+  "slug": "devops",
+  "title": "DevOps Roadmap",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "v5FGKQc-_7NYEsWjmTEuq",
+      "label": "Learn a Programming Language",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "TwVfCYMS9jSaJ6UyYmC-K",
+          "label": "Python"
+        },
+        {
+          "nodeId": "PuXAPYA0bsMgwcnlwJxQn",
+          "label": "Ruby"
+        },
+        {
+          "nodeId": "npnMwSDEK2aLGgnuZZ4dO",
+          "label": "Go"
+        },
+        {
+          "nodeId": "eL62bKAoJCMsu7zPlgyhy",
+          "label": "Rust"
+        },
+        {
+          "nodeId": "QCdemtWa2mE78poNXeqzr",
+          "label": "JavaScript / Node.js"
+        }
+      ]
+    },
+    {
+      "nodeId": "qe84v529VbCyydl0BKFk2",
+      "label": "Operating System",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "UOQimp7QkM3sxmFvk5d3i",
+          "label": "Windows"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:OY4ipeYrizxKKv9Z72iLR",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "PiPHFimToormOPl1EtEe8",
+          "label": "FreeBSD"
+        },
+        {
+          "nodeId": "cTqVab0VbVcn3W7i0wBrX",
+          "label": "Ubuntu / Debian"
+        },
+        {
+          "nodeId": "97cJYKqv7CPPUXkKNwM4x",
+          "label": "OpenBSD"
+        },
+        {
+          "nodeId": "zhNUK953p6tjREndk3yQZ",
+          "label": "SUSE Linux"
+        },
+        {
+          "nodeId": "haiYSwNt3rjiiwCDszPk1",
+          "label": "NetBSD"
+        },
+        {
+          "nodeId": "7mS6Y_BOAHNgM3OjyFtZ9",
+          "label": "RHEL / Derivatives"
+        }
+      ]
+    },
+    {
+      "nodeId": "wjJPzrFJBNYOD3SJLzW2M",
+      "label": "Terminal Knowledge",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "syBIAL1mHbJLnTBoSxXI7",
+          "label": "Bash"
+        },
+        {
+          "nodeId": "z6IBekR8Xl-6f8WEb05Nw",
+          "label": "Power Shell"
+        },
+        {
+          "nodeId": "x-JWvG1iw86ULL9KrQmRu",
+          "label": "Process Monitoring"
+        },
+        {
+          "nodeId": "gIEQDgKOsoEnSv8mpEzGH",
+          "label": "Performance Monitoring"
+        },
+        {
+          "nodeId": "OaqKLZe-XnngcDhDzCtRt",
+          "label": "Networking Tools"
+        },
+        {
+          "nodeId": "cUifrP7v55psTb20IZndf",
+          "label": "Text Manipulation"
+        },
+        {
+          "nodeId": "Jt8BmtLUH6fHT2pGKoJs3",
+          "label": "Vim / Nano /  Emacs"
+        }
+      ]
+    },
+    {
+      "nodeId": "LvhFmlxz5uIy7k_nzx2Bv",
+      "label": "Version Control Systems",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "uyDm1SpOQdpHjq9zBAdck",
+          "label": "Git"
+        }
+      ]
+    },
+    {
+      "nodeId": "h10BH3OybHcIN2iDTSGkn",
+      "label": "VCS Hosting",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "ot9I_IHdnq2yAMffrSrbN",
+          "label": "GitHub"
+        },
+        {
+          "nodeId": "oQIB0KE0BibjIYmxrpPZS",
+          "label": "GitLab"
+        },
+        {
+          "nodeId": "Z7SsBWgluZWr9iWb2e9XO",
+          "label": "Bitbucket"
+        }
+      ]
+    },
+    {
+      "nodeId": "CQhUflAcv1lhBnmDY0gaz",
+      "label": "Containers",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "P0acFNZ413MSKElHqCxr3",
+          "label": "Docker"
+        },
+        {
+          "nodeId": "qYRJYIZsmf-inMqKECRkI",
+          "label": "LXC"
+        }
+      ]
+    },
+    {
+      "nodeId": "jCWrnQNgjHKyhzd9dwOHz",
+      "label": "What is and how to setup X ?",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "F93XnRj0BLswJkzyRggLS",
+          "label": "Forward Proxy"
+        },
+        {
+          "nodeId": "eGF7iyigl57myx2ejpmNC",
+          "label": "Reverse Proxy"
+        },
+        {
+          "nodeId": "R4XSY4TSjU1M7cW66zUqJ",
+          "label": "Caching Server"
+        },
+        {
+          "nodeId": "f3tM2uo6LLSOmyeFfLc7h",
+          "label": "Firewall"
+        },
+        {
+          "nodeId": "i8Sd9maB_BeFurULrHXNq",
+          "label": "Load Balancer"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:PsbYeHGMd9E1UNqcaFQOz",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "ukOrSeyK1ElOt9tTjCkfO",
+          "label": "Nginx"
+        },
+        {
+          "nodeId": "54UZNO2q8M5FiA_XbcU_D",
+          "label": "Caddy"
+        },
+        {
+          "nodeId": "dF3otkMMN09tgCzci8Jyv",
+          "label": "Tomcat"
+        },
+        {
+          "nodeId": "0_GMTcMeZv3A8dYkHRoW7",
+          "label": "Apache"
+        },
+        {
+          "nodeId": "5iJOE1QxMvf8BQ_8ssiI8",
+          "label": "IIS"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:7crPw2SKw-TlsSe9kpZFQ",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "RDLmML_HS2c8J4D_U_KYe",
+          "label": "FTP / SFTP"
+        },
+        {
+          "nodeId": "Vu955vdsYerCG8G6suqml",
+          "label": "DNS"
+        },
+        {
+          "nodeId": "ke-8MeuLx7AS2XjSsPhxe",
+          "label": "HTTP"
+        },
+        {
+          "nodeId": "AJO3jtHvIICj8YKaSXl0U",
+          "label": "HTTPS"
+        },
+        {
+          "nodeId": "0o6ejhfpmO4S8A6djVWva",
+          "label": "SSL / TLS"
+        },
+        {
+          "nodeId": "wcIRMLVm3SdEJWF9RPfn7",
+          "label": "SSH"
+        },
+        {
+          "nodeId": "QZ7bkY-MaEgxYoPDP3nma",
+          "label": "OSI Model"
+        }
+      ]
+    },
+    {
+      "nodeId": "w5d24Sf8GDkLDLGUPxzS9",
+      "label": "Networking & Protocols",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:45zz5L6lKJrF9JWgyj1Pz",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "E-lSLGzgOPrz-25ER2Hk7",
+          "label": "White / Grey Listing"
+        },
+        {
+          "nodeId": "zJy9dOynWgLTDKI1iBluG",
+          "label": "SMTP"
+        },
+        {
+          "nodeId": "5vUKHuItQfkarp7LtACvX",
+          "label": "DMARC"
+        },
+        {
+          "nodeId": "WMuXqa4b5wyRuYAQKQJRj",
+          "label": "IMAP"
+        },
+        {
+          "nodeId": "ewcJfnDFKXN8I5TLpXEaB",
+          "label": "SPF"
+        },
+        {
+          "nodeId": "fzO6xVTBxliu24f3W5zaU",
+          "label": "POP3S"
+        },
+        {
+          "nodeId": "RYCD78msIR2BPJoIP71aj",
+          "label": "Domain Keys"
+        }
+      ]
+    },
+    {
+      "nodeId": "2Wd9SlWGg6QtxgiUVLyZL",
+      "label": "Cloud Providers",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "1ieK6B_oqW8qOC6bdmiJe",
+          "label": "AWS"
+        },
+        {
+          "nodeId": "ctor79Vd7EXDMdrLyUcu_",
+          "label": "Azure"
+        },
+        {
+          "nodeId": "zYrOxFQkl3KSe67fh3smD",
+          "label": "Google Cloud"
+        },
+        {
+          "nodeId": "-h-kNVDNzZYnQAR_4lfXc",
+          "label": "Digital Ocean"
+        },
+        {
+          "nodeId": "I327qPYGMcdayRR5WT0Ek",
+          "label": "Hetzner"
+        },
+        {
+          "nodeId": "DjDR8Yn5Q55NvoihElj7m",
+          "label": "Render"
+        },
+        {
+          "nodeId": "YUJf-6ccHvYjL_RzufQ-G",
+          "label": "Alibaba Cloud"
+        },
+        {
+          "nodeId": "FaPf567JGRAg1MBlFj9Tk",
+          "label": "Heroku "
+        }
+      ]
+    },
+    {
+      "nodeId": "9p_ufPj6QH9gHbWBQUmGw",
+      "label": "Serverless",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:JizyX8jse920gpWcmoSED",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "UfQrIJ-uMNJt9H_VM_Q5q",
+          "label": "AWS Lambda"
+        },
+        {
+          "nodeId": "l8VAewSEXzoyqYFhoplJj",
+          "label": "Cloudflare"
+        },
+        {
+          "nodeId": "mlrlf2McMI7IBhyEdq0Nf",
+          "label": "Azure Functions"
+        },
+        {
+          "nodeId": "LZDRgDxEZ3klp2PrrJFBX",
+          "label": "Vercel"
+        },
+        {
+          "nodeId": "hCKODV2b_l2uPit0YeP1M",
+          "label": "Netlify"
+        },
+        {
+          "nodeId": "JXsctlXUUS1ie8nNEgIk9",
+          "label": "GCP Functions"
+        }
+      ]
+    },
+    {
+      "nodeId": "V9sOxlNOyRp0Mghl7zudv",
+      "label": "Configuration Management",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "kv508kxzUj_CjZRb-TeRv",
+          "label": "Chef"
+        },
+        {
+          "nodeId": "h9vVPOmdUSeEGVQQaSTH5",
+          "label": "Ansible"
+        },
+        {
+          "nodeId": "Kumwd6XOlEMeDohDH0q9P",
+          "label": "Salt"
+        },
+        {
+          "nodeId": "yP1y8U3eblpzbaLiCGliU",
+          "label": "Puppet"
+        }
+      ]
+    },
+    {
+      "nodeId": "1oYvpFG8LKT1JD6a_9J0m",
+      "label": "Provisioning",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "XA__697KgofsH28coQ-ma",
+          "label": "AWS CDK"
+        },
+        {
+          "nodeId": "TgBb4aL_9UkyU36CN4qvS",
+          "label": "CloudFormation"
+        }
+      ]
+    },
+    {
+      "nodeId": "aQJaouIaxIJChM-40M3HQ",
+      "label": "CI / CD Tools",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "1du8Q2pRZM82ri6jBy5T7",
+          "label": "Buildkite"
+        },
+        {
+          "nodeId": "dUapFp3f0Rum-rf_Vk_b-",
+          "label": "Jenkins"
+        },
+        {
+          "nodeId": "O0xZ3dy2zIDbOetVrgna6",
+          "label": "Pulumi"
+        },
+        {
+          "nodeId": "1-JneOQeGhox-CKrdiquq",
+          "label": "Circle CI"
+        },
+        {
+          "nodeId": "nUBGf1rp9GK_pbagWCP9g",
+          "label": "Terraform"
+        },
+        {
+          "nodeId": "TsXFx1wWikVBVoFUUDAMx",
+          "label": "Octopus Deploy"
+        },
+        {
+          "nodeId": "JnWVCS1HbAyfCJzGt-WOH",
+          "label": "GitHub Actions"
+        }
+      ]
+    },
+    {
+      "nodeId": "gaoZjOYmU0J5aM6vtLNvN",
+      "label": "Logs Management",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "cjjMZdyLgakyVkImVQTza",
+          "label": "Papertrail"
+        },
+        {
+          "nodeId": "dZID_Y_uRTF8JlfDCqeqs",
+          "label": "Splunk"
+        },
+        {
+          "nodeId": "w2eCgBC-ydMHSxh7LMti8",
+          "label": "Loki"
+        },
+        {
+          "nodeId": "K_qLhK2kKN_uCq7iVjqph",
+          "label": "Elastic Stack"
+        },
+        {
+          "nodeId": "e0CIteRMxc0DydKEJnMhp",
+          "label": "Railway"
+        },
+        {
+          "nodeId": "s_kss4FJ2KyZRdcKNHK2v",
+          "label": "Graylog"
+        },
+        {
+          "nodeId": "L000AbzF3oLcn4B1eUIYX",
+          "label": "TeamCity"
+        },
+        {
+          "nodeId": "2KjSLLVTvl2G2KValw7S7",
+          "label": "GitLab CI"
+        }
+      ]
+    },
+    {
+      "nodeId": "qqRLeTpuoW64H9LvY0U_w",
+      "label": "Infrastructure Monitoring",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "NiVvRbCOCDpVvif48poCo",
+          "label": "Prometheus"
+        },
+        {
+          "nodeId": "niA_96yR7uQ0sc6S_OStf",
+          "label": "Grafana"
+        }
+      ]
+    },
+    {
+      "nodeId": "hcrPpjFxPi_iLiMdLKJrO",
+      "label": "Secret Management",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "ZWq23Q9ZNxLNti68oltxA",
+          "label": "Sealed Secrets"
+        },
+        {
+          "nodeId": "lUUJAEBrGJvL8dRs2n1GD",
+          "label": "ESO"
+        },
+        {
+          "nodeId": "tZzvs80KzqT8aDvEyjack",
+          "label": "Vault"
+        },
+        {
+          "nodeId": "GHQWHLxsO40kJ6z_YCinJ",
+          "label": "SOPs"
+        },
+        {
+          "nodeId": "yQ4d2uiROZYr950cjYnQE",
+          "label": "Cloud Specific Tools"
+        },
+        {
+          "nodeId": "C_sFyIsIIpriZlovvcbSE",
+          "label": "Artifactory"
+        }
+      ]
+    },
+    {
+      "nodeId": "Yq8kVoRf20aL_o4VZU5--",
+      "label": "Container Orchestration",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "XbrWlTyH4z8crSHkki2lp",
+          "label": "GKE / EKS / AKS"
+        },
+        {
+          "nodeId": "FE2h-uQy6qli3rKERci1j",
+          "label": "AWS ECS / Fargate"
+        },
+        {
+          "nodeId": "VD24HC9qJOC42lbpJ-swC",
+          "label": "Docker Swarm"
+        },
+        {
+          "nodeId": "hIBeTUiAI3zwUY6NgAO-A",
+          "label": "Kubernetes"
+        },
+        {
+          "nodeId": "3GryoQuI67JTHg9r3xUHO",
+          "label": "OpenShift"
+        }
+      ]
+    },
+    {
+      "nodeId": "wNguM6-YEznduz3MgBCYo",
+      "label": "Observability",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "W9sKEoDlR8LzocQkqSv82",
+          "label": "Zabbix"
+        },
+        {
+          "nodeId": "bujq_C-ejtpmk-ICALByy",
+          "label": "Datadog"
+        },
+        {
+          "nodeId": "8rd7T5ahK2I_zh5co-IF-",
+          "label": "Jaeger"
+        },
+        {
+          "nodeId": "pk76Us6z8LoX3f0mhnCyR",
+          "label": "New Relic"
+        },
+        {
+          "nodeId": "BHny2Emf96suhAlltiEro",
+          "label": "Datadog"
+        },
+        {
+          "nodeId": "eOyu4wmKOrcMlhD8pUGGh",
+          "label": "Prometheus"
+        }
+      ]
+    },
+    {
+      "nodeId": "zuBAjrqQPjj-0DHGjCaqT",
+      "label": "Artifact Management",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "ootuLJfRXarVvm3J1Ir11",
+          "label": "Nexus"
+        },
+        {
+          "nodeId": "vsmE6EpCc2DFGk1YTbkHS",
+          "label": "Cloud Smith"
+        }
+      ]
+    },
+    {
+      "nodeId": "-INN1qTMLimrZgaSPCcHj",
+      "label": "GitOps",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "i-DLwNXdCUUug6lfjkPSy",
+          "label": "ArgoCD"
+        },
+        {
+          "nodeId": "6gVV_JUgKgwJb4C8tHZn7",
+          "label": "FluxCD"
+        }
+      ]
+    },
+    {
+      "nodeId": "EeWsihH9ehbFKebYoB5i9",
+      "label": "Service Mesh",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "XsSnqW6k2IzvmrMmJeU6a",
+          "label": "Istio"
+        },
+        {
+          "nodeId": "OXOTm3nz6o44p50qd0brN",
+          "label": "Consul"
+        },
+        {
+          "nodeId": "hhoSe4q1u850PgK62Ubau",
+          "label": "Linkerd"
+        },
+        {
+          "nodeId": "epLLYArR16HlhAS4c33b4",
+          "label": "Envoy"
+        }
+      ]
+    },
+    {
+      "nodeId": "Qc0MGR5bMG9eeM5Zb9PMk",
+      "label": "Cloud Design Patterns",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "K81bmtgnB1gfhYdi3TB5a",
+          "label": "OpenTelemetry"
+        },
+        {
+          "nodeId": "4aJVaimsuvGIPXMZ_WjaA",
+          "label": "Dynatrace"
+        },
+        {
+          "nodeId": "JCe3fcOf-sokTJURyX1oI",
+          "label": "Availability"
+        },
+        {
+          "nodeId": "5FN7iva4DW_lv-r1tijd8",
+          "label": "Data Management"
+        },
+        {
+          "nodeId": "1_NRXjckZ0F8EtEmgixqz",
+          "label": "Design and Implementation"
+        },
+        {
+          "nodeId": "8kby89epyullS9W7uKDrs",
+          "label": "Management and Monitoring"
+        }
+      ]
+    }
+  ]
+}

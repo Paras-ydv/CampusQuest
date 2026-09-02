@@ -1,0 +1,550 @@
+{
+  "slug": "sql",
+  "title": "SQL Roadmap",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "nhUKKWyBH80nyKfGT8ErC",
+      "label": "Learn the Basics",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "R9DQNc0AyAQ2HLpP4HOk6",
+          "label": "What are Relational Databases?"
+        },
+        {
+          "nodeId": "fNTb9y3zs1HPYclAmu_Wv",
+          "label": "RDBMS Benefits and Limitations"
+        },
+        {
+          "nodeId": "gx4KaFqKgJX9n9_ZGMqlZ",
+          "label": "SQL vs NoSQL Databases"
+        }
+      ]
+    },
+    {
+      "nodeId": "JDDG4KfhtIlw1rkNCzUli",
+      "label": "Basic SQL Syntax",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "6yoo7qC6X2jYDIjd3HIm7",
+          "label": "SQL Keywords"
+        },
+        {
+          "nodeId": "tBzMDfCMh6MIagNaxCzin",
+          "label": "Data Types"
+        },
+        {
+          "nodeId": "ffwniprGJHZzJ7t3lQcXz",
+          "label": "Operators"
+        }
+      ]
+    },
+    {
+      "nodeId": "xPOeXK1EPBNG56vgfG-VV",
+      "label": "Data Definition Language (DDL)",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "K5vhqTJrdPK08Txv8zaEj",
+          "label": "Truncate Table"
+        },
+        {
+          "nodeId": "WjXlO42WL9saDS7RIGapt",
+          "label": "Alter Table"
+        },
+        {
+          "nodeId": "epEpBxRosLhuAuKwp823r",
+          "label": "Create Table"
+        },
+        {
+          "nodeId": "YzJ6QmY2arMfRzMAPaI0T",
+          "label": "Drop Table"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:7YsPMUciWuosgKwI9YJrI",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "rmqXH29n1oXtZ8tvmcRFn",
+          "label": "SELECT"
+        },
+        {
+          "nodeId": "mPj6BiK5FKKkIQ9WsWEo6",
+          "label": "INSERT"
+        },
+        {
+          "nodeId": "ddtVaA4Ls6qRj-7OtTSIH",
+          "label": "DELETE"
+        },
+        {
+          "nodeId": "eu9dJFi6gBPMBdy08Y5Bb",
+          "label": "UPDATE"
+        }
+      ]
+    },
+    {
+      "nodeId": "WMSXi-eez_hHGDM8kUdWz",
+      "label": "Data Manipulation Language (DML)",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "i8u8E_sne6XiKJo2FXDog",
+          "label": "Select"
+        },
+        {
+          "nodeId": "WhYAy6f7Euk3E49-ot644",
+          "label": "WHERE"
+        },
+        {
+          "nodeId": "4UQQYbjzwVxZOAxBuXKQS",
+          "label": "JOINs"
+        }
+      ]
+    },
+    {
+      "nodeId": "LX9nzJ4uqznHN4SksoDvr",
+      "label": "Aggregate Queries",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "w4T3jFb0ilf1KNw-AvRXG",
+          "label": "SUM"
+        },
+        {
+          "nodeId": "9aHYrOQDkA84tlxcVK5aD",
+          "label": "COUNT"
+        },
+        {
+          "nodeId": "N1Racr3ZpU320gS545We8",
+          "label": "FROM"
+        },
+        {
+          "nodeId": "Wou6YXLYUgomvcELh851L",
+          "label": "AVG"
+        },
+        {
+          "nodeId": "bFEYMlqPZtTUYtDQxqHzT",
+          "label": "MIN"
+        },
+        {
+          "nodeId": "14TKE6KhrH1yFtHcSZSXq",
+          "label": "GROUP BY"
+        },
+        {
+          "nodeId": "YqDJq3fPxUZlwsdq0kJg7",
+          "label": "MAX"
+        },
+        {
+          "nodeId": "-Hew0y53ziZK3epQnGA0O",
+          "label": "INSERT"
+        },
+        {
+          "nodeId": "Zw8IHfCCMSxmVjx5Ho5ff",
+          "label": "GROUP BY"
+        },
+        {
+          "nodeId": "HhICJpCK5__b-itUoEBES",
+          "label": "HAVING"
+        }
+      ]
+    },
+    {
+      "nodeId": "qBios3sZVhcJMpXmj9f7B",
+      "label": "Data Constraints",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "Jlwmyq6CUQeDAlL4dazOP",
+          "label": "Primary Key"
+        },
+        {
+          "nodeId": "NfCiSPrL4upMssukcw3Kh",
+          "label": "ORDER BY"
+        },
+        {
+          "nodeId": "ytwCkSMTiTuemE0KVfAfy",
+          "label": "HAVING"
+        },
+        {
+          "nodeId": "DHz6sRLYhFeCbAcNJS8hm",
+          "label": "Foreign Key"
+        },
+        {
+          "nodeId": "KJJ6PYjTnr_3yU2mNPL9v",
+          "label": "UPDATE"
+        },
+        {
+          "nodeId": "zWnvuHJLHr03PWkrW1wZZ",
+          "label": "DELETE"
+        },
+        {
+          "nodeId": "5yGo8i7eplxtXOD_qfzOs",
+          "label": "Unique"
+        },
+        {
+          "nodeId": "M4M_-vjM9GNy0NmXZneDA",
+          "label": "NOT NULL"
+        },
+        {
+          "nodeId": "Q0h9Wfnl_W9ThOkv7Q17A",
+          "label": "CHECK"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:WigElh37ztiRYRstQR9NE",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "eXQ-TrTlqL5p2AdGnozkL",
+          "label": "Scalar"
+        },
+        {
+          "nodeId": "wmtt-3auWLdQWuVdwZLPd",
+          "label": "Column"
+        },
+        {
+          "nodeId": "aLDl75i8gtLRA2Ud-fMmQ",
+          "label": "Row"
+        },
+        {
+          "nodeId": "R9WDMRd-3wxsKH97-sT3n",
+          "label": "Table"
+        }
+      ]
+    },
+    {
+      "nodeId": "86iZ8s8EdhSuYwgwAM_EO",
+      "label": "Subqueries",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "xkPJ2MYiXmzC4yqQWyB_7",
+          "label": "Nested Subqueries"
+        },
+        {
+          "nodeId": "JZqS3Xapw6mfSPVgFW7av",
+          "label": "Correlated Subqueries"
+        }
+      ]
+    },
+    {
+      "nodeId": "8V6yw7kLaow-VVcv_K_pL",
+      "label": "JOIN Queries",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "aaua13CkTxLOYXr8cAgPm",
+          "label": "INNER JOIN"
+        },
+        {
+          "nodeId": "X9cJJ8zLZCF2cOoqxwFfY",
+          "label": "LEFT JOIN"
+        },
+        {
+          "nodeId": "shpgZkh1CLqUwjOaRtAFy",
+          "label": "RIGHT JOIN"
+        },
+        {
+          "nodeId": "aS5zCyJRA779yHF0G2pje",
+          "label": "FULL OUTER JOIN"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:6FdHTzqQwJqR4czP5qXAY",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "o2SH4iQn1Ap2yDZ7cVYLO",
+          "label": "FLOOR"
+        },
+        {
+          "nodeId": "6vYFb_D1N_-tLWZftL-Az",
+          "label": "ABS"
+        },
+        {
+          "nodeId": "OUw--8zEq6lk5-6oySVHe",
+          "label": "MOD"
+        },
+        {
+          "nodeId": "BAqJQvcguhIhzyII5LRH6",
+          "label": "CEILING"
+        },
+        {
+          "nodeId": "9DntFiZV1AyaRPhYP5q6u",
+          "label": "ROUND"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:vVvwzfWSzMXhGop1nX_9k",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "5inpEqafeVCfqsURHzQQg",
+          "label": "CONCAT"
+        },
+        {
+          "nodeId": "RH8DLiQpDUWqw3U1522q5",
+          "label": "LENGTH"
+        },
+        {
+          "nodeId": "PnG_5D6q66NAKxXVOwA6N",
+          "label": "SUBSTRING"
+        },
+        {
+          "nodeId": "VNbb3YPc0FtrROylRns8h",
+          "label": "REPLACE"
+        },
+        {
+          "nodeId": "Othfo7NvTVzfyL906PLM1",
+          "label": "UPPER"
+        },
+        {
+          "nodeId": "knTG6pAq2mYP24WMa29xI",
+          "label": "LOWER"
+        }
+      ]
+    },
+    {
+      "nodeId": "vTMd0bqz4eTgLnhfgY61h",
+      "label": "Advanced Functions",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:nSShTLakj1E_JAHdcsfe4",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "W2ePJHdfEiEJ3ZKoRQKt_",
+          "label": "CASE"
+        },
+        {
+          "nodeId": "KI6vngoYcHsnpIk8ErhhS",
+          "label": "NULLIF"
+        },
+        {
+          "nodeId": "k7lZe4QRt9q4InUImFmvx",
+          "label": "COALESCE"
+        }
+      ]
+    },
+    {
+      "nodeId": "2tyezwOIxV6O84N-Q3Awh",
+      "label": "Views",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "PcsGK4VBh0zNQIPZvNES4",
+          "label": "Creating Views"
+        },
+        {
+          "nodeId": "3eE-l-P93nOXoWfLr8PSW",
+          "label": "Modifying Views"
+        },
+        {
+          "nodeId": "MIOuWWcCjLAmgzog2DBC3",
+          "label": "Dropping Views"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:H-11E5G6rdTKj3k7PK12l",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "Ivqo2wa-_NhGU3vGd0pUI",
+          "label": "DATE"
+        },
+        {
+          "nodeId": "88KlrMqSza9_YaD7Dv61p",
+          "label": "TIME"
+        },
+        {
+          "nodeId": "7hEqkoxkdAWmakGZsMJx-",
+          "label": "TIMESTAMP"
+        },
+        {
+          "nodeId": "BJ4fQvagTO0B5UtXblyx8",
+          "label": "DATEPART"
+        },
+        {
+          "nodeId": "1E1WdWOyqxbbdiIbw26dZ",
+          "label": "DATEADD"
+        }
+      ]
+    },
+    {
+      "nodeId": "LcljR70T-OnzSrJJDqOWf",
+      "label": "Indexes",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "6qG0AVYd6Y1B8LOSDoMX9",
+          "label": "Self Join"
+        },
+        {
+          "nodeId": "7ow6tiSSCnTpv_GYQU017",
+          "label": "Cross Join"
+        },
+        {
+          "nodeId": "NtxGd6Vx-REBclry7lZuE",
+          "label": "Managing Indexes"
+        },
+        {
+          "nodeId": "Ps9Yv2s-bKvEegGAbPsiA",
+          "label": "Query Optimization"
+        },
+        {
+          "nodeId": "ujeq8EIFcrqkBjoFizsJM",
+          "label": "Transaction Isolation Levels"
+        }
+      ]
+    },
+    {
+      "nodeId": "w7FNjdwqjY7X69aJqqBy4",
+      "label": "Stored Procedures & Functions",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "R1ktDJpXOz0PTllAcBrdu",
+      "label": "Data Integrity & Security",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "mBQ3Z8GlFcpIena3IB7D_",
+          "label": "Data Integrity Constraints"
+        },
+        {
+          "nodeId": "03qMopxzjx_-dZbYw9b7J",
+          "label": "GRANT and Revoke"
+        },
+        {
+          "nodeId": "cucCPw3KfetAP2OMFUs0X",
+          "label": "rank"
+        },
+        {
+          "nodeId": "vhBZqqmUcEon6-Vwvla4q",
+          "label": "DB Security Best Practices"
+        },
+        {
+          "nodeId": "QM0ltgPu8lLLYc2MsTLj-",
+          "label": "dense_rank"
+        },
+        {
+          "nodeId": "aJJjaGunRrwyh9MjQfJt-",
+          "label": "lead"
+        }
+      ]
+    },
+    {
+      "nodeId": "OdaBXz2XBAVLsQ-m7xtAM",
+      "label": "Transactions",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "igg34gLPl3HYVAmRNFGcV",
+          "label": "ACID"
+        },
+        {
+          "nodeId": "7sTW1vwUhCFOMXYjScVEt",
+          "label": "BEGIN"
+        },
+        {
+          "nodeId": "3cMECz5QPVDOFrk5duObs",
+          "label": "COMMIT"
+        },
+        {
+          "nodeId": "xbD67KVlt3UhHpKh8HLx8",
+          "label": "ROLLBACK"
+        },
+        {
+          "nodeId": "BcXdxY6bld5c0YNFSKkh-",
+          "label": "lag"
+        },
+        {
+          "nodeId": "pJtYvXUo81aZfPuRjIbMq",
+          "label": "SAVEPOINT"
+        }
+      ]
+    },
+    {
+      "nodeId": "4rqCPpTb0dAgpheBKshRG",
+      "label": "Performance Optimization",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "C6P69YiFdS-ioPXMNfX07",
+          "label": "Query Analysis Techniques"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:GEdhZU9WflZsSbHIAL6Y8",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "9wOgP0i9G4HSeZGn2Gm7r",
+          "label": "Using Indexes"
+        },
+        {
+          "nodeId": "C0dhS6uLf4TUSfvcWyXhv",
+          "label": "Optimizing Joins"
+        },
+        {
+          "nodeId": "UVTgbZrqpbYl1bQvQejcF",
+          "label": "Reducing Subqueries"
+        },
+        {
+          "nodeId": "w53CSY53nAAN0ux-XeJ4c",
+          "label": "Selective Projection"
+        }
+      ]
+    },
+    {
+      "nodeId": "UDqbT1y-YzBrljfKSz_RG",
+      "label": "Advanced SQL",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "zW27ZHdLwQY-85iqbBKQZ",
+          "label": "Row_number"
+        },
+        {
+          "nodeId": "tBvXLLp5FKeSSN35Kj1X4",
+          "label": "Window Functions"
+        },
+        {
+          "nodeId": "TjgwabhEtaSoYMLNr6q9l",
+          "label": "Recursive Queries"
+        },
+        {
+          "nodeId": "nwFaz9i-1s0WVrVaFsoqb",
+          "label": "Pivot / Unpivot Operations"
+        },
+        {
+          "nodeId": "tedQynR0xicVKhuR1oahw",
+          "label": "Common Table Expressions"
+        },
+        {
+          "nodeId": "z5Sf0VU14ZCQ80kL1qOqc",
+          "label": "Dynamic SQL"
+        }
+      ]
+    }
+  ]
+}

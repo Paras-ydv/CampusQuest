@@ -16,3 +16,4 @@ export * from "./schemas/people";
 export * from "./schemas/research";
 export * from "./schemas/genie";
 export * from "./schemas/chat";
+export * from "./schemas/roadmap";

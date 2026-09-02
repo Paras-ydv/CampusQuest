@@ -1,0 +1,482 @@
+{
+  "slug": "nextjs",
+  "title": "Next.js",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "FdvaN6BOxUEJt7TarSDmo",
+      "label": "React Frameworks",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "WxoMZRRiW9CGDZ9i80nbf",
+          "label": "Why Next.js"
+        },
+        {
+          "nodeId": "uJrOHRLmEBZtHJzAAusUe",
+          "label": "Next.js"
+        },
+        {
+          "nodeId": "G_33yo1MshQbiaGTPtTdK",
+          "label": "Remix"
+        },
+        {
+          "nodeId": "7EYQnX3cEAjSL-iJSprEI",
+          "label": "SSR"
+        },
+        {
+          "nodeId": "NC7s-EOLWhjXR70JFZxcg",
+          "label": "SPA"
+        }
+      ]
+    },
+    {
+      "nodeId": "tcDL4OEbZplbjNa8VTLpv",
+      "label": "Introduction",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "DlUQkDRPUcjC3pO4P5zCQ",
+          "label": "JavaScript Basics"
+        },
+        {
+          "nodeId": "rJ3vuI58Z9u2SKTDgpTE2",
+          "label": "Why Frontend Frameworks"
+        },
+        {
+          "nodeId": "ey6z7Y4WtNtQJ50n-3j5P",
+          "label": "Why React"
+        },
+        {
+          "nodeId": "ch5gUr8xeCIp-i48N5qew",
+          "label": "SPA vs SSR"
+        }
+      ]
+    },
+    {
+      "nodeId": "3tTTKj6PWsRoRRXH5tXxS",
+      "label": "create-next-app",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "xRZqBd5-QO8zh7ksHlRjK",
+      "label": "Next.js Routing Basics",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "1ch6ZXZP46FP8q3HeCqWM",
+      "label": "Rendering Strategies",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "4CcK-BLP5NM3ZrCIEG4s8",
+          "label": "CSR"
+        },
+        {
+          "nodeId": "CqPZHOs1Iew6PCIjwiqUt",
+          "label": "SSG"
+        }
+      ]
+    },
+    {
+      "nodeId": "oFhmV5Xv0KJ-SjeYVZBpi",
+      "label": "Routing Terminology",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "km7dLVpl76c5EfWvhhbRh",
+      "label": "Types of routers",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "htuyzi5_N-fqnx_SsO_DS",
+          "label": "Pages"
+        },
+        {
+          "nodeId": "3VXKRDxDmqJObkoW8ndrz",
+          "label": "App"
+        },
+        {
+          "nodeId": "e_rwwlKsvyv9OMDDBXo_N",
+          "label": "Why use App Router?"
+        }
+      ]
+    },
+    {
+      "nodeId": "IlWFMh44HtHDnIr7nqwtI",
+      "label": "Rendering Pages",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "zJXCS7U9NUsn7cuEx3YMs",
+      "label": "Layouts and Templates",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "b2LcPc5MfoyF0W9Y0aGpR",
+      "label": "Loading and Streaming",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "09uWsmXOXU0Ox7F3qsjRx",
+      "label": "Routing Patterns",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "2N_hm9Zx_Lp-RFEMP9HFb",
+          "label": "Parallel Routes"
+        },
+        {
+          "nodeId": "dP6cZkEZ6lxPsy5SjvuZA",
+          "label": "Intercepting Routes"
+        }
+      ]
+    },
+    {
+      "nodeId": "pxltXOWgpbo95V4u2ryX7",
+      "label": "Error States",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "4H8aOVYsZiPbTQUYcZjb_",
+      "label": "API Endpoints",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "hQHvu7MzNwA2lL9ADm5YQ",
+          "label": "Static vs Dynamic"
+        },
+        {
+          "nodeId": "0Rgs7jaFX1Gl5KDT6DKbX",
+          "label": "Caching"
+        },
+        {
+          "nodeId": "lR7oPh0DCY_BhzXH31N36",
+          "label": "Streaming"
+        },
+        {
+          "nodeId": "K1wGmAy9L0VE6cwYE2pA6",
+          "label": "Reditects"
+        }
+      ]
+    },
+    {
+      "nodeId": "9egFwmy-o7Fx-M7FcPXXy",
+      "label": "Structuring Routes",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "gpZNwsh075wl5eH2gLKro",
+      "label": "Middleware",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "54Cc_GdL327tzkdYBA305",
+          "label": "Use cases"
+        },
+        {
+          "nodeId": "Sn-8ztsjjtUxD_SP6w3cS",
+          "label": "Route Matcher"
+        },
+        {
+          "nodeId": "8kUhcd2-BlqOKInEuSI95",
+          "label": "Using Cookies"
+        },
+        {
+          "nodeId": "XwDF-Kt9K5smm3ruxlkR2",
+          "label": "Setting Headers"
+        }
+      ]
+    },
+    {
+      "nodeId": "bSsM7VLZcJKYL5XXSG0r-",
+      "label": "Internationalization",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "lkdBRzC8lAvRYKBt7E37V",
+      "label": "Fetching Locations",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "jYSa7UMmjb51pGAyU4PoB",
+          "label": "Client"
+        },
+        {
+          "nodeId": "QDxYlIyFOuGUIy_ZovHs0",
+          "label": "Server"
+        }
+      ]
+    },
+    {
+      "nodeId": "Ti_Bl5NnRIY9UTNTH15xA",
+      "label": "Handling Sensitive Data",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "GAHFfQ8CviNxV7ITpt--q",
+      "label": "Data Fetching Patterns",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "SjJQ7ceU6vBhlhrN8hcvy",
+          "label": "Parallel vs Sequential"
+        },
+        {
+          "nodeId": "Ve1Pa7IhGHPZ_F-sCMcNb",
+          "label": "Preloading Data"
+        }
+      ]
+    },
+    {
+      "nodeId": "77i6HVsnX-uSDw8vz3afD",
+      "label": "Caching Data",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "UZCMVpg5YIDxu-AMah3S-",
+          "label": "Memoization in Fetch"
+        },
+        {
+          "nodeId": "crBlqiS78n7yz28cT2GGz",
+          "label": "React Cache"
+        }
+      ]
+    },
+    {
+      "nodeId": "IuBZY-ISP1Sy_5OQ99jLY",
+      "label": "Server Actions",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "LN7SHgcQp9gX_jfEN84YP",
+      "label": "Runtimes and Types",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "0S37ka1K-TdYLnjCBrKSH",
+          "label": "Node.js"
+        },
+        {
+          "nodeId": "SYUKB1Afciqz7hA1n5yIx",
+          "label": "Edge"
+        }
+      ]
+    },
+    {
+      "nodeId": "HdSmD_nDV5BPO5JJqs1k8",
+      "label": "Client Rendered",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "m7eKlykOZCA3BLuBHioDj",
+      "label": "Server Rendered",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "BfNON3Vp3zSWBurSS4ZHo",
+      "label": "Global CSS",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "N5siOJO3dc9vJUTpbdm04",
+          "label": "Revalidating Cached Data"
+        },
+        {
+          "nodeId": "qMYuXOlr_c-6oQKVOdGci",
+          "label": "Revalidation Errors"
+        }
+      ]
+    },
+    {
+      "nodeId": "6O9c3J-1JQtZTXXIDDXSM",
+      "label": "Composition",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:2Jnj0GxjwGcNdwJcUNSnZ",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "tlg5XMVcAHmhey-efjf3M",
+          "label": "CSS Modules"
+        },
+        {
+          "nodeId": "3IKXvlA9P06GiOi34zv5H",
+          "label": "Tailwind CSS"
+        },
+        {
+          "nodeId": "5H7toz-DxtnwjozCgLuk6",
+          "label": "Sass"
+        },
+        {
+          "nodeId": "j5jIZvz_bMZqmr_gl0pQF",
+          "label": "CSS in JS"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:6hZg9xXEjDfOYlL6adsMh",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "1t9iOcmrEmuwOxOZ0vlY7",
+          "label": "Images"
+        },
+        {
+          "nodeId": "1SJX-nGuhIxGH0ukfluoQ",
+          "label": "Videos"
+        },
+        {
+          "nodeId": "ZptECTASMX97m5yCZ-XO8",
+          "label": "Fonts"
+        },
+        {
+          "nodeId": "45XMR5imHEDF_X8wcgjGW",
+          "label": "Metadata"
+        },
+        {
+          "nodeId": "qM_Za9NiCiCG5-kf5RCXF",
+          "label": "Package Bundling"
+        },
+        {
+          "nodeId": "3_Mpvkxp9A7PMogxxMikQ",
+          "label": "Lazy Loading"
+        },
+        {
+          "nodeId": "a34ZmSk5VYVLq8wsEvOcI",
+          "label": "Analytics"
+        },
+        {
+          "nodeId": "DHqdXJFhVZWaNa5zSX8Wk",
+          "label": "Instrumentation"
+        },
+        {
+          "nodeId": "mTh5PZNpzJNKPqpu5PVL6",
+          "label": "OpenTelemetry"
+        },
+        {
+          "nodeId": "iabbuLHqAiRkgj03t64x7",
+          "label": "Static Assets"
+        },
+        {
+          "nodeId": "JFrpy3dGt-UP9Weo1VBvN",
+          "label": "Scripts"
+        },
+        {
+          "nodeId": "-j38AhG6LUCH5GupGiqUM",
+          "label": "Third Party Libraries"
+        },
+        {
+          "nodeId": "SI7KzNSLP0ccH_P94StGL",
+          "label": "Memory Usage"
+        }
+      ]
+    },
+    {
+      "nodeId": "ThrO72opK7xGWpy0GG63T",
+      "label": "Setting things Up",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "ZFHkHmvjndPjDAB-MAtb7",
+          "label": "TypeScript"
+        },
+        {
+          "nodeId": "CvrHzkxg7ndCvd_tbYnK4",
+          "label": "ESLint"
+        },
+        {
+          "nodeId": "efMytbUmw44M8dPL4ItsX",
+          "label": "Prettier"
+        }
+      ]
+    },
+    {
+      "nodeId": "iv6rWEqjh07d0n2kAQedO",
+      "label": "Environment Variables",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "3GI0xHGG_qgpLfEjaLYxr",
+      "label": "Markdown and MDX",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "-yiJSBIoczJHOW8YMdWFI",
+      "label": "Preparing for Production",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "Hj01UZuHkQppXTq6XV9Pn",
+      "label": "Custom Server",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:_BCC4r0kAPPHQ_1ToVSJd",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "KTZRo1Y_Z-7eMYzZ9W0Vl",
+          "label": "Vitest"
+        },
+        {
+          "nodeId": "sc5Pliyq6bfeFXp0ca5yH",
+          "label": "Jest"
+        },
+        {
+          "nodeId": "qFDdfOBdOlGMjTEOiiuTe",
+          "label": "Playwright"
+        },
+        {
+          "nodeId": "KmOTgclnf-QYDYK0QwwVe",
+          "label": "Cypress"
+        }
+      ]
+    },
+    {
+      "nodeId": "BPStVqWV0660A-_fJSuM7",
+      "label": "Deployment Options",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "Okw_IjU2iRSvSQVdKeeCo",
+          "label": "Node.js Server"
+        },
+        {
+          "nodeId": "y5_zX209AaHOf_wQibo12",
+          "label": "Docker Container"
+        },
+        {
+          "nodeId": "evmzZ6F7TWgYhdaahnZHY",
+          "label": "Static Export"
+        },
+        {
+          "nodeId": "fXXlJ6oN_YPWVr-fqEar3",
+          "label": "Adapters"
+        }
+      ]
+    }
+  ]
+}

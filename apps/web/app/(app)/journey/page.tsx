@@ -20,6 +20,9 @@ import { ButtonLink } from "@/components/ui/button";
 
 export const metadata: Metadata = { title: "Journey" };
 
+/** The dashboard shows the worst few gaps; the Time Machine holds the full list. */
+const TOP_GAPS = 5;
+
 export default async function JourneyPage() {
   const [profile, alignment, quest, peers, opportunities, badges] = await Promise.all([
     getProfile(),
@@ -131,21 +134,24 @@ export default async function JourneyPage() {
             />
             <Reveal index={3} className="mt-4 max-w-[38ch] text-[0.88rem] leading-relaxed text-muted">
               <p>
-                Measured against {alignment.roleCount} roles that recruited on
-                campus between {alignment.yearsCovered}. The bar is how often the
-                skill was required; the figure in red is what closing it adds to
-                your alignment.
+                The {Math.min(TOP_GAPS, alignment.gaps.length)} biggest of{" "}
+                {alignment.gaps.length}, measured against {alignment.roleCount}{" "}
+                roles that recruited on campus between {alignment.yearsCovered}.
+                The bar is how often the skill was required; the figure in red is
+                what closing it adds to your alignment.
               </p>
             </Reveal>
             <Reveal index={4} className="mt-6">
               <ButtonLink href="/time-machine" variant="outline" arrow size="sm">
-                Open the Time Machine
+                {alignment.gaps.length > TOP_GAPS
+                  ? `See all ${alignment.gaps.length} in the Time Machine`
+                  : "Open the Time Machine"}
               </ButtonLink>
             </Reveal>
           </div>
 
           <div>
-            <GapList gaps={alignment.gaps} />
+            <GapList gaps={alignment.gaps} limit={TOP_GAPS} />
           </div>
         </div>
       </section>

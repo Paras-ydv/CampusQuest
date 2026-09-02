@@ -1,0 +1,960 @@
+{
+  "slug": "data-engineer",
+  "title": "Data Engineer Roadmap",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "WSYIFni7G2C9Jr0pwuami",
+      "label": "Introduction",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "WB2PRVI9C6RIbJ6l9zdbd",
+          "label": "What is Data Engineering?"
+        },
+        {
+          "nodeId": "jJukG4XxfFcID_VlQKqe-",
+          "label": "Data Engineering vs Data Science"
+        },
+        {
+          "nodeId": "3BxbkrBp8veZj38zdwN8s",
+          "label": "Skills and Responsibilities"
+        },
+        {
+          "nodeId": "Ouph2bHeLQsrHl45ar4Cs",
+          "label": "Data Engineering Lifecycle"
+        },
+        {
+          "nodeId": "_MpdVlvvkrsgzigYMZ_P8",
+          "label": "Choosing the Right Technologies"
+        }
+      ]
+    },
+    {
+      "nodeId": "_2Ofq3Df-VRXDgKyveZ0U",
+      "label": "Programming Skills",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "ILs5azr4L_uLK0CDFKVaz",
+          "label": "Python"
+        },
+        {
+          "nodeId": "LZ4t8CoCjGWMzE0hScTGZ",
+          "label": "Java"
+        },
+        {
+          "nodeId": "WHJXJ5ukJd-tK_3LFLJBg",
+          "label": "Scala"
+        },
+        {
+          "nodeId": "4z2i5NXTo9h3YY0kJvRrz",
+          "label": "Go"
+        }
+      ]
+    },
+    {
+      "nodeId": "fqmn6DPOA5MH7UWYv6ayn",
+      "label": "Data Structures and Algorithms",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "02TADW_PPVtTU_rWV3jf1",
+      "label": "Git and GitHub",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "w3cfuNC-IdUKA7CEXs0fT",
+      "label": "Data Engineering Lifecycle",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "AWf1y87pd1JFW71cZ_iE1",
+          "label": "Data Generation"
+        },
+        {
+          "nodeId": "wydtifF3ZhMWCbVt8Hd2t",
+          "label": "Data Storage"
+        },
+        {
+          "nodeId": "CvCOkyWcgzaUJec_v5F4L",
+          "label": "Data Ingestion"
+        },
+        {
+          "nodeId": "RspQLpkICyHUmthLlxQ84",
+          "label": "Data Serving"
+        }
+      ]
+    },
+    {
+      "nodeId": "FXQ_QsljK59zDULLgTqCB",
+      "label": "Linux Basics",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "cgkzFMmQils2sYj4NW8VW",
+      "label": "Networking Fundamentals",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "c1dadtQgbqXwcsQhI6de0",
+      "label": "Distributed Systems Basics",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "kVPEoUX-ZAGwstieD20Qa",
+          "label": "Data Normalization"
+        },
+        {
+          "nodeId": "SlQHO8n97F7-_fc6EUXlj",
+          "label": "Data Modelling Techniques"
+        }
+      ]
+    },
+    {
+      "nodeId": "zGKTlMUzhrbVbqpLZBsMZ",
+      "label": "Sources of Data",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "qRHeaD2udDaItAxmiIiUg",
+          "label": "Database"
+        },
+        {
+          "nodeId": "cxTriSZvrmXP4axKynIZW",
+          "label": "APIs"
+        },
+        {
+          "nodeId": "s-wUPMaagyRupT2RdfHks",
+          "label": "Logs"
+        },
+        {
+          "nodeId": "dJZqe47kzRqYIG-4AZTlz",
+          "label": "Mobile Apps"
+        }
+      ]
+    },
+    {
+      "nodeId": "wDDWQgMVBYK4WcmHq_d6l",
+      "label": "Data Collection Considerations",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "KeGCHoJRHp-mBX-P5to4Y",
+          "label": "IoT"
+        },
+        {
+          "nodeId": "2rRVWPON-o3MvpgZmrU_A",
+          "label": "Learn SQL"
+        }
+      ]
+    },
+    {
+      "nodeId": "g4UC0go7OPCJYJlac9w-i",
+      "label": "Database Fundamentals",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "AslPFjoakcC44CmPB5nuw",
+          "label": "CAP Theorem"
+        },
+        {
+          "nodeId": "-VQQmIUGesnrT1N6kH5et",
+          "label": "OLTP vs OLAP"
+        },
+        {
+          "nodeId": "5KgPfywItqLFQRnIZldZH",
+          "label": "Slowly Changing Dimension - SCD"
+        },
+        {
+          "nodeId": "k_XSLLwb0Jk0Dd1sw-MpR",
+          "label": "Horizontal vs Vertical Scaling"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:_Yb67e4cO4z0j1r5Gcl_8",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "_bFj6rbLuqeQB5MjJZpd6",
+          "label": "MySQL"
+        },
+        {
+          "nodeId": "__JFgwxeDLvz8p7DAJnsc",
+          "label": "PostgreSQL"
+        },
+        {
+          "nodeId": "p7S_6O9Qq722r-F4bl6G3",
+          "label": "MariaDB"
+        },
+        {
+          "nodeId": "YZ4G1-6VJ7VdsphdcBTf9",
+          "label": "Aurora DB"
+        },
+        {
+          "nodeId": "PJcxM60h85Po0AAkSj7nr",
+          "label": "Oracle"
+        },
+        {
+          "nodeId": "YxnIQh6Y5ic795-YsajB8",
+          "label": "MS SQL"
+        }
+      ]
+    },
+    {
+      "nodeId": "cslVSSKBMO7I6CpO7vG1H",
+      "label": "Relational Databases",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "sGkAOVl3C-xIIAdtDH9jq",
+      "label": "Document",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "OfH_UXnxvGQgwlNQwOEfS",
+          "label": "Star vs Snowflake Schema"
+        },
+        {
+          "nodeId": "04V0Bcgjusfqdw0b-Aw4W",
+          "label": "MongoDB"
+        },
+        {
+          "nodeId": "_F53cV3ln2yu0ics5BFfx",
+          "label": "ElasticSearch"
+        },
+        {
+          "nodeId": "goL_GqVVTVxXQMGBw992b",
+          "label": "CosmosDB"
+        },
+        {
+          "nodeId": "-IesOBWPSIlbgvTjBqHcb",
+          "label": "CouchDB"
+        }
+      ]
+    },
+    {
+      "nodeId": "fBD6ZQoMac8w4kMJw_Jrd",
+      "label": "Column",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "uZYQ8tqTriXt_JIOjcM9_",
+      "label": "NoSQL Databases",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "W6RnhoD7fW2xzVwnyJEDr",
+      "label": "Graph",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "fSlBjoNVKstJjWO7rS69V",
+      "label": "Key-Value",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "ilbFKqhfYyykjJ7cOngwx",
+          "label": "Indexing"
+        },
+        {
+          "nodeId": "1BJGXWax6CONuFkaYR4Jm",
+          "label": "Transactions"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:d5xaU63Vja_LM1-1wi6UY",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "QYR8ESN7xhi4ZxcoiZbgn",
+          "label": "Cassandra"
+        },
+        {
+          "nodeId": "ltZftFsiOo12AkQ-04N3B",
+          "label": "BigTable"
+        },
+        {
+          "nodeId": "Uho9OOWSG0bUpyH4P6hKk",
+          "label": "HBase"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:aZKsPtpDxVH3fkxTHycDN",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "TG63YRbSKL1F9vlUVF1VY",
+          "label": "Neo4j"
+        },
+        {
+          "nodeId": "atAK4zGXIbxZvfBTzFEIe",
+          "label": "Neptune"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:L6x750gKlyyu0uoNVEmvA",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "dW_eC4vR8BrvKG9wxmEBc",
+          "label": "Redis"
+        },
+        {
+          "nodeId": "KYUh29Ok1aeOviboGDS_i",
+          "label": "Memcached"
+        },
+        {
+          "nodeId": "BDfpCDOxXZ-Tp0Abj_CVW",
+          "label": "DynamoDB"
+        }
+      ]
+    },
+    {
+      "nodeId": "dc3lJI27hJ3zZ45UCVqM1",
+      "label": "What is Data Warehouse?",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "J854xPM1X0BWlhtJw7Hs_",
+      "label": "Data Warehousing Architectures",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "c6Pf3kFcC4iV4a7mPc-WH",
+          "label": "Data Mart"
+        }
+      ]
+    },
+    {
+      "nodeId": "ArOoKuf9scAURs8NRjAru",
+      "label": "Data Warehouse",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "Je2in1n8bMaknyeH79Zbv",
+          "label": "Google BigQuery"
+        },
+        {
+          "nodeId": "W3l1_66fsIqR3MqgBJUmU",
+          "label": "Snowflake"
+        },
+        {
+          "nodeId": "omrg8QcYmTdQLBKV47b7o",
+          "label": "Amazon Redshift"
+        }
+      ]
+    },
+    {
+      "nodeId": "D7qtosIbsQuIY3OWl_Hwc",
+      "label": "Data Mesh",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:sI6Xp7JGJiF18vtaK3be8",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "-x3QLMYhC67VJQ6EW6BrJ",
+          "label": "Data Fabric"
+        },
+        {
+          "nodeId": "OiWleAdMbPtisrJpk2eSJ",
+          "label": "Data Hub"
+        },
+        {
+          "nodeId": "14CycunRC1p2qTRn-ncoy",
+          "label": "Metadata-first Architecture"
+        },
+        {
+          "nodeId": "ZnGX8pg4GagdSalg_P0oq",
+          "label": "Serverless Options"
+        }
+      ]
+    },
+    {
+      "nodeId": "y0Lxz_wVyQ6lr1hvCsufa",
+      "label": "Data Lake",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "fhfyoWekmYvEs-jdP2mJo",
+          "label": "Databricks Delta Lake"
+        },
+        {
+          "nodeId": "Pf0_CBGkmSEfWDQ2_iFXr",
+          "label": "Snowflake"
+        },
+        {
+          "nodeId": "senZEYC9k-C_C4EAYDNeU",
+          "label": "Onehouse"
+        }
+      ]
+    },
+    {
+      "nodeId": "lDeSL9qvgQgyAMcWXF7Fr",
+      "label": "Cloud Computing",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "YLfyb_ycgz1hu0yW8SPNE",
+          "label": "Cloud Architectures"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:feK5CpK7uJaCQU3Pg9snq",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "AHLsBfPfBJOhLlJ-64GcK",
+          "label": "Amazon EC2 ( Compute)"
+        },
+        {
+          "nodeId": "tbut25IZI2aU7TkI9fFYV",
+          "label": "S3 (Storage)"
+        },
+        {
+          "nodeId": "GtFk7phYGfXUhxanicYNQ",
+          "label": "Amazon RDS (Database)"
+        },
+        {
+          "nodeId": "nD36-PXHzOXePM7j9u_O_",
+          "label": "Glue (ETL)"
+        },
+        {
+          "nodeId": "-yi-xk-kv0njW9GdytiAQ",
+          "label": "Azure Virtual Machines"
+        },
+        {
+          "nodeId": "gzbEGCUwMsD1gL4nW668g",
+          "label": "Azure Blob Storage"
+        },
+        {
+          "nodeId": "iIZ3g70KRwEJCBNaONd2d",
+          "label": "Azure SQL Database"
+        },
+        {
+          "nodeId": "BNGdJSmrNE90rwPa4JoWj",
+          "label": "Data Factory (ETL)"
+        },
+        {
+          "nodeId": "-cU86vJWJmlmPHXDCo31o",
+          "label": "Compute Engine (Compute)"
+        },
+        {
+          "nodeId": "2lqvArZdwRX0t3P3yovEH",
+          "label": "Google Cloud Storage"
+        },
+        {
+          "nodeId": "9-wQWQIdAxQmMaJC9ojPg",
+          "label": "Cloud SQL (Database)"
+        },
+        {
+          "nodeId": "YWgVUyIvBRW8eTVR5y73P",
+          "label": "Dataflow"
+        }
+      ]
+    },
+    {
+      "nodeId": "GN1Xh3kA25ge-wTbdiSio",
+      "label": "Types of Data Ingestion",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "f-a3Hy1ldnvSv8W2mFiJK",
+          "label": "Batch"
+        },
+        {
+          "nodeId": "4fugNG5sEDl0kgmN3Mezk",
+          "label": "Hybrid"
+        },
+        {
+          "nodeId": "oqxNr0Lj34mgRi5Z5wJt_",
+          "label": "Realtime"
+        }
+      ]
+    },
+    {
+      "nodeId": "fqTPu70MJyXBmqYUgCJ_r",
+      "label": "Data Pipelines",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:nQZXPggnB7SC1O7fHV9wq",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "nShDMih1HmubBczxu4cfU",
+          "label": "Extract Data"
+        },
+        {
+          "nodeId": "TjsxMNyWO3YGwg6zEIid4",
+          "label": "Transform Data"
+        },
+        {
+          "nodeId": "y5Aaxe-P68HC5kNsIi88q",
+          "label": "Load Data"
+        },
+        {
+          "nodeId": "vfO5Dz6ppsNtbGiQwpUs7",
+          "label": "Apache Airflow"
+        },
+        {
+          "nodeId": "SgYLIkMtLVPlw8Qo5j0Fb",
+          "label": "dbt"
+        },
+        {
+          "nodeId": "_IiKTZDF_b57l79X6lsq6",
+          "label": "Luigi"
+        },
+        {
+          "nodeId": "TAh4__7U58J7fduU9a1Ol",
+          "label": "Prefect"
+        }
+      ]
+    },
+    {
+      "nodeId": "hB0y8A2U3owpAbTUb7LN5",
+      "label": "Cluster Computing Basics",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "Ad10evrGQuYRl5GaMhQwu",
+          "label": "What is Cluster Computing"
+        },
+        {
+          "nodeId": "1LLF4466grFDlT9p_WLsi",
+          "label": "Distributed File Systems"
+        },
+        {
+          "nodeId": "ccc6_SzDwXpCL1WbFuPNA",
+          "label": "Job Scheduling"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:Lan3xGnc91AWNHPdWr4oZ",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "9lSjQBM2hWrkujxZjhQHE",
+          "label": "HDFS"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:WW9_OqWGOp7vymOpZy3yL",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "wpZfbIFtfiUSLMASk4t7f",
+          "label": "Cluster Management Tools"
+        },
+        {
+          "nodeId": "I_IueX1DFp-LmBwr1-suX",
+          "label": "Kubernetes"
+        },
+        {
+          "nodeId": "pjm_qShAiFk3JsX4Z2d8G",
+          "label": "Apache Hadoop YARN"
+        }
+      ]
+    },
+    {
+      "nodeId": "03BHmPhYkZrJwRvQdmxxr",
+      "label": "Big Data Tools",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "qHMtJFYcGmESiz_VwRwiI",
+          "label": "Apache Spark"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:SEpxm5INSkSQc07C4uyPt",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "0pH2U4GOj8zK3lgkh_r5M",
+          "label": "HDFS"
+        },
+        {
+          "nodeId": "KcW4z48pk2x6IjQhZs_Ub",
+          "label": "YARN"
+        },
+        {
+          "nodeId": "__tWu5uZYnmnuR-qO9SOR",
+          "label": "MapReduce"
+        }
+      ]
+    },
+    {
+      "nodeId": "eTHitN2erd6z8-MZiXE9s",
+      "label": "Containers & Orchestration",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "OQ3RqVgWEMxpAtrrjOG5U",
+          "label": "Docker"
+        },
+        {
+          "nodeId": "kcgDW6AFW7WXzXMTPE6J-",
+          "label": "Kubernetes"
+        },
+        {
+          "nodeId": "8qEgXYZEbDWC73SQSflDY",
+          "label": "Google Cloud GKE"
+        },
+        {
+          "nodeId": "eVqcYI2Sy2Dldl3SfxB2C",
+          "label": "AWS EKS"
+        }
+      ]
+    },
+    {
+      "nodeId": "k2SJ4ELGa4B2ZERDAk1uj",
+      "label": "CI/CD",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "N8vpCfSdZCADwO_qceWBK",
+          "label": "GitHub Actions"
+        },
+        {
+          "nodeId": "CewITBPtfVs32LD5Acb2E",
+          "label": "Circle CI"
+        },
+        {
+          "nodeId": "IYIO4S3DO5xkLD__XT5Dp",
+          "label": "GitLab CI"
+        }
+      ]
+    },
+    {
+      "nodeId": "dk5FQl7Pk3-O5eF7dKwmp",
+      "label": "Monitoring",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "3QsgoKKxAoyj2LWJ8ad-7",
+          "label": "Prometheus"
+        },
+        {
+          "nodeId": "Zoa4JEGrSKjVwUNer4Go1",
+          "label": "Datadog"
+        },
+        {
+          "nodeId": "i54fx-NV6nWzQVCdi0aKL",
+          "label": "Sentry"
+        },
+        {
+          "nodeId": "PUzHbjwntTSj1REL_dAov",
+          "label": "ArgoCD"
+        },
+        {
+          "nodeId": "r1KmASWAa_MOqQOC9gvvF",
+          "label": "New Relic"
+        }
+      ]
+    },
+    {
+      "nodeId": "DZoxLu-j1vq5leoXLRZqt",
+      "label": "Testing",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "8dXD4ddR_USEbAJhUMcB6",
+          "label": "Unit Testing"
+        },
+        {
+          "nodeId": "NIG53tyoEiLtwf6LvBZId",
+          "label": "Integration Testing"
+        },
+        {
+          "nodeId": "mC9sWeC_wYHeJJHJAvxpI",
+          "label": "End-to-End Testing"
+        },
+        {
+          "nodeId": "E4ND5XaMDGDLtlV7wTzi6",
+          "label": "Functional Testing"
+        },
+        {
+          "nodeId": "5qe0q_llTzzNVudbONMYo",
+          "label": "A/B Testing"
+        },
+        {
+          "nodeId": "qoMRpAITA7R_KOrwGDPAb",
+          "label": "Load Testing"
+        },
+        {
+          "nodeId": "woa5K4Dt9L6aBzlJMNS31",
+          "label": "Smoke Testing"
+        }
+      ]
+    },
+    {
+      "nodeId": "dAvizeYvv92KMeAvSDmey",
+      "label": "Messaging Systems",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "1qju7UlcMo2Ebp4a3BGxH",
+          "label": "What and why use them?"
+        },
+        {
+          "nodeId": "VefHaP7rIOcZVFzglyn66",
+          "label": "Async vs Sync Communication"
+        },
+        {
+          "nodeId": "IZvL-1Xi0R9IuwJ30FDm4",
+          "label": "Messages vs Streams"
+        },
+        {
+          "nodeId": "yyJJGinOv3M21MFuqJs0j",
+          "label": "Best Practices"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:sMhuDjih8ECp5aD8NgrHz",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "fTpx6m8U0506ZLCdDU5OG",
+          "label": "Apache Kafka"
+        },
+        {
+          "nodeId": "ERcgPTACqYo9BXoRdLjbd",
+          "label": "RabbitMQ"
+        },
+        {
+          "nodeId": "uIU5Yncp6hGDcNO1fpjUS",
+          "label": "AWS SQS"
+        },
+        {
+          "nodeId": "uFeiTRobSymkvCinhwmZV",
+          "label": "AWS SNS"
+        }
+      ]
+    },
+    {
+      "nodeId": "jgz7L8OSuqRNcf9buuMTj",
+      "label": "Infrastructure as Code - IaC",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "GyC2JctG-Gi0R_qx1lTeg",
+          "label": "Declarative vs Imperative"
+        },
+        {
+          "nodeId": "9xoBZgKT9uAGsjc1soelY",
+          "label": "Idempotency"
+        },
+        {
+          "nodeId": "Rzk6HlMosx3FN_JD5kELZ",
+          "label": "Reusability"
+        },
+        {
+          "nodeId": "WUfJCLTajyLNK19gAAvoW",
+          "label": "Environmental Management"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:ukUz0zhQbv9af5eNyXCji",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "N-xRhdOTHijAymcTWPXPJ",
+          "label": "Terraform"
+        },
+        {
+          "nodeId": "WdlC0HhJ5YESfjXmdMnLU",
+          "label": "OpenTofu"
+        },
+        {
+          "nodeId": "OKJ3HTfreitk2JdrfeLIK",
+          "label": "AWS CDK"
+        },
+        {
+          "nodeId": "1A98uTo8l_GQSrFxu5N2X",
+          "label": "Google Deployment  Mgr."
+        }
+      ]
+    },
+    {
+      "nodeId": "V30v5RLQrWSMBUIsZQG1o",
+      "label": "Data Analytics",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "zA5QqqBMsqymdiPGFdUnt",
+      "label": "Business Intelligence",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:BCaFByttoQgLAQd7xGNN-",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "6Nr5FAGT_oOPZwZWdv7hl",
+          "label": "Microsoft Power BI"
+        },
+        {
+          "nodeId": "FfU6Vwf0PXva91FoqxFgp",
+          "label": "Streamlit"
+        },
+        {
+          "nodeId": "gqEAOwHFrQiYSejNUdV7-",
+          "label": "Tableu"
+        },
+        {
+          "nodeId": "fY0eZzz0aTXm2lelk8l3g",
+          "label": "Looker"
+        }
+      ]
+    },
+    {
+      "nodeId": "HDVhttLNMLmIAVEOBCOQ3",
+      "label": "Authentication vs Authorization",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "2PqRgrYuJi_pPhOS0AkoP",
+      "label": "Encryption",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "ZAKo9Svb8TQ6KkmOnfB5x",
+      "label": "Tokenization",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "2Wu1Ufm2l1nrytz1mAxmJ",
+      "label": "Data Masking",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "rUiYUV4ps6NYYYRwUnjuM",
+      "label": "Data Obfuscation",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "cStrYgFZA2NuYq8TdWWP_",
+          "label": "Data Quality"
+        },
+        {
+          "nodeId": "pKewO7Ef3GBXL4MDK62QG",
+          "label": "Data Lineage"
+        },
+        {
+          "nodeId": "a5gzM8msXibxD58eVDkM-",
+          "label": "Metadata Management"
+        },
+        {
+          "nodeId": "ghAbtfB5KtbboNjijL1Zf",
+          "label": "Data Interoperability"
+        },
+        {
+          "nodeId": "iuNP6W0A2GLTE2PK5y68u",
+          "label": "Data Quality"
+        }
+      ]
+    },
+    {
+      "nodeId": "JpuiYsipNWBcrjmn2ji6b",
+      "label": "Reverse ETL",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "LMFREK9dH_7qzx_s2xCjI",
+          "label": "ETL vs Reverse ETL"
+        },
+        {
+          "nodeId": "mBOGrJIUaatBe2PnJM2NK",
+          "label": "Reverse ETL Usecases"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:lMhCae46hJSaJ3xnkzr3t",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "8NTe5-XQ5tKAWUyg1rnzb",
+          "label": "Hightouch"
+        },
+        {
+          "nodeId": "vZGDtlyt_yj4szcPTw3cv",
+          "label": "Census"
+        },
+        {
+          "nodeId": "8vqjI-uFwJIr_TBEVyM_3",
+          "label": "Segment"
+        }
+      ]
+    },
+    {
+      "nodeId": "S8XMtFKWlnUqADElFp0Zw",
+      "label": "Machine Learning",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "MuPHohc7mJzcH5QdJ-K46",
+          "label": "GDPR"
+        },
+        {
+          "nodeId": "g1VwuSupohuDAT2O4hTXx",
+          "label": "ECPA"
+        },
+        {
+          "nodeId": "tdqhFFvQ2dQVeQh1qTHjV",
+          "label": "EU AI Act"
+        }
+      ]
+    },
+    {
+      "nodeId": "VQv-c7buU2l-IDzRZBMRo",
+      "label": "MLOps",
+      "hasBody": true,
+      "subtopics": []
+    }
+  ]
+}

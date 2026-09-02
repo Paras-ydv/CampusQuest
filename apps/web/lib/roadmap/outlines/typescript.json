@@ -1,0 +1,438 @@
+{
+  "slug": "typescript",
+  "title": "TypeScript",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "KDd40JOAvZ8O1mfhTYB3K",
+      "label": "Introduction to TypeScript",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "_bZ71i36haWgHQTY0yMOx",
+          "label": "TS Playground"
+        },
+        {
+          "nodeId": "Iv_t13PSVzet5VPKFtAp1",
+          "label": "tsc"
+        },
+        {
+          "nodeId": "ZCM2_X4BiKh5FTCizrr-E",
+          "label": "ts-node"
+        },
+        {
+          "nodeId": "MQWzN_kXxVJMOYbRXSGJc",
+          "label": "TypeScript vs JavaScript"
+        },
+        {
+          "nodeId": "qdy4ZIY2EKgmPNdu_ndcg",
+          "label": "Running TypeScript"
+        },
+        {
+          "nodeId": "dcLaEU_lb0z_QypL1ZhpX",
+          "label": "TS and JS Interoperability"
+        },
+        {
+          "nodeId": "dA8CNQOgJRDa0T7rmyS7f",
+          "label": "Installation and Configuration"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:h-SAVlYMgS3y0WmKNd9r9",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "mVKsM7R4Ivpdhnbwt1aRb",
+          "label": "Interface"
+        },
+        {
+          "nodeId": "hfIHxa5i_5rEpjtzqEsic",
+          "label": "boolean"
+        },
+        {
+          "nodeId": "tTSITP1W1ymS-njbFb8Ts",
+          "label": "Class"
+        },
+        {
+          "nodeId": "UH9d3cvGy_e67WFNFwCyf",
+          "label": "number"
+        },
+        {
+          "nodeId": "bfZIXHceDKDGQl-24kQpT",
+          "label": "Enum"
+        },
+        {
+          "nodeId": "d8iV-IBZ6cSnH8Z5_HRmc",
+          "label": "string"
+        },
+        {
+          "nodeId": "YbDuIo1BbZKEAZwmXlCdZ",
+          "label": "Array"
+        },
+        {
+          "nodeId": "yLlQg7BF--ZwRHbXBWfOi",
+          "label": "void"
+        },
+        {
+          "nodeId": "jq-GD0DLyzrEXQKUmt5kv",
+          "label": "Tuple"
+        },
+        {
+          "nodeId": "Sa6IZtM4XJstultz-pbh0",
+          "label": "undefined"
+        },
+        {
+          "nodeId": "cjAwawhZLo1qVQ93XIdm2",
+          "label": "null"
+        },
+        {
+          "nodeId": "vnqvm_WiaKqpdxrW4wRGa",
+          "label": "Object"
+        },
+        {
+          "nodeId": "0pi9VTbngcAIswuu5LIYg",
+          "label": "never"
+        },
+        {
+          "nodeId": "O2TYbd9i_OQwQk2dKh-ly",
+          "label": "unknown"
+        },
+        {
+          "nodeId": "yXiLegSlL7SveU8rBGj8U",
+          "label": "any"
+        }
+      ]
+    },
+    {
+      "nodeId": "KUur-gfOBQodTS-irFet7",
+      "label": "Type Inference",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "DmqrX56d9KnBcOSwlJR2q",
+          "label": "tsconfig.json"
+        },
+        {
+          "nodeId": "RrExVb7l2gd0s_TlNdLeD",
+          "label": "Compiler Options"
+        }
+      ]
+    },
+    {
+      "nodeId": "qcrGApxNzkGYxgcd7o45d",
+      "label": "TypeScript Types",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "mjaL5ocLnM8VQlhUxW6KU",
+          "label": "Non-null Assertion"
+        }
+      ]
+    },
+    {
+      "nodeId": "alMJCEyUZ90xz-2_g3YRj",
+      "label": "Type Compatibility",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "5z5w3yv1HbOpMlzEd4Iot",
+          "label": "Union Types"
+        },
+        {
+          "nodeId": "RWYXEZMODUrqwRWf_Lqi9",
+          "label": "Intersection Types"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:_4my3Mfk5lxztykcJQ66s",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "Ba0baUbomrW9td_K8U-5L",
+          "label": "as [type]"
+        },
+        {
+          "nodeId": "afTNr36VqeXoJpHxm2IoS",
+          "label": "as any"
+        },
+        {
+          "nodeId": "pGFnTqi0-RSj0YRmNA5iy",
+          "label": "as const"
+        }
+      ]
+    },
+    {
+      "nodeId": "qefnsugcveizVq2TORRgn",
+      "label": "Combining Types",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "M_3O21zjppgWptIT5dtu8",
+          "label": "Type Aliases"
+        },
+        {
+          "nodeId": "t1Tcesfq7bV2TkHcfD6lU",
+          "label": "keyof Operator"
+        }
+      ]
+    },
+    {
+      "nodeId": "aH1DxiG5xrdNlKutJ_gTz",
+      "label": "TypeScript Interfaces",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "HD1UGOidp7JGKdW6CEdQ_",
+          "label": "satisfies keyword"
+        },
+        {
+          "nodeId": "TxkEpoOiuUm-fXJuFVKcH",
+          "label": "Types vs Interfaces"
+        },
+        {
+          "nodeId": "O-9WQqidujLIEOTcOfy4n",
+          "label": "Extending Interfaces"
+        },
+        {
+          "nodeId": "fY40W8prpgiNqRL50w7ub",
+          "label": "Interface Declaration"
+        },
+        {
+          "nodeId": "lvtTSHH9yBTCiLng8btnI",
+          "label": "Hybrid Types"
+        }
+      ]
+    },
+    {
+      "nodeId": "cFZsxpYHDxm7IWwergb3r",
+      "label": "Type Guards / Narrowing",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "EDOU5a7UK17yp3PdFBJMc",
+          "label": "instanceof"
+        },
+        {
+          "nodeId": "ZiOcFZy85p7tLzUkyKDei",
+          "label": "typeof"
+        },
+        {
+          "nodeId": "Wy2yIK5vgLjEcc9VjuQK5",
+          "label": "Equality"
+        },
+        {
+          "nodeId": "Xonbxc7MvMEonKBvbkCAH",
+          "label": "Truthiness"
+        },
+        {
+          "nodeId": "1DOSAieOmWUNNsQQrqf2m",
+          "label": "Type Predicates"
+        }
+      ]
+    },
+    {
+      "nodeId": "qOynVkDi1gFz0mxyJHjfJ",
+      "label": "TypeScript Functions",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "9FIhHwDNzyKpb42NmSv3K",
+          "label": "Typing Functions"
+        },
+        {
+          "nodeId": "-0Zp6b8NjDyz9MAQE3HfS",
+          "label": "Function Overloading"
+        },
+        {
+          "nodeId": "gBTem9Dp3IQLAkqGX4fOF",
+          "label": "Partial"
+        }
+      ]
+    },
+    {
+      "nodeId": "ib0jfZzukYOZ42AdJqt_W",
+      "label": "Classes",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "3XrKbK5Od2eoM0BLaS4kU",
+          "label": "Constructor Params"
+        }
+      ]
+    },
+    {
+      "nodeId": "4gaKqNtGLFqpk9WVKZl0v",
+      "label": "Generics",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "T2-VAVfntouJOoWHpHZ3n",
+          "label": "Generic Types"
+        },
+        {
+          "nodeId": "0NXHAOUYGIwuPwlN7r_B3",
+          "label": "Generic Constraints"
+        },
+        {
+          "nodeId": "RJ7on8WoxrKcXrR3qY5Rs",
+          "label": "Access Modifiers"
+        },
+        {
+          "nodeId": "tZFWeWHdOUJcCEtHfXH9p",
+          "label": "Abstract Classes"
+        }
+      ]
+    },
+    {
+      "nodeId": "LSwUHfalnk5MgHt21PANb",
+      "label": "Utility Types",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "E88tHQvARkHURZwGaO02l",
+          "label": "Pick"
+        },
+        {
+          "nodeId": "yjlxygHl8QONNUrdx-Q0A",
+          "label": "Omit"
+        },
+        {
+          "nodeId": "IuO9-O_DQdDYuAbdGWdgb",
+          "label": "Readonly"
+        },
+        {
+          "nodeId": "DRdBmF5Dt_r09LoPOxOuq",
+          "label": "Record"
+        },
+        {
+          "nodeId": "0fvOXi9gJbEc7etqTggNE",
+          "label": "Exclude"
+        },
+        {
+          "nodeId": "IIAbAzXiVQm1JEi2MTMZN",
+          "label": "Extract"
+        },
+        {
+          "nodeId": "aEhI_9mFWXRIZh1ZxTuzu",
+          "label": "Awaited"
+        },
+        {
+          "nodeId": "a7hl0iMZ-jcUACxqIYVqv",
+          "label": "Parameters"
+        },
+        {
+          "nodeId": "_BAZlBEzE7ddr315OeHvl",
+          "label": "NonNullable"
+        },
+        {
+          "nodeId": "On75JR_UkiIlha0_qaSeu",
+          "label": "ReturnType"
+        },
+        {
+          "nodeId": "izGAjNtrh3BzQt3KiZX0W",
+          "label": "InstanceType"
+        }
+      ]
+    },
+    {
+      "nodeId": "TRx3wvWnRdJJf5eL-GBG4",
+      "label": "Decorators",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "8P0-vb9nlnmz7iC4UvyJZ",
+          "label": "Inheritance vs Polymorphism"
+        },
+        {
+          "nodeId": "aknqutxN2WDQ4RFcT-szM",
+          "label": "Method Overriding"
+        },
+        {
+          "nodeId": "oxzcYXxy2I7GI7nbvFYVa",
+          "label": "Constructor Overloading"
+        },
+        {
+          "nodeId": "EtVwQ4lnWi3IIFHGb2Qib",
+          "label": "Namespaces"
+        }
+      ]
+    },
+    {
+      "nodeId": "2F7vOL__v9dLBohA263aj",
+      "label": "Advanced Types",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "VQ-V9qIdKgnpSJg2UnpuB",
+          "label": "Mapped Types"
+        },
+        {
+          "nodeId": "ubGIhi-WLE0EopTYXzmPL",
+          "label": "Conditional Types"
+        },
+        {
+          "nodeId": "CWzGwvl6NwYCaLYSLIjqQ",
+          "label": "Literal Types"
+        },
+        {
+          "nodeId": "xP25nGw42VqdfZ_9pDMXd",
+          "label": "Template Literal Types"
+        }
+      ]
+    },
+    {
+      "nodeId": "sE9lqkkqwnsVJxTJv37YZ",
+      "label": "TypeScript Modules",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "k_5y77k8ZZ9_O2WpWXWTY",
+          "label": "Ambient Modules"
+        },
+        {
+          "nodeId": "egQWk1n3p8Pep83yIwCtI",
+          "label": "External Modules"
+        },
+        {
+          "nodeId": "16TT8R4N-9tCfWmPetqMP",
+          "label": "Namespace Augmentation"
+        },
+        {
+          "nodeId": "JQwWeB1gkANSYfQmH69Bs",
+          "label": "Global Augmentation"
+        }
+      ]
+    },
+    {
+      "nodeId": "RqZaWGxxNRItBhVwWKysc",
+      "label": "Ecosystem",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "N8xBTJ74xv1E5hSLYZtze",
+          "label": "Recursive Types"
+        },
+        {
+          "nodeId": "fU8Vnw1DobM4iXl1Tq6EK",
+          "label": "Formatting"
+        },
+        {
+          "nodeId": "8PcAPOrKisKRYPWamz4nV",
+          "label": "Linting"
+        },
+        {
+          "nodeId": "PCX3KcvMUW3mmQEepLTXp",
+          "label": "Useful Packages"
+        },
+        {
+          "nodeId": "I5uwfej5XMwR2N2gpBILh",
+          "label": "Build Tools"
+        }
+      ]
+    }
+  ]
+}

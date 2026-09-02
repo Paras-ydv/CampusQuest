@@ -1,0 +1,874 @@
+{
+  "slug": "redis",
+  "title": "Redis Roadmap",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "-3pADOHMDQ0H6ZKNjURyn",
+      "label": "What is Redis?",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "M-EXrTDeAEMz_IkEi-ab4",
+          "label": "In-memory Data Structure Store"
+        },
+        {
+          "nodeId": "l2aXyO3STnhbFjvUXPpm2",
+          "label": "Key-value Database"
+        },
+        {
+          "nodeId": "eHuBz_zSZK3rubn7nkd7g",
+          "label": "Cache"
+        },
+        {
+          "nodeId": "mgGJTBU8ofvOzl9gYWhnG",
+          "label": "Message Broker"
+        },
+        {
+          "nodeId": "-TjnSOY8txYrhhxRV1OIl",
+          "label": "Caching"
+        },
+        {
+          "nodeId": "bVJASI7bfSYqYnNhX83ng",
+          "label": "Real-time Analytics"
+        },
+        {
+          "nodeId": "EvWiEx_AoxAht6sKxzW2l",
+          "label": "Redis vs SQL/NoSQL DBs"
+        },
+        {
+          "nodeId": "URxGmhZHr0Y8nyrYj0gJl",
+          "label": "Session Management"
+        },
+        {
+          "nodeId": "1Af5H0BgdAsRdBCNdHz5v",
+          "label": "When to choose Redis?"
+        },
+        {
+          "nodeId": "ZCyId3aIoLv3duxoJdk2P",
+          "label": "Pub/Sub Messaging"
+        },
+        {
+          "nodeId": "Fv1iGX22sApIEifM2IpJz",
+          "label": "Leaderboards and Counters"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:zxoi09oW1HbXNwvc14w9U",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "Bf_kLfmy7_uflqC9N0-jt",
+          "label": "Using Package Managers"
+        },
+        {
+          "nodeId": "yBZ79s6mzGdj5AnX2H_Hy",
+          "label": "Pre-compiled Binaries"
+        },
+        {
+          "nodeId": "TDxv0q7jlZ26uZYYlneem",
+          "label": "Using Docker"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:80UujPXPhvKIJMSM67pwl",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "43LvShQhmoWQ8Nye7fLkz",
+          "label": "Starting the Server"
+        },
+        {
+          "nodeId": "BOGXTjmCLo6WI6mYDsqRu",
+          "label": "Connecting using Redis CLI"
+        },
+        {
+          "nodeId": "NhcZM4nUQoSBBf_1qXi6l",
+          "label": "Basic Commands / SET, GET"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:37hyOMnKf4H2qg27SK2rZ",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "DOdNkTY1yIMipWA2CD9xH",
+          "label": "Setting and Getting Keys"
+        },
+        {
+          "nodeId": "lV_MnUNTB2h925idX0YWk",
+          "label": "DEL"
+        },
+        {
+          "nodeId": "nS0DHhfy4wxHItgOFhulA",
+          "label": "expire"
+        },
+        {
+          "nodeId": "Vll7VMmGWSI5XGZ9JpHyl",
+          "label": "TTL"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:xUioudlYG1bD0_eR0fNE3",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "BOJzn9SWad9oRRdY_ub01",
+          "label": "HSET"
+        },
+        {
+          "nodeId": "MsKg9m5jFwHM2Bzjf-vdu",
+          "label": "HGET"
+        },
+        {
+          "nodeId": "TpR33sJ-tAjeG3jpGTvYR",
+          "label": "HGETALL"
+        },
+        {
+          "nodeId": "E7xFZkqqbzokD5KGTn9zJ",
+          "label": "HDEL"
+        },
+        {
+          "nodeId": "adhLMuSmfYMRyWTwIgnyE",
+          "label": "HEXISTS"
+        },
+        {
+          "nodeId": "P6TDUCroLlEI7qePBFHIH",
+          "label": "More Commands"
+        },
+        {
+          "nodeId": "jtVnUD-na-WffMaS8qYfu",
+          "label": "Usecases"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:Ljjl_kSEevtaBALxRh2By",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "ltF4vCT9ZA2XuUuHnuGnN",
+          "label": "SET"
+        },
+        {
+          "nodeId": "mQc4H2ZMMSVjh33LJY8mK",
+          "label": "GET"
+        },
+        {
+          "nodeId": "5K9qyC4mrhXYWOC8WSq8C",
+          "label": "INCR"
+        },
+        {
+          "nodeId": "t4BXPofF8OCqH5KHwdYVh",
+          "label": "DECR"
+        },
+        {
+          "nodeId": "cPWd53BO6tm-uy4gqLdtZ",
+          "label": "APPEND"
+        },
+        {
+          "nodeId": "eJQW986HM4Wf1o1i2FnXs",
+          "label": "STRLEN"
+        },
+        {
+          "nodeId": "0v8uLWRCbAqEmKKdYaRQW",
+          "label": "More Commands"
+        },
+        {
+          "nodeId": "2_E2VwbjTgk4xxTFWfHuV",
+          "label": "Usecases"
+        }
+      ]
+    },
+    {
+      "nodeId": "Wl23Jh-ASJOQ850yjaTIU",
+      "label": "Strings",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "8uRpPJ0iD4XnQPKruQc8P",
+          "label": "Data Persistence Options"
+        },
+        {
+          "nodeId": "uVewcyaFi1Pt2Gs0KrkfA",
+          "label": "Rich Data Structures"
+        },
+        {
+          "nodeId": "5-3pd4rLDqRzMzSRVLdXh",
+          "label": "High Performance and Scalability"
+        }
+      ]
+    },
+    {
+      "nodeId": "wY46Qj5Inw_ClBNI9PB_2",
+      "label": "Hashes",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "U84XgBFPyIbY0W5afH4cx",
+          "label": "Overview of Data Types"
+        }
+      ]
+    },
+    {
+      "nodeId": "QTbkWZ7BpqYmBhUivccPu",
+      "label": "Sorted Sets",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:JBXkEOLntmMR49axOFbA0",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "0swsBD0sOY-o5lzibT999",
+          "label": "ZADD"
+        },
+        {
+          "nodeId": "3pFChX6YIItrBz9lxu4XM",
+          "label": "ZRANGE"
+        },
+        {
+          "nodeId": "AF_kWM4V8n5Ux06IgEVTl",
+          "label": "ZRANK"
+        },
+        {
+          "nodeId": "m0FZDPwNE71zcwM_gUwz0",
+          "label": "ZREM"
+        },
+        {
+          "nodeId": "OlbixGa5RmdqEt7snY04j",
+          "label": "ZRANGEBYSCORE"
+        },
+        {
+          "nodeId": "W4v7FIQr2k-Vbm-HdfKog",
+          "label": "ZINCRBY"
+        },
+        {
+          "nodeId": "O-fZM_U-tW0pYtNzN_8Ax",
+          "label": "ZCOUNT"
+        },
+        {
+          "nodeId": "o6e_CwxfPoU6qkfWkwKwj",
+          "label": "More Commands"
+        },
+        {
+          "nodeId": "lxevY15ZyP43s_JrEqMX7",
+          "label": "Usecases"
+        }
+      ]
+    },
+    {
+      "nodeId": "4-C4XqACUp4nvcMIj6djF",
+      "label": "Lists",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "Qgkpr9vf9d6-vUg1o8XFj",
+      "label": "Sets",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:u2TdoI7ILaxYgUUni9W_w",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "xUKoQps69FFQrJeuhD1pz",
+          "label": "SADD"
+        },
+        {
+          "nodeId": "WQWVL5GT_scHdgfCtI7WT",
+          "label": "SREM"
+        },
+        {
+          "nodeId": "mQ0ILns53n1By0Tq6xSZI",
+          "label": "SMEMBERS"
+        },
+        {
+          "nodeId": "Ji5ghlcGJtlmErHFqVf3d",
+          "label": "SISMEMBER"
+        },
+        {
+          "nodeId": "5aLfNBewK4Dx017qVNO3T",
+          "label": "SINTER"
+        },
+        {
+          "nodeId": "2gZL4a9aWGKWLa89iyHTc",
+          "label": "SCARD"
+        },
+        {
+          "nodeId": "6QoYa-N2BKNBaRtvNeVNm",
+          "label": "SUNION"
+        },
+        {
+          "nodeId": "JX5ajmcUmkshTO-mLF8lH",
+          "label": "SDIFF"
+        },
+        {
+          "nodeId": "2SG4Hr9Tuv6cxmGkrKjYZ",
+          "label": "More Commands"
+        },
+        {
+          "nodeId": "b48EUyFGUeSjtT5fOa_m6",
+          "label": "More Commands"
+        },
+        {
+          "nodeId": "3hayYoSZepw7pppBubotg",
+          "label": "Usecases"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:-NHxqJMM7SscP9pJ3bgD8",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "Kq7G89KaZZMFkrH-9WZoS",
+          "label": "LPUSH"
+        },
+        {
+          "nodeId": "jC8G1o7yFj7D_PGmOIgcD",
+          "label": "RPUSH"
+        },
+        {
+          "nodeId": "voa61RTWMJD3Sk8DNJoVQ",
+          "label": "LPOP"
+        },
+        {
+          "nodeId": "brUGqWZ287EWtvl9uUbNt",
+          "label": "RPOP"
+        },
+        {
+          "nodeId": "8JTtBy6oD2wFYDizVkcVa",
+          "label": "LRANGE"
+        },
+        {
+          "nodeId": "hBFEUXtuzUTzWZKp2qWaZ",
+          "label": "LINDEX"
+        },
+        {
+          "nodeId": "4oCcP9FxDJSDMHCEVBCNa",
+          "label": "LLEN"
+        },
+        {
+          "nodeId": "9KvHcS5F4Jj5ZXgIAdOQY",
+          "label": "LMOVE"
+        },
+        {
+          "nodeId": "eBeEUYY-IL_CMkcm31lUL",
+          "label": "More Commands"
+        },
+        {
+          "nodeId": "XTwNCCtzXvZMdaex4gZEh",
+          "label": "Usecases"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:Kjkc8rNezN_LBD5WMrBbE",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "jCaVx5wvsvuyqtwh6m8si",
+          "label": "Naming Conventions"
+        },
+        {
+          "nodeId": "UlQHqw1dbxZnAKbsWsOgU",
+          "label": "Retrieval by Pattern"
+        },
+        {
+          "nodeId": "OSIYDYPGz8Vgo9SU9GGH9",
+          "label": "Expiration"
+        }
+      ]
+    },
+    {
+      "nodeId": "jrgaoDnt_RxTu79hk4hCD",
+      "label": "Atomicity in Redis",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:CxiHaw63xmItCGdhpcsiz",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "B-YUFhPQNdr1KZNupmR5N",
+          "label": "SETBIT"
+        },
+        {
+          "nodeId": "0HFLJfcrcSnAVTecG3P8W",
+          "label": "GETBIT"
+        },
+        {
+          "nodeId": "tkrxArg_oYH0aQfM8NkD2",
+          "label": "BITOP"
+        },
+        {
+          "nodeId": "Df1Eu7CuA-ARYii9JVvnm",
+          "label": "BITPOS"
+        },
+        {
+          "nodeId": "jpcyXSSib7q4WBPmpgnXA",
+          "label": "BITCOUNT"
+        },
+        {
+          "nodeId": "s7PEr-5TAm5EGJm0RSjPJ",
+          "label": "Usecases"
+        }
+      ]
+    },
+    {
+      "nodeId": "LHlwjN3WHYUBUafzzwsWQ",
+      "label": "Pipelining",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "0Q3AkE8leWAyYsww3-BHX",
+      "label": "Bitmaps",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "7JzeyTrkZ_1_yxMVrqvZU",
+      "label": "Batch Operations",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:4fIp9_ii_gYgEMFFk__BG",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "U3N1EgHFs1-YUaB_VrJfw",
+          "label": "GEOADD"
+        },
+        {
+          "nodeId": "OWWDLuGTbdNwME7v2jxVP",
+          "label": "GEOSEARCH"
+        },
+        {
+          "nodeId": "FCbdKnkI1ZHGekT6yiGua",
+          "label": "More Commands"
+        },
+        {
+          "nodeId": "GNMjrLPkpTphneoQ0GoZF",
+          "label": "Usecases"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:S16vO5EHvxaylsnFzs4Kx",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "4sKiAtX5aIL4NDsQkilNC",
+          "label": "XREAD"
+        },
+        {
+          "nodeId": "7isWhgrUA6M5IGM2U2tm4",
+          "label": "XADD"
+        },
+        {
+          "nodeId": "DQJCMEw13lELcw_AwLfrT",
+          "label": "XLEN"
+        },
+        {
+          "nodeId": "CiYFuYE8XudZkR6AW2NQ7",
+          "label": "XRANGE"
+        },
+        {
+          "nodeId": "4-z4hDKm86qQatYnmE21R",
+          "label": "More Commands"
+        },
+        {
+          "nodeId": "zXlSBfa-Gi9_GhSYEzre3",
+          "label": "Usecases"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:ifAV_64bREZrJkxFnf7Cy",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "s50jr_XOUcxh65-tGCKf5",
+          "label": "PFMERGE"
+        },
+        {
+          "nodeId": "8a4DmPZrX2xGZ7zdWxS63",
+          "label": "PFADD"
+        },
+        {
+          "nodeId": "JWT30KIJQHVw0MXI5sGR6",
+          "label": "PFCOUNT"
+        },
+        {
+          "nodeId": "XPeCvikPuu6EJ8UcOLGPh",
+          "label": "Usecases"
+        }
+      ]
+    },
+    {
+      "nodeId": "cszjT3YK8oyhGpqLTQzwX",
+      "label": "HyperLogLog",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "zXs_9n2yEb_eVi0WuOQKH",
+      "label": "Streams",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "_NiUdVQ85qnvryI38k_vQ",
+      "label": "Geospatial Indexes",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "Veb30QrPYNjUn13dtGbUr",
+      "label": "Lua Scripting",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "YHbWlKrQqptUDbaQVy0_A",
+      "label": "Transactions",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "9W_jaK1DSEZHRKdPcUM7h",
+      "label": "Pub/Sub",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:Mpt_WSLngBqt131nAm3Ns",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "c-y5Eck8VtSyIf8RAW9p7",
+          "label": "WATCH"
+        },
+        {
+          "nodeId": "Ljy-Mc0EBBX4_vXfYZ5-4",
+          "label": "EXEC"
+        },
+        {
+          "nodeId": "U6hST1MkS16T2CHV3-Ise",
+          "label": "MULTI"
+        },
+        {
+          "nodeId": "msW0Wd2H-6FFNDnjC64t-",
+          "label": "Optimistic Locking"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:VJosvi5KwlePkGxBzmxSH",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "55BCntuWlaQiLPqNtb-2i",
+          "label": "SUBSCRIBE"
+        },
+        {
+          "nodeId": "5gkZzm2F4vu6IxUoJLYbK",
+          "label": "UNSUBSCRIBE"
+        },
+        {
+          "nodeId": "gIPo-2CNqE1BsOaDzmkCU",
+          "label": "PUBLISH"
+        },
+        {
+          "nodeId": "V-d6q-3Sf0dl5v8xiCQwl",
+          "label": "More Commands"
+        },
+        {
+          "nodeId": "MvyE_JUJej0UB9xe8Anfj",
+          "label": "Usecases"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:PXWvq1ezVBU5UJVN887Es",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "rjeq3i9oX8IGyQzo--L3c",
+          "label": "EVAL"
+        },
+        {
+          "nodeId": "3X0x_PcJGWBVPL-LSVAln",
+          "label": "EVALSHA"
+        },
+        {
+          "nodeId": "kF_nGo845XDwLkwcQt008",
+          "label": "Usecases"
+        }
+      ]
+    },
+    {
+      "nodeId": "bQaek7f3dAaZfSUhwovm1",
+      "label": "Persistence Options",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "80035BzcB-fKCvD_3N8zE",
+          "label": "No Persistence Option"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:7b0qKpLRQkkSzCA_x3bsP",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "D3pZdAjwPFMRxX1-iyu5-",
+          "label": "How RDB Works?"
+        },
+        {
+          "nodeId": "_pb2DPrFUUZabKxWsuFUo",
+          "label": "Configuring Save Interval"
+        },
+        {
+          "nodeId": "Z6yJwUkcDX08HoMyf1LwX",
+          "label": "Usecases / Best Practices"
+        },
+        {
+          "nodeId": "vzp7DUpjklzIA0E9WxJQA",
+          "label": "Usecases / Best Practices"
+        }
+      ]
+    },
+    {
+      "nodeId": "Qy42paiTUsO8HIwbWTMui",
+      "label": "Authentication",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "wsuKH7YwGDV6GYQbdhA4o",
+      "label": "Network Security",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "gdiWwTQg6A-BFHdQBmgmH",
+      "label": "SSL/TLS Encryption",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "rSD8nJ-uNpHJVe5Hn66h7",
+      "label": "Replication Basics",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "nci3OB1NE1zJHUPfZCOpT",
+      "label": "Redis Sentinel",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:dRhBLcgWnvsKEUIEeckVM",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "PTj6oxvpw8vP295WvAI80",
+          "label": "How AOF Works?"
+        },
+        {
+          "nodeId": "ibaZ34-laQtUyxAsERi7o",
+          "label": "AOF rewrite & compaction"
+        },
+        {
+          "nodeId": "9ToKTUqbi-NV5Wcwb21PT",
+          "label": "Truncation / Corruption"
+        },
+        {
+          "nodeId": "VvOQUO22ZF8VvDSqHENNU",
+          "label": "Usecases"
+        }
+      ]
+    },
+    {
+      "nodeId": "AQiCcHS6dBAAAPloxiXub",
+      "label": "Clustering",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "_GdTXcJO8uJlhPdfrmeXG",
+          "label": "Search"
+        },
+        {
+          "nodeId": "RBr8opWSh2TKXC8Fmdg0j",
+          "label": "RedisTimeSeries"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:jdF_BPDRWuFJpgXw7Rds0",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "Sd1ENOXSFCz1YqccXjr2A",
+          "label": "Max Memory Policy"
+        },
+        {
+          "nodeId": "xF0wQYmtwXYkrzvWg5gOO",
+          "label": "Memory Management"
+        },
+        {
+          "nodeId": "yaCWw2KjX58SaPajUAb0d",
+          "label": "Slow Log Analysis"
+        },
+        {
+          "nodeId": "kgHwK4N-sfh6dHjd_D_me",
+          "label": "redis-benchmark"
+        },
+        {
+          "nodeId": "2p5RF4lVYfRvYTo1Ofm-a",
+          "label": "Monitoring"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:7ETrwXaK2xR1AoS7tTyzW",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "q2Jw49QUWCUGIfcEC1bZI",
+          "label": "INFO"
+        },
+        {
+          "nodeId": "jBtEiylcedtaE6E20Uk4V",
+          "label": "MONITOR"
+        },
+        {
+          "nodeId": "XBPwHgIsXupMsyoOFkJZ0",
+          "label": "RedisInsight"
+        },
+        {
+          "nodeId": "y5FPSAi6T-5X9SUfR58_-",
+          "label": "RedisCommander"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:NLTXQpEiKE6rNo3tmN-EU",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "3S-qqOlfr60HR4VvDr4He",
+          "label": "RDB vs AOF Tradeoffs"
+        },
+        {
+          "nodeId": "S5Y26m1oHCQpB-oLCdtac",
+          "label": "Hybrid Persistence"
+        }
+      ]
+    },
+    {
+      "nodeId": "hLIT00Iz7rV56ZBIUhWYn",
+      "label": "Redis Modules",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "GwVL5CvbnHsiWb1hVh7lK",
+          "label": "RedisBloom"
+        },
+        {
+          "nodeId": "jicsfYw56VrbRUt7M8c85",
+          "label": "RedisJSON"
+        }
+      ]
+    },
+    {
+      "nodeId": "giyKPtQ-pziA064P8OQD-",
+      "label": "redis.conf",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "Cb-KazR4PuR86VX5oT0zi",
+      "label": "Upgrading Redis",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "nUIfTkgm3PlSiqgun1BS7",
+      "label": "Disaster Recovery",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "wXRDsNGFckXV_CSiit5sN",
+      "label": "Backup and Recovery",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "8lyXDuZJ-KHl4v2_8Ew1h",
+      "label": "Redis Enterprise",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "JlLwy69eQ1bPHAOOJNqjo",
+          "label": "When to consider enterprise?"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:H3njQtlasgGo0-IFiFZqL",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "cybF72wlJyJbHLUjitLvn",
+          "label": "Active-Active geo Distribution"
+        },
+        {
+          "nodeId": "sWOFnbh2EyaHRzquz1UeF",
+          "label": "Redis on Flash"
+        },
+        {
+          "nodeId": "ujs77bV8g8-FOm5hBtZFd",
+          "label": "Security and Compliance"
+        }
+      ]
+    }
+  ]
+}

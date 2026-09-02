@@ -1,0 +1,617 @@
+{
+  "slug": "cpp",
+  "title": "C++ Developer Roadmap",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "NvODRFR0DLINB0RlPSsvt",
+      "label": "Introduction to Language",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "x_28LiDVshqWns_aIBsdx",
+          "label": "What is C++?"
+        },
+        {
+          "nodeId": "tl6VCQ5IEGDVyFcgj7jDm",
+          "label": "Why use C++"
+        },
+        {
+          "nodeId": "2Ag0t3LPryTF8khHLRfy-",
+          "label": "C vs C++"
+        }
+      ]
+    },
+    {
+      "nodeId": "Zc_TTzmM36yWsu3GvOy9x",
+      "label": "Setting up your Environment",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "0J_ltQEJh2g28OE2ZEYJj",
+          "label": "Installing C++"
+        },
+        {
+          "nodeId": "ew0AfyadpXPRO0ZY3Z19k",
+          "label": "Code Editors / IDEs"
+        }
+      ]
+    },
+    {
+      "nodeId": "kl2JI_Wl47c5r8SYzxvCq",
+      "label": "Basic Operations",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "8aOSpZLWwZv_BEYiurhyR",
+          "label": "Arithmetic Operators"
+        },
+        {
+          "nodeId": "Y9gq8WkDA_XGe68JkY2UZ",
+          "label": "Logical Operators"
+        }
+      ]
+    },
+    {
+      "nodeId": "s5Gs4yF9TPh-psYmtPzks",
+      "label": "Control Flow & Statements",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "bjpFWxiCKGz28E-ukhZBp",
+          "label": "if else / switch / goto"
+        },
+        {
+          "nodeId": "_IP_e1K9LhNHilYTDh7L5",
+          "label": "for / while / do while loops"
+        }
+      ]
+    },
+    {
+      "nodeId": "DWw8NxkLpIpiOSUaZZ1oA",
+      "label": "Pointers and References",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "SEq0D2Zg5WTsIDtd1hW9f",
+          "label": "Running your First Program"
+        },
+        {
+          "nodeId": "uUzRKa9wGzdUwwmAg3FWr",
+          "label": "References"
+        },
+        {
+          "nodeId": "mSFwsTYvmg-GwG4_DEIEf",
+          "label": "Memory Model"
+        },
+        {
+          "nodeId": "9aA_-IfQ9WmbPgwic0mFN",
+          "label": "Lifetime of Objects"
+        }
+      ]
+    },
+    {
+      "nodeId": "MwznA4qfpNlv6sqSNjPZi",
+      "label": "Data Types",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "zE4iPSq2KsrDSByQ0sGK_",
+          "label": "Bitwise Operators"
+        },
+        {
+          "nodeId": "f1djN0GxoeVPr_0cl6vMq",
+          "label": "Static Typing"
+        },
+        {
+          "nodeId": "i0EAFEUB-F0wBJWOtrl1A",
+          "label": "Dynamic Typing"
+        },
+        {
+          "nodeId": "r0yD1gfn03wTpEBi6zNsu",
+          "label": "RTTI"
+        }
+      ]
+    },
+    {
+      "nodeId": "oYi3YOc1GC2Nfp71VOkJt",
+      "label": "Functions",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "llCBeut_uc9IAe2oi4KZ9",
+          "label": "Operator Overloading"
+        },
+        {
+          "nodeId": "xjiFBVe-VGqCqWfkPVGKf",
+          "label": "Lambdas"
+        },
+        {
+          "nodeId": "obZIxRp0eMWdG7gplNIBc",
+          "label": "Static Polymorphism"
+        },
+        {
+          "nodeId": "sgfqb22sdN4VRJYkhAVaf",
+          "label": "Function Overloading"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:Qk3hqX1Wj68FD8jXHS5NU",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "ulvwm4rRPgkpgaqGgyH5a",
+          "label": "Smart Pointers"
+        },
+        {
+          "nodeId": "vUwSS-uX36OWZouO0wOcy",
+          "label": "weak_ptr"
+        },
+        {
+          "nodeId": "b5jZIZD_U_CPg-_bdndjz",
+          "label": "shared_ptr"
+        },
+        {
+          "nodeId": "k9c5seRkhgm_yHPpiz2X0",
+          "label": "unique_ptr"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:zybofouGIVxcKvr47F3Yy",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "uEGEmbxegATIrvGfobJb9",
+          "label": "Raw Pointers"
+        },
+        {
+          "nodeId": "Gld0nRs0sM8kRe8XmYolu",
+          "label": "New/Delete Operators"
+        },
+        {
+          "nodeId": "6w0WExQ4lGIGgok6Thq0s",
+          "label": "Memory Leakage"
+        }
+      ]
+    },
+    {
+      "nodeId": "Zw2AOTK5uc9BoKEpY7W1C",
+      "label": "Structuring Codebase",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "ZHjU60uzJTezADRhDTESG",
+          "label": "Forward Declaration"
+        },
+        {
+          "nodeId": "CK7yf8Bo7kfbV6x2tZTrh",
+          "label": "Headers / CPP Files"
+        },
+        {
+          "nodeId": "iIdC7V8sojwyEqK1xMuHn",
+          "label": "Namespaces"
+        },
+        {
+          "nodeId": "dKCYmxDNZubCVcR5rf8b-",
+          "label": "Scope"
+        }
+      ]
+    },
+    {
+      "nodeId": "CMlWNQwpywNhO9B6Yj6Me",
+      "label": "Structures and Classes",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "hNBErGNiegLsUJn_vgcOR",
+          "label": "Virtual Methods"
+        },
+        {
+          "nodeId": "s99ImazcwCgAESxZd8ksa",
+          "label": "Virtual Tables"
+        },
+        {
+          "nodeId": "7h1VivjCPDwriL7FirtFv",
+          "label": "Dynamic Polymorphism"
+        },
+        {
+          "nodeId": "b3-QYKNcW3LYCNOza3Olf",
+          "label": "Object Oriented Programming"
+        },
+        {
+          "nodeId": "WjHpueZDK-d3oDNMVZi9w",
+          "label": "Multiple Inheritance"
+        },
+        {
+          "nodeId": "ofwdZm05AUqCIWmfgGHk8",
+          "label": "Diamond Inheritance"
+        }
+      ]
+    },
+    {
+      "nodeId": "-6fwJQOfsorgHkoQGp4T3",
+      "label": "Language Concepts",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "CG01PTVgHtjfKvsJkJLGl",
+          "label": "auto (Automatic Type Deduction)"
+        },
+        {
+          "nodeId": "PiMhw1oP9-NZEa6I9u4lX",
+          "label": "Type Casting"
+        }
+      ]
+    },
+    {
+      "nodeId": "B2SGBENzUMl0SAjG4j91V",
+      "label": "Exception Handling",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "7sdEzZCIoarzznwO4XcCv",
+          "label": "Rule of Zero, Five, Three"
+        },
+        {
+          "nodeId": "oWygnpwHq2poXQMTTSCpl",
+          "label": "Exit Codes"
+        },
+        {
+          "nodeId": "WptReUOwVth3C9-AVmMHF",
+          "label": "Type Traits"
+        },
+        {
+          "nodeId": "3C5UfejDX-1Z8ZF6C53xD",
+          "label": "SFINAE"
+        },
+        {
+          "nodeId": "NJud5SXBAUZ6Sr78kZ7jx",
+          "label": "Exceptions"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:3SsQBuq6ie73yAMvRcqtR",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "sObOuccY0PDeGG-9GrFDF",
+          "label": "Template Specialization"
+        },
+        {
+          "nodeId": "6hTcmJwNnQstbWWzNCfTe",
+          "label": "Full Template Specialization"
+        },
+        {
+          "nodeId": "1NYJtbdcdOB4-vIrnq4yX",
+          "label": "Partial Template Specialization"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:mnUWOqBFgcuNsXUr18fJI",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "_XB2Imyf23-6AOeoNLhYQ",
+          "label": "static_cast"
+        },
+        {
+          "nodeId": "5g22glc97siQOcTkHbwan",
+          "label": "const_cast"
+        },
+        {
+          "nodeId": "4BdFcuQ5KNW94cu2jz-vE",
+          "label": "dynamic_cast"
+        },
+        {
+          "nodeId": "ZMyFDJrpCauGrY5NZkOwg",
+          "label": "reinterpret_cast"
+        }
+      ]
+    },
+    {
+      "nodeId": "DHdNBP7_ixjr6h-dIQ7g6",
+      "label": "Standard Library + STL",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "y4-P4UNC--rE1vni8HdTn",
+          "label": "Access Violations"
+        },
+        {
+          "nodeId": "IDOlquv6jlfecwQoBwkGZ",
+          "label": "Undefined Behavior (UB)"
+        },
+        {
+          "nodeId": "YSWN7nS8vA9nMldSUrZRT",
+          "label": "Argument Dependent Lookup (ADL)"
+        },
+        {
+          "nodeId": "zKdlfZTRHwjtmRUGW9z9-",
+          "label": "Macros"
+        },
+        {
+          "nodeId": "Ebu8gzbyyXEeJryeE0SpG",
+          "label": "Iterators"
+        },
+        {
+          "nodeId": "VeVxZ230xkesQsIDig8zQ",
+          "label": "iostream"
+        },
+        {
+          "nodeId": "whyj6Z4RXFsVQYRfYYn7B",
+          "label": "Algorithms"
+        },
+        {
+          "nodeId": "yGvE6eHKlPMBB6rde0llR",
+          "label": "Date / Time"
+        },
+        {
+          "nodeId": "OXQUPqxzs1-giAACwl3X1",
+          "label": "Multithreading"
+        }
+      ]
+    },
+    {
+      "nodeId": "-6AOrbuOE7DJCmxlcgCay",
+      "label": "Templates",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "w4EIf58KP-Pq-yc0HlGxc",
+          "label": "Variadic Templates"
+        }
+      ]
+    },
+    {
+      "nodeId": "qmHs6_BzND_xpMmls5YUH",
+      "label": "Debuggers",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "Lt7ss59KZw9Jwqj234jm2",
+          "label": "Name Mangling"
+        },
+        {
+          "nodeId": "BmWsoL9c_Aag5nVlMsKm2",
+          "label": "GDB"
+        },
+        {
+          "nodeId": "y8VCbGDUco9bzGRfIBD8R",
+          "label": "WinDBg"
+        },
+        {
+          "nodeId": "sR_FxGZHoMCV9Iv7z2_SX",
+          "label": "Debugging Symbols"
+        },
+        {
+          "nodeId": "VtPb8-AJKzhTB0QbMtoU4",
+          "label": "Understanding Debugger Messages"
+        }
+      ]
+    },
+    {
+      "nodeId": "vvE1aUsWbF1OFcmMUHbJa",
+      "label": "Standards",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "1pydf-SR0QUfVNuBEyvzc",
+          "label": "Containers"
+        },
+        {
+          "nodeId": "T6rCTv9Dxkm-tEA-l9XEv",
+          "label": "C++ 11 / 14"
+        },
+        {
+          "nodeId": "sxbbKtg7kMNbkx7fXhjR9",
+          "label": "C++ 23"
+        },
+        {
+          "nodeId": "o3no4a5_iMFzEAGs56-BJ",
+          "label": "C++ 20"
+        },
+        {
+          "nodeId": "R2-qWGUxsTOeSHRuUzhd2",
+          "label": "C++ 17"
+        }
+      ]
+    },
+    {
+      "nodeId": "fb3bnfKXjSIjPAk4b95lg",
+      "label": "Idioms",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "xjUaIp8gGxkN-cp8emJ2M",
+          "label": "Non-Copyable / Non-Moveable"
+        },
+        {
+          "nodeId": "YvmjrZSAOmjhVPo05MJqN",
+          "label": "Erase-Remove"
+        },
+        {
+          "nodeId": "lxAzI42jQdaofzQ5MXebG",
+          "label": "Copy and Swap"
+        },
+        {
+          "nodeId": "O2Du5gHHxFxAI2u5uO8wu",
+          "label": "Copy on Write"
+        },
+        {
+          "nodeId": "MEoWt8NKjPLVTeGgYf3cR",
+          "label": "Pimpl"
+        },
+        {
+          "nodeId": "ttt-yeIi4BPWrgvW324W7",
+          "label": "CRTP"
+        }
+      ]
+    },
+    {
+      "nodeId": "FTMHsUiE8isD_OVZr62Xc",
+      "label": "Compilers",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "DVckzBUMgk_lWThVkLyAT",
+          "label": "Compiler Stages"
+        },
+        {
+          "nodeId": "hSG6Aux39X0cXi6ADy2al",
+          "label": "Compilers and Features"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:iisl6B61awdQDJVGaBqtI",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "1d7h5P1Q0RVHryKPVogQy",
+          "label": "Boost"
+        },
+        {
+          "nodeId": "Eq3TKSFJ2F2mrTHAaU2J4",
+          "label": "OpenCV"
+        },
+        {
+          "nodeId": "nOkniNXfXwPPlOEJHJoGl",
+          "label": "POCO"
+        },
+        {
+          "nodeId": "j_eNHhs0J08Dt7HVbo4Q2",
+          "label": "Tensorflow"
+        },
+        {
+          "nodeId": "jpMCIWQko7p3ndezYHL4D",
+          "label": "protobuf"
+        },
+        {
+          "nodeId": "q64qFxoCrR38RPsN2lC8x",
+          "label": "spdlog"
+        },
+        {
+          "nodeId": "621J9W4xCofumNZGo4TZT",
+          "label": "gRPC"
+        },
+        {
+          "nodeId": "tEkvlJPAkD5fji-MMODL7",
+          "label": "pybind11"
+        },
+        {
+          "nodeId": "1CqQgmHDeo1HlPdpUJS7H",
+          "label": "fmt"
+        },
+        {
+          "nodeId": "GGZJaYpRENaqloJzt0VtY",
+          "label": "opencl"
+        },
+        {
+          "nodeId": "et-dXKPYuyVW6eV2K3CM8",
+          "label": "ranges_v3"
+        }
+      ]
+    },
+    {
+      "nodeId": "jVXFCo6puMxJ_ifn_uwim",
+      "label": "Build Systems",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "ysnXvSHGBMMozBJyXpHl5",
+          "label": "CMAKE"
+        },
+        {
+          "nodeId": "t6rZLH7l8JQm99ax_fEJ9",
+          "label": "Makefile"
+        },
+        {
+          "nodeId": "HkUCD5A_M9bJxJRElkK0x",
+          "label": "Ninja"
+        }
+      ]
+    },
+    {
+      "nodeId": "h29eJG1hWHa7vMhSqtfV2",
+      "label": "Package Managers",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "3ehBc2sKVlPj7dn4RVZCH",
+          "label": "Spack"
+        },
+        {
+          "nodeId": "PKG5pACLfRS2ogfzBX47_",
+          "label": "vcpkg"
+        },
+        {
+          "nodeId": "g0s0F4mLV16eNvMBflN2e",
+          "label": "NuGet"
+        },
+        {
+          "nodeId": "ky_UqizToTZHC_b77qFi2",
+          "label": "Conan"
+        }
+      ]
+    },
+    {
+      "nodeId": "4kkX5g_-plX9zVqr0ZoiR",
+      "label": "Working with Libraries",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "PPg0V5EzGBeJsysg1215V",
+          "label": "C++ 0x"
+        },
+        {
+          "nodeId": "OmHDlLxCnH8RDdu5vx9fl",
+          "label": "RAII"
+        },
+        {
+          "nodeId": "sLVs95EOeHZldoKY0L_dH",
+          "label": "Licensing"
+        },
+        {
+          "nodeId": "5mNqH_AEiLxUmgurNW1Fq",
+          "label": "Library Inclusion"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:I1aDakZmYpe7pKczou0qC",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "MrAM-viRaF8DSxB6sVdD9",
+          "label": "gtest / gmock"
+        },
+        {
+          "nodeId": "gAZ9Dqgj1_UkaLzVgzx1t",
+          "label": "Qt"
+        },
+        {
+          "nodeId": "s13jQuaC6gw0Lab3Cbyy6",
+          "label": "Catch2"
+        },
+        {
+          "nodeId": "O0lVEMTAV1pq9sYCKQvh_",
+          "label": "Orbit Profiler"
+        },
+        {
+          "nodeId": "88pr5aN7cctZfDVVo-2ns",
+          "label": "PyTorch C++"
+        }
+      ]
+    }
+  ]
+}

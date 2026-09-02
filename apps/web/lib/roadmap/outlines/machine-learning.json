@@ -1,0 +1,715 @@
+{
+  "slug": "machine-learning",
+  "title": "Machine Learning",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "MEL6y3vwiqwAV6FQihF34",
+      "label": "Introduction",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "FgzPlLUfGdlZPvPku0-Xl",
+          "label": "What is an ML Engineer?"
+        },
+        {
+          "nodeId": "GHO6lN3GTiIRH1P70IRaZ",
+          "label": "ML Engineer vs AI Engineer"
+        },
+        {
+          "nodeId": "BzZd-d5t63dY97SRSIb0J",
+          "label": "Skills and Responsibilities"
+        }
+      ]
+    },
+    {
+      "nodeId": "wHlEinHuRARp5OfSulpA-",
+      "label": "Calculus",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "GN6SnI7RXIeW8JeD-qORW",
+          "label": "Derivatives, Partial Derivatives"
+        },
+        {
+          "nodeId": "jJukG4XxfFcID_VlQKqe-",
+          "label": "Chain rule of derivation"
+        },
+        {
+          "nodeId": "3BxbkrBp8veZj38zdwN8s",
+          "label": "Gradient, Jacobian, Hessian"
+        }
+      ]
+    },
+    {
+      "nodeId": "83UDoO1vC0LjL-qpI0Jh-",
+      "label": "Linear Algebra",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "1IhaXJxNREq2HA1nT-lMM",
+          "label": "Matrix & Matrix Operations"
+        },
+        {
+          "nodeId": "d7J8GEkut61NDGRzROJoP",
+          "label": "Scalars, Vectors, Tensors"
+        },
+        {
+          "nodeId": "yGs2h10gZcO4GMaWfI3uW",
+          "label": "Singular Value Decomposition"
+        },
+        {
+          "nodeId": "XmnWnPE1sVXheuc-M_Ew7",
+          "label": "Determinants, inverse of Matrix"
+        },
+        {
+          "nodeId": "3p98Uwf8gyALDr-89lBEZ",
+          "label": "Eigenvalues, Diagonalization"
+        },
+        {
+          "nodeId": "p8q1Gtt9x19jw5_-YjAGh",
+          "label": "Basics of Probability"
+        },
+        {
+          "nodeId": "7o6g0wQxHH9i9MMCoDq2C",
+          "label": "Bayes Theorem"
+        }
+      ]
+    },
+    {
+      "nodeId": "N_vLjBVdsGsoePtqlqh2w",
+      "label": "Discrete Mathematics",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "qDn1elMoPIBgQSCWiYkLI",
+      "label": "Python",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "tP0oBkjvJC9hrtARkgLon",
+      "label": "Probability",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "P576TdYcbE6v3RpJntiKw",
+          "label": "Random Variances, PDFs"
+        },
+        {
+          "nodeId": "WLlZE_vto-CYY5GLV_w7o",
+          "label": "Types of Distribution"
+        }
+      ]
+    },
+    {
+      "nodeId": "5DiaZkljhHAGPi9DkaH3b",
+      "label": "Statistics",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "P32Rmnln5NCFWz4LP0k05",
+          "label": "Basic concepts"
+        },
+        {
+          "nodeId": "ZaoZ2XxicKuTDn4uxe52L",
+          "label": "Descriptive Statistics"
+        },
+        {
+          "nodeId": "MYZUJ1uHIaRd1Gb4ORzwG",
+          "label": "Graphs & Charts"
+        },
+        {
+          "nodeId": "DUIrJwuYHlhJvZJT2acaY",
+          "label": "Inferential Statistics"
+        }
+      ]
+    },
+    {
+      "nodeId": "nN9BumBHi-c9HKFlgL2GH",
+      "label": "Object Oriented Programming",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "OXbATvlhBXTQ1iRGwPUfb",
+          "label": "Matplotlib"
+        },
+        {
+          "nodeId": "nKE9sO-f2fdMiuLu2xby1",
+          "label": "Numpy"
+        }
+      ]
+    },
+    {
+      "nodeId": "hWA7RtuqltMTmHdcCnmES",
+      "label": "Basic Syntax",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "dEFLBGpiH6nbSMeR7ecaT",
+          "label": "Variables and Data Types"
+        },
+        {
+          "nodeId": "R9DQNc0AyAQ2HLpP4HOk6",
+          "label": "Data Structures"
+        },
+        {
+          "nodeId": "Dvy7BnNzK55qbh_SgOk8m",
+          "label": "Loops"
+        }
+      ]
+    },
+    {
+      "nodeId": "ybqwtlHG4HMm5lyUKW2SO",
+      "label": "Essential libraries",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "VYVLUxhp3XxxknNr5V966",
+          "label": "Seaborn"
+        },
+        {
+          "nodeId": "PnOoShqB3z4LuUvp0Gh2e",
+          "label": "Pandas"
+        }
+      ]
+    },
+    {
+      "nodeId": "-oRH7LgigHcfBkNF1xwxh",
+      "label": "Data Sources",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "VdMhrAi48V-JXw544YTKI",
+          "label": "Databases (SQL, No-SQL)"
+        },
+        {
+          "nodeId": "cxTriSZvrmXP4axKynIZW",
+          "label": "Internet"
+        },
+        {
+          "nodeId": "s-wUPMaagyRupT2RdfHks",
+          "label": "APIs"
+        },
+        {
+          "nodeId": "dJZqe47kzRqYIG-4AZTlz",
+          "label": "Mobile Apps"
+        },
+        {
+          "nodeId": "KeGCHoJRHp-mBX-P5to4Y",
+          "label": "IoT"
+        }
+      ]
+    },
+    {
+      "nodeId": "U4LGIEE3igeE5Ed3EWzsu",
+      "label": "Data Formats",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "MWfdLCb_w06A0jqwUJUxl",
+          "label": "CSV"
+        },
+        {
+          "nodeId": "K9Si7kJe946CcGWBGmDsZ",
+          "label": "Excel"
+        },
+        {
+          "nodeId": "kagKVPUyLtx8UPAFjRvbN",
+          "label": "JSON"
+        },
+        {
+          "nodeId": "tq6WRwUpaCok9fX-0bY7m",
+          "label": "Parquet"
+        },
+        {
+          "nodeId": "qRHeaD2udDaItAxmiIiUg",
+          "label": "Other Data Formats"
+        }
+      ]
+    },
+    {
+      "nodeId": "MdhfkuKWTDCE73hczzG3D",
+      "label": "Preprocessing Techniques",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "NP1kjSk0ujU0Gx-ajNHlR",
+          "label": "Conditionals"
+        },
+        {
+          "nodeId": "fNTb9y3zs1HPYclAmu_Wv",
+          "label": "Exceptions"
+        },
+        {
+          "nodeId": "-DJgS6l2qngfwurExlmmT",
+          "label": "Functions, Builtin Functions"
+        },
+        {
+          "nodeId": "5v0jRBYrRuVXQC90IseRG",
+          "label": "Data Cleaning"
+        },
+        {
+          "nodeId": "UmGdV94afOIbAL8MaxOWv",
+          "label": "Feature Engineering"
+        },
+        {
+          "nodeId": "iBkTNbk8Xz626F_a3Bo5J",
+          "label": "Feature Scaling & Normalization"
+        },
+        {
+          "nodeId": "y3-nWiDjlY6ZwqmxBUvhd",
+          "label": "Dimensionality Reduction"
+        }
+      ]
+    },
+    {
+      "nodeId": "rzhVFzl5H5MWtcvr8ayRk",
+      "label": "What is Machine Learning?",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "cigwKoltemM0q-M5O50Is",
+          "label": "Feature Selection"
+        }
+      ]
+    },
+    {
+      "nodeId": "Ns2zKn8BL_kTEI6O65pCp",
+      "label": "Types of Machine Learning",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "5MUwKGfSTKlam8KCG0A1U",
+          "label": "Supervised Learning"
+        },
+        {
+          "nodeId": "36ryjK5isV1MD4MgZP2Jn",
+          "label": "Unsupervised Learning"
+        }
+      ]
+    },
+    {
+      "nodeId": "ZVbnAF9I1r8qWFFYG6nXv",
+      "label": "Scikit-learn",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "bIhGv4886V4RWJD3tX0a0",
+          "label": "Data Loading"
+        },
+        {
+          "nodeId": "5xxAg18h74pDAUPy6P8NQ",
+          "label": "Train - Test Data"
+        },
+        {
+          "nodeId": "-W2uAccH7Y2XIwhfl9mDF",
+          "label": "Data Preparation"
+        },
+        {
+          "nodeId": "Ddhph9saFgfMi-uUFGK75",
+          "label": "Model Selection"
+        },
+        {
+          "nodeId": "m4vmnxRMBf7zwNnwrMEnk",
+          "label": "Tuning"
+        },
+        {
+          "nodeId": "vBnqnIh_xSn0OuY9oQ5e-",
+          "label": "Prediction"
+        }
+      ]
+    },
+    {
+      "nodeId": "ajKU5CPlbn7BbWHEhUNaB",
+      "label": "What is Supervised Learning?",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "Yho0zf9F-ROhEnTxRMq_M",
+          "label": "Semi-supervised Learning"
+        },
+        {
+          "nodeId": "lgO7luG7-R_FY5nwFjRE0",
+          "label": "Self-supervised Learning"
+        },
+        {
+          "nodeId": "NC1A2SQVyc1n-KEf6yl-4",
+          "label": "Reinforcement Learning"
+        }
+      ]
+    },
+    {
+      "nodeId": "cffITx6oAcnvJlK1VLdi8",
+      "label": "Classification",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "x7vlCNAxfJzobj9HcTaJy",
+          "label": "K-Nearest Neighbors (KNN)"
+        },
+        {
+          "nodeId": "aHOjajXwkDMOssqW1VGrm",
+          "label": " Logistic Regression "
+        },
+        {
+          "nodeId": "_jS66rGAWecXH3zVF-5ds",
+          "label": "Support Vector Machines"
+        },
+        {
+          "nodeId": "arlmRF5pYglsbHb-HR-2x",
+          "label": "Decision Trees, Random Forest"
+        },
+        {
+          "nodeId": "JuTTbL_pm1ltGvhUsIzQd",
+          "label": "Gradient Boosting Machines"
+        }
+      ]
+    },
+    {
+      "nodeId": "gKu6tnpTO2PhDDMYp2u7F",
+      "label": "Regression",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "xGO1X9aZRgKcgzi6r1xq8",
+          "label": "Linear Regression"
+        },
+        {
+          "nodeId": "hfr2MU8QkVt9KhVi1Okpv",
+          "label": "Polynomial Regression"
+        },
+        {
+          "nodeId": "EXogp25SPW1bBfb1gRDAe",
+          "label": "Lasso"
+        }
+      ]
+    },
+    {
+      "nodeId": "9oWdnQd-vwVJi62JQLgJ5",
+      "label": "What is Unsupervised Learning?",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "1aX_vO5zxfTV8_kUIFHkR",
+          "label": "Ridge"
+        }
+      ]
+    },
+    {
+      "nodeId": "CBSGvGPoI53p7BezXNm6M",
+      "label": "Clustering",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "eErzKbR8sRNlrYcwNSRSh",
+          "label": "Exclusive"
+        },
+        {
+          "nodeId": "BzUunjJrUMlh6K1NOOD87",
+          "label": "Overlapping"
+        },
+        {
+          "nodeId": "jJ8cXfHV2LG5PJGZRTHxB",
+          "label": "Hierarchical"
+        },
+        {
+          "nodeId": "VrLaUipVKWvwnFF0ZbIlo",
+          "label": "Probabilistic"
+        }
+      ]
+    },
+    {
+      "nodeId": "vQI-4uFQJ6694nm1SCpDR",
+      "label": "Dimensionality Reduction",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "0-6BV-MggAyD7g3JH45B7",
+          "label": "ElasticNet Regularization"
+        },
+        {
+          "nodeId": "K-x_L3z8JTSHwtTeHm4EG",
+          "label": "Principal Component Analysis "
+        },
+        {
+          "nodeId": "owSUO9Ut9sggd1OiWr3O7",
+          "label": "Autoencoders"
+        }
+      ]
+    },
+    {
+      "nodeId": "EtU_9MOklVBvnvyg30Yfx",
+      "label": "What is Reinforcement Learning?",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "9o-ZT9oZIE3hCXD6eWZI0",
+          "label": "Deep-Q Networks"
+        },
+        {
+          "nodeId": "PZ-WxKGTcWTrXmYI_inD_",
+          "label": "Policy Gradient"
+        },
+        {
+          "nodeId": "4Vy6lW9vF_SWwbKLU0qno",
+          "label": "Actor-Critic Methods"
+        }
+      ]
+    },
+    {
+      "nodeId": "99TI95HVGrXIYr-PIDxhC",
+      "label": "What is Model Evaluation?",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "mja35tndhAT5z_ysv-hDe",
+          "label": "Precision"
+        }
+      ]
+    },
+    {
+      "nodeId": "vmERbhRIevLLNc7Ny2pWp",
+      "label": "Why is it important?",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "DH33Na9zz_WGmbD-Dxvq1",
+          "label": "Recall"
+        },
+        {
+          "nodeId": "7fOp3t283GeOn6Tf4kEuN",
+          "label": "Log Loss"
+        }
+      ]
+    },
+    {
+      "nodeId": "5dKl6SUQhOsZfUtVR5hzw",
+      "label": "Metrics to Evaluate",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "3wib9UH0_OLhKjqKoZEMv",
+          "label": "Accuracy"
+        },
+        {
+          "nodeId": "FdNY8QUbPPpeHFgD8TTaD",
+          "label": "F1-Score"
+        },
+        {
+          "nodeId": "anEGWHVpcp75e3jQrj_LZ",
+          "label": "ROC-AUC"
+        },
+        {
+          "nodeId": "wxq5dkrpgvs3axmLmeHCk",
+          "label": "Q-Learning"
+        },
+        {
+          "nodeId": "oyL0M2OP4NTNbIO3zq-Hz",
+          "label": "Confusion Matrix"
+        }
+      ]
+    },
+    {
+      "nodeId": "0hi0LdCtj9Paimgfc-l1O",
+      "label": "Validation Techniques",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "vRS7DW2WUaXiHk9oJgg3z",
+          "label": "K-Fold Cross Validation"
+        },
+        {
+          "nodeId": "GKMhIXEuSKdW75-24Zopb",
+          "label": "LOOCV"
+        }
+      ]
+    },
+    {
+      "nodeId": "4dxZmLg0UEaaVEORupOOC",
+      "label": "Neural Network (NN) Basics",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "8425N_E43Dv5mcmEcXRIa",
+          "label": "Perceptron, Multi-layer Perceptrons"
+        },
+        {
+          "nodeId": "LWLqa61GK5ukYzHpjinYi",
+          "label": "Forward propagation"
+        },
+        {
+          "nodeId": "0meihv22e11GwqnRdSJ9g",
+          "label": "Back Propagation"
+        },
+        {
+          "nodeId": "RXTci1N6i6D9HqTbsLYIy",
+          "label": "Activation Functions"
+        }
+      ]
+    },
+    {
+      "nodeId": "A_Kx3pEj0jpnLJzdOpcQ9",
+      "label": "Deep Learning Libraries",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "Ru8_xMyFxye1hyzCUYvnj",
+          "label": "TensorFlow"
+        },
+        {
+          "nodeId": "zoXnXI4Wf5sxddHqYwQjP",
+          "label": "Keras"
+        },
+        {
+          "nodeId": "yKtRmgwrJ75VVz7_txZ-S",
+          "label": "Scikit-learn"
+        },
+        {
+          "nodeId": "7RSW-Pypf3QpZp4O21AGl",
+          "label": "PyTorch"
+        }
+      ]
+    },
+    {
+      "nodeId": "_Z2miSW4PwILMRtBFajBn",
+      "label": "Deep Learning Architectures",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "BtO2wH7YYqE25HShI6sd9",
+      "label": "Convolutional Neural Network",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "I-GEE7PvpQmhQSfZmxqwA",
+          "label": "Pooling"
+        },
+        {
+          "nodeId": "YWxSI45e5K_4YOrvmh6LV",
+          "label": "Strides"
+        }
+      ]
+    },
+    {
+      "nodeId": "H0cscBaExZPNZuFubBUv7",
+      "label": "Recurrent Neural Networks",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "MtoYStcZBduLSbjRuPjq0",
+          "label": "Convolution"
+        },
+        {
+          "nodeId": "a2PGTDnXKp759vFZzkjSF",
+          "label": "Padding"
+        },
+        {
+          "nodeId": "KcfFjpxFTFxI6HR6hBPrl",
+          "label": "Loss Functions"
+        },
+        {
+          "nodeId": "LpggrF1MMvAxtO9EJe3wY",
+          "label": "RNN"
+        },
+        {
+          "nodeId": "ZWDSLqxmfg3aPBZFH479q",
+          "label": "GRU"
+        },
+        {
+          "nodeId": "LdUwTWfCIcowwC-e6q3ac",
+          "label": "LSTM"
+        }
+      ]
+    },
+    {
+      "nodeId": "gCGHtxqD4V_Ite_AXMspf",
+      "label": "Applications of CNNs",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "jPvZdgye7cBf0bPMVGf7a",
+          "label": "Image & Video Recognition"
+        },
+        {
+          "nodeId": "E4k6WgNXdnNoApR675VKb",
+          "label": "Image Classification"
+        },
+        {
+          "nodeId": "iSX9YExs1gS4L2CBQux5w",
+          "label": "Image Segmentation"
+        },
+        {
+          "nodeId": "_eKuBhCCwUHnEGwHNQY-g",
+          "label": "Recommendation Systems"
+        }
+      ]
+    },
+    {
+      "nodeId": "-tzeA13f2jYDm4aO5JciT",
+      "label": "Attention Mechanisms",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "oTKC1o1OOnPiTh60a8yVc",
+          "label": "Self-Attention"
+        },
+        {
+          "nodeId": "rDIg16eb6B6um1P8uMy51",
+          "label": "Transformers"
+        },
+        {
+          "nodeId": "J1aGPkZqDZfUwpVmC88AL",
+          "label": "Multi-head Attention"
+        }
+      ]
+    },
+    {
+      "nodeId": "kvf2CUKBe4qSbZla4Brh3",
+      "label": "Autoencoders",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "IR0wVIcu1MxOOBiLBnn8S",
+      "label": "Generative Adversarial Networks",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "Tv3sZvus76dmu0X9AqCIU",
+      "label": "Explainable AI",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "JVXe2QDQaqiJYPupIMhWe",
+      "label": "Natural Language Processing",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "QbftToskhtBlTz1jyiRkb",
+          "label": "Tokenization"
+        },
+        {
+          "nodeId": "pP0VeUSK9CDodgz-BQmrP",
+          "label": "Lemmatization"
+        },
+        {
+          "nodeId": "CaHbAXDIJQXcQ9DZqziod",
+          "label": "Embeddings"
+        },
+        {
+          "nodeId": "sChxcuQ2OruKVx8P4wAK_",
+          "label": "Attention Models"
+        },
+        {
+          "nodeId": "UO1GEUe8e22uRB6DAxfpe",
+          "label": "Stemming"
+        }
+      ]
+    }
+  ]
+}

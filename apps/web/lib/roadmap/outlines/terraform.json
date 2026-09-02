@@ -1,0 +1,526 @@
+{
+  "slug": "terraform",
+  "title": "Terraform Roadmap",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "h6qRrUe-bn25s0UkxU600",
+      "label": "Introduction",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "twR3k9D-qDr1CbyW6K0Fs",
+          "label": "What is Infrastructure as Code?"
+        },
+        {
+          "nodeId": "CU9V3iRdssamsG-xMouXT",
+          "label": "What is Terraform?"
+        },
+        {
+          "nodeId": "hRIDJHIxWc5Iav7tsu8l-",
+          "label": "Usecases and Benefits"
+        },
+        {
+          "nodeId": "UsINvx84pBF1hp8XoLF4c",
+          "label": "CaC vs IaC"
+        },
+        {
+          "nodeId": "AYtBLFU1nowEq-EVlXrEZ",
+          "label": "Installing Terraform"
+        }
+      ]
+    },
+    {
+      "nodeId": "qhO7CY-1_vuh2BVJYQCzh",
+      "label": "Hashicorp Config. Language (HCL)",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "Hma2IgatFME8STHPwpeMG",
+          "label": "What is HCL?"
+        },
+        {
+          "nodeId": "LaD0H7XhoEEaXbcwjxAbw",
+          "label": "Basic Syntax"
+        }
+      ]
+    },
+    {
+      "nodeId": "ZRVv9onD7KGz1cJLcsnwy",
+      "label": "Providers",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "iIjUG_N_mQtLHG25v4-xg",
+          "label": "Terraform Registry"
+        },
+        {
+          "nodeId": "JJ-QhLWqT0luis_kVDVHW",
+          "label": "Configuring Providers"
+        },
+        {
+          "nodeId": "bnQ2YLHd7E-vRxX3PnUEX",
+          "label": "Versions"
+        }
+      ]
+    },
+    {
+      "nodeId": "GlIXmCuvR_C81RMeMM1Kz",
+      "label": "Project Initialization",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "VxMse1VTZAUtVhpKv1OHS",
+          "label": "Input Variables"
+        }
+      ]
+    },
+    {
+      "nodeId": "BYydmFc2e-YPCC4MCWmh2",
+      "label": "Resources",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "BgZu7Xao5GjR8StVL7qhM",
+          "label": "Resource Behavior"
+        },
+        {
+          "nodeId": "76kp98rvph_8UOXZR-PBC",
+          "label": "Resource Lifecycle"
+        },
+        {
+          "nodeId": "TPd00dRndj1P8674KTTrm",
+          "label": "Meta Arguments"
+        },
+        {
+          "nodeId": "16vLOPP9lTCuBh0q-UVMk",
+          "label": "Sensitive Data"
+        },
+        {
+          "nodeId": "1T35eNO18qoyXcX7S-Jox",
+          "label": "Versioning"
+        }
+      ]
+    },
+    {
+      "nodeId": "7GK4fQf1FRKrZgZkxNahj",
+      "label": "Outputs",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "31fa8kBzCEn-uCrTSoPM4",
+          "label": "Output Syntax"
+        },
+        {
+          "nodeId": "8giL6H5944M2L0rwxjPso",
+          "label": "Sensitive Outputs"
+        },
+        {
+          "nodeId": "DB-p_S4Ce4tDWF4wDiGSt",
+          "label": "Preconditions"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:2e8USwDY3mi53rDIGnQOq",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "EIsex6gNHDRYHn0o2spzi",
+          "label": "depends_on"
+        },
+        {
+          "nodeId": "kyScfijEntX9H1mp7tmej",
+          "label": "count"
+        },
+        {
+          "nodeId": "gcdg_GhAacIWzv19ITTE_",
+          "label": "for_each"
+        },
+        {
+          "nodeId": "5FLOFTP_nCa3qi1wbV4qE",
+          "label": "provider"
+        },
+        {
+          "nodeId": "0A8zTuCXVmcruJdfH3cNu",
+          "label": "lifecycle"
+        }
+      ]
+    },
+    {
+      "nodeId": "AY7_xUeCl6ilqZzg1YFoP",
+      "label": "Variables",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "HUiodBFIp_rsQDkf3WgbI",
+          "label": "Type Constraints"
+        },
+        {
+          "nodeId": "rdphcVd-Vq972y4H8CxIj",
+          "label": "Variable Definition File"
+        },
+        {
+          "nodeId": "1mFih8uFs3Lc-1PLgwiAU",
+          "label": "Local Values"
+        },
+        {
+          "nodeId": "fm8oUyNvfdGWTgLsYANUr",
+          "label": "Environment Variables"
+        },
+        {
+          "nodeId": "U2n2BtyUrOFLnw9SZYV_w",
+          "label": "Validation Rules"
+        }
+      ]
+    },
+    {
+      "nodeId": "Xes24SqkwSaO844kLbClj",
+      "label": "Format & Validate",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "78bGm8J5Y1I8H4qioOvWb",
+          "label": "terraform fmt"
+        },
+        {
+          "nodeId": "wdYLjB-tKg76B7YcnhevQ",
+          "label": "terraform validate"
+        },
+        {
+          "nodeId": "YftsQYpcqJqBKPjy5tWOq",
+          "label": "TFLint"
+        }
+      ]
+    },
+    {
+      "nodeId": "jas0XILqCUXjWRk3ZoSEO",
+      "label": "Best Practices for State",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "5xAE-9viD7DP_ugQ6NE_C",
+      "label": "State",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "a0rUMnYluVUGhyhlDK5S8",
+          "label": "Splitting State Files"
+        },
+        {
+          "nodeId": "L7wAMGi_yU-Bbc9fXlmxZ",
+          "label": "Import Existing Resources"
+        },
+        {
+          "nodeId": "GseYuG9wT8H9R_enxWzuQ",
+          "label": "State Locking"
+        },
+        {
+          "nodeId": "pDm08NBVwGf9rAIZC_ZIR",
+          "label": "Remote State"
+        }
+      ]
+    },
+    {
+      "nodeId": "KXlLlaR0_S7gE_ZB1hNEd",
+      "label": "Inspect / Modify State",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "inbTto9Qukdj6egRJ0Zh9",
+      "label": "Clean Up",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "LPI13FILvkD55hWcWbPrV",
+          "label": "terraform destroy"
+        }
+      ]
+    },
+    {
+      "nodeId": "pjmOK1MEMnIV_zAlaOF01",
+      "label": "Deployment",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "LDxAXmTKyvogvgUpvN5pT",
+          "label": "terraform plan"
+        },
+        {
+          "nodeId": "LDpj-LY_SOXzno04D-Y25",
+          "label": "terraform apply"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:PWsbqxaFSeU64B8E7ONZn",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "vAFFgKSthyj_3Lxt-Z6pg",
+          "label": "graph"
+        },
+        {
+          "nodeId": "7DZB2VeyuouFXOdFEfeZt",
+          "label": "show"
+        },
+        {
+          "nodeId": "Y-mgCkDpawt5NrMwDH9Ki",
+          "label": "list"
+        },
+        {
+          "nodeId": "kw32gb4HSeCEoBwkeziS_",
+          "label": "output"
+        },
+        {
+          "nodeId": "uR6Vjm8cek9JRzZV0iTXh",
+          "label": "rm"
+        },
+        {
+          "nodeId": "0xVXwjWPFXDGRw_3p6th6",
+          "label": "mv"
+        },
+        {
+          "nodeId": "jvHtSRLuCXJrGIiesgbE-",
+          "label": "-replace option in apply"
+        },
+        {
+          "nodeId": "wSh7bbPswcFAzOicX8VPx",
+          "label": "state pull / push"
+        },
+        {
+          "nodeId": "Os6AOXp1CVI_Bh3NYnX17",
+          "label": "state replace-provider"
+        },
+        {
+          "nodeId": "Trpi2ZlnXZVYJCibE2bQ8",
+          "label": "state force-unlock"
+        }
+      ]
+    },
+    {
+      "nodeId": "R2AORYmc1NgGTqLZY5Fu-",
+      "label": "Modules",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "6W4_akHG9YtvN6dpbZnG-",
+          "label": "Root vs Child Modules"
+        },
+        {
+          "nodeId": "AAg_iFggkEZNL12-6nkgK",
+          "label": "Published Modules Usage"
+        },
+        {
+          "nodeId": "wQN1QrK9VB_fHlXrBzDoU",
+          "label": "Creating Local Modules"
+        }
+      ]
+    },
+    {
+      "nodeId": "6vs1VvjeILgAPLL6g7dfy",
+      "label": "Provisioners",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "CmmoshFC1dKE4y3SMN2bl",
+          "label": "When to Use?"
+        },
+        {
+          "nodeId": "CJfCpRN_oVf6n_EfLNJSV",
+          "label": "Creation / Destroy Time"
+        },
+        {
+          "nodeId": "Qch8k6e4pS8OlmG_sI0hH",
+          "label": "file provisioner"
+        },
+        {
+          "nodeId": "g2F5-nX4Aw-xWZiypNbnL",
+          "label": "local-exec provisioner"
+        },
+        {
+          "nodeId": "JQE3_KakBXZdMVP_pPFNS",
+          "label": "remote-exec provisioner"
+        },
+        {
+          "nodeId": "HEr-BBxE3jRKTqRnguds1",
+          "label": "Custom Provisioners"
+        }
+      ]
+    },
+    {
+      "nodeId": "huXZz55P7kVJwTn5BS_Wk",
+      "label": "Data Sources",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "NsBJTYH9KXvjJuhPzjE_L",
+          "label": "Inputs / Outputs"
+        },
+        {
+          "nodeId": "gTMPK0tfs2JYgoL7SAGW6",
+          "label": "Modules Best Practices"
+        }
+      ]
+    },
+    {
+      "nodeId": "tB4zfwY4E3GmXo-XQwS-l",
+      "label": "Template Files",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "O194eWh529jj4VDhKxNSj",
+      "label": "CI / CD Integration",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "weIlGqGN15U8BH1yE9moA",
+          "label": "GitHub Actions"
+        },
+        {
+          "nodeId": "6OoAdvikyp0byMH2oZhyQ",
+          "label": "Circle CI"
+        },
+        {
+          "nodeId": "fH27mGrdnkDQCrGGDFU6p",
+          "label": "GitLab CI"
+        },
+        {
+          "nodeId": "qFpaqOSoefTyKxmI-FRZt",
+          "label": "Jenkins"
+        }
+      ]
+    },
+    {
+      "nodeId": "nFq-64JQoYAKjN9YkmOfO",
+      "label": "Workspaces",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "ECcHo0KTDN27MuVTC-Fwy",
+      "label": "Scaling Terraform",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "zCU02_5Pide5BZiuMuqEU",
+          "label": "Splitting Large State"
+        },
+        {
+          "nodeId": "RtwZy60ruRpskmgr1qYYf",
+          "label": "Parallelism"
+        },
+        {
+          "nodeId": "wL3WWhjPEgFmumOmCPRDf",
+          "label": "Deployment Workflow"
+        },
+        {
+          "nodeId": "6zFuSNOfbPaYIE_t--2nr",
+          "label": "Version Management"
+        },
+        {
+          "nodeId": "AEtW6j2GcfZz7IXk4sM6c",
+          "label": "Terragrunt"
+        },
+        {
+          "nodeId": "oANePqjkwtNMwvV-_W0B7",
+          "label": "Infracost"
+        }
+      ]
+    },
+    {
+      "nodeId": "QSftI21seX6I_xPonlfmU",
+      "label": "Testing",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "V7_NnDIY1MefV_xjCCsnI",
+          "label": "Unit Testing"
+        },
+        {
+          "nodeId": "bjozhkpOI9UjjNfmT5HhY",
+          "label": "Contract Testing"
+        },
+        {
+          "nodeId": "ENkLj3z6hR2cKT7rBhYp5",
+          "label": "Integration Testing"
+        },
+        {
+          "nodeId": "QqwlAtz7VfrMtNEGpT5Sa",
+          "label": "End to End Testing"
+        },
+        {
+          "nodeId": "H3_So6qX-s2131WHGR_GO",
+          "label": "Testing Modules"
+        }
+      ]
+    },
+    {
+      "nodeId": "3MnZK2V5KhBhw67SyUVPk",
+      "label": "Security",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "uVz9WwVAgMu1ZU0qjqVnc",
+          "label": "Secret Management"
+        },
+        {
+          "nodeId": "z0PcbgpHbR6Fm07-On4P8",
+          "label": "Compliance / Sentinel"
+        },
+        {
+          "nodeId": "NSWG79dEygyl6pb54wLrE",
+          "label": "Terrascan"
+        },
+        {
+          "nodeId": "ljj7ngl1N4ezCXQ0o6Y8x",
+          "label": "Checkov"
+        },
+        {
+          "nodeId": "Vxo_gNdFl3CZXV7GLPqjD",
+          "label": "Trivy"
+        },
+        {
+          "nodeId": "MUkbLTMzmaVWbAJj6G3aj",
+          "label": "KICS"
+        }
+      ]
+    },
+    {
+      "nodeId": "erxow5xNRj01WepdFOhVf",
+      "label": "HCP",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "K_7dB-5cCYzGbwYXXaoiY",
+          "label": "What and when to use HCP?"
+        },
+        {
+          "nodeId": "elW7IMBSF0ydmlb7rtI1o",
+          "label": "Enterprise Features"
+        },
+        {
+          "nodeId": "RPcsyhIG027uP7KF0hwaY",
+          "label": "Authentication"
+        },
+        {
+          "nodeId": "JoUWF6AQoreELxFHNi9oo",
+          "label": "Workspaces"
+        },
+        {
+          "nodeId": "Z6dG92afC8SGwCFNTx4ac",
+          "label": "VCS Integration"
+        },
+        {
+          "nodeId": "nU1WoRtxRF9KeNhzuwNUB",
+          "label": "Run Tasks"
+        }
+      ]
+    }
+  ]
+}

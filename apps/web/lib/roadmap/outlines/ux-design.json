@@ -1,0 +1,429 @@
+{
+  "slug": "ux-design",
+  "title": "UX Design",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "liUKYf7UghuPk25xMPPYj",
+      "label": "Human Decision Making",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "6ffY5wO-XhkiDJJ5YcI0x",
+          "label": "Nudge Theory"
+        },
+        {
+          "nodeId": "2NlgbLeLBYwZX2u2rKkIO",
+          "label": "BJ Fogg's Behavior Model"
+        },
+        {
+          "nodeId": "K22gvF9DLt0Ikc80yZLCb",
+          "label": "Persuasive Technology"
+        },
+        {
+          "nodeId": "kcG4IpneJzA6di0uqTiwb",
+          "label": "CREATE Action Funnel"
+        },
+        {
+          "nodeId": "D553-nVELaB5gdxtoKSVc",
+          "label": "Behavioral Science"
+        },
+        {
+          "nodeId": "0Df110GZcDw5wbAe1eKoA",
+          "label": "Spectrum of Thinking Interventions"
+        },
+        {
+          "nodeId": "_lv6GJ0wlMfhJ7PHRGQ_V",
+          "label": "Behavioral Economics"
+        },
+        {
+          "nodeId": "kWA8CvocP1pkom2N7O4gb",
+          "label": "Dual Process Theory"
+        },
+        {
+          "nodeId": "zYCBEUqZVlvjlAKnh5cPQ",
+          "label": "Behavior Design"
+        }
+      ]
+    },
+    {
+      "nodeId": "w_QWN80zCf1tsVROeyuvo",
+      "label": "Behavior Change Strategies",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "lRBC8VYJPsR65LHDuuIsL",
+          "label": "BJ Fogg's Behavior Grid"
+        }
+      ]
+    },
+    {
+      "nodeId": "zVXJPpqZvUFIxTGVrr0rN",
+      "label": "Cheating",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "IpKCXqf_PkxIllwmiIZsq",
+          "label": "Defaulting"
+        },
+        {
+          "nodeId": "Ix5Fll_dAINWLxVF2DXFI",
+          "label": "Making it Incidental"
+        },
+        {
+          "nodeId": "ZufrLRNkMoJ4e2T-vWxCR",
+          "label": "Automate the Act of Repetition"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:WQntKm1lyBLwvDdYXG5AJ",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "S2TgqNDjvmcJTaXncM09u",
+          "label": "Help user Avoiding the Cue"
+        },
+        {
+          "nodeId": "_C-55tciBzc6_Kyk6272k",
+          "label": "Replace the Routine"
+        },
+        {
+          "nodeId": "0MbrHG-VDrdZqQ0jWtiDo",
+          "label": "Use Consciousness to Interfere"
+        },
+        {
+          "nodeId": "d1dXGCHmMF2EFpL5yKVJA",
+          "label": "Mindfulness to Avoid Acting on the Cue"
+        },
+        {
+          "nodeId": "B0gg7Z5JL9m9Srb89KcN5",
+          "label": "Crowd Out Old Habit with New Behavior"
+        },
+        {
+          "nodeId": "PLLTcrHkhd1KYaMSRKALp",
+          "label": "Nir Eyal's Hook Model"
+        },
+        {
+          "nodeId": "X1AroUI8Fge_lRpKab4A9",
+          "label": "Cue Routine Reward Model"
+        }
+      ]
+    },
+    {
+      "nodeId": "y6CqgqTvOt-LrvTnPJkQQ",
+      "label": "Make or Change Habits",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "PTZROvpPtEvu06szwmt4K",
+      "label": "Support Conscious Action",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "SLXjoYL-lhPef8s9V3jpf",
+          "label": "Educate & Encourage User"
+        },
+        {
+          "nodeId": "e9n9an1PGxDPGkLCOHIwz",
+          "label": "Help User think about their Action"
+        }
+      ]
+    },
+    {
+      "nodeId": "q1WX2Cp4k4-o1T1vgL8FH",
+      "label": "Understanding the Product",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "7J8F9dn1jGaVlhLVVRPrG",
+          "label": "Target Outcome"
+        },
+        {
+          "nodeId": "FRn2MaR0-ehSD3zmwXcCI",
+          "label": "Target Actor"
+        },
+        {
+          "nodeId": "AXn-N15U_z4OagClNoXrW",
+          "label": "Target Action"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:3oo6PeHghXixNr2a4FWvt",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "SGO9hHju49_py0n0ASGBe",
+          "label": "Business Model Canvas"
+        },
+        {
+          "nodeId": "sc8jJ_77CrkQuxIJYk28Q",
+          "label": "Lean Canvas"
+        },
+        {
+          "nodeId": "GI06-DbGyJlQXq5Tyi-aH",
+          "label": "Business Model Inspirator"
+        },
+        {
+          "nodeId": "HUZ5n2MRHzQPyjwX2h6Q4",
+          "label": "Competitor Analysis"
+        },
+        {
+          "nodeId": "F9gpGTRwXq08jNo5pPKm6",
+          "label": "Five Forces Model"
+        },
+        {
+          "nodeId": "XiEn1OGFY1bMCoB0Pk8N_",
+          "label": "SWOT Analysis"
+        }
+      ]
+    },
+    {
+      "nodeId": "r6D07cN0Mg4YXsiRSrl1_",
+      "label": "Conceptual Design",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "s2KJ5kNv9UcnsP0QKIKQ7",
+          "label": "Create User Personas"
+        },
+        {
+          "nodeId": "tkbkpvHlWQeOnReanR8J7",
+          "label": "User Stories"
+        },
+        {
+          "nodeId": "QNJ-LxfYtR8lbnmuy2Qm9",
+          "label": "In general, keep it short and simple"
+        },
+        {
+          "nodeId": "vAu2c45c7DgoRydHR2tvD",
+          "label": "Make it easy to understand and complete"
+        },
+        {
+          "nodeId": "t46s6Piyd8MoJYzdDTsjr",
+          "label": "Figma"
+        },
+        {
+          "nodeId": "8YePym3cQtoVY0DJQLllK",
+          "label": "Make progress visible to user"
+        },
+        {
+          "nodeId": "nb7Ql1gvxqEucsGnIWTyY",
+          "label": "Sketch"
+        }
+      ]
+    },
+    {
+      "nodeId": "6yCBFwntQ_KxFmmGTJ8iR",
+      "label": "Prototyping",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "D3LVYuCDHD6-kU8GhXokf",
+          "label": "Make progress meaningful to reward user"
+        },
+        {
+          "nodeId": "fZkARg6kPXPemYW1vDMTe",
+          "label": "Balsamiq"
+        },
+        {
+          "nodeId": "94V3wUtZ0NMm_0Vb1pBju",
+          "label": "Make successful completion clearly visible"
+        },
+        {
+          "nodeId": "90_M5qABC1vZ1nsXVyqFJ",
+          "label": "Good Layout Rules"
+        },
+        {
+          "nodeId": "0KEqAjHFBjfmGA1bKzXuD",
+          "label": "Customer Experience Map by Mel Edwards"
+        },
+        {
+          "nodeId": "JCP5_jyvh9u7hxp379iW2",
+          "label": "Simple Flowchart"
+        },
+        {
+          "nodeId": "nccToz_0FUvHMJytpDpM0",
+          "label": "Event-driven Process Chain Model (EPC)"
+        },
+        {
+          "nodeId": "jy5jtSEyNE8iJpad27rPX",
+          "label": "Business Process Model & Notation (BPMN)"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:kPYDO-8dOqviVg33HgkaY",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "U4ZEFUcghr9XjSyf-0Np7",
+          "label": "Call to Action"
+        },
+        {
+          "nodeId": "mzWd-xSr7sO2RgfPbKy4T",
+          "label": "How-to-Tips"
+        },
+        {
+          "nodeId": "G4Ap91NgZfkV-54EuWe-Z",
+          "label": "Status Reports"
+        },
+        {
+          "nodeId": "wFWidrOZ5EHPgo9uuUclK",
+          "label": "Reminders & Planning Prompts"
+        },
+        {
+          "nodeId": "JSBiw0C6aq1LhA33y79PM",
+          "label": "Behavior Change Games"
+        },
+        {
+          "nodeId": "9vA3ZWMiKG6NiEqGDvcFR",
+          "label": "Decision-Making Support"
+        },
+        {
+          "nodeId": "fbIur1tEIdNDE6gls4Bru",
+          "label": "Gamification"
+        },
+        {
+          "nodeId": "g-bcan_JnjJfg0_fMOb64",
+          "label": "Goal Trackers"
+        },
+        {
+          "nodeId": "esWGzYUJwv7_xGjq6kpVE",
+          "label": "Reminders"
+        },
+        {
+          "nodeId": "FoKtBRuTuMD2SZDHLWS-5",
+          "label": "Social Sharing"
+        },
+        {
+          "nodeId": "f0n2JKxpcuP0JW-h4CvwN",
+          "label": "Tutorials"
+        },
+        {
+          "nodeId": "eYZf67rnhOksfh44hnzHg",
+          "label": "Planners"
+        }
+      ]
+    },
+    {
+      "nodeId": "VUf72i5hYaLR_8ul9EzmM",
+      "label": "UX Best Practices",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "FXJpJDIp-JBc0-0z4PIRo",
+          "label": "Tell User what the Action is and ask for it"
+        },
+        {
+          "nodeId": "IjqH_Ev2fDWG0QDQ9c9eN",
+          "label": "Clear the Page of Distractions"
+        },
+        {
+          "nodeId": "hDj3HaYAM7K1UJmP_T52n",
+          "label": "Make it Clear, Where to Act"
+        },
+        {
+          "nodeId": "ahhffBkmd-feroleBrhJm",
+          "label": "Make UI Professional and Beautiful"
+        }
+      ]
+    },
+    {
+      "nodeId": "GgBazWfF2OvOqkuo3DO2L",
+      "label": "Measuring the Impact",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "C5dKHIIgBzxtBpFgDs-hB",
+          "label": "Deploy Strong Authority on Subject"
+        },
+        {
+          "nodeId": "m30ePaw_qa36m9Rv9NSFf",
+          "label": "Be Authentic and Personal"
+        },
+        {
+          "nodeId": "Emby09Nsm_j6uNreT58r6",
+          "label": "Gather Lessons, Prioritize & Integrate"
+        },
+        {
+          "nodeId": "C1NwA0Pivoo73GANoOaPi",
+          "label": "Deploy Social Proof"
+        },
+        {
+          "nodeId": "jBQtuiHGl3eyCTZG85Vz5",
+          "label": "Prime User-Relevant Associations"
+        },
+        {
+          "nodeId": "iQNvKhwhvbis4Yn1ZxQua",
+          "label": "Avoid Direct Payments"
+        },
+        {
+          "nodeId": "-_T2nzp1vV1jUcpsC5DI3",
+          "label": "Multivariate Testing"
+        },
+        {
+          "nodeId": "8wxlu4KA2iu9CJa1UAUll",
+          "label": "Avoid Choice Overload"
+        },
+        {
+          "nodeId": "Q4xBz9f3yyZi2F_aZ5ixL",
+          "label": "Incremental A/B Testing"
+        },
+        {
+          "nodeId": "4AzPOKXUN32CkgchRMrRY",
+          "label": "Avoid Cognitive Overhead"
+        },
+        {
+          "nodeId": "zXinWCEH4LlYvXekLK0Ju",
+          "label": "Leverage Loss-Aversion"
+        },
+        {
+          "nodeId": "iKHU0O0z6gCunCgv_aZye",
+          "label": "Use Peer Comparisons"
+        },
+        {
+          "nodeId": "6Mvm8SrISyTT99AJ-VFaW",
+          "label": "Use Competition"
+        },
+        {
+          "nodeId": "S9rJr8pc-Ln8BxG0suBWa",
+          "label": "Frame Text to Avoid Temporal Myopia"
+        },
+        {
+          "nodeId": "EmDgiwaknBz5lXr1rwalE",
+          "label": "Elicit Implementation Intentions"
+        },
+        {
+          "nodeId": "kR-UbUFdELVeiPJqT0GlZ",
+          "label": "Remind of Prior Commitment to Act"
+        },
+        {
+          "nodeId": "wE5gt1vMgbF3csA61VO2-",
+          "label": "Default Everything"
+        },
+        {
+          "nodeId": "dOL2z6ULpmzRD5N3MrYCy",
+          "label": "Make Commitment to Friends"
+        },
+        {
+          "nodeId": "gf7et64xCqkYBrP9HwWs_",
+          "label": "Lessen the Burden of Action / Info"
+        },
+        {
+          "nodeId": "1pzONoWafLAeX8eWbH-Dz",
+          "label": "Make Reward Scarce"
+        },
+        {
+          "nodeId": "gqOnzmiLQHmIXuEe4jG2e",
+          "label": "Deploy Peer Comparisons"
+        }
+      ]
+    }
+  ]
+}

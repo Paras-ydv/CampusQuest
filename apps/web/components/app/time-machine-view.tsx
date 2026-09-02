@@ -15,6 +15,7 @@ import { Odometer } from "@/components/motion/odometer";
 import { Reveal } from "@/components/motion/reveal";
 import { WordRise } from "@/components/motion/word-rise";
 import { Label, SegmentBar } from "@/components/ui/primitives";
+import { Pager, usePaged } from "@/components/ui/pager";
 
 export function TimeMachineView({
   alignment,
@@ -55,6 +56,9 @@ export function TimeMachineView({
     setSelected((prev) =>
       prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id],
     );
+
+  const pagedGaps = usePaged(alignment.gaps);
+  const pagedRoles = usePaged(roles);
 
   return (
     <div className="mx-auto max-w-[1400px]">
@@ -207,7 +211,8 @@ export function TimeMachineView({
         <Label rule className="mb-7">
           Skill frequency across {alignment.roleCount} roles
         </Label>
-        <GapList gaps={alignment.gaps} />
+        <GapList gaps={pagedGaps.items} />
+        <Pager paged={pagedGaps} label="gaps" />
       </section>
 
       {/* ------------------------------------------------------------- roles */}
@@ -230,7 +235,7 @@ export function TimeMachineView({
               </tr>
             </thead>
             <tbody>
-              {roles.map((role) => (
+              {pagedRoles.items.map((role) => (
                 <tr
                   key={role.id}
                   className="border-b-2 border-line-soft transition-colors duration-200 last:border-b-0 hover:bg-sunk"
@@ -263,6 +268,8 @@ export function TimeMachineView({
             </tbody>
           </table>
         </div>
+
+        <Pager paged={pagedRoles} label="roles" />
         <p className="mt-3 font-mono text-[0.6875rem] tracking-[0.06em] text-faint">
           Showing {roles.length} of {alignment.roleCount} surveyed roles.
         </p>

@@ -1,0 +1,878 @@
+{
+  "slug": "computer-science",
+  "title": "Computer Science",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "tU4Umtnfu01t9gLlnlK6b",
+      "label": "Pick a Language",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "RlKZzs44biQPgxD0tK1qx",
+          "label": "Python"
+        },
+        {
+          "nodeId": "mWW88VnkqWgDz02qw5zU-",
+          "label": "Go"
+        },
+        {
+          "nodeId": "jHKCLfLml8oZyj4829gx0",
+          "label": "C#"
+        },
+        {
+          "nodeId": "1kQJs-3Aw8Bi7d_Xh67zS",
+          "label": "C++"
+        },
+        {
+          "nodeId": "n4IsklfYJXFIyF1rGWuEa",
+          "label": "C"
+        },
+        {
+          "nodeId": "1lQSUFrrIGq19nUnM92-I",
+          "label": "Java"
+        },
+        {
+          "nodeId": "1bDjg-KBDKRmE6f1MWY8l",
+          "label": "Rust"
+        }
+      ]
+    },
+    {
+      "nodeId": "NM7q5REW1sJgMhxJhPpLT",
+      "label": "Data Structures",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "TwW6SO2IXqkxJXVjLzdwU",
+          "label": "Array"
+        },
+        {
+          "nodeId": "gr8BK6vq4AVwp_aUozZmf",
+          "label": "Linked List"
+        },
+        {
+          "nodeId": "hJB5gO9tosRlC4UmdSNzl",
+          "label": "Stack"
+        },
+        {
+          "nodeId": "JI990pDX2jjNe6IH_Y_t0",
+          "label": "Queue"
+        },
+        {
+          "nodeId": "vQm046o6ozcvLoqg9L6eL",
+          "label": "Graph"
+        },
+        {
+          "nodeId": "pw3ZCC3HKU7D5SQwte4vE",
+          "label": "Heap"
+        },
+        {
+          "nodeId": "_eWqiWUmOj0zUo_Ix3j1O",
+          "label": "Tree"
+        },
+        {
+          "nodeId": "G2dN2FO0SN_I-5AhO_EUk",
+          "label": "Hash Table"
+        },
+        {
+          "nodeId": "6Jy8SXHuYA08h9iLjKFWR",
+          "label": "Directed Graph"
+        },
+        {
+          "nodeId": "QGx8it2N_85PiPVjpTGK_",
+          "label": "Undirected Graph"
+        },
+        {
+          "nodeId": "G9dnegZ6zNvxrCZ3O_b_z",
+          "label": "Binary Tree"
+        },
+        {
+          "nodeId": "3F_QBv_sU39ehOxpurF88",
+          "label": "Constant"
+        },
+        {
+          "nodeId": "et7l85gnxjvzD2tDyHT_T",
+          "label": "Binary Search Tree"
+        },
+        {
+          "nodeId": "c-NrTtJuNihbHzyPEOKTW",
+          "label": "Big O"
+        },
+        {
+          "nodeId": "nnlMNkQn1HU4U9yPbV9kQ",
+          "label": "Logarithmic"
+        },
+        {
+          "nodeId": "Q8ZJNeTbc22Q08Mra-McY",
+          "label": "Full Binary Tree"
+        },
+        {
+          "nodeId": "ThLpVZQIJ4diY5m0dik8m",
+          "label": "Big-Theta"
+        },
+        {
+          "nodeId": "jymhjv8GiFALQpox6aZeu",
+          "label": "Linear"
+        }
+      ]
+    },
+    {
+      "nodeId": "UpBrpmrUwYUB9eesNxCq5",
+      "label": "Asymptotic Notation",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "Jx1WWCjm8jkfAGtHv15n1",
+          "label": "Complete Binary Tree"
+        },
+        {
+          "nodeId": "X33735aeAVSlJ6yv9GS-h",
+          "label": "Big Omega"
+        },
+        {
+          "nodeId": "sVFvpsAO1_ZH9aliEj9aF",
+          "label": "Polynomial"
+        },
+        {
+          "nodeId": "ZaWGLvZyu4sIPn-zwVISN",
+          "label": " Balanced Tree"
+        },
+        {
+          "nodeId": "2cg5PogENPhiYFXQnV9xC",
+          "label": "Small O"
+        },
+        {
+          "nodeId": "5mMLr6tWbiSZuox1lx0_B",
+          "label": "Exponential"
+        },
+        {
+          "nodeId": "w4sxmZR1BjX6wlrZmuOlf",
+          "label": "Unbalanced Tree"
+        },
+        {
+          "nodeId": "dUBRG_5aUYlICsjPbRlTf",
+          "label": "Small Omega"
+        },
+        {
+          "nodeId": "m0umGQNdvg95UiNpQZsQN",
+          "label": "Factorial"
+        }
+      ]
+    },
+    {
+      "nodeId": "7a6-AnBI-3tAU1dkOvPkx",
+      "label": "Common Algorithms",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "L4xtWOdqGUf4SbJkoOsNM",
+          "label": "Spanning Tree"
+        },
+        {
+          "nodeId": "rTnKJcPniUtqvfOyC88N0",
+          "label": "Adjacency List"
+        },
+        {
+          "nodeId": "HZ1kk0TQ13FLC9t13BZl5",
+          "label": "Adjacency Matrix"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:2_aaf2bJha7U5B7L1jwA2",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "0_qNhprnXU3i8koW3XTdD",
+          "label": "Tail Recursion"
+        },
+        {
+          "nodeId": "iLEOuQgUgU5Jc38iXDpp5",
+          "label": "Non-Tail Recursion"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:2bhY7aSAJTF_v0SH0TVgq",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "vcV6TEM_PqXxtThdfMKGw",
+          "label": "Breadth First Search"
+        },
+        {
+          "nodeId": "Yf5gOIe7oiL19MjEVcpdw",
+          "label": "Depth First Search"
+        },
+        {
+          "nodeId": "eY4nK2lPYsrR-a_8y2sao",
+          "label": "Bellman Ford's Algorithm"
+        },
+        {
+          "nodeId": "oJstm-8c-4seWbIWcNgDv",
+          "label": "Dijkstra's Algorithm"
+        },
+        {
+          "nodeId": "Yrk2PLUa-_FAPlhCkMl3e",
+          "label": "A* Algorithm"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:mB6Us4BvQ2LtuvNiZF6DQ",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "psTN5N66xoFHFopgd5faW",
+          "label": "Pre-Order Traversal"
+        },
+        {
+          "nodeId": "KTrgf14Q6rg2f0v4dqq2s",
+          "label": "In-Order Traversal"
+        },
+        {
+          "nodeId": "4_oGXwjzSY5cX9n7L4iAA",
+          "label": "Post Order Traversal"
+        },
+        {
+          "nodeId": "Ke_ch4fnuKIiGAXUM_LPP",
+          "label": "Breadth First Search"
+        },
+        {
+          "nodeId": "chzP5_t2gMi6MstxEzCi5",
+          "label": "Depth First Search"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:Pk--VU4Dn0UQYxc5mDykI",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "4wGBYFZpcdTt97WTbSazx",
+          "label": "Bubble Sort"
+        },
+        {
+          "nodeId": "rOsHFXQm5jNz0RyZQ5ZGs",
+          "label": "Selection Sort"
+        },
+        {
+          "nodeId": "ujDCW6zZE8dV_fpNf-oIl",
+          "label": "Insertion Sort"
+        },
+        {
+          "nodeId": "CovrRsBY-sYW_xSegcN6N",
+          "label": "Heap Sort"
+        },
+        {
+          "nodeId": "be0Q8GW9ZX1JbPrBvbMji",
+          "label": "Quick Sort"
+        },
+        {
+          "nodeId": "Bh-whDbcCjl3m6mRm9w02",
+          "label": "Merge Sort"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:znQvyhgDMgdMHOtDmIya0",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "8kTg4O9MrTHRUrp6U-ctA",
+          "label": "Binary Search"
+        },
+        {
+          "nodeId": "XwyqBK9rgP1MMcJrdIzm5",
+          "label": "Linear Search"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:c_44fjH3QZw0OvRIkRobf",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "l3X9UrEYTWs5kBXI1NNCf",
+          "label": "Dijkstra's Algorithm"
+        },
+        {
+          "nodeId": "QrcijPiVT3bgqfkF-6ssi",
+          "label": "Huffman Coding"
+        },
+        {
+          "nodeId": "Wqhg7E-lOz1oNcRXjUej8",
+          "label": "Kruskal's Algorithm"
+        },
+        {
+          "nodeId": "Hqw2eGtgfbVggqXBnIOdI",
+          "label": "Ford-Fulkerson Algorithm"
+        },
+        {
+          "nodeId": "znpFIKwMJlepKJ8dH3kvC",
+          "label": "Prim's Algorithm"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:IxvLv_S2luYMSVXlsxrHt",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "aBjBHpq_OajgQjxdCobXD",
+          "label": "Finding Hamiltonian Paths"
+        },
+        {
+          "nodeId": "HlAmTY1udqDT2mTfBU9P-",
+          "label": "Solving N Queen Problem"
+        },
+        {
+          "nodeId": "nODFT-i2YsxUVsgwWkIWn",
+          "label": "Maze Solving Problem"
+        },
+        {
+          "nodeId": "NcKW_3vJWL_rVlDBB_Qjs",
+          "label": "The Knight's Tour Problem"
+        },
+        {
+          "nodeId": "l5--4opvZoc_seVn__5R3",
+          "label": "Rabin-Karp Algorithm"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:K6FQHGJep6HwEYlgjjQjJ",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "hna0HLu0l4NTNNpyGqlW5",
+          "label": "MFU Cache"
+        },
+        {
+          "nodeId": "cEsboPT8nLvo0Zt0_oBq6",
+          "label": "LRU Cache"
+        },
+        {
+          "nodeId": "n11ujPI3of-52l2KW2CDQ",
+          "label": "LFU Cache"
+        }
+      ]
+    },
+    {
+      "nodeId": "vjMqqFsTxSjaiYxmliwLi",
+      "label": "Endianess",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "U8AgY6I-62mN5Ohg9MsG6",
+          "label": "Big Endian"
+        }
+      ]
+    },
+    {
+      "nodeId": "-bawIWfrYuAxy8cP-AGFS",
+      "label": "Floating Point Math",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "NUWk-7IXmMU-4TT-oS8fF",
+      "label": "String Search & Manipulations",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "L4M5yFRKKR2axKXGcIA7d",
+          "label": "Search Pattern in Text"
+        },
+        {
+          "nodeId": "Ld1TUNS8713coMNvwhNIJ",
+          "label": "Suffix Arrays"
+        },
+        {
+          "nodeId": "E9hf1ux1KKGHvvAShm67w",
+          "label": "Substring Search"
+        },
+        {
+          "nodeId": "g3b0kt1fCAjjYyS2WelWi",
+          "label": "Brute Force Search"
+        },
+        {
+          "nodeId": "Km5LvcJpyntrW2iA8h5e3",
+          "label": "Robin-Karp"
+        },
+        {
+          "nodeId": "8abFKMfaV9H8F38I0DcMT",
+          "label": "Knuth-Morris Pratt"
+        }
+      ]
+    },
+    {
+      "nodeId": "DtG9EJonWi4_2oQ4fWOKY",
+      "label": "Character Encodings",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "04hpfxI2x958tQI-0clsp",
+          "label": "Unicode"
+        },
+        {
+          "nodeId": "hmwsNp60alS43kJg4A_Og",
+          "label": "ASCII"
+        }
+      ]
+    },
+    {
+      "nodeId": "hTPLcuOW7eEE5oYhNfmOG",
+      "label": "Bitwise Operators",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "-De1hU2ONGwhQmUpsyrCO",
+      "label": "Design Patterns",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "iPN9mSyFwYZER5HSkj6oL",
+          "label": "GoF Design Patterns"
+        },
+        {
+          "nodeId": "rD_5n5bjiNMVC0cPhEVyG",
+          "label": "Little Endian"
+        },
+        {
+          "nodeId": "BGhJNtszbYJtKyhqr2jax",
+          "label": "Architectural Patterns"
+        },
+        {
+          "nodeId": "J7DKRklMtJ94Y-18Jo50r",
+          "label": "Dependency Injection"
+        },
+        {
+          "nodeId": "PpFQ0zmObZLvmBvqhTEMz",
+          "label": "Null Object Pattern"
+        },
+        {
+          "nodeId": "_2Jddpz_cdwyeIgrg5qt_",
+          "label": "Type Object Pattern"
+        }
+      ]
+    },
+    {
+      "nodeId": "DMuMsEowpevTCALtziwTB",
+      "label": "Common UML Diagrams",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "FZ8znJSz8PvQlnEyRLXmQ",
+          "label": "Class Diagrams"
+        },
+        {
+          "nodeId": "dVvYbrcaxHLpvtX6HbS7g",
+          "label": "Usecase Diagrams"
+        }
+      ]
+    },
+    {
+      "nodeId": "cdNi0EYrQ5nsgNxFVnXL8",
+      "label": "Basic Math Skills",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "ptfRNiU0mC0Q5SLA_FWZu",
+          "label": "Activity Diagrams"
+        },
+        {
+          "nodeId": "X0CKM9LaJUrgI5gIdqFvU",
+          "label": "Statemachine Diagrams"
+        },
+        {
+          "nodeId": "HZ3_xyphbjhBPwwQo_rHH",
+          "label": "Probability"
+        },
+        {
+          "nodeId": "lWnAY0DgrUOmT6yqnxeBN",
+          "label": "Combinatorics"
+        },
+        {
+          "nodeId": "gaUT5K2xS-WQMrIA0Bkb_",
+          "label": "Sequence Diagrams"
+        }
+      ]
+    },
+    {
+      "nodeId": "YLCmZvoLkhOk9wlgYW2Ms",
+      "label": "Complexity Classes",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "p6qub32jcaGloHXUDUrlG",
+          "label": "Boyer-Moore"
+        },
+        {
+          "nodeId": "3aM17dPKNi8tRJsW8lesI",
+          "label": "P"
+        },
+        {
+          "nodeId": "ewXUHpOnjm8YrLhce1dAQ",
+          "label": "NP"
+        },
+        {
+          "nodeId": "0btHNkzWL1w_-pUgU_k2y",
+          "label": "P = NP"
+        }
+      ]
+    },
+    {
+      "nodeId": "4qUVacMEz3XFiL_dMre6P",
+      "label": "Tries",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "Lwkz7qozXRlVNA20zJbSw",
+      "label": "NP Complete",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "pLBfkzi0qfgVRqi_4AmMI",
+          "label": "Co-NP"
+        },
+        {
+          "nodeId": "mJJ8DGUpBuHEJ7I6UTy1T",
+          "label": "NP Hard"
+        },
+        {
+          "nodeId": "nprZscHdC_RdRIcGeGyVk",
+          "label": "SQL vs NoSQL Databases"
+        },
+        {
+          "nodeId": "ZG-hWjVoS3p9XfrtBL0sD",
+          "label": "Travelling Salesman Problem"
+        },
+        {
+          "nodeId": "yHeCRPhfAOWiggZeUHPU9",
+          "label": "Knapsack Problem"
+        }
+      ]
+    },
+    {
+      "nodeId": "zvlTQ0A-My4QDrslp_lru",
+      "label": "Databases",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "Rw7QjLC8hLtXSwmU_9kHC",
+          "label": "Normalization / Denormalization"
+        },
+        {
+          "nodeId": "XnxxEmr2TyW2kOpB4gtR5",
+          "label": "Entity-Relationship Model"
+        },
+        {
+          "nodeId": "ii1vF74u3yrFNlw_21b3B",
+          "label": "DDL"
+        },
+        {
+          "nodeId": "tcQSH-eAvJUZuePTDjAIb",
+          "label": "DML"
+        },
+        {
+          "nodeId": "05lkb3B86Won7Rkf-8DeD",
+          "label": "DQL"
+        },
+        {
+          "nodeId": "4bUmfuP2qgcli8I2Vm9zh",
+          "label": "DCL"
+        },
+        {
+          "nodeId": "_sm63rZNKoibVndeNgOpW",
+          "label": "Locking"
+        },
+        {
+          "nodeId": "W5B-v-BFcCRmuN0L1m6PI",
+          "label": "ACID Model"
+        },
+        {
+          "nodeId": "q3nRhTYS5wg9tYnQe2sCF",
+          "label": "BASE"
+        },
+        {
+          "nodeId": "uqfeiQ9K--QkGNwks4kjk",
+          "label": "CAP Theorem"
+        },
+        {
+          "nodeId": "g6HeyLptaAYx9QBKuHQyM",
+          "label": "PACELC"
+        },
+        {
+          "nodeId": "BEbsUA39kZ5itqCwD585f",
+          "label": "Indexes"
+        },
+        {
+          "nodeId": "lOj_ReWI1kQ3WajJZYOWU",
+          "label": "Views"
+        },
+        {
+          "nodeId": "KhvYJtSCUBOpEZXjHpQde",
+          "label": "Transactions"
+        },
+        {
+          "nodeId": "FjhZGhzJjYyDn0PShKmpX",
+          "label": "Stored Procedures"
+        }
+      ]
+    },
+    {
+      "nodeId": "w-fvEiSJysywR3AOAB0ve",
+      "label": "System Design",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "4QVVYjDODMWsjnrE-4UBs",
+          "label": "Longest Path Problem"
+        },
+        {
+          "nodeId": "-34WGppX6QC5fkCvfCghp",
+          "label": "Horizontal vs Vertical Scaling"
+        },
+        {
+          "nodeId": "xDiS0HmrEoPjkQg9x2O3o",
+          "label": "Load Balancing"
+        },
+        {
+          "nodeId": "wAsZ-M5N9ERufQnBaXbAE",
+          "label": "Clustering"
+        },
+        {
+          "nodeId": "4u5w9QCptLWuY9O7_UU8V",
+          "label": "Caching"
+        },
+        {
+          "nodeId": "r8V9bZpc98SrLvXc070bZ",
+          "label": "CDN"
+        },
+        {
+          "nodeId": "LCPEzpyAuHY3ggN3nYrNN",
+          "label": "Queues"
+        },
+        {
+          "nodeId": "qLLJ_ehC8tSRfXsorYMQz",
+          "label": "Proxy"
+        },
+        {
+          "nodeId": "X1wv7xV69IEzepg8bF8oZ",
+          "label": "Architectural Styles"
+        },
+        {
+          "nodeId": "Kvz3Sn7L8CxP5ZXO1hlcU",
+          "label": "REST"
+        },
+        {
+          "nodeId": "DeE_dZecLmKCjePovTfFS",
+          "label": "GraphQL"
+        },
+        {
+          "nodeId": "M4vdwAbjLPrLjWUsG_P1I",
+          "label": "gRPC"
+        },
+        {
+          "nodeId": "YMO9oD_sbzyDZPNU2xZwe",
+          "label": "Cloud Design Patterns"
+        }
+      ]
+    },
+    {
+      "nodeId": "7DF3UhefOSqqTuccH8c8X",
+      "label": "Balanced Search Trees",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "OUistS7H7hQQxVV-lOg39",
+          "label": "AVL Trees"
+        },
+        {
+          "nodeId": "eOL0_SzxBn7_xhNcBDi2D",
+          "label": "Red / Black Trees"
+        },
+        {
+          "nodeId": "3jiV9R82qxpqIGfpEq_wK",
+          "label": "2 3 Search Trees"
+        },
+        {
+          "nodeId": "IaPd_zuLbiOCwoSHQLoIG",
+          "label": "2 3 4 Trees"
+        },
+        {
+          "nodeId": "UOYeM-hqIKCrB9hGez4Q_",
+          "label": "K-ary / M-ary Tree"
+        },
+        {
+          "nodeId": "s0Pi6CemUUsmZSEu2j2gH",
+          "label": "B-Tree"
+        },
+        {
+          "nodeId": "C1eNsPjiQo8INbvL2Lt7L",
+          "label": "K-D Trees"
+        },
+        {
+          "nodeId": "K96ggeWqd5OwoNnkL04pc",
+          "label": "Skip Lists"
+        }
+      ]
+    },
+    {
+      "nodeId": "zG5t3HqbZnh9CGRqp1Sb-",
+      "label": "Networking",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "pZ5x_zDYGzW9VxYycyXtN",
+          "label": "OSI Model"
+        },
+        {
+          "nodeId": "Fed5y1D95WPpqoVg7kmob",
+          "label": "TCP/IP Model"
+        },
+        {
+          "nodeId": "fYjoXB4rnkM5gg46sqVz5",
+          "label": "DNS"
+        },
+        {
+          "nodeId": "2tUwl-br-SRuwADSzmQag",
+          "label": "HTTP"
+        },
+        {
+          "nodeId": "3pu2bGhoCLFIs6kNanwtz",
+          "label": "TLS & HTTPS"
+        },
+        {
+          "nodeId": "u-c-UFegRb7xqsmvj9gVb",
+          "label": "Sockets"
+        }
+      ]
+    },
+    {
+      "nodeId": "JnJbJtsqKbVETY2vdLqCO",
+      "label": "Security",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "3r21avMlo0xFB9i7PHccX",
+          "label": "Database Federation"
+        },
+        {
+          "nodeId": "WUEmEtlszbISSIWDKpvg6",
+          "label": "Replication"
+        },
+        {
+          "nodeId": "3K65efPag2076dy-MeTg4",
+          "label": "Sharding"
+        },
+        {
+          "nodeId": "7r7o8pYhFHVAJIv0wNT6X",
+          "label": "Hashing / Encryption / Encoding"
+        },
+        {
+          "nodeId": "bDZ34BPm3lX06ERSE10cY",
+          "label": "Public Key Cryptography"
+        },
+        {
+          "nodeId": "EX_e4B6G07zTb4JjJ7482",
+          "label": "Hashing Algorithms"
+        },
+        {
+          "nodeId": "3rPSp135TdSCyvXzEzn4p",
+          "label": "OWASP Top 10"
+        }
+      ]
+    },
+    {
+      "nodeId": "-emdKpD5uRNuvem5rbFXJ",
+      "label": "How Computers Work",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "1eglba39q426Nh0E0qcdj",
+          "label": "How CPU Executes Programs"
+        },
+        {
+          "nodeId": "U3379F4AO1KSmGtVmPr27",
+          "label": "Registers and RAM"
+        },
+        {
+          "nodeId": "AxiGqbteK7ZSXEUt_zckH",
+          "label": "Instructions and Programs"
+        },
+        {
+          "nodeId": "DjTQjMbika4_yTzrBpcmB",
+          "label": "CPU Cache"
+        },
+        {
+          "nodeId": "GDLKJkKgB-i7n0YcV2NDa",
+          "label": "How Computers Calculate"
+        }
+      ]
+    },
+    {
+      "nodeId": "ETEUA7jaEGyOEX8tAVNWs",
+      "label": "Processes and Threads",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "XeJi6TwpI5Uaszj00Uv_2",
+          "label": "Long Polling"
+        },
+        {
+          "nodeId": "gGmNJ8dK28iqrlQHPz6md",
+          "label": "Short Polling"
+        },
+        {
+          "nodeId": "bVjI14VismTHNCyA0mEBP",
+          "label": "Web Sockets"
+        },
+        {
+          "nodeId": "JckRqZA8C6IqQLPpTCgf4",
+          "label": "SSE"
+        },
+        {
+          "nodeId": "RbdT5MOE4L-E7PPWKRITX",
+          "label": "Process Forking"
+        },
+        {
+          "nodeId": "jVsZFTzyrYEDyR8LiBQL0",
+          "label": "Memory Management"
+        },
+        {
+          "nodeId": "O6-vG3FuoYet4D0hbiyrv",
+          "label": "Lock / Mutex / Semaphore"
+        },
+        {
+          "nodeId": "xUo5Ox_HTgGyeQMDIkVyK",
+          "label": "Concurrency in Multiple Cores"
+        },
+        {
+          "nodeId": "Ge2nagN86ofa2y-yYR1lv",
+          "label": "Scheduling Algorithms"
+        },
+        {
+          "nodeId": "cpQvB0qMDL3-NWret7oeA",
+          "label": "CPU Interrupts"
+        },
+        {
+          "nodeId": "IEX6v_MYpE5Ylk_28K2ZU",
+          "label": "Processes vs Threads"
+        }
+      ]
+    }
+  ]
+}

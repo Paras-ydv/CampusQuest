@@ -1,7 +1,9 @@
 "use client";
 
 import type { SkillGap } from "@campusquest/shared";
+import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
+import { roadmapForSkill } from "@/lib/roadmap/skill-map";
 
 /**
  * The skills historical roles kept asking for that this student doesn't hold.
@@ -11,12 +13,15 @@ import { motion, useReducedMotion } from "motion/react";
  * Each gap carries the best matching resource from the warehouse catalogue, so
  * the screen answers "what do I do about it" rather than only "what is wrong".
  */
-export function GapList({ gaps }: { gaps: SkillGap[] }) {
+export function GapList({ gaps, limit }: { gaps: SkillGap[]; limit?: number }) {
   const reduced = useReducedMotion();
+  // The dashboard shows only the top few; the Time Machine is where the full
+  // ranked list lives, and the button beneath this points there.
+  const shown = limit ? gaps.slice(0, limit) : gaps;
 
   return (
     <ul className="flex flex-col">
-      {gaps.map((gap, i) => (
+      {shown.map((gap, i) => (
         <li
           key={gap.skill.id}
           className="group grid grid-cols-[1fr_auto] items-baseline gap-x-4 gap-y-2 border-b-2 border-line-soft py-4 last:border-b-0 sm:grid-cols-[13rem_1fr_auto]"
@@ -69,6 +74,16 @@ export function GapList({ gaps }: { gaps: SkillGap[] }) {
                 {gap.resource.estimatedHours ? `, ~${gap.resource.estimatedHours}h` : ""}
                 {gap.resource.isFree ? ", free" : ""})
               </span>
+            ) : null}
+
+            {/* Only where a roadmap honestly covers the skill — see skill-map.ts. */}
+            {roadmapForSkill(gap.skill.id) ? (
+              <Link
+                href={`/learn/${encodeURIComponent(gap.skill.id)}`}
+                className="font-mono text-[0.625rem] tracking-[0.08em] text-hot uppercase underline-offset-4 hover:underline"
+              >
+                Learn it →
+              </Link>
             ) : null}
           </span>
         </li>

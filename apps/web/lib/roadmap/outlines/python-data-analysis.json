@@ -1,0 +1,543 @@
+{
+  "slug": "python-data-analysis",
+  "title": "Python for Data Analysis",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "section:yFw0XKQ_008-RYEs8riBW",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "_-bUq5jtewDmsmnzYw1-q",
+          "label": "Integers"
+        },
+        {
+          "nodeId": "aLIXcqB258WNrdASuN_7G",
+          "label": "Floats"
+        },
+        {
+          "nodeId": "Ze02ApxTvyQqtB3VYv3d4",
+          "label": "Booleans"
+        },
+        {
+          "nodeId": "F-0Rxwu_RcNF_NOoFHoo7",
+          "label": "Strings"
+        },
+        {
+          "nodeId": "GidLncxwx7d1QzAOfHRLX",
+          "label": "Null"
+        },
+        {
+          "nodeId": "F4dp3Ip8G-EI1hprtv3do",
+          "label": "Lists"
+        },
+        {
+          "nodeId": "olniprgaL7l-9YhwbFfmN",
+          "label": "Tuples"
+        },
+        {
+          "nodeId": "GvV_thqIC0yXyJbJt_Zmu",
+          "label": "Sets"
+        },
+        {
+          "nodeId": "lReYQM-p8rrYcHkaqzbMr",
+          "label": "Dictionaries"
+        },
+        {
+          "nodeId": "NjCor7ePiZapd4f6bMZlV",
+          "label": "Type Casting"
+        },
+        {
+          "nodeId": "Sg5w8zO2Ji-uDJKEoWey9",
+          "label": "Working with Strings"
+        },
+        {
+          "nodeId": "la9oiXURvw6AH-Vuh-WqT",
+          "label": "List Comprehensions"
+        }
+      ]
+    },
+    {
+      "nodeId": "GISOFMKvnBys0O0IMpz2J",
+      "label": "Introduction",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "AAxvIAas2Sdkz9-2uNHXq",
+          "label": "Arithmetic"
+        },
+        {
+          "nodeId": "Md0yXC3JTH56Wky5jA8Fk",
+          "label": "Comparison"
+        },
+        {
+          "nodeId": "_0K6o-R0F2a9bpEDfRcTi",
+          "label": "Logical"
+        },
+        {
+          "nodeId": "so95CO6Qw3I0S98ISENS-",
+          "label": "Operators"
+        },
+        {
+          "nodeId": "icVUQgedEGcaPpJSV8JdI",
+          "label": "Printing Variables"
+        },
+        {
+          "nodeId": "NP1kjSk0ujU0Gx-ajNHlR",
+          "label": "Conditionals"
+        },
+        {
+          "nodeId": "Dvy7BnNzK55qbh_SgOk8m",
+          "label": "Loops"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:HgyI8SxBWM-z7-1axDQPi",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "6dJaQRj2zMz00sfTiTdww",
+          "label": "pip"
+        },
+        {
+          "nodeId": "j1jq5_64lBuYQQjJWKIuI",
+          "label": "conda"
+        },
+        {
+          "nodeId": "0w4i0aavs0j2hl9Fbqy4Y",
+          "label": "uv"
+        },
+        {
+          "nodeId": "IL0fFEs4CgK_eBft-SYAl",
+          "label": "virtualenv / venv"
+        },
+        {
+          "nodeId": "2m8uQRGaVZUd4mfm7bRou",
+          "label": "JupyterLab"
+        },
+        {
+          "nodeId": "c8uLNJMr6UZfvjFwFhxvd",
+          "label": "Google Colab"
+        },
+        {
+          "nodeId": "ObA_xZDY7PxU54NGBwyVI",
+          "label": "VS Code"
+        }
+      ]
+    },
+    {
+      "nodeId": "kyrS5ez7_85AnNt8Bojz_",
+      "label": "Functions & Methods",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "KtV5Jl-hOcUS5L-15BUDD",
+          "label": "Built-in Functions"
+        },
+        {
+          "nodeId": "0XtKHqPS6AfhQvhH5cu7Q",
+          "label": "Defining Functions"
+        },
+        {
+          "nodeId": "7ukR74cN6lHbvhs4mFn6R",
+          "label": "args & kwargs"
+        },
+        {
+          "nodeId": "AzsZhpK-wuWtafVFJMhdY",
+          "label": "Lambda Functions"
+        }
+      ]
+    },
+    {
+      "nodeId": "8Z20apU8ugXwdH8rRZAcr",
+      "label": "Environment Setup",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "E_r4BLrSyHkrxpg4HDkUm",
+      "label": "SQL Fundamentals",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "-RepeaHp66GGuM66k9JHd",
+          "label": "sqlite3"
+        },
+        {
+          "nodeId": "k63rFXaVDUX2ZOVI_O9WG",
+          "label": "SQLAlchemy"
+        },
+        {
+          "nodeId": "a6HiqhsJJijqObw9pNOqb",
+          "label": "DuckDB"
+        },
+        {
+          "nodeId": "cD139cRk1xj2ip-o_078l",
+          "label": "Pandas"
+        }
+      ]
+    },
+    {
+      "nodeId": "IO-disDSfkPau4Pd_TNwc",
+      "label": "NumPy",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "qiUPTXFgfukxlPhnv76jo",
+          "label": "Arrays & ndarray"
+        },
+        {
+          "nodeId": "qOZ-T7zaPjvIT222rSV4o",
+          "label": "Array Operations"
+        },
+        {
+          "nodeId": "mAOljEWt_0Hb9jLBKuc-H",
+          "label": "Indexing & Slicing"
+        },
+        {
+          "nodeId": "3N5N6qe8JVr0XGOFdn5-8",
+          "label": "Series and DataFrame"
+        },
+        {
+          "nodeId": "xHDrwKDE_mrSihCsPQMBF",
+          "label": "Linear Algebra Basics"
+        },
+        {
+          "nodeId": "w2j11Jyr_qLP1Y9ST-06O",
+          "label": "Reading Data "
+        },
+        {
+          "nodeId": "XizmE-QroU4GJbjvqNYxe",
+          "label": "Random Module"
+        }
+      ]
+    },
+    {
+      "nodeId": "bIblb5cVNSZLqSuskmKnP",
+      "label": "Pandas",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "PlFcaQsvFSK0Y-LKGu0eH",
+          "label": "Indexing & Slicing"
+        },
+        {
+          "nodeId": "18eitPvBQKdeM3K33d59g",
+          "label": "Polars"
+        },
+        {
+          "nodeId": "wxO7f8wh6JTXHYDiPcbmy",
+          "label": "Filtering & Querying"
+        },
+        {
+          "nodeId": "KnSv5dPToipoz2RF1dDnO",
+          "label": "Groupby & Aggregation"
+        }
+      ]
+    },
+    {
+      "nodeId": "34DL5RWQtHkvgVhI9a_ZQ",
+      "label": "Reading Local Files",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "Rq9TFEEJnjEgVa1DiJxFz",
+          "label": "Merging & Joining"
+        },
+        {
+          "nodeId": "nDUOJPCEzkCxX8B63HBP3",
+          "label": "CSV"
+        },
+        {
+          "nodeId": "OwEBYI4u7nb9-UGOR9SQf",
+          "label": "Excel"
+        },
+        {
+          "nodeId": "ACr__YweG2xOAf56FK8tE",
+          "label": "Reshaping"
+        },
+        {
+          "nodeId": "VEetEvKGNzAO9QdZY2g86",
+          "label": "JSON"
+        },
+        {
+          "nodeId": "sBKhhjfFTpbj7TQwVnX7F",
+          "label": "Parquet"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:ZSyG2VEqralQ9ua80-EXM",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "bcODvfBqCUwLVXa8HKOFB",
+          "label": "isnull, isna"
+        },
+        {
+          "nodeId": "xIS0cJ8ui0siBoZJr3-B_",
+          "label": "Dropping vs. Imputing"
+        },
+        {
+          "nodeId": "9mFT0z5yT446_-nGdG492",
+          "label": "Forward / Backward Fill"
+        },
+        {
+          "nodeId": "ucEFYVtXIvuYKjudK3pwB",
+          "label": "IQR"
+        },
+        {
+          "nodeId": "2HIeG6ywOA9BkE9W3Gu9v",
+          "label": "Z-score"
+        },
+        {
+          "nodeId": "UIFNQ9g5fMK-KoZCrqv27",
+          "label": "Visual Inspection"
+        }
+      ]
+    },
+    {
+      "nodeId": "w8iQWthKu1w75z36B8Ir3",
+      "label": "Reading Web Data",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "10c4tiBOR68J3qa55LcJS",
+          "label": "APIs with requests"
+        },
+        {
+          "nodeId": "w4K_ffCUbzhGxWyoKsspu",
+          "label": "BeautifulSoup"
+        },
+        {
+          "nodeId": "UImXdBHQKCzp9NdjF9xMi",
+          "label": "scrapy"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:6xPsmGVcJvqAJvUuA21FH",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "S1EzGF-CLu7tWDb1V6RQc",
+          "label": "strip, replace, split"
+        },
+        {
+          "nodeId": "oXhGEIie-MzfUSM2Ng4Zm",
+          "label": "re"
+        },
+        {
+          "nodeId": "yRHodYYqdICLZyG3J9qjc",
+          "label": "Pandas String Methods"
+        },
+        {
+          "nodeId": "XI8bvhQ3ugezTu60USUG2",
+          "label": "Casting Types"
+        },
+        {
+          "nodeId": "L7btVRwvkEVX0K8LxnbqJ",
+          "label": "Parsing Dates"
+        },
+        {
+          "nodeId": "1bHv3_acNts_BeOn3l6DF",
+          "label": "Encoding Categories"
+        }
+      ]
+    },
+    {
+      "nodeId": "K53X-NB1S9XXSF6j8q1qu",
+      "label": "Data Cleaning",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:biadGvE5Ob8Kx6K6dFke-",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "DdA2gJKpgOHj9mqZL-c4F",
+          "label": "Mean, Median, Mode"
+        },
+        {
+          "nodeId": "nZl1ngETFxKStt0tFvOpR",
+          "label": "Variance & Std. Deviation"
+        },
+        {
+          "nodeId": "YCMSjDjUCnkz2VPXfLxz5",
+          "label": "Correlation & Covariance"
+        },
+        {
+          "nodeId": "oRaag-FOl50NJM0y4joBm",
+          "label": "Histogram"
+        },
+        {
+          "nodeId": "ij8PMz519gC9WIxlWGD7B",
+          "label": "Boxplot"
+        },
+        {
+          "nodeId": "4ce2yYLRCSb3azsOMpE-U",
+          "label": "Scatterplot"
+        },
+        {
+          "nodeId": "PHfLEgeEMChsSOSIgMoWH",
+          "label": "Correlation Matrix"
+        },
+        {
+          "nodeId": "7XHYCVpUpvwAtaUBjTa4O",
+          "label": "Cross-tabulation"
+        }
+      ]
+    },
+    {
+      "nodeId": "eObhSoXcbqLdwegzaWmi7",
+      "label": "Exploratory Data Analysis",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "Md9Yq7bwDNo6hO_A9aa9N",
+      "label": "Matplotlib",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "5HEYmbVJ6Z7lvgqalVjxW",
+          "label": "Plot Categories"
+        },
+        {
+          "nodeId": "GRg7HyeVuSwkKD5bCOFiY",
+          "label": "Subplots and figures"
+        },
+        {
+          "nodeId": "JTYST4p4O9RQbCzxsoQhA",
+          "label": "Customizing Plots"
+        },
+        {
+          "nodeId": "mElhFGGT2GnLg2AkJFETN",
+          "label": "Saving figures"
+        }
+      ]
+    },
+    {
+      "nodeId": "zx7uCaQiCxvXMhm9FG3XG",
+      "label": "Seaborn",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "Xq7Ho2kWg5AtZK0G6z02U",
+          "label": "Distribution plots"
+        },
+        {
+          "nodeId": "Dj8Ar4-NQ5mQQhNHmQJVy",
+          "label": "Categorical Plots"
+        },
+        {
+          "nodeId": "PcGJMkmZrl4xc2ADT9dF3",
+          "label": "Regression Plots"
+        },
+        {
+          "nodeId": "Bk3z1CHnrnV6ii2Y0BF8G",
+          "label": "Heatmaps"
+        },
+        {
+          "nodeId": "j4UHICw-niFv1RRlC-vk1",
+          "label": "Customizing Plots"
+        }
+      ]
+    },
+    {
+      "nodeId": "ES8zVixZ5wZ0tW6beOWxJ",
+      "label": "Interactive Visualization",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "J_u8yvrHEWKKmVsVgPN7L",
+          "label": "Plotly"
+        }
+      ]
+    },
+    {
+      "nodeId": "uyhlD_ZBCCd3IvrWZ5mlh",
+      "label": "Dashboards",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "Z-inS5OKdXi6yveKgxMeC",
+          "label": "Streamlit"
+        },
+        {
+          "nodeId": "-dsafcJlA16H_ji0zQvKy",
+          "label": "Dash"
+        },
+        {
+          "nodeId": "EHVXO79NGpLC1i8x4Y7g1",
+          "label": "Power BI / Tableau"
+        }
+      ]
+    },
+    {
+      "nodeId": "hTAQSe0rHv7fuAMfxJwGp",
+      "label": "OOP for Data Analysis",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "KLXFKVb-EC5WOigI63y09",
+      "label": "Statistics & ML",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "YxA0ms9vkufKGOguRNK1B",
+          "label": "SciPy"
+        },
+        {
+          "nodeId": "npndQC8OIfP1wwn_iswPy",
+          "label": "Scikit-learn"
+        }
+      ]
+    },
+    {
+      "nodeId": "SWrijRzSZxhnSYDwv1_pH",
+      "label": "Geospatial Analysis",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "-Bxn2sj2NjHLhRZrPIi0n",
+          "label": "GeoPandas"
+        }
+      ]
+    },
+    {
+      "nodeId": "GkxSrpOJx-SWvnDkTPcJt",
+      "label": "Big Data Tools",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "ApowKoA3C1B8oUr4-sltZ",
+          "label": "Dask"
+        },
+        {
+          "nodeId": "XTXm8aIDbRkTXoAck_m3I",
+          "label": "PySpark"
+        }
+      ]
+    },
+    {
+      "nodeId": "f3YL32h2gbU_G8kkNC3Vc",
+      "label": "Data Pipelines",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "LERo7-ggtfZ-KZyNdBwt6",
+          "label": "Airflow"
+        }
+      ]
+    }
+  ]
+}

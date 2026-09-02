@@ -1,0 +1,864 @@
+{
+  "slug": "golang",
+  "title": "Go Developer",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "WwLLyHL5psm0GOI9bmOne",
+      "label": "Introduction to Go",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "4PrkkoZ5fY-oow0O-bVhu",
+          "label": "Why use Go"
+        },
+        {
+          "nodeId": "2rlmLn_yQQV-7DpX1qT98",
+          "label": "History of Go"
+        },
+        {
+          "nodeId": "J5mU0v491qrm-mr1W3Msd",
+          "label": "Setting up the Environment"
+        },
+        {
+          "nodeId": "PHHviBSqhYDSNuHBFbw3l",
+          "label": "Hello World in Go"
+        },
+        {
+          "nodeId": "_3_tFOpQisx6DSP4Yc2E2",
+          "label": "`go` command"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:UE9jeUCaGXLeTacPkjIJ-",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "EAqL8Up3J63AWCZnqQph0",
+          "label": "Integers (Signed, Unsigned)"
+        },
+        {
+          "nodeId": "EzaH378F3kOdQbczhVjhA",
+          "label": "Floating Points"
+        },
+        {
+          "nodeId": "Mn-M7kxOKEublJGitgjNA",
+          "label": "Complex Numbers"
+        }
+      ]
+    },
+    {
+      "nodeId": "BZKSsTgm28WV4nA74NYHO",
+      "label": "Variables & Constants",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "pJUkMcrUvcxuR_w89-eEq",
+          "label": "var vs :="
+        },
+        {
+          "nodeId": "QWixUXjC8YG-i1gsKVY1v",
+          "label": "Zero Values"
+        },
+        {
+          "nodeId": "-M-qrXwVt7HfJv0CSRNGS",
+          "label": "const and iota"
+        },
+        {
+          "nodeId": "xUKsD2eTP9-RszHvKYp9Y",
+          "label": "Scope and Shadowing"
+        }
+      ]
+    },
+    {
+      "nodeId": "0FJxELyk7_IiVHvZFFVm2",
+      "label": "Data Types",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "ywiNCAAvpSVXTwWwguxSZ",
+      "label": "Commands & Docs",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "PRTou83_rD0u7p2elGG4s",
+          "label": "Boolean"
+        },
+        {
+          "nodeId": "IAXI7OAAAG4fU6JvVNSZI",
+          "label": "Runes"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:DSXT3PmTOTUX1l3EzAjHR",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "nzPe6XVqhtOZFbea6f2Hg",
+          "label": "Raw String Literals"
+        },
+        {
+          "nodeId": "7h08RUNC_uAMI6vnGdcZ1",
+          "label": "Interpreted String Literals"
+        }
+      ]
+    },
+    {
+      "nodeId": "Eu8JV-_W-P_bCx_PglIW0",
+      "label": "Arrays",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "3aoMFQXIh3Qdo04isHwe_",
+      "label": "Slices",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "qUykEUH1-9Dzotc_ltV3g",
+          "label": "Capacity and Growth"
+        },
+        {
+          "nodeId": "PWrfmYnOJRlwgdFat91bC",
+          "label": "make()"
+        },
+        {
+          "nodeId": "2IFxz3sFqDvUvzWNVwlWC",
+          "label": "Type Conversion"
+        },
+        {
+          "nodeId": "j0zmfpaufr5TAZa_Bh8Vu",
+          "label": "Slice to Array Conversion"
+        },
+        {
+          "nodeId": "s1E4PQVVSlBeyNn7xBikW",
+          "label": "Array to Slice Conversion"
+        }
+      ]
+    },
+    {
+      "nodeId": "ZxZpReGdPq8ziSlYmf2nj",
+      "label": "Strings",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "XupDuVRsM5VjdaNs7JaT5",
+      "label": "Maps",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "dMdOz2kUc8If3LcLZEfYf",
+          "label": "Comma-Ok Idiom"
+        }
+      ]
+    },
+    {
+      "nodeId": "wRwt9JHZPmq8uapxMjn0a",
+      "label": "Structs",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "SW2uMlhfC-dnQakShs2km",
+          "label": "Struct Tags & JSON"
+        },
+        {
+          "nodeId": "XLj16RmCe4-nKHW52Ebhf",
+          "label": "Embedding Structs"
+        }
+      ]
+    },
+    {
+      "nodeId": "orpxzKHFcf1BDQSefHl6O",
+      "label": "Loops",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "ijS-b400c9BldRO6PlrC1",
+          "label": "for loop"
+        },
+        {
+          "nodeId": "j0w6e8Pksh30PKDvXj3yk",
+          "label": "for range"
+        },
+        {
+          "nodeId": "Q6ic-AGG_gnXEOdmqom89",
+          "label": "Iterating Maps"
+        },
+        {
+          "nodeId": "PC-azlCZ6wDCn1_nRyhUn",
+          "label": "Iterating Strings"
+        },
+        {
+          "nodeId": "BRKryB5HawXyXeBWM4QqU",
+          "label": "continue"
+        },
+        {
+          "nodeId": "O29VoTfPiU8GZ_c16ZJIp",
+          "label": "goto (discouraged)"
+        }
+      ]
+    },
+    {
+      "nodeId": "C7wzT161ytHsCpO2zfmXo",
+      "label": "Conditionals",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "dC-1LotbW29C4zZJv6ak6",
+          "label": "if"
+        },
+        {
+          "nodeId": "2XaDvTJ5pyChgt1GFZF8W",
+          "label": "if-else"
+        },
+        {
+          "nodeId": "ZmPhiTrB8EK0LDdaJOhc8",
+          "label": "switch"
+        },
+        {
+          "nodeId": "MBafBhpEV_7qgDNPOIBBs",
+          "label": "Functions Basics"
+        },
+        {
+          "nodeId": "MUJfa0jIL_S_b2ndNpVVw",
+          "label": "Variadic Functions"
+        },
+        {
+          "nodeId": "ai2s1bwiTcPzrXQTxFDwV",
+          "label": "Multiple Return Values"
+        }
+      ]
+    },
+    {
+      "nodeId": "axhcEfCEoFkLey4AbA84A",
+      "label": "Functions",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "IWdAJ1BXqJv8EMYvFWRaH",
+          "label": "break"
+        }
+      ]
+    },
+    {
+      "nodeId": "naBjKGrTBzlpapXzLHfvG",
+      "label": "Pointers",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "P0fUxEbb3bVYg35VWyg8R",
+          "label": "Pointers Basics"
+        },
+        {
+          "nodeId": "cEQ9NQX7ZkKLwz_hg9L_7",
+          "label": "Anonymous Functions"
+        },
+        {
+          "nodeId": "NfYlEY8f_YPITT6Exp3Iw",
+          "label": "Pointers with Structs "
+        },
+        {
+          "nodeId": "ZSiNvYDTW2RYyPttls5iz",
+          "label": "Closures"
+        },
+        {
+          "nodeId": "oAvCO3GOKktkbmPahkPlT",
+          "label": "With Maps & Slices"
+        },
+        {
+          "nodeId": "HIvwT8Dcr6B2NjOjy9hFv",
+          "label": "Named Return Values"
+        },
+        {
+          "nodeId": "z8-8nt-3GA7uN-cvOI-Qn",
+          "label": "Call by Value"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:qDD8nRSqHsi35hhylEWKE",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "ItMgLOzaUCCdiTk221pAF",
+          "label": "Memory Management"
+        },
+        {
+          "nodeId": "GG0j6MNVudvITHEOXUxim",
+          "label": "Garbage Collection"
+        }
+      ]
+    },
+    {
+      "nodeId": "jx1vln8hqRJqVZfJi6CST",
+      "label": "Methods vs Functions",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "6NKgb-OjGdT3QsMrDU05b",
+      "label": "Pointer Receivers",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "99a4irV044ybZN-boMgHv",
+      "label": "Value Receivers",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "uEpTANOBHlFwCg5p44Lh0",
+      "label": "Generics",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "9EdDI0vJaEmz3XxXMrpX9",
+          "label": "Why Generics?"
+        },
+        {
+          "nodeId": "p7L4EUsjMnJlrbb-oDvlf",
+          "label": "Generic Functions"
+        },
+        {
+          "nodeId": "eWZzradMaH57H4mI7Qw6n",
+          "label": "Generic Types / Interfaces"
+        },
+        {
+          "nodeId": "8o6A2kGnupGYaaTwgsTDp",
+          "label": "Type Constraints"
+        },
+        {
+          "nodeId": "36gt0FmNDxuIIV47aqBeH",
+          "label": "Type Inference"
+        },
+        {
+          "nodeId": "7EKUfKx7_7lZOs3d84iyL",
+          "label": "Error Handling Basics"
+        }
+      ]
+    },
+    {
+      "nodeId": "hIRMnPyHRGh8xCU8BTS2n",
+      "label": "Interfaces",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "nkONsPlFYCMqzWHTm_EPB",
+          "label": "Interfaces Basics"
+        },
+        {
+          "nodeId": "ueJ7ndK2SKniDVjN2aUlO",
+          "label": "Empty Interfaces"
+        },
+        {
+          "nodeId": "wK7GNTbOsMNs0N_1N4-dU",
+          "label": "Embedding Interfaces"
+        },
+        {
+          "nodeId": "4EJ4WnH2HA3ci2uoqmNex",
+          "label": "Type Assertions"
+        },
+        {
+          "nodeId": "6r9XbwlBtHmJrhviG2cTD",
+          "label": "Type Switch"
+        }
+      ]
+    },
+    {
+      "nodeId": "kep_536v13aS1V9XwHKSr",
+      "label": "Modules & Dependencies",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "zWXJOXo8dRnuTvYlWOL6r",
+          "label": "go mod init"
+        },
+        {
+          "nodeId": "6rwVq1bMSHoGatEfm9hkp",
+          "label": "go mod tidy"
+        },
+        {
+          "nodeId": "jOiAk5coeDNVXP2QiwQis",
+          "label": "go mod vendor"
+        }
+      ]
+    },
+    {
+      "nodeId": "AcYzrGFrwmeVYFEfhEiSZ",
+      "label": "Packages",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "0mMP6QR0V-Zi25njD1TFT",
+          "label": "`error` interface"
+        }
+      ]
+    },
+    {
+      "nodeId": "dA8SMhCev1NWNM1Tsxu57",
+      "label": "Package Import Rules",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "dHk6Y0zFqxtCuDiQcHQsi",
+          "label": "errors.New"
+        },
+        {
+          "nodeId": "LVaWjZfij6-z_uwkAc0MK",
+          "label": "fmt.Errorf"
+        }
+      ]
+    },
+    {
+      "nodeId": "eBv3i2cNA7vc01jLAbB8m",
+      "label": "Using 3rd Party Packages",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "s2WlOMMKNXf6O2Qiqcm_m",
+          "label": "Wrapping/Unwrapping Errors"
+        }
+      ]
+    },
+    {
+      "nodeId": "08QOxnF3rKEDekrkX7w1j",
+      "label": "Goroutines",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "CysLmwRqmQzOGAKM01AKF",
+      "label": "Publishing Modules",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "vjfqq1XVS25FVe9smtel0",
+          "label": "Sentinel Errors"
+        },
+        {
+          "nodeId": "p5u2tWRmRtyfBgKcSUHFU",
+          "label": "Deadlines & Cancellations"
+        }
+      ]
+    },
+    {
+      "nodeId": "EgXagvLpJkXUI2od5K1FD",
+      "label": "Channels",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "RBr1uAdngIsvSpIdHHOyV",
+          "label": "Select Statement"
+        },
+        {
+          "nodeId": "4_nvU_YOs9Psey5TZLQFb",
+          "label": "Buffered vs Unbuffered"
+        }
+      ]
+    },
+    {
+      "nodeId": "z8ItWHAupaastLcXY3npY",
+      "label": "Worker Pools",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "vxB3aGreqWBrNhiu8hcPE",
+      "label": "`context` Package",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "gChqUzY3SbPJH0H0jcoAp",
+          "label": "Common Usecases"
+        }
+      ]
+    },
+    {
+      "nodeId": "2yKVKaCXrcv5X4o2d6oqm",
+      "label": "Concurrency Patterns",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "2KyzUjcMiMgo_AvlPjYbx",
+          "label": "`panic` and `recover`"
+        },
+        {
+          "nodeId": "rR_BIgiSR63rVlO2Igzin",
+          "label": "Stack Traces & Debugging"
+        },
+        {
+          "nodeId": "8BrnnM7HM-bijbUDgnW49",
+          "label": "fan-in"
+        },
+        {
+          "nodeId": "pN8EsuKUPDUKyskodu_sC",
+          "label": "fan-out"
+        },
+        {
+          "nodeId": "loozcCzPzkni7BOdcvt1S",
+          "label": "pipeline"
+        }
+      ]
+    },
+    {
+      "nodeId": "nOI0juYhqJXNTiJBU4bKH",
+      "label": "`sync` Package",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "6ydgmac11Zu9Ithe0kKj9",
+          "label": "Mutexes"
+        },
+        {
+          "nodeId": "amqOwSgVFDymAsDIobwiK",
+          "label": "WaitGroups"
+        },
+        {
+          "nodeId": "nZkLFmm2GENL81y5LB0c1",
+          "label": "`testing` package basics"
+        },
+        {
+          "nodeId": "6-mr65JzXbRzIukE7jzoZ",
+          "label": "Table-driven Tests"
+        },
+        {
+          "nodeId": "LjLbm4JEZ19howOkju7zQ",
+          "label": "Mocks and Stubs"
+        },
+        {
+          "nodeId": "Zt4FpqCEVlpMzclJeDiMs",
+          "label": "`httptest`  for HTTP Tests"
+        },
+        {
+          "nodeId": "t9xOuLBrAzEvv2-bOU2hF",
+          "label": "Benchmarks"
+        }
+      ]
+    },
+    {
+      "nodeId": "GoV8yaQARJmO47e0_l_GY",
+      "label": "Race Detection",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "-Qy9DEWVYUNRHWiXXhIWU",
+      "label": "Standard Library",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "7SYEXD5r9WKEDfecQdO5d",
+          "label": "I/O & File Handling"
+        },
+        {
+          "nodeId": "-8E79Ns4q-uAgcxtghPzf",
+          "label": "flag"
+        },
+        {
+          "nodeId": "aK9EQO1JR9hYIMkS3mdai",
+          "label": "time"
+        },
+        {
+          "nodeId": "uB1fE15OprBcwN7p7ffJF",
+          "label": "encoding/json"
+        },
+        {
+          "nodeId": "9S1gkzBvt32uLy0IFZjrg",
+          "label": "os"
+        },
+        {
+          "nodeId": "Z8j6Zkg1LYEYcoRgs23Ms",
+          "label": "bufio"
+        },
+        {
+          "nodeId": "hFlbSSBMcJtjXNL8jAcbc",
+          "label": "slog"
+        },
+        {
+          "nodeId": "9K5ffACdKNPJiWPq4tUWD",
+          "label": "regexp"
+        },
+        {
+          "nodeId": "iIPk-jK1vBCG_rKI_MPiu",
+          "label": "go:embed for embedding"
+        }
+      ]
+    },
+    {
+      "nodeId": "2fk1ewM42WnFlDejVETys",
+      "label": "Building CLIs",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "27lhNAdKwRrc2S2ha3QNG",
+          "label": "Coverage"
+        },
+        {
+          "nodeId": "3frPZLeFXnHroY7_Uk5Dn",
+          "label": "Cobra"
+        },
+        {
+          "nodeId": "bmNLSk-XuK2EuLxPR1Sxh",
+          "label": "urfave/cli"
+        },
+        {
+          "nodeId": "x9hDkF73rmvbewrgRgyOv",
+          "label": "bubbletea"
+        }
+      ]
+    },
+    {
+      "nodeId": "CwGw3CDVLqErQGTwjzhmL",
+      "label": "Web Development",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "NMLmbKjfMSqz-Iz2CooCl",
+          "label": "net/http (standard)"
+        },
+        {
+          "nodeId": "tBY6UB3gWZAxHPCFHoU_d",
+          "label": "gRPC & Protocol Buffers"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:IUTESw1CC3ltD92GQeYa9",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "xM1uUCXNrJwfTgi9E75KV",
+          "label": "gin"
+        },
+        {
+          "nodeId": "1qhqEYf6wYf5sfXgTUnmi",
+          "label": "echo"
+        },
+        {
+          "nodeId": "5lJPsJwgy0_T7Xl6eQxuB",
+          "label": "fiber"
+        },
+        {
+          "nodeId": "p7yeYkbQKAjr2aA_eUno4",
+          "label": "beego"
+        }
+      ]
+    },
+    {
+      "nodeId": "VcHHuIZ4lGzTxOoTwxA3e",
+      "label": "ORMs & DB Access",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "cOj6klfBzTQQ8G75umLQZ",
+          "label": "pgx"
+        },
+        {
+          "nodeId": "fJdZIbAgOAB8nOEHQNsq6",
+          "label": "GORM"
+        }
+      ]
+    },
+    {
+      "nodeId": "mGia5cJ7HFVXM0Fx5xhQE",
+      "label": "Logging",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "TR7N68_evDMu3qWHbGJcz",
+          "label": "Zerolog"
+        },
+        {
+          "nodeId": "4D8QsZVAUB9vGbVFgRHt4",
+          "label": "Zap"
+        }
+      ]
+    },
+    {
+      "nodeId": "o2EYfm1WSd8Eq_ZcXYreo",
+      "label": "Realtime Communication",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "N0EG-7sU9lGFwgidXuPkV",
+          "label": "Melody"
+        },
+        {
+          "nodeId": "LOl-7BtdmYrBS0PTtHI1I",
+          "label": "Centrifugo"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:tDEljoDusXzRd0_VYC1mG",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "TstTkc_-2RZMOqtSIklEM",
+          "label": "go generate"
+        },
+        {
+          "nodeId": "Jxt4HD2iA6lRXNRJIVCLs",
+          "label": "Build Tags"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:WCVEGqzBFv8L3bpH_9pcX",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "qoQ6_5MgTu3ur1mkEgqG5",
+          "label": "go vet"
+        },
+        {
+          "nodeId": "6RpfXYHnOGmM6pZ6ZBb29",
+          "label": "goimports"
+        },
+        {
+          "nodeId": "ksimJz7uvSh80ZIekSn_-",
+          "label": "revive"
+        },
+        {
+          "nodeId": "954ffF8CmXYX-L36Lfl44",
+          "label": "staticcheck"
+        },
+        {
+          "nodeId": "hgiNcGh3ggf8dBJ8C0HCL",
+          "label": "golangci-lint"
+        },
+        {
+          "nodeId": "K__satcG2ETNRFBpPqrLw",
+          "label": "govulncheck"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:IhzXThqAkvzqGS2rnGpBO",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "rW4QPWIS2TWzFY0Ljny2N",
+          "label": "go run"
+        },
+        {
+          "nodeId": "LXqEJwGA_0cVUbF6DVwBG",
+          "label": "go build"
+        },
+        {
+          "nodeId": "k35Ogbvr9yTdJPo4RV4tM",
+          "label": "go install"
+        },
+        {
+          "nodeId": "CPFiclXXVQCsbooA0iCEy",
+          "label": "go fmt"
+        },
+        {
+          "nodeId": "5hnaPrYSBzxEIxFeg5tCK",
+          "label": "go mod"
+        },
+        {
+          "nodeId": "EskFmwCwOmZHcVzedPOJI",
+          "label": "go test"
+        },
+        {
+          "nodeId": "bxXzXM0zUm1vux1DKOLyf",
+          "label": "go clean"
+        },
+        {
+          "nodeId": "SoD0P5k4aSVRN96XxR5on",
+          "label": "go doc"
+        },
+        {
+          "nodeId": "LnhQJVsEaS_gSijCUqAMq",
+          "label": "go version"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:oQoPM28-CYKmgdcfu8Ork",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "Blz9cpgKhuqtY75oUQw6I",
+          "label": "pprof"
+        },
+        {
+          "nodeId": "RE2jfECHkWvy3ldDZL938",
+          "label": "trace"
+        },
+        {
+          "nodeId": "7aTYeCd915F3UHqb6j0Az",
+          "label": "Race Detector"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:SJMEnxdTBx7RV4L0EnhhQ",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "zCUmPIGVslLfECqfUgAr2",
+          "label": "Building Executables"
+        },
+        {
+          "nodeId": "mvcWcecHA_jyQY1txFgL_",
+          "label": "Cross-compilation"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:7R3hrzfF-zL0A6kAT9jZW",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "_2JpTdzmXxszFCauJONCi",
+          "label": "Memory Mgmt. in Depth"
+        },
+        {
+          "nodeId": "ixoXVtRlrvTittqQq-Bgo",
+          "label": "Escape Analysis"
+        },
+        {
+          "nodeId": "GO50AoBOjO-EaK3s36jSS",
+          "label": "Reflection"
+        },
+        {
+          "nodeId": "tM-AAWqMJsYZ1i6DCfBeD",
+          "label": "Unsafe Package"
+        },
+        {
+          "nodeId": "zmBYvecc5zSoLCinH68gc",
+          "label": "Build Constraints & Tags"
+        },
+        {
+          "nodeId": "mxbs96wFJ5XGDoETA0fU_",
+          "label": "CGO Basics"
+        },
+        {
+          "nodeId": "xsjUeyxweN2GbcjknDjT8",
+          "label": "Compiler & Linker Flags"
+        },
+        {
+          "nodeId": "NlkrCAdUCJ7kU9meQJM5_",
+          "label": "Plugins & Dynamic Loading"
+        }
+      ]
+    }
+  ]
+}

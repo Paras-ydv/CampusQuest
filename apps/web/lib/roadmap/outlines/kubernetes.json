@@ -1,0 +1,316 @@
+{
+  "slug": "kubernetes",
+  "title": "Kubernetes Roadmap",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "y7KjVfSI6CAduyHd4mBFT",
+      "label": "Introduction",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "qLeEEwBvlGt1fP5Qcreah",
+          "label": "Overview of Kubernetes"
+        },
+        {
+          "nodeId": "q-Ky0ietZGpyUcBQfh-BJ",
+          "label": "Why use Kubernetes?"
+        },
+        {
+          "nodeId": "9oo2fxTM2_p0VYPBroqxa",
+          "label": "Key Concepts and Terminologies"
+        },
+        {
+          "nodeId": "3fzuXKH7az_LVnmnoXB1p",
+          "label": "Kubernetes Alternatives"
+        }
+      ]
+    },
+    {
+      "nodeId": "HGmeYvRf7_XusZl_K4x9k",
+      "label": "Containers",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "3OpGaQhyNtk1n1MLp-tlb",
+      "label": "Setting up Kubernetes",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "zrbSJa3k7a3TE0aYbWi9c",
+          "label": "Deploying your First Application"
+        },
+        {
+          "nodeId": "qSatCdBTDXPu-IFWzUI99",
+          "label": "Choosing a Managed Provider"
+        },
+        {
+          "nodeId": "YaIs8lquWIe1D7RCUBZmC",
+          "label": "Installing a Local Cluster"
+        }
+      ]
+    },
+    {
+      "nodeId": "1MdrzhktCWjpmxiYYBdz7",
+      "label": "Running Applications",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "-d2PIXm0V_Iehe8cws8zK",
+          "label": "Pods"
+        },
+        {
+          "nodeId": "IF09l0-pryGpMbDt__ocr",
+          "label": "ReplicaSets"
+        },
+        {
+          "nodeId": "TUGQX7y1gs-aKPge2F1NU",
+          "label": "Deployments"
+        },
+        {
+          "nodeId": "AJiRBEaKU8qYEm0fqN389",
+          "label": "StatefulSets"
+        },
+        {
+          "nodeId": "r3fzAN5DzratAKnnT8hzb",
+          "label": "Jobs"
+        }
+      ]
+    },
+    {
+      "nodeId": "dj7Tb2XTX4kxRUYiTjlhM",
+      "label": "Configuration Management",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "u24UlZKI86vaguj_VpMv1",
+          "label": "Injecting Pod Config with ConfigMaps"
+        },
+        {
+          "nodeId": "S0CwGC2gMG-SqnLNldqBD",
+          "label": "Using Secrets for Sensitive Data"
+        }
+      ]
+    },
+    {
+      "nodeId": "aUJ_w2L8nxNq3DfAW97Gd",
+      "label": "Services and Networking",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "jUOlITLqnIvSu97I_3nBz",
+          "label": "External Access to Services"
+        },
+        {
+          "nodeId": "Qelo1YvAcUoX5PA-RYbNp",
+          "label": "Load Balancing"
+        },
+        {
+          "nodeId": "44rhdieUCWsGFC_1__9kk",
+          "label": "Networking & Pod-to-Pod Communication"
+        }
+      ]
+    },
+    {
+      "nodeId": "eWKkdiBhD5x2sGYajmHEs",
+      "label": "Resource Management",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "8RLR6gRjIyTn6GCugEfgk",
+          "label": "Setting Resource Requests and Limits"
+        },
+        {
+          "nodeId": "OHz4QMmA3lqL_C7aWL8Ga",
+          "label": "Assigning Quotas to Namespaces"
+        }
+      ]
+    },
+    {
+      "nodeId": "SG3wtV2rt9nmLEkgrp_zP",
+      "label": "Security",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "jOq0WwLrq8tlmOgo64QDc",
+          "label": "Role Based Access Control (RBAC)"
+        },
+        {
+          "nodeId": "s0gHg8CqwrSylpSPu8arA",
+          "label": "Network Security"
+        },
+        {
+          "nodeId": "Nja7IFWcFTLsPcqbvRNm9",
+          "label": "Container and Pod Security"
+        },
+        {
+          "nodeId": "i7qxaFhFHPfe3fGEgsbcE",
+          "label": "Container and Pod Security"
+        }
+      ]
+    },
+    {
+      "nodeId": "AgsQnQjyTLUFhFpRdcE13",
+      "label": "Monitoring and Logging",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "ldYTEPt_hI4PXxr3tgJi5",
+          "label": "Traces"
+        },
+        {
+          "nodeId": "pDjNsK5vI9FmKZbQm0lDP",
+          "label": "Resource Health"
+        },
+        {
+          "nodeId": "FANswgUhUb5Iuah2fni3L",
+          "label": "Observability Engines"
+        }
+      ]
+    },
+    {
+      "nodeId": "URnYf9jMprFz-o26fbU2P",
+      "label": "Storage and Volumes",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "PP4ld_vvjpY3QltBBsXKD",
+          "label": "Monitoring & Optimizing Resource Usage"
+        },
+        {
+          "nodeId": "55RV9psPCmcg8G_P_zQo9",
+          "label": "CSI Drivers"
+        }
+      ]
+    },
+    {
+      "nodeId": "xZDXM_8qb4VL15tNGG0ws",
+      "label": "Scheduling",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "-XxQtiLDAkXs7IFM_Ddw6",
+          "label": "Logs"
+        },
+        {
+          "nodeId": "nqUBHBFUYFdYqCKZvfXBR",
+          "label": "Metrics"
+        },
+        {
+          "nodeId": "70lTSIVh0AD6M8fMMuWzY",
+          "label": "Basics"
+        },
+        {
+          "nodeId": "zXUsHAI1HFhcY2BFAcypv",
+          "label": "Taints and Tolerations"
+        },
+        {
+          "nodeId": "CL0hKTcml40InmyVUXpY2",
+          "label": "Topology Spread Constraints"
+        }
+      ]
+    },
+    {
+      "nodeId": "03mGA5AyL7mpF6y3EMW7A",
+      "label": "Autoscaling",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "044IUUCgZP4oQ9UxUG2iy",
+          "label": "Horizontal Pod Autoscaler (HPA)"
+        },
+        {
+          "nodeId": "c1KVczGRjh9bhMpbPP6sA",
+          "label": "Vertical Pod Autoscaler (VPA)"
+        },
+        {
+          "nodeId": "RC5MoYtG2rom-d4FW5qD2",
+          "label": "Cluster Autoscaling"
+        },
+        {
+          "nodeId": "ZrVhYTw63aVVIFAEJDG5r",
+          "label": "Should you manage your own Cluster?"
+        },
+        {
+          "nodeId": "M-iTb_7EWZIJ3JpdViICx",
+          "label": "Installing the Control Plane"
+        }
+      ]
+    },
+    {
+      "nodeId": "0l0xpsabglvs_t6oAP-XG",
+      "label": "Deployment Patterns",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "LJUJ1NIUsajb1AUdvJjqW",
+          "label": "Stateful Applications"
+        },
+        {
+          "nodeId": "_Gva1eGcYqpmZNPyV03lt",
+          "label": "Pod Priorities"
+        },
+        {
+          "nodeId": "TRKzlDW2PQN9bWTyz3NWL",
+          "label": "Evictions"
+        },
+        {
+          "nodeId": "L9rVPEEXFwisQOwT_LQ4v",
+          "label": "Creating Custom Controllers"
+        },
+        {
+          "nodeId": "Pymc9H-lRHVPy7M9eSaPD",
+          "label": "CI / CD Integration"
+        },
+        {
+          "nodeId": "dATdEyNWlpDNKjedCXLyb",
+          "label": "GitOps"
+        },
+        {
+          "nodeId": "FAEFOhLdp7xrmctHFxiOM",
+          "label": "Helm Charts"
+        },
+        {
+          "nodeId": "88IGeC3dAopHLGtLozxdY",
+          "label": "Canary Deployments"
+        }
+      ]
+    },
+    {
+      "nodeId": "t8SJbGVXsUDECxePLDk_w",
+      "label": "Advanced Topics",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "1-Nb8rCMJEZrYm20sEcRJ",
+          "label": "Custom Schedulers and Extenders"
+        },
+        {
+          "nodeId": "2cQKTxln3dIk5IjX2UZdM",
+          "label": "Adding and Managing Worker Nodes"
+        },
+        {
+          "nodeId": "9P7l-RBOkUxs3Z_UpKQO-",
+          "label": "Custom Resource Definitions (CRDs)"
+        },
+        {
+          "nodeId": "auZgEQ6FC3nUjuyx0zANh",
+          "label": "Multi-Cluster Management"
+        },
+        {
+          "nodeId": "UeJcKv3jhenjNzHM-0R86",
+          "label": "Kubernetes Extensions and APIs"
+        },
+        {
+          "nodeId": "9-oaTlzKmcxTfaRycz1w3",
+          "label": "Blue-Green Deployments"
+        },
+        {
+          "nodeId": "yMSXdwDO36CLtp2TBC7aB",
+          "label": "Rolling Updates / Rollbacks"
+        }
+      ]
+    }
+  ]
+}

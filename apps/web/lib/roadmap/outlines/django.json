@@ -1,0 +1,586 @@
+{
+  "slug": "django",
+  "title": "Django",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "1JeM23O8r_WnIdmgrgZ_7",
+      "label": "Virtual envs",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "GB1fgFjrGS-ZM8QTJinOr",
+      "label": "Installing  Django",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "m7fQLURtbiz4BM2UcZPeS",
+      "label": "Introduction",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "Xrcl09I9ZShOwhAWynsO6",
+          "label": "How the Web Works"
+        },
+        {
+          "nodeId": "xdxitF1Foo6W9Pj6-2Be1",
+          "label": "Why use web frameworks"
+        },
+        {
+          "nodeId": "CXrUh4hBN7fhXShUhtO5n",
+          "label": "The MVC Model"
+        }
+      ]
+    },
+    {
+      "nodeId": "d0JBAP2Sot-u4diwqDYIq",
+      "label": "Projects & Apps",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "QJJh0Dl4IT_I3_eACrStj",
+      "label": "Running your Project",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:bETAz4EGpBoQc8Reny5xy",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "ThYltfCyVKkKL_6jY2g-d",
+          "label": "URL patterns"
+        },
+        {
+          "nodeId": "NB50RuNBT5Oja2Ry6p892",
+          "label": "Path converters"
+        },
+        {
+          "nodeId": "DbJ1BIOoerkCH4P95Z7wD",
+          "label": "Regex Paths"
+        },
+        {
+          "nodeId": "3qImaY9Hs3Cvatw1X96Ns",
+          "label": "Named URLs"
+        },
+        {
+          "nodeId": "KlEgfzfkPu0O43tJIsU3H",
+          "label": "Reverse URL"
+        },
+        {
+          "nodeId": "kVhW3uJawiK1waW-2Gk7F",
+          "label": "Routing Middleware"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:dOFwWP4UnBRwU8WI3ZAy7",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "wwKzZhC3xPQ-oymwjW5Yn",
+          "label": "manage.py"
+        },
+        {
+          "nodeId": "_RRCcJpO33XAgdsBzJdY9",
+          "label": "settings.py"
+        },
+        {
+          "nodeId": "b9VXaPBraxAakcwHkyRYu",
+          "label": "urls.py"
+        },
+        {
+          "nodeId": "WYPjCQcccmwcjnxM_5VkU",
+          "label": "models.py"
+        },
+        {
+          "nodeId": "e-5mm0hv-sgG4lfDcISQ6",
+          "label": "views.py"
+        },
+        {
+          "nodeId": "g-KGkdGeCJQe6NMe82gR8",
+          "label": "tests.py"
+        },
+        {
+          "nodeId": "tffzsnhXGpN8-CPLgmdxn",
+          "label": "admin.py"
+        },
+        {
+          "nodeId": "lUlJdqmd7YRpyRCfgT_EK",
+          "label": "migrations"
+        },
+        {
+          "nodeId": "6y3ZnxclaV6JVGhUkQMtB",
+          "label": "urls.py"
+        },
+        {
+          "nodeId": "k7aMrFNIY11_bD_XwVLv7",
+          "label": "static"
+        },
+        {
+          "nodeId": "GA1Zn14Q2EvDmo452V8OO",
+          "label": "media"
+        },
+        {
+          "nodeId": "YLvdL6lwZk2vlMK7QaTk7",
+          "label": "templates"
+        }
+      ]
+    },
+    {
+      "nodeId": "ftFF3oFfqpKvjQhXk3bWw",
+      "label": "Request Reponse Flow",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "04iZjMANQFOjASGRz9Maw",
+      "label": "Views",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "3k2Fo1-qldnE38HLtAtvv",
+          "label": "Function-based views"
+        },
+        {
+          "nodeId": "49YSIjTsb6Lnv39AukGrD",
+          "label": "Class-based views"
+        }
+      ]
+    },
+    {
+      "nodeId": "eQaN3y7cQgOcQ1BstNV-4",
+      "label": "Customizing Views",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "-JKD1SRtFWt3b99aPbfx7",
+          "label": "Generic views "
+        }
+      ]
+    },
+    {
+      "nodeId": "section:AJCqdp4dS10pyW91RVTxW",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "mLMh30_UjacqqNRyKRCiP",
+          "label": "ListView"
+        },
+        {
+          "nodeId": "D8vZfjzzt3gPda-6iF5Y4",
+          "label": " DetailView"
+        },
+        {
+          "nodeId": "osfekQvv2IjQir8xG7Jqn",
+          "label": "CreateView"
+        },
+        {
+          "nodeId": "vS0Y5DmrAEwoQ9gblM-8Q",
+          "label": "UpdateView"
+        },
+        {
+          "nodeId": "RpvuHOwFN03aeY3hvt1N0",
+          "label": "DeleteView"
+        }
+      ]
+    },
+    {
+      "nodeId": "yla_7mhlkfxvI_YZ5Zikm",
+      "label": "DTL Syntax",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "v5skymtqU7PmMuBsl-1rX",
+      "label": "Templates",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:qHxynl33WTpiVk4SXIgKq",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "wxkaVWdZGcAZVxbfOJvZE",
+          "label": "Variables"
+        },
+        {
+          "nodeId": "jhZsz4yMcYHgWsigQ4nzU",
+          "label": "Filters & custom filters"
+        },
+        {
+          "nodeId": "W2v9_4sn5aoZjxMKOQTcw",
+          "label": "Tags & custom tags"
+        },
+        {
+          "nodeId": "Ta2kZmFI4sguQDb1gKJLh",
+          "label": "for"
+        },
+        {
+          "nodeId": "9sR_5U94v5qZdEiwngo67",
+          "label": "if"
+        },
+        {
+          "nodeId": "TXhI0IHDH6a4_vNyCDEYH",
+          "label": "Comments"
+        }
+      ]
+    },
+    {
+      "nodeId": "4j0fCRER1a_c7FY06Q68h",
+      "label": "Template Inheritance",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "iY7yJ9NN77F6wvlgD4zKG",
+      "label": "Models",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "CX-9Ii3e9rrokUTF0_hI5",
+          "label": "Fields types"
+        },
+        {
+          "nodeId": "j4P7KBtfwdGSX0ga0BgpV",
+          "label": "Field options"
+        },
+        {
+          "nodeId": "7dV6o6DnKkv6TX7KCbnzC",
+          "label": "Custom fields"
+        }
+      ]
+    },
+    {
+      "nodeId": "D7wMA3PYw1RYMz9lXGsgW",
+      "label": "Model relationships ",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:zRrhp04EE_sxFjcvRU13q",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "o6qNq8D_gwC5UrkKjz57o",
+          "label": "SQLite"
+        },
+        {
+          "nodeId": "ykgvgR6YE_-V1LAtr0DvU",
+          "label": "PostgreSQL"
+        },
+        {
+          "nodeId": "pnyNAPLViP4LBGvkVbZ5s",
+          "label": "MySQL "
+        },
+        {
+          "nodeId": "udVG-R6R2UHnvTsXO80xQ",
+          "label": "MariaDB"
+        }
+      ]
+    },
+    {
+      "nodeId": "NV1l8YU9CHw_I8NhhN0hO",
+      "label": "Model methods",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "yRaVL7FoWcHb2A8uz5TV8",
+      "label": "Setting up the Database",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "SWNGsyrpP7XghRa_zKQbb",
+      "label": "Model inheritance",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "8ud6LNbixJEP1It9AUMB7",
+          "label": "Querying data"
+        },
+        {
+          "nodeId": "_2hoRFibz8dYBPhHJX8NW",
+          "label": "Create, Update, Delete"
+        },
+        {
+          "nodeId": "9PRY8NUilH2xITVyhpQSy",
+          "label": "Aggregations"
+        },
+        {
+          "nodeId": "LDajzTC8AKD-13JVtL0Tk",
+          "label": "Filtering & lookups"
+        },
+        {
+          "nodeId": "7rCNwoQW2lI7xxMUP_ESa",
+          "label": "Raw SQL"
+        },
+        {
+          "nodeId": "OoboX9UxuQ0pgjwQZmjIV",
+          "label": "Transactions"
+        }
+      ]
+    },
+    {
+      "nodeId": "tCK6V3T4oGy9O8Wur2k9d",
+      "label": "Migrations",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "GQqNJQ3FkO-kBM8WYVBmn",
+      "label": "Django ORM",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:AJcBrhuUNpgx6RWF8tGFw",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "jhMYTiVacTLeatfAjAnPJ",
+          "label": "Django Forms"
+        },
+        {
+          "nodeId": "HjcEX3u5iRSlq69U-pSEs",
+          "label": "Model Forms"
+        },
+        {
+          "nodeId": "-HGUhMNlPlbwuKMDX1e18",
+          "label": "Form Validation"
+        },
+        {
+          "nodeId": "_JaSWTa-VufNB0-6NH5KL",
+          "label": "CSRF"
+        }
+      ]
+    },
+    {
+      "nodeId": "MJIQZoLMiURPrhqMUddG7",
+      "label": "Static Files",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "oUjfjCRymVJs4HzmMeks5",
+          "label": "Whitenoise"
+        }
+      ]
+    },
+    {
+      "nodeId": "-ZFQ0QzqqBIuSQK9CwLg4",
+      "label": "Pagination",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "AztOoGUtPW_6jP6NqJ5T-",
+      "label": "Message Framework",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "R4-oE2zFnwxvF05u5DYV4",
+      "label": "Django Shell",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "Voo8COgeTLD-607m793gh",
+      "label": "Django Admin",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "KHoau3Pz7o951L8Ivryk0",
+          "label": "Admin Customization"
+        }
+      ]
+    },
+    {
+      "nodeId": "IsZm5SZWJ0CTjxCOKZnn-",
+      "label": "Middleware",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "3CnuISrkDffQgys-x0AP4",
+          "label": "Fixtures"
+        },
+        {
+          "nodeId": "u2bq7WaT2aSbrSaa0yB86",
+          "label": "Query Optimization"
+        },
+        {
+          "nodeId": "oCxrIu2UfV6loYn8ncaLu",
+          "label": "Customization"
+        }
+      ]
+    },
+    {
+      "nodeId": "k2P3gilbLJ7tjbLhBym_m",
+      "label": "Authentication",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "SEEiAOOxLGUaZi3wYncUm",
+          "label": "Built-in user model"
+        },
+        {
+          "nodeId": "F0OPk3bIoeXhIRthKg9MD",
+          "label": "Custom user model"
+        },
+        {
+          "nodeId": "YKyWtsxm1HcVsA56iyEOJ",
+          "label": "django-allauth"
+        }
+      ]
+    },
+    {
+      "nodeId": "8-LeguN1r6pLVGvBbwzPZ",
+      "label": "Authorization",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "hxVeLMj_jQYPNqMPcT8FW",
+          "label": "Users & Permissions"
+        }
+      ]
+    },
+    {
+      "nodeId": "ultPpF8Lpqry-SdAbNCB1",
+      "label": "Django  REST Framework",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "aJ0jM_zjUJkt0wVfJQYt7",
+          "label": "Serializers"
+        },
+        {
+          "nodeId": "MY9L0_kzjrbda43d-Ey-H",
+          "label": "Views & ViewSets"
+        },
+        {
+          "nodeId": "1p5abgLJ31IRTUiFwbeSa",
+          "label": "Routers"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:YsFp5SxOeR9zK_9ZrN2Pp",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "zoFHTdr2iBTGdHbmv_9LI",
+          "label": "Loggers"
+        },
+        {
+          "nodeId": "IO9J54i7gSyunGRtIYJra",
+          "label": "Handlers "
+        },
+        {
+          "nodeId": "jPhWe3MfOLbisxNCaivmz",
+          "label": "Filters"
+        },
+        {
+          "nodeId": "rvnqGZxTu3YMH4HQwJ61i",
+          "label": "Formatters"
+        }
+      ]
+    },
+    {
+      "nodeId": "B86paKhwiZsM5XP-V-AE8",
+      "label": "Django Ninja",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "SxATl4QiM9iA1_qaUNJXx",
+      "label": "Logging",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "x45F-FdQOch35hZqNMfIn",
+      "label": "Debugging",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "mxo_Wwx0To8CaOxBMSQyI",
+          "label": "Error Pages"
+        },
+        {
+          "nodeId": "OSkwgXDOhm6oyk_VlUbUc",
+          "label": "debug_toolbar"
+        },
+        {
+          "nodeId": "WRHWs75DbhuiVZm1XMe7z",
+          "label": "PDB, IPDB"
+        },
+        {
+          "nodeId": "i8me37ZwzObjy1-JbrRjf",
+          "label": "django_silk"
+        }
+      ]
+    },
+    {
+      "nodeId": "HD_-WR69-8f7uhiS0YwYP",
+      "label": "Django Test Framework ",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "K2dNQ69laFT853CFniJrZ",
+          "label": "pytest"
+        },
+        {
+          "nodeId": "Jjj1dVybPHsdP-57yF7iX",
+          "label": "Celery"
+        },
+        {
+          "nodeId": "iKzWEV8ymBEh_J2ppKZjF",
+          "label": "unittest & TestCase"
+        },
+        {
+          "nodeId": "8AuyffbXskd8jltqyJVer",
+          "label": "Asynchronous Django"
+        },
+        {
+          "nodeId": "UDpTybashBHcy2S-oooww",
+          "label": "Caching"
+        }
+      ]
+    },
+    {
+      "nodeId": "jnR93iiFLqqpahhqq4w8-",
+      "label": "Deployment",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "x19j7d1jd_uFhy85w71i0",
+          "label": "Background Tasks"
+        },
+        {
+          "nodeId": "waLyhhzu4JkMnhnVdP9xf",
+          "label": "Localization"
+        },
+        {
+          "nodeId": "PsDSs7qC_M3l-Ang1wTZe",
+          "label": "Production Checklist"
+        },
+        {
+          "nodeId": "gPy4yi6smV4gcRj_WCqYR",
+          "label": "Signals"
+        }
+      ]
+    }
+  ]
+}

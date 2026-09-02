@@ -1,0 +1,744 @@
+{
+  "slug": "backend",
+  "title": "Backend Developer",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "SiYUdtYMDImRPmV2_XPkH",
+      "label": "Introduction",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "yCnn-NfSxIybUQ2iTuUGq",
+          "label": "How does the internet work?"
+        },
+        {
+          "nodeId": "BdXbcz4-ar3XOX0wIKzBp",
+          "label": "Go"
+        },
+        {
+          "nodeId": "R12sArWVpbIs_PHxBqVaR",
+          "label": "What is HTTP?"
+        },
+        {
+          "nodeId": "SlH0Rl07yURDko2nDPfFy",
+          "label": "Ruby"
+        },
+        {
+          "nodeId": "ZhSuu2VArnzPDp6dPQQSC",
+          "label": "What is Domain Name?"
+        },
+        {
+          "nodeId": "aqMaEY8gkKMikiqleV5EP",
+          "label": "What is hosting?"
+        },
+        {
+          "nodeId": "hkxw9jPGYphmjhTjw8766",
+          "label": "DNS and how it works?"
+        },
+        {
+          "nodeId": "P82WFaTPgQEPNp5IIuZ1Y",
+          "label": "Browsers and how they work?"
+        }
+      ]
+    },
+    {
+      "nodeId": "oyg5g4-cY5EBEUgVkjnL3",
+      "label": "Frontend Basics",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "9-pCsW650T1mfj5dmRB9L",
+          "label": "HTML"
+        },
+        {
+          "nodeId": "utA1W2O6pzoV_LbtDE5DN",
+          "label": "CSS"
+        }
+      ]
+    },
+    {
+      "nodeId": "2f0ZO6GJElfZ2Eis28Hzg",
+      "label": "Pick a Backend Language",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "8-lO-v6jCYYoklEJXULxN",
+          "label": "JavaScript"
+        },
+        {
+          "nodeId": "J_sVHsD72Yzyqb9KCIvAY",
+          "label": "Python"
+        },
+        {
+          "nodeId": "ANeSwxJDJyQ-49pO2-CCI",
+          "label": "Java"
+        },
+        {
+          "nodeId": "rImbMHLLfJwjf3l25vBkc",
+          "label": "C#"
+        },
+        {
+          "nodeId": "l9Wrq_Ad9-Ju4NIB0m5Ha",
+          "label": "PHP"
+        },
+        {
+          "nodeId": "CWwh2abwqx4hAxpAGvhIx",
+          "label": "Rust"
+        },
+        {
+          "nodeId": "VPxOdjJtKAqmM5V0LR5OC",
+          "label": "MySQL"
+        }
+      ]
+    },
+    {
+      "nodeId": "ezdqQW9wTUw93F6kjOzku",
+      "label": "Version Control Systems",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "An2lMuJEkkpL0cfw4RrSl",
+          "label": "JavaScript"
+        },
+        {
+          "nodeId": "_I1E__wCIVrhjMk6IMieE",
+          "label": "Git"
+        }
+      ]
+    },
+    {
+      "nodeId": "NvUcSDWBhzJZ31nzT4UlE",
+      "label": "Repo Hosting Services",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "ptD8EVqwFUYr4W5A_tABY",
+          "label": "GitHub"
+        },
+        {
+          "nodeId": "Wcp-VDdFHipwa7hNAp1z_",
+          "label": "GitLab"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:NKyoiJPX3UjxIoILzR4sx",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "lfNFDZZNdrB0lbEaMtU71",
+          "label": "REST"
+        },
+        {
+          "nodeId": "sNceS4MpSIjRkWhNDmrFg",
+          "label": "JSON APIs"
+        },
+        {
+          "nodeId": "sSNf93azjuyMzQqIHE0Rh",
+          "label": "SOAP"
+        },
+        {
+          "nodeId": "J-TOE2lT4At1mSdNoxPS1",
+          "label": "gRPC"
+        },
+        {
+          "nodeId": "zp3bq38tMnutT2N0tktOW",
+          "label": "GraphQL"
+        }
+      ]
+    },
+    {
+      "nodeId": "r45b461NxLN6wBODJ5CNP",
+      "label": "Relational Databases",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "MOLAXgs0CMCT7o84L0EaK",
+          "label": "Migrations"
+        },
+        {
+          "nodeId": "FihTrMO56kj9jT8O_pO2T",
+          "label": "PostgreSQL"
+        },
+        {
+          "nodeId": "tD3i-8gBpMKCHB-ITyDiU",
+          "label": "MariaDB"
+        },
+        {
+          "nodeId": "kdulE3Z_BdbtRmq6T2KmR",
+          "label": "SQLite"
+        },
+        {
+          "nodeId": "dEsTje8kfHwWjCI3zcgLC",
+          "label": "MS SQL"
+        },
+        {
+          "nodeId": "h1SAjQltHtztSt8QmRgab",
+          "label": "Oracle"
+        },
+        {
+          "nodeId": "bQnOAu863hsHdyNMNyJop",
+          "label": "N+1 Problem"
+        }
+      ]
+    },
+    {
+      "nodeId": "EwvLPSI6AlZ4TnNIJTZA4",
+      "label": "Learn about APIs",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "9cD5ag1L0GqHx4_zxc5JX",
+          "label": "Open API Specs"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:UFd8PEg6IwJMXvuv8Ow1f",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "PY9G7KQy8bF6eIdr1ydHf",
+          "label": "Authentication"
+        },
+        {
+          "nodeId": "UxS_mzVUjLigEwKrXnEeB",
+          "label": "JWT"
+        },
+        {
+          "nodeId": "vp-muizdICcmU0gN8zmkS",
+          "label": "OAuth"
+        },
+        {
+          "nodeId": "yRiJgjjv2s1uV9vgo3n8m",
+          "label": "Basic Authentication"
+        },
+        {
+          "nodeId": "0rGj7FThLJZouSQUhnqGW",
+          "label": "Token Authentication"
+        },
+        {
+          "nodeId": "ffzsh8_5yRq85trFt9Xhk",
+          "label": "Cookie Based Auth"
+        },
+        {
+          "nodeId": "z3EJBpgGm0_Uj3ymhypbX",
+          "label": "OpenID"
+        },
+        {
+          "nodeId": "UCHtaePVxS-0kpqlYxbfC",
+          "label": "SAML"
+        }
+      ]
+    },
+    {
+      "nodeId": "uPjCrDGA2MHylWXbZvMBM",
+      "label": "Caching",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "KWTbEVX_WxS8jmSaAX3Fe",
+          "label": "HTTP Caching"
+        },
+        {
+          "nodeId": "RBrIP5KbVQ2F0ly7kMfTo",
+          "label": "Web Security"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:SakiRhomfNJvPXc0XAzAO",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "g8GjkJAhvnSxXTZks0V1g",
+          "label": "Redis"
+        },
+        {
+          "nodeId": "xPvVwGQw28uMeLYIWn8yn",
+          "label": "Memcached"
+        }
+      ]
+    },
+    {
+      "nodeId": "fekyMpEnaGqjh1Cu4Nyc4",
+      "label": "Learn about Web Servers",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "z5AdThp9ByulmM9uekgm-",
+          "label": "Nginx"
+        },
+        {
+          "nodeId": "jjjonHTHHo-NiAf6p9xPv",
+          "label": "Apache"
+        },
+        {
+          "nodeId": "Op-PSPNoyj6Ss9CS09AXh",
+          "label": "Caddy"
+        },
+        {
+          "nodeId": "0NJDgfe6eMa7qPUOI6Eya",
+          "label": "MS IIS"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:aaGac1eorlfnbvr3XwytQ",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "jWwA6yX4Zjx-r_KpDaD3c",
+          "label": "MD5"
+        },
+        {
+          "nodeId": "JVN38r5jENoteia3YeIQ3",
+          "label": "SHA"
+        },
+        {
+          "nodeId": "kGTALrvCpxyVCXHRmkI7s",
+          "label": "scrypt"
+        },
+        {
+          "nodeId": "dlG1bVkDmjI3PEGpkm1xH",
+          "label": "bcrypt"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:4_q73_Fz02yj45i7NcRlA",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "AAgciyxuDvS2B_c6FRMvT",
+          "label": "OWASP Risks"
+        },
+        {
+          "nodeId": "x-WBJjBd8u93ym5gtxGsR",
+          "label": "HTTPS"
+        },
+        {
+          "nodeId": "0v3OsaghJEGHeXX0c5kqn",
+          "label": "SSL/TLS"
+        },
+        {
+          "nodeId": "LU6WUbkWKbPM1rb2_gEqa",
+          "label": "CORS"
+        },
+        {
+          "nodeId": "TZ0BWOENPv6pQm8qYB8Ow",
+          "label": "Server Security"
+        },
+        {
+          "nodeId": "HgQBde1zLUFtlwB66PR6_",
+          "label": "CSP"
+        }
+      ]
+    },
+    {
+      "nodeId": "UTupdqjOyLh7-56_0SXJ8",
+      "label": "Learn the Basics",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "tUNP5VRKvrPcufPDPPEo8",
+          "label": "How LLMs work"
+        },
+        {
+          "nodeId": "IZKl6PxbvgNkryAkdy3-p",
+          "label": "AI vs Traditional Coding"
+        },
+        {
+          "nodeId": "Ofv__kXuBk-Vv2jVhaFss",
+          "label": "Embeddings"
+        },
+        {
+          "nodeId": "yKNdBbahm_h81xdMDT-qx",
+          "label": "Vectors"
+        },
+        {
+          "nodeId": "6PCOCzCbx7jo9wO2Hl2gy",
+          "label": "RAGs"
+        }
+      ]
+    },
+    {
+      "nodeId": "Nx7mjvYgqLpmJ0_iSx5of",
+      "label": "Applications",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "0TMdly8yiqnNR8sx36iqc",
+          "label": "Code Reviews"
+        },
+        {
+          "nodeId": "EYT2rTLZ8tUW2u8DOnAWF",
+          "label": "Refactoring"
+        },
+        {
+          "nodeId": "q7NpwqQXUp4wt2to-yFiP",
+          "label": "Documentation Generation"
+        }
+      ]
+    },
+    {
+      "nodeId": "fA3yi9puMbTFmbPpo6OjN",
+      "label": "AI Assisted Coding",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "RcC1fVuePQZ59AsJfeTdR",
+          "label": "Claude Code"
+        },
+        {
+          "nodeId": "CKlkVK_7GZ7xzIUHJqZr8",
+          "label": "Cursor"
+        },
+        {
+          "nodeId": "HQrxxDxKN8gizvXRU5psW",
+          "label": "Copilot"
+        },
+        {
+          "nodeId": "E7-LveK7jO2npxVTLUDfw",
+          "label": "Antigravity"
+        },
+        {
+          "nodeId": "xL8d-uHMpJKwUvT8z-Jia",
+          "label": "Prompting Techniques"
+        },
+        {
+          "nodeId": "w1D3-bSg93ndKK9XJTu7z",
+          "label": "Agents"
+        },
+        {
+          "nodeId": "mHnI19RgZ57XDEIDaHxD0",
+          "label": "MCP"
+        },
+        {
+          "nodeId": "IWubGe3oquSj882QVnhLU",
+          "label": "Skills"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:8v3u-FpQ0c8C8492XsROG",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "Bic4PHhz-YqzPWRimJO83",
+          "label": "Gemini"
+        },
+        {
+          "nodeId": "-ye5ZtYFDoYGpj-UJaBP8",
+          "label": "OpenAI"
+        },
+        {
+          "nodeId": "Lw2nR7x8PYgq1P5CxPAxi",
+          "label": "Anthropic"
+        }
+      ]
+    },
+    {
+      "nodeId": "iatQ3RCxESHt1CwN3PSfx",
+      "label": "Integration Patterns",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "9f-aWi3_7USy4XpNzrTL6",
+          "label": "Streaming"
+        },
+        {
+          "nodeId": "GMxPmyatxYmIPRFHfRAnr",
+          "label": "Structured Outputs"
+        },
+        {
+          "nodeId": "Uve-UObgOBfrd-cLayVWe",
+          "label": "Function Calling"
+        }
+      ]
+    },
+    {
+      "nodeId": "mGfD7HfuP184lFkXZzGjG",
+      "label": "CI / CD",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "LJt27onEOeIBomiEMTyKd",
+      "label": "More about Databases",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "rq_y_OBMD9AH_4aoecvAi",
+          "label": "Transactions"
+        },
+        {
+          "nodeId": "Z7jp_Juj5PffSxV7UZcBb",
+          "label": "ORMs"
+        },
+        {
+          "nodeId": "qSAdfaGUfn8mtmDjHJi3z",
+          "label": "ACID"
+        },
+        {
+          "nodeId": "Ge2SnKBrQQrU-oGLz6TmT",
+          "label": "Normalization"
+        },
+        {
+          "nodeId": "GwApfL4Yx-b5Y8dB9Vy__",
+          "label": "Failure Modes"
+        },
+        {
+          "nodeId": "SYXJhanu0lFmGj2m2XXhS",
+          "label": "Profiling Performance"
+        }
+      ]
+    },
+    {
+      "nodeId": "STQQbPa7PE3gbjMdL6P-t",
+      "label": "Testing",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "381Kw1IMRv7CJp-Uf--qd",
+          "label": "Integration Testing"
+        },
+        {
+          "nodeId": "3OYm6b9f6WOrKi4KTOZYK",
+          "label": "Unit Testing"
+        },
+        {
+          "nodeId": "NAGisfq2CgeK3SsuRjnMw",
+          "label": "Functional Testing"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:TcfbKmrUwzOwl13Pthm8z",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "31ZlpfIPr9-5vYZqvjUeL",
+          "label": "LXC"
+        }
+      ]
+    },
+    {
+      "nodeId": "nJ5FpFgGCRaALcWmAKBKT",
+      "label": "Message Brokers",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "VoYSis1F1ZfTxMlQlXQKB",
+          "label": "Kafka"
+        },
+        {
+          "nodeId": "GPFRMcY1DEtRgnaZwJ3vW",
+          "label": "RabbitMQ"
+        }
+      ]
+    },
+    {
+      "nodeId": "tHiUpG9LN35E5RaHddMv5",
+      "label": "Architectural Patterns",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "Ke522R-4k6TDeiDRyZbbU",
+          "label": "Monolith"
+        },
+        {
+          "nodeId": "K55h3aqOGe6-hgVhiFisT",
+          "label": "Microservices"
+        },
+        {
+          "nodeId": "tObmzWpjsJtK4GWhx6pwB",
+          "label": "SOA"
+        },
+        {
+          "nodeId": "nkmIv3dNwre4yrULMgTh3",
+          "label": "Serverless"
+        },
+        {
+          "nodeId": "n14b7sfTOwsjKTpFC9EZ2",
+          "label": "Service Mesh"
+        },
+        {
+          "nodeId": "8DmabQJXlrT__COZrDVTV",
+          "label": "Twelve Factor Apps"
+        }
+      ]
+    },
+    {
+      "nodeId": "gKTSe9yQFVbPVlLzWB0hC",
+      "label": "Search Engines",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "NulaE1isWqn-feYHg4YQT",
+          "label": "Elasticsearch"
+        },
+        {
+          "nodeId": "iN_1EuIwCx_7lRBw1Io4U",
+          "label": "Solr"
+        },
+        {
+          "nodeId": "RUSdlokJUcEYbCvq5FJBJ",
+          "label": "Server Sent Events"
+        }
+      ]
+    },
+    {
+      "nodeId": "5XGvep2qoti31bsyqNzrU",
+      "label": "Real-Time Data",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "sVuIdAe08IWJVqAt4z-ag",
+          "label": "WebSockets"
+        },
+        {
+          "nodeId": "osvajAJlwGI3XnX0fE-kA",
+          "label": "Long / Short Polling"
+        }
+      ]
+    },
+    {
+      "nodeId": "95d9itpUZ4s9roZN8kG9x",
+      "label": "Scaling Databases",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "y-xkHFE9YzhNIX3EiWspL",
+          "label": "Database Indexes"
+        },
+        {
+          "nodeId": "wrl7HHWXOaxoKVlNZxZ6d",
+          "label": "Data Replication"
+        },
+        {
+          "nodeId": "zWstl08R4uzqve4BdYurp",
+          "label": "Sharding Strategies"
+        },
+        {
+          "nodeId": "LAdKDJ4LcMaDWqslMvE8X",
+          "label": "CAP Theorem"
+        }
+      ]
+    },
+    {
+      "nodeId": "F8frGuv1dunOdcVJ_IiGs",
+      "label": "NoSQL Databases",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "M0iaSSdVPWaCUpyTG50Vf",
+          "label": "Redis"
+        },
+        {
+          "nodeId": "28U6q_X-NTYf7OSKHjoWH",
+          "label": "MongoDB"
+        },
+        {
+          "nodeId": "RyJFLLGieJ8Xjt-DlIayM",
+          "label": "Firebase"
+        },
+        {
+          "nodeId": "dwfEHInbX2eFiafM-nRMX",
+          "label": "DynamoDB"
+        },
+        {
+          "nodeId": "qOlNzZ7U8LhIGukb67n7U",
+          "label": "CouchDB"
+        },
+        {
+          "nodeId": "5T0ljwlHL0545ICCeehcQ",
+          "label": "RethinkDB"
+        },
+        {
+          "nodeId": "BTNJfWemFKEeNeTyENXui",
+          "label": "Neo4j"
+        },
+        {
+          "nodeId": "ZyGLSvx17p7QmYDy1LFbM",
+          "label": "ClickHouse"
+        },
+        {
+          "nodeId": "XbM4TDImSH-56NsITjyHK",
+          "label": "Influx DB"
+        },
+        {
+          "nodeId": "5xy66yQrz1P1w7n6PcAFq",
+          "label": "AWS Neptune"
+        },
+        {
+          "nodeId": "zsiZLWJ2bMvrjuHch5fX_",
+          "label": "Cassandra"
+        },
+        {
+          "nodeId": "WiAK70I0z-_bzbWNwiHUd",
+          "label": "TimescaleDB"
+        },
+        {
+          "nodeId": "GKrcTsUi5XWj_pP1TOK0S",
+          "label": "DGraph"
+        },
+        {
+          "nodeId": "aArZ3gKwObzafCkTOd-Hj",
+          "label": "ScyllaDB"
+        }
+      ]
+    },
+    {
+      "nodeId": "SHmbcMRsc3SygEDksJQBD",
+      "label": "Building For Scale",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "Z01E67D6KjrShvQCHjGR7",
+          "label": "Observability"
+        },
+        {
+          "nodeId": "G9AI_i3MkUE1BsO3_-PH7",
+          "label": "Graceful Degradation"
+        },
+        {
+          "nodeId": "4X-sbqpP0NDhM99bKdqIa",
+          "label": "Instrumentation"
+        },
+        {
+          "nodeId": "qAu-Y4KI2Z_y-EqiG86cR",
+          "label": "Throttling"
+        },
+        {
+          "nodeId": "QvMEEsXh0-rzn5hDGcmEv",
+          "label": "Monitoring"
+        },
+        {
+          "nodeId": "JansCqGDyXecQkD1K7E7e",
+          "label": "Backpressure"
+        },
+        {
+          "nodeId": "HoQdX7a4SnkFRU4RPQ-D5",
+          "label": "Loadshifting"
+        },
+        {
+          "nodeId": "neVRtPjIHP_VG7lHwfah0",
+          "label": "Telemetry"
+        },
+        {
+          "nodeId": "spkiQTPvXY4qrhhVUkoPV",
+          "label": "Circuit Breaker"
+        }
+      ]
+    }
+  ]
+}

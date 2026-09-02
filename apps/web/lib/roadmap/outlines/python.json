@@ -1,0 +1,440 @@
+{
+  "slug": "python",
+  "title": "Python Developer",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "GISOFMKvnBys0O0IMpz2J",
+      "label": "Learn the Basics",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "6xRncUs3_vxVbDur567QA",
+          "label": "Basic Syntax"
+        },
+        {
+          "nodeId": "UT_SR7G-LYtzqooWrEtF1",
+          "label": "Lists"
+        },
+        {
+          "nodeId": "i7xIGiXU-k5UIKHIhQPjE",
+          "label": "Tuples"
+        },
+        {
+          "nodeId": "soZFqivM3YBuljeX6PoaX",
+          "label": "Sets"
+        },
+        {
+          "nodeId": "dEFLBGpiH6nbSMeR7ecaT",
+          "label": "Variables and Data Types"
+        },
+        {
+          "nodeId": "bc9CL_HMT-R6nXO1eR-gP",
+          "label": "Dictionaries"
+        },
+        {
+          "nodeId": "so95CO6Qw3I0S98ISENS-",
+          "label": "Operators"
+        },
+        {
+          "nodeId": "tbR_h9NpZ5tBTYuCfwkcY",
+          "label": "@"
+        },
+        {
+          "nodeId": "R9DQNc0AyAQ2HLpP4HOk6",
+          "label": "Type Casting"
+        },
+        {
+          "nodeId": "Sg5w8zO2Ji-uDJKEoWey9",
+          "label": "Working with Strings"
+        },
+        {
+          "nodeId": "-DJgS6l2qngfwurExlmmT",
+          "label": "Functions, Builtin Functions"
+        },
+        {
+          "nodeId": "NP1kjSk0ujU0Gx-ajNHlR",
+          "label": "Conditionals"
+        },
+        {
+          "nodeId": "fNTb9y3zs1HPYclAmu_Wv",
+          "label": "Exceptions"
+        },
+        {
+          "nodeId": "Dvy7BnNzK55qbh_SgOk8m",
+          "label": "Loops"
+        },
+        {
+          "nodeId": "__ndo1gcuUUtzmBnMIAbR",
+          "label": "Comments"
+        }
+      ]
+    },
+    {
+      "nodeId": "VJSIbYJcy2MC6MOFBrqXi",
+      "label": "Data Structures & Algorithms",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "1dfOTOGsOk5XE3bnZs8Ht",
+          "label": "PyPI"
+        },
+        {
+          "nodeId": "iVhQnp6hpgVZDNJ0XoVra",
+          "label": "Pip"
+        },
+        {
+          "nodeId": "OPD4WdMO7q4gRZMcRCQh1",
+          "label": "Arrays and Linked Lists"
+        },
+        {
+          "nodeId": "DG4fi1e5ec2BVckPLsTJS",
+          "label": "HashMaps"
+        }
+      ]
+    },
+    {
+      "nodeId": "274uk28wzxn6EKWQzLpHs",
+      "label": "Modules",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "syV0DT_3ITgIFDbwPts8i",
+          "label": "Type Annot."
+        },
+        {
+          "nodeId": "08XifLQ20c4FKI_4AWNBQ",
+          "label": "Builtin"
+        },
+        {
+          "nodeId": "l7k0qTYe42wYBTlT2-1cy",
+          "label": "Custom"
+        }
+      ]
+    },
+    {
+      "nodeId": "aWHgAk959DPUZL46CeRiI",
+      "label": "Lambdas",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "pIluLJkySqn_gI_GykV6G",
+      "label": "Decorators",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "qeCMw-sJ2FR4UxvU9DDzv",
+      "label": "Package Managers",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "uh67D1u-Iv5cZamRgFEJg",
+          "label": "Conda"
+        },
+        {
+          "nodeId": "p3Frfs6oxpuciUzeCEsvb",
+          "label": "uv"
+        },
+        {
+          "nodeId": "uXd2B01GVBEQNXQE8RATT",
+          "label": "Poetry"
+        },
+        {
+          "nodeId": "xDgXISgVUMRHh9hu4h6Hl",
+          "label": "pdm"
+        },
+        {
+          "nodeId": "0NlRczh6ZEaFLlT6LORWz",
+          "label": "Heaps, Stacks and Queues"
+        }
+      ]
+    },
+    {
+      "nodeId": "aB1LSQjDEQb_BxueOcnxU",
+      "label": "Iterators",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "_94NrQ3quc4t_PPOsFSN0",
+      "label": "Common Packages",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "GHKAY9gOykEbxkEeR30wL",
+          "label": "pyproject.toml"
+        }
+      ]
+    },
+    {
+      "nodeId": "7t6mJBsaFMWPi7o9fbhhq",
+      "label": "Regular Expressions",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "3RNy7Sp28d-NMx0Yh4bdx",
+      "label": "Variable Scope",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "o1wi39VnjnFfWIC8XcuAK",
+          "label": "typing"
+        },
+        {
+          "nodeId": "gIcJ3bUVQXqO1Wx4gUKd5",
+          "label": "mypy"
+        }
+      ]
+    },
+    {
+      "nodeId": "P_Di-XPSDITmU3xKQew8G",
+      "label": "Object Oriented Programming",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "uJIqgsqUbE62Tyo3K75Qx",
+          "label": "Binary Search Tree"
+        },
+        {
+          "nodeId": "kLBgy_nxxjE8SxdVi04bq",
+          "label": "Recursion"
+        },
+        {
+          "nodeId": "vvTmjcWCVclOPY4f_5uB0",
+          "label": "Sorting Algorithms"
+        },
+        {
+          "nodeId": "AqwzR8dZKLQIoj_6KKZ3t",
+          "label": "Classes"
+        },
+        {
+          "nodeId": "zAS4YiEJ6VPsyABrkIG8i",
+          "label": "Methods"
+        }
+      ]
+    },
+    {
+      "nodeId": "4gtmtYWYRWqwLdZRL0XMg",
+      "label": "List Comprehensions",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "jnLIVRrWxcX3yq3Op91Vr",
+      "label": "Generator Expressions",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:I0lCQskv_MEITj9xTEetZ",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "IWq-tfkz-pSC1ztZl60vM",
+          "label": "Pipenv"
+        },
+        {
+          "nodeId": "_IXXTSwQOgYzYIUuKVWNE",
+          "label": "virtualenv"
+        },
+        {
+          "nodeId": "N5VaKMbgQ0V_BC5tadV65",
+          "label": "pyenv"
+        }
+      ]
+    },
+    {
+      "nodeId": "4GU5HNi3W8yFkImVY9ZpW",
+      "label": "Paradigms",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "KAXF2kUAOvtBZhY8G9rkI",
+      "label": "Context Manager",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "1PXApuUpPmJjgi12cmWo4",
+      "label": "Static Typing",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "1q9HWgu9jDTK757hTNOmE",
+          "label": "pyright"
+        },
+        {
+          "nodeId": "9mFR_ueXbIB2IrkqU2s85",
+          "label": "pyre"
+        },
+        {
+          "nodeId": "W3VALz5evFo1qqkQbMN1R",
+          "label": "Pydantic"
+        }
+      ]
+    },
+    {
+      "nodeId": "0-ShORjGnQlAdcwjtxdEB",
+      "label": "Learn a Framework",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "u4nRzWQ4zhDFMOrZ2I_uJ",
+      "label": "Concurrency",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "S0FLE70szSVUPI0CDEQK7",
+          "label": "Inheritance"
+        },
+        {
+          "nodeId": "3dC2o3WXdx4plFhDP2Vqk",
+          "label": "Encapsulation"
+        },
+        {
+          "nodeId": "HSY5OUc_M5S6OcFXPRtkx",
+          "label": "Multiprocessing"
+        },
+        {
+          "nodeId": "Mow7RvropbC4ZGDpcGZmw",
+          "label": "Asynchrony"
+        },
+        {
+          "nodeId": "bS7WeVKm2kEElu3sBKcIC",
+          "label": "GIL"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:DYVswTR2tgKfRIkQ3WGDW",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "7zcpXN3krnS3tMRWVNIVe",
+          "label": "Plotly Dash"
+        },
+        {
+          "nodeId": "DHtskqATeAVKgaazdhXKD",
+          "label": "Pyramid"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:7qkVORlOiHO2gVIC0spiJ",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "InUJIGmTnf0X4cSoLuCEQ",
+          "label": "gevent"
+        },
+        {
+          "nodeId": "IBVAvFtN4mnIPbIuyUvEb",
+          "label": "aiohttp"
+        },
+        {
+          "nodeId": "zey2C6BdzsHJAlb_K3qrP",
+          "label": "Tornado"
+        },
+        {
+          "nodeId": "9RGpqsj9jHz0_-r7EvRcw",
+          "label": "Sanic"
+        }
+      ]
+    },
+    {
+      "nodeId": "0F0ppU_ClIUKZ23Q6BVZp",
+      "label": "Code Formatting",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "tsh_vbhzKz1-H9Vh69tsK",
+          "label": "yapf"
+        },
+        {
+          "nodeId": "DS6nuAUhUYcqiJDmQisKM",
+          "label": "black"
+        },
+        {
+          "nodeId": "6cB0pvUO1-gvCtgqozP-Q",
+          "label": "ruff"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:nvL0Yb5peOKtN6J3bHlRt",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "XeQSmvAsGSTi8dd7QVHxn",
+          "label": "Fast API"
+        },
+        {
+          "nodeId": "x1V8GjdjANTnhP6YXMbgC",
+          "label": "Django"
+        },
+        {
+          "nodeId": "HKsGyRzntjh1UbRZSWh_4",
+          "label": "Flask"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:jKeTTySc4iyJY29xLqNNQ",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "maYNuTKYyZndxk1z29-UY",
+          "label": "Sphinx"
+        }
+      ]
+    },
+    {
+      "nodeId": "Nf3kRDSl_vas6QPXG7eVa",
+      "label": "File Handling",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "UIx0XYaOgXXlYbbQtjiPq",
+          "label": "Threading"
+        },
+        {
+          "nodeId": "bqnwMKY4R0rirup3q_hb_",
+          "label": "glob"
+        }
+      ]
+    },
+    {
+      "nodeId": "WQOYjuwKIWB2meea4JnsV",
+      "label": "Testing",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "jPFOiwbqfaGshaGDBWb5x",
+          "label": "tox"
+        },
+        {
+          "nodeId": "b4he_RO17C3ScNeUd6v2b",
+          "label": "unittest / pyUnit"
+        },
+        {
+          "nodeId": "aVclygxoA9ePU5IxaORSH",
+          "label": "doctest"
+        },
+        {
+          "nodeId": "3FDwJpesfelEyJrNWtm0V",
+          "label": "pytest"
+        }
+      ]
+    }
+  ]
+}

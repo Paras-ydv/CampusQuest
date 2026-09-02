@@ -1,0 +1,223 @@
+{
+  "slug": "spring-boot",
+  "title": "Spring Boot Developer",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "jy2heDVZuM6ASCXlI1TDn",
+      "label": "Introduction",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "WrUCyVfFNUpHB8jyjjKna",
+          "label": "Terminology"
+        },
+        {
+          "nodeId": "yuXN-rD4AyyPYUYOR50L_",
+          "label": "Architecture"
+        },
+        {
+          "nodeId": "WGf3W6bdWL0rK0o6O28G2",
+          "label": "Why use Spring?"
+        },
+        {
+          "nodeId": "OB--nMudscm0p6RqqfA7T",
+          "label": "Configuration"
+        },
+        {
+          "nodeId": "C2EQ5J1aJYF9e9Rr2KysT",
+          "label": "Dependency Injection"
+        },
+        {
+          "nodeId": "PlUU_vzFQ3Xx6Z5XREIYP",
+          "label": "Spring IOC"
+        },
+        {
+          "nodeId": "wV1_I_4czMIxpBionvLs4",
+          "label": "Spring AOP"
+        },
+        {
+          "nodeId": "QiNWE4sMTao3cVzjt3yPp",
+          "label": "Spring MVC"
+        },
+        {
+          "nodeId": "HdCpfGMrMaXxk5QrtYn3X",
+          "label": "Annotations"
+        },
+        {
+          "nodeId": "KdN62IpNgPFMndXfLaYa1",
+          "label": "Spring Bean Scope"
+        }
+      ]
+    },
+    {
+      "nodeId": "KaUdyVWEiZa6lUDRBlOKt",
+      "label": "Spring Security",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "ssdk2iAt4avhc8B5tnIzQ",
+          "label": "Authentication"
+        },
+        {
+          "nodeId": "c7w7Z3Coa81FKa_yAKTse",
+          "label": "Authorization"
+        },
+        {
+          "nodeId": "p7t3RlIIm9U08GFC6azff",
+          "label": "OAuth2"
+        },
+        {
+          "nodeId": "1My7mbdwAbRcJoiA50pWW",
+          "label": "JWT Authentication"
+        }
+      ]
+    },
+    {
+      "nodeId": "JrH2hiu27PhIO1VtrArMa",
+      "label": "Spring Boot Starters",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "88-h3d7kb-VmUBsnUUXW_",
+      "label": "Autoconfiguration",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "f-i0NX2KOzCh3JwkaSPFo",
+          "label": "Spring Cloud Gateway"
+        }
+      ]
+    },
+    {
+      "nodeId": "N7hd3d_XQtvOgnCqdCFt3",
+      "label": "Actuators",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "9hG3CB8r41bUb_s8-0u73",
+          "label": "Cloud Config"
+        }
+      ]
+    },
+    {
+      "nodeId": "h5-HnycxfbJgwalSdXTAz",
+      "label": "Hibernate",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "H9Z0EvKT_148vD0mR-dUf",
+          "label": "Transactions"
+        },
+        {
+          "nodeId": "D4ybyh0ydvl9W2_xUcvZ_",
+          "label": "Relationships"
+        },
+        {
+          "nodeId": "Ijmy0J3VyaeTGXtu2VkkQ",
+          "label": "Entity Lifecycle"
+        }
+      ]
+    },
+    {
+      "nodeId": "ONb0VnSUMY8JBeW3G2mTp",
+      "label": "Embedded Server",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "kqpSlO--X9-xYxfq1KFVe",
+          "label": "Spring Cloud Circuit Breaker"
+        }
+      ]
+    },
+    {
+      "nodeId": "pvVLbFQoT50vz_VRK4VbJ",
+      "label": "Spring Data",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "6u08QN-pUeFm3o0h5Scfm",
+          "label": "Spring Data JPA"
+        },
+        {
+          "nodeId": "fy-TphbqkLpR1zvFcr7dg",
+          "label": "Spring Data MongoDB"
+        },
+        {
+          "nodeId": "dd1A-MyzBs_kNOtVG7f1D",
+          "label": "Spring Data JDBC"
+        }
+      ]
+    },
+    {
+      "nodeId": "jU_KHoPUSU_HoIKk0ZpRF",
+      "label": "Microservices",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "VWNDYSw83Vzi2UPQprJ5z",
+          "label": "Spring Cloud"
+        },
+        {
+          "nodeId": "EKSXTMSN2xdaleJ4wOV1A",
+          "label": "Spring Cloud Open Feign"
+        }
+      ]
+    },
+    {
+      "nodeId": "S-BbOoRD7anvoJrprjoKF",
+      "label": "Spring MVC",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "GsmBGRohWbJ6XOaALFZ8o",
+          "label": "Micrometer"
+        },
+        {
+          "nodeId": "6sLE6gb5Y477SmO2GhQIG",
+          "label": "Eureka"
+        },
+        {
+          "nodeId": "35NTx2eO1j02sjy4m6DPq",
+          "label": "Servlet"
+        },
+        {
+          "nodeId": "Nhx2QiSD_4pVWD17lsCbu",
+          "label": "JPA Test"
+        },
+        {
+          "nodeId": "Lz0GPMiYzb30iFJdv1dL6",
+          "label": "JSP Files"
+        },
+        {
+          "nodeId": "_vS_zdJZegZS6MIKAFyg8",
+          "label": "Architecture"
+        },
+        {
+          "nodeId": "sgA06Tu9Y4cEHtfI8CyLL",
+          "label": "Components"
+        }
+      ]
+    },
+    {
+      "nodeId": "7Qqrh_Rz_7uAD49g9sDzi",
+      "label": "Testing",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "5d1BERqTKNJMKiBcqa8Ie",
+          "label": "Mock MVC"
+        },
+        {
+          "nodeId": "p91CaVPh5GMzFU0yEU_hl",
+          "label": "@SpringBootTest Annotation"
+        },
+        {
+          "nodeId": "i77NTa0hpGGBjmql9u_CT",
+          "label": "@MockBean Annotation"
+        }
+      ]
+    }
+  ]
+}

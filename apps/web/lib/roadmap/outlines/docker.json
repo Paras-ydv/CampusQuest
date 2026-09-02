@@ -1,0 +1,282 @@
+{
+  "slug": "docker",
+  "title": "Docker Roadmap",
+  "reviewed": true,
+  "topics": [
+    {
+      "nodeId": "Py9nst2FDJ1_hoXeX_qSF",
+      "label": "Introduction",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "74JxgfJ_1qmVNZ_QRp9Ne",
+          "label": "What are Containers?"
+        },
+        {
+          "nodeId": "i4ijY3T5gLgNz0XqRipXe",
+          "label": "Why do we need Containers?"
+        },
+        {
+          "nodeId": "3hatcMVLDbMuz73uTx-9P",
+          "label": "Bare Metal vs VMs vs Containers"
+        },
+        {
+          "nodeId": "43drPbTwPqJQPyzwYUdBT",
+          "label": "Docker and OCI"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:Q0WbmEuk4RWOhRnd969Lf",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "mw-weCutd2ECKlx2DE_ZJ",
+          "label": "Package Managers"
+        },
+        {
+          "nodeId": "uKjB2qntFTpPuYUT9sdxd",
+          "label": "Users / Groups Permissions"
+        },
+        {
+          "nodeId": "W5kX5jn49hghRgkEw6_S3",
+          "label": "Shell Commands"
+        },
+        {
+          "nodeId": "InlMtuaUJ9EXO-OD9x1jj",
+          "label": "Shell Scripting"
+        },
+        {
+          "nodeId": "XxT9UUjbKW1ARyERSLH_W",
+          "label": "Programming Languages"
+        },
+        {
+          "nodeId": "EqYWfBL5l5OOquok_OvOW",
+          "label": "Application Architecture"
+        }
+      ]
+    },
+    {
+      "nodeId": "jrH1qE6EnFXL4fTyYU8gR",
+      "label": "Underlying Technologies",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "BvV8VCX39wRB-g8WvGF1g",
+          "label": "Namespaces"
+        },
+        {
+          "nodeId": "fRl4EfNwlBiidzn3IV34-",
+          "label": "cgroups"
+        },
+        {
+          "nodeId": "vEUfw_vobshuZI0-q8RZo",
+          "label": "Union Filesystems"
+        }
+      ]
+    },
+    {
+      "nodeId": "01nDXqxVdMv4SeXc0nYHH",
+      "label": "Installation / Setup",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "NCdsPRhJy7UtQFNLo1J1f",
+          "label": "Docker Desktop (Win/Mac/Linux)"
+        },
+        {
+          "nodeId": "0NKqLUWtJMlXn-m6wpA6f",
+          "label": "Docker Engine ( Linux )"
+        }
+      ]
+    },
+    {
+      "nodeId": "kIqx7Inf50mE9W0juwNBz",
+      "label": "Basics of Docker",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "LShK3-1EGGuXnEvdScFR7",
+      "label": "Using 3rd Party Container Images",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "jKSE_wKYf4P9wnSh_LkMi",
+          "label": "Databases"
+        },
+        {
+          "nodeId": "YzpB7rgSR4ueQRLa0bRWa",
+          "label": "Command Line Utilities"
+        }
+      ]
+    },
+    {
+      "nodeId": "uUPYXmwu27SBPqKZx6U_q",
+      "label": "Data Persistence",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "086zZYjtzdCaDHm-MkSqg",
+          "label": "Ephemeral Container Filesystem"
+        },
+        {
+          "nodeId": "woemCQmWTR-hIoWAci3d5",
+          "label": "Volume Mounts"
+        },
+        {
+          "nodeId": "wZcCW1ojGzUakHCv2AaI1",
+          "label": "Bind Mounts"
+        }
+      ]
+    },
+    {
+      "nodeId": "3VKPiMfbGBxv9m_SljIQV",
+      "label": "Container Registries",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "rxVR62_yXIjc-L4GFSV6u",
+          "label": "Dockerhub"
+        },
+        {
+          "nodeId": "fh5aERX7c-lY9FPsmftoF",
+          "label": "Others (ghcr, ecr, gcr, acr, etc)"
+        },
+        {
+          "nodeId": "Vs4WQwgJFhA63U9Gf2ym0",
+          "label": "Image Tagging Best Practices"
+        }
+      ]
+    },
+    {
+      "nodeId": "z2eeBXPzo-diQ67Fcfyhc",
+      "label": "Running Containers",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "jjA9E0J8N2frfeJCNtA1m",
+          "label": "docker compose"
+        },
+        {
+          "nodeId": "6eu5NRA1sJuaHTlHtNurc",
+          "label": "docker run"
+        },
+        {
+          "nodeId": "mAaEz-bwB5DLaBbOSYGMn",
+          "label": "Runtime Configuration Options"
+        }
+      ]
+    },
+    {
+      "nodeId": "5OEfBQaYNOCi999x6QUqW",
+      "label": "Building Container Images",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "yGRQcx64S-yBGEoOeMc55",
+          "label": "Dockerfiles"
+        },
+        {
+          "nodeId": "frshJqVMP8D7o_7tMZMPI",
+          "label": "Efficient Layer Caching"
+        },
+        {
+          "nodeId": "-8wAzF6_3gruiM3VYMvB0",
+          "label": "Image Size and Security"
+        }
+      ]
+    },
+    {
+      "nodeId": "b-LwyYiegbF0jIrn7HYRv",
+      "label": "Docker CLI",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "3Nsg-F3wMKEzEsXw1MBZv",
+          "label": "Images"
+        },
+        {
+          "nodeId": "jhwe-xfVc-C7qy8YuS5dZ",
+          "label": "Containers"
+        },
+        {
+          "nodeId": "eHtVLB6v3h7hatJb-9cZK",
+          "label": "Volumes"
+        },
+        {
+          "nodeId": "w5QjzvOaciK2rotOkjvjQ",
+          "label": "Networks"
+        }
+      ]
+    },
+    {
+      "nodeId": "78YFahP3Fg-c27reLkuK4",
+      "label": "Container Security",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "M5UG-ZcyhBPbksZd0ZdNt",
+          "label": "Image Security"
+        },
+        {
+          "nodeId": "vYug8kcwrMoWf8ft4UDNI",
+          "label": "Runtime Security"
+        }
+      ]
+    },
+    {
+      "nodeId": "9NuHwfytnUTpeVmnMpZZC",
+      "label": "Networking",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "hHXTth0ZP8O-iMGR9xfu9",
+      "label": "Developer Experience",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "4p5d3rzCHy4vjg2PRX-2k",
+          "label": "Hot Reloading"
+        },
+        {
+          "nodeId": "LiAV9crrTHhLqeZhD25a2",
+          "label": "Debuggers"
+        },
+        {
+          "nodeId": "Kmyo1_Mor9WHLkRhNShRZ",
+          "label": "Tests"
+        },
+        {
+          "nodeId": "oyqw4tr-taZcxt5kREh1g",
+          "label": "Continuous Integration"
+        }
+      ]
+    },
+    {
+      "nodeId": "qXOGqORi3EdqwsP9Uhi9m",
+      "label": "Deploying Containers",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "RqXpX2XabtHYVjgg1EZR_",
+          "label": "Kubernetes"
+        },
+        {
+          "nodeId": "PP_RRBo_pThe2mgf6xzMP",
+          "label": "PaaS Options"
+        },
+        {
+          "nodeId": "r1eJZDZYouUjnGwAtRbyU",
+          "label": "Nomad"
+        },
+        {
+          "nodeId": "ks6PFN-0Z9zH7gtWaWgxz",
+          "label": "Docker Swarm"
+        }
+      ]
+    }
+  ]
+}

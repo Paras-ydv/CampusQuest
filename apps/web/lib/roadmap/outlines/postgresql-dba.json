@@ -1,0 +1,791 @@
+{
+  "slug": "postgresql-dba",
+  "title": "PostgreSQL DBA",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "lDIy56RyC1XM7IfORsSLD",
+      "label": "Introduction",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "soar-NBWCr4xVKj7ttfnc",
+          "label": "What are Relational Databases?"
+        },
+        {
+          "nodeId": "p3AmRr_y_ZBKzAU5eh7OU",
+          "label": "RDBMS Benefits and Limitations"
+        },
+        {
+          "nodeId": "cty2IjgS1BWltbYmuxxuV",
+          "label": "Columns"
+        },
+        {
+          "nodeId": "D0doJTtLu-1MmFOfavCXN",
+          "label": "PostgreSQL vs NoSQL Databases"
+        },
+        {
+          "nodeId": "IAKERTzTpTds5kZLMCapM",
+          "label": "PostgreSQL vs Other RDBMS"
+        }
+      ]
+    },
+    {
+      "nodeId": "-M9EFgiDSSAzj9ISk-aeh",
+      "label": "Basic RDBMS Concepts",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "RoYP1tYw5dvhmkVTo1HS-",
+      "label": "Object Model",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "xVocG4LuFdtphwoOxiJTa",
+          "label": "Queries"
+        },
+        {
+          "nodeId": "4Pw7udOMIsiaKr7w9CRxc",
+          "label": "Data Types"
+        },
+        {
+          "nodeId": "Rd3RLpyLMGQZzrxQrxDGo",
+          "label": "Rows"
+        },
+        {
+          "nodeId": "W8NhR4SqteMLfso8AD6H8",
+          "label": "Tables"
+        },
+        {
+          "nodeId": "mF6qAlo2ULJ3lECG2m0h7",
+          "label": "Schemas"
+        },
+        {
+          "nodeId": "DU-D3-j9h6i9Nj5ci8hlX",
+          "label": "Databases"
+        }
+      ]
+    },
+    {
+      "nodeId": "_BSR2mo1lyXEFXbKYb1ZG",
+      "label": "High Level Database Concepts",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "9u7DPbfybqmldisiePq0m",
+          "label": "ACID"
+        },
+        {
+          "nodeId": "-_ADJsTVGAgXq7_-8bdIO",
+          "label": "MVCC"
+        },
+        {
+          "nodeId": "yFG_hVD3dB_qK8yphrRY5",
+          "label": "Transactions"
+        },
+        {
+          "nodeId": "9sadNsbHLqejbRPHWhx-w",
+          "label": "Write-ahead Log"
+        },
+        {
+          "nodeId": "Qk14b9WyeCp9RV9WAwojt",
+          "label": "Query Processing"
+        }
+      ]
+    },
+    {
+      "nodeId": "mDVbjdVN0spY7dI_8k1YW",
+      "label": "Relational Model",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "-LuxJvI5IaOx6NqzK0d8S",
+          "label": "Domains"
+        },
+        {
+          "nodeId": "XvZMSveMWqmAlXOxwWzdk",
+          "label": "Attributes"
+        },
+        {
+          "nodeId": "vJhvgGwNV3JB-wWn_0gMb",
+          "label": "Tuples"
+        },
+        {
+          "nodeId": "2hM2IPAnNYq-LlEbcFp2Z",
+          "label": "Relations"
+        },
+        {
+          "nodeId": "j9ikSpCD3yM5pTRFuJjZs",
+          "label": "Constraints"
+        },
+        {
+          "nodeId": "5MjJIAcn5zABCK6JsFf4k",
+          "label": "Using Docker"
+        }
+      ]
+    },
+    {
+      "nodeId": "FtPiBWMFhjakyXsmSL_CI",
+      "label": "Installation and Setup",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "91eOGK8mtJulWRlhKyv0F",
+          "label": "NULL"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:Ah3lQJ1nNiHmclKD3E25r",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "BEJyz0ohCglDucxfyuAy4",
+          "label": "Querying Data"
+        },
+        {
+          "nodeId": "KMdF9efNGULualk5o1W0_",
+          "label": "For Schemas"
+        },
+        {
+          "nodeId": "dd2lTNsNzYdfB7rRFMNmC",
+          "label": "Filtering Data"
+        },
+        {
+          "nodeId": "ga8ZiuPc42XvZ3-iVh8T1",
+          "label": "ForTables"
+        },
+        {
+          "nodeId": "fvEgtFP7xvkq_D4hYw3gz",
+          "label": "Data Types"
+        },
+        {
+          "nodeId": "G2NKhjlZqAY9l32H0LPNQ",
+          "label": "Modifying Data"
+        },
+        {
+          "nodeId": "Hura0LImG9pyPxaEIDo3X",
+          "label": "Joining Tables"
+        },
+        {
+          "nodeId": "umNNMpJh4Al1dEpT6YkrA",
+          "label": "Import / Export Using `COPY`"
+        },
+        {
+          "nodeId": "fsZvmH210bC_3dBD_X8-z",
+          "label": "CTE"
+        },
+        {
+          "nodeId": "ghgyAXJ72dZmF2JpDvu9U",
+          "label": "Transactions"
+        },
+        {
+          "nodeId": "fTsoMSLcXU1mgd5-vekbT",
+          "label": "Lateral Join"
+        },
+        {
+          "nodeId": "_Y-omKcWZOxto-xJka7su",
+          "label": "Subqueries"
+        },
+        {
+          "nodeId": "kOwhnSZBwIhIbIsoAXQ50",
+          "label": "Set Operations"
+        },
+        {
+          "nodeId": "uwd_CaeHQQ3ZWojbmtbPh",
+          "label": "Grouping"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:T83jSeQ6bB_lW1WIH3GWv",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "P1Hm6ZlrhCRxbxOJkBHlL",
+          "label": "Using `systemd`"
+        },
+        {
+          "nodeId": "a4j0Rs8Tl6-k9WP5zjaep",
+          "label": "Using `pg_ctl`"
+        },
+        {
+          "nodeId": "v3SoKmeCh6uxKW5GAAMje",
+          "label": "Using `pg_ctlcluster`"
+        }
+      ]
+    },
+    {
+      "nodeId": "ANUgfkADLI_du7iRvnUdi",
+      "label": "Learn SQL",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "pEtQy1nuW98YUwrbfs7Np",
+          "label": "Package Managers"
+        },
+        {
+          "nodeId": "mMf2Mq9atIKk37IMWuoJs",
+          "label": "Connect using `psql`"
+        }
+      ]
+    },
+    {
+      "nodeId": "T819BZ-CZgUX_BY7Gna0J",
+      "label": "Configuring",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "6SCcxpkpLmmRe0rS8WAPZ",
+          "label": "Deployment in Cloud"
+        },
+        {
+          "nodeId": "507TY35b8iExakbBMrHgZ",
+          "label": "Reporting Logging & Statistics"
+        },
+        {
+          "nodeId": "VAf9VzPx70hUf4H6i3Z2t",
+          "label": "Adding Extra Extensions"
+        },
+        {
+          "nodeId": "t18XjeHP4uRyERdqhHpl5",
+          "label": "Default Privileges"
+        },
+        {
+          "nodeId": "yl3gxfQs4nOE0N7uGqR0d",
+          "label": "Resource Usage"
+        }
+      ]
+    },
+    {
+      "nodeId": "2Zg8R5gs9LMQOcOMZtoPk",
+      "label": "Security",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "o1WSsw-ZIaAb8JF3P0mfR",
+          "label": "Grant / Revoke"
+        },
+        {
+          "nodeId": "9VmQ-vN3nPyf1pTFIcj40",
+          "label": "Write-ahead Log"
+        },
+        {
+          "nodeId": "S20aJB-VuSpXYyd0-0S8c",
+          "label": "Object Privileges"
+        },
+        {
+          "nodeId": "zoaqBP0Jbf0HpTH8Q3LkJ",
+          "label": "Vacuums"
+        },
+        {
+          "nodeId": "A3YTrZSUxNBq77iIrNdZ4",
+          "label": "Replication"
+        },
+        {
+          "nodeId": "hOPwVdIzesselbsI_rRxt",
+          "label": "Query Planner"
+        },
+        {
+          "nodeId": "09QX_zjCUajxUqcNZKy0x",
+          "label": "Advanced Topics"
+        },
+        {
+          "nodeId": "gb75xOcAr-q8TcA6_l1GZ",
+          "label": "Authentication Models"
+        },
+        {
+          "nodeId": "3pLn1mhRnekG537ejHUYA",
+          "label": "Checkpoints / Background Writer"
+        },
+        {
+          "nodeId": "bokFf6VNrLcilI9Hid386",
+          "label": "Row-Level Security"
+        },
+        {
+          "nodeId": "l0lpaPy12JFCJ-RRYVSqz",
+          "label": "Roles"
+        },
+        {
+          "nodeId": "Y2W29M4piaQsTn2cpyR7Q",
+          "label": "pg_hba.conf"
+        },
+        {
+          "nodeId": "EKwO6edtFnUw8cPCcVwKJ",
+          "label": "SSL Settings"
+        }
+      ]
+    },
+    {
+      "nodeId": "zlqSX0tl7HD9C1yEGkvoM",
+      "label": "Infrastructure Skills",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "GvpIJF-eaGELwcpWq5_3r",
+          "label": "SELinux"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:92MmgBQ4x0d2GeDCVtCNN",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "Z2PuOmgOqScGFbhvrvrA1",
+          "label": "PostgreSQL Anonymizer"
+        },
+        {
+          "nodeId": "XZ922juBJ8Om0WyGtSYT5",
+          "label": "pg_dump"
+        },
+        {
+          "nodeId": "QmV-J6fPYQ5CcdGUkBs7y",
+          "label": "pg_dumpall"
+        },
+        {
+          "nodeId": "-XhONB0FBA6UslbDWoTDv",
+          "label": "barman"
+        },
+        {
+          "nodeId": "4gQSzH-WKFAvmkwlX_oyR",
+          "label": "WAL-G"
+        },
+        {
+          "nodeId": "cJYlZJ9f3kdptNrTlpMNU",
+          "label": "Using `pg_upgrade`"
+        },
+        {
+          "nodeId": "YSprRhPHkzV8SzDYpIVmp",
+          "label": "pg_restore"
+        },
+        {
+          "nodeId": "5LLYxCj22RE6Nf0fVm8GO",
+          "label": "pgbackrest"
+        },
+        {
+          "nodeId": "MVVWAf9Hk3Fom-wBhO64R",
+          "label": "Using Logical Replication"
+        },
+        {
+          "nodeId": "XYaVsj5_48CSnoTSGXBbN",
+          "label": "pg_basebackup"
+        },
+        {
+          "nodeId": "Id_17Ya-NUvoXxijAZvmW",
+          "label": "pg_probackup"
+        },
+        {
+          "nodeId": "te4PZaqt6-5Qu8rU0w6a1",
+          "label": "Backup Validation Procedures"
+        },
+        {
+          "nodeId": "mm0K_8TFicrYdZQvWFkH4",
+          "label": "Patroni"
+        },
+        {
+          "nodeId": "TZvZ_jNjWnM535ZktyhQN",
+          "label": "Patroni Alternatives"
+        },
+        {
+          "nodeId": "aKQI7aX4bT_39bZgjmfoW",
+          "label": "PgBouncer"
+        },
+        {
+          "nodeId": "rmsIw9CQa1qcQ_REw76NK",
+          "label": "Logical Replication"
+        },
+        {
+          "nodeId": "3V1PPIeB0i9qNUsT8-4O-",
+          "label": "PgBouncer Alternatives"
+        },
+        {
+          "nodeId": "MwLlVbqceQ-GTgPJlgoQY",
+          "label": "Streaming Replication"
+        },
+        {
+          "nodeId": "rNp3ZC6axkcKtAWYCPvdR",
+          "label": "Simple Stateful Setup"
+        },
+        {
+          "nodeId": "QHbdwiMQ8otxnVIUVV2NT",
+          "label": "Helm"
+        },
+        {
+          "nodeId": "nRJKfjW2UrmKmVUrGIfCC",
+          "label": "Operators"
+        },
+        {
+          "nodeId": "XmBeM01NAy-_nfyNdk9ZV",
+          "label": "Prometheus"
+        },
+        {
+          "nodeId": "z3VD68R2uyu1s-3giRxKr",
+          "label": "Zabbix"
+        },
+        {
+          "nodeId": "aXG68inOu3trBWOmg9Yqx",
+          "label": "temBoard"
+        },
+        {
+          "nodeId": "WiOgUt5teG9UVRa6zo4h3",
+          "label": "check_pgactivity"
+        },
+        {
+          "nodeId": "DDPuDDUFxubWZmWXCmF7L",
+          "label": "check_pgbackrest"
+        },
+        {
+          "nodeId": "IkB28gO0LK1q1-KjdI9Oz",
+          "label": "Consul"
+        },
+        {
+          "nodeId": "V8_zJRwOX9664bUvAGgff",
+          "label": "HAProxy"
+        },
+        {
+          "nodeId": "SNnc8CIKuHUAEZaJ_qEar",
+          "label": "Resource Usage / Provisioning / Capacity Planning"
+        },
+        {
+          "nodeId": "xk2G-HUS-dviNW3BAMmJv",
+          "label": "KeepAlived"
+        },
+        {
+          "nodeId": "kCw6oEVGdKokCz4wYizIT",
+          "label": "Etcd"
+        }
+      ]
+    },
+    {
+      "nodeId": "e5s7-JRqNy-OhfnjTScZI",
+      "label": "Learn to Automate",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:xi5uZ_VOH4rVNu_0ZLAX9",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "-clI2RmfhK8F8beHULaIB",
+          "label": "Shell Scripts"
+        },
+        {
+          "nodeId": "j5YeixkCKRv0sfq_gFVr9",
+          "label": "Any Programming Language"
+        },
+        {
+          "nodeId": "Q_B9dlXNMXZIRYQC74uIf",
+          "label": "Salt"
+        },
+        {
+          "nodeId": "RqSfBR_RuvHrwHfPn1jwZ",
+          "label": "Ansible"
+        },
+        {
+          "nodeId": "7EHZ9YsNjCyTAN-LDWYMS",
+          "label": "Chef"
+        },
+        {
+          "nodeId": "e39bceamU-lq3F2pmLz6v",
+          "label": "Puppet"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:L4zzOZ0ZQnziJTXiOeMhP",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "cc4S7ugIphyBZr-f6X0qi",
+          "label": "Bulk Loading / Processing Data"
+        },
+        {
+          "nodeId": "AtZcMhy2Idmgonp5O8RSQ",
+          "label": "Practical Patterns / Antipatterns"
+        },
+        {
+          "nodeId": "OiGRtLsc28Tv35vIut6B6",
+          "label": "Data Partitioning"
+        },
+        {
+          "nodeId": "3Lcy7kBKeV6hx9Ctp_20M",
+          "label": "Migration Related Tools"
+        },
+        {
+          "nodeId": "r6Blr7Q4wOnvJ-m6NvPyP",
+          "label": "Sharding Patterns"
+        },
+        {
+          "nodeId": "Fcl7AD2M6WrMbxdvnl-ub",
+          "label": "Normalization / Normal Forms"
+        },
+        {
+          "nodeId": "rnXcM62rgq3p6FQ9AWW1R",
+          "label": "Patterns / Antipatterns"
+        },
+        {
+          "nodeId": "WCBWPubUS84r3tOXpnZT3",
+          "label": "PgQ"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:uhaumgDGlmTZxRGoZ_R0Z",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "v2J6PZT0fHvqA7GwlqBU7",
+          "label": "Processes & Memory Architecture"
+        },
+        {
+          "nodeId": "dJzJP1uo4kVFThWgglPfk",
+          "label": "Vacuum Processing"
+        },
+        {
+          "nodeId": "KeBUzfrkorgFWpR8A-xmJ",
+          "label": "Buffer Management"
+        },
+        {
+          "nodeId": "pOkafV7nDHme4jk-hA8Cn",
+          "label": "Lock Management"
+        },
+        {
+          "nodeId": "gweDHAB58gKswdwfpnRQT",
+          "label": "Physical Storage and File Layout"
+        },
+        {
+          "nodeId": "lDuBFA7cEMnd7Cl9MDgnf",
+          "label": "System Catalog"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:QfyHG6cVuKQ3iqdEtoFSU",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "Ur23UVs_nXaltytF1WJD8",
+          "label": "PL/pgSQL"
+        },
+        {
+          "nodeId": "LiF2Yh818D-zEF58v5Fgr",
+          "label": "Procedures and Functions"
+        },
+        {
+          "nodeId": "ps2KK88QA1n5udn2ochIn",
+          "label": "Triggers"
+        },
+        {
+          "nodeId": "A1LGOqqaka0ILcYwybclP",
+          "label": "Recursive CTE"
+        },
+        {
+          "nodeId": "iQqEC1CnVAoM7x455jO_S",
+          "label": "Aggregate and Window functions"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:nqRjLCEL647UnNdBfNXY9",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "msm4QCAA-MRVI1psf6tt3",
+          "label": "Per-User, Per-Database Setting"
+        },
+        {
+          "nodeId": "4VrT_K9cZZ0qE1EheSQy0",
+          "label": "Storage Parameters"
+        },
+        {
+          "nodeId": "VekAMpcrugHGuvSbyPZVv",
+          "label": "OLTP"
+        },
+        {
+          "nodeId": "WI3-7hFAnJw5f7GIn-5kp",
+          "label": "OLAP"
+        },
+        {
+          "nodeId": "rHDlm78yroRrrAAcabEAl",
+          "label": "HTAP"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:LyLFP5Kqx60f2ABDGTA-c",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "n2OjwxzIHnATraRWi5Ddl",
+          "label": "EXPLAIN"
+        },
+        {
+          "nodeId": "rVlncpLO20WK6mjyqLerL",
+          "label": "Depesz"
+        },
+        {
+          "nodeId": "pvj33qDiG3sSjtiW6sUra",
+          "label": "top"
+        },
+        {
+          "nodeId": "0hRQtRsteGDnKO5XgLF1R",
+          "label": "sysstat"
+        },
+        {
+          "nodeId": "n8oHT7YwhHhFdU5_7DZ_F",
+          "label": "iotop"
+        },
+        {
+          "nodeId": "_NL5pGGTLNxCFx4axOqfu",
+          "label": "pg_stat_activity"
+        },
+        {
+          "nodeId": "wH447bS-csqmGbk-jaGqp",
+          "label": "perf-tools"
+        },
+        {
+          "nodeId": "9RyMU36KEP__-RzTTz_eo",
+          "label": "PEV2"
+        },
+        {
+          "nodeId": "xEu5n6U9-WKVxjlT5YUgx",
+          "label": "Tensor"
+        },
+        {
+          "nodeId": "wLMGOUaULW7ZALRr-shTz",
+          "label": "pg_stat_statements"
+        },
+        {
+          "nodeId": "yIdUhfE2ZTQhDAdQsXrnH",
+          "label": "gdb"
+        },
+        {
+          "nodeId": "C_cUfEufYeUlAdVfdUvsK",
+          "label": "strace"
+        },
+        {
+          "nodeId": "UZ1vRFRjiQAVu6BygqwEL",
+          "label": "explain.dalibo.com"
+        },
+        {
+          "nodeId": "-CIezYPHTcXJF_p4T55-c",
+          "label": "Core Dumps"
+        },
+        {
+          "nodeId": "ISuU1lWH_zVDlCHnWXbf9",
+          "label": "pgCluu"
+        },
+        {
+          "nodeId": "QarPFu_wU6-F9P5YHo6CO",
+          "label": "ebpf"
+        },
+        {
+          "nodeId": "V2iW8tJQXwsRknnZXoHGd",
+          "label": "pgBadger"
+        },
+        {
+          "nodeId": "QWi84EjdHw5ChYsuwUhPC",
+          "label": "USE"
+        },
+        {
+          "nodeId": "qBkpTmfbyCv2L-OJW9pPI",
+          "label": "RED"
+        },
+        {
+          "nodeId": "HJCRntic0aGVvdmCN45aP",
+          "label": "awk"
+        },
+        {
+          "nodeId": "cFtrSgboZRJ3Q63eaqEBf",
+          "label": "grep"
+        },
+        {
+          "nodeId": "hVL6OtsXrE8BvjKpRjB-9",
+          "label": "sed"
+        },
+        {
+          "nodeId": "TytU0IpWgwhr4w4W4H3Vx",
+          "label": "pgcenter"
+        },
+        {
+          "nodeId": "oX-bdPPjaHJnQKgUhDSF2",
+          "label": "Golden Signals"
+        }
+      ]
+    },
+    {
+      "nodeId": "G9DB1ZQjgXaHxJ4Lm6xGx",
+      "label": "SQL Query Patterns / Anti-patterns",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "FDuiJyU1yWUQ9IsfS3CeZ",
+      "label": "Schema Design Patterns / Anti-patterns",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "Dhhyg23dBMyAKCFwZmu71",
+      "label": "Indexes and their Usecases",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "jihXOJq9zYlDOpvJvpFO-",
+          "label": "B-Tree"
+        },
+        {
+          "nodeId": "43oFhZuXjJd4QHbUoLtft",
+          "label": "BRIN"
+        },
+        {
+          "nodeId": "2chGkn5Y_WTjYllpgL0LJ",
+          "label": "GiST"
+        },
+        {
+          "nodeId": "2yWYyXt1uLOdQg4YsgdVq",
+          "label": "Hash"
+        },
+        {
+          "nodeId": "LT5qRETR3pAI8Tk6k5idg",
+          "label": "SP-GiST"
+        },
+        {
+          "nodeId": "FJhJyDWOj9w_Rd_uKcouT",
+          "label": "GIN"
+        }
+      ]
+    },
+    {
+      "nodeId": "NhodBD8myUTljNdn3y40I",
+      "label": "Get Involved in Development",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "8H7hJhGKxr1nrjkHv9Xao",
+          "label": "Mailing Lists"
+        },
+        {
+          "nodeId": "Jy0G0ZnHPOM8hba_PbwuA",
+          "label": "Reviewing Patches"
+        },
+        {
+          "nodeId": "eQzMU_KyQmHJQ6gzyk0-1",
+          "label": "Writing Patches"
+        }
+      ]
+    }
+  ]
+}

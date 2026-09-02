@@ -1,0 +1,459 @@
+{
+  "slug": "java",
+  "title": "Java Developer",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "2TGq1y2QthnxxN-FfToSe",
+      "label": "Learn the Basics",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "aEaBobzFWv0mJHGAbgxKY",
+          "label": "Strings and Methods"
+        },
+        {
+          "nodeId": "OlbQNB6YXZjO1J7D0lZU1",
+          "label": "Basic Syntax"
+        },
+        {
+          "nodeId": "ziD_XwzJSFQP_3iLjq9pA",
+          "label": "Math Operations"
+        },
+        {
+          "nodeId": "QgWalJLIb6Fw0HhN1wb02",
+          "label": "Lifecycle of a Program"
+        },
+        {
+          "nodeId": "5khApwg1FZ-0qorsLyH-F",
+          "label": "Arrays "
+        },
+        {
+          "nodeId": "5g9mmi01WeZ4aDqNzwx_V",
+          "label": "Data Types"
+        },
+        {
+          "nodeId": "sG_3ZQIE1-FQXQkk-OduQ",
+          "label": "Conditionals"
+        },
+        {
+          "nodeId": "VBNcAO0STaZJ1iV9A7utv",
+          "label": "Variables and Scopes"
+        },
+        {
+          "nodeId": "JHUhVEjWFXTn6-wKcKevg",
+          "label": "Loops"
+        },
+        {
+          "nodeId": "yNDbk6r5wFqBi25xmIRF_",
+          "label": "Type Casting"
+        },
+        {
+          "nodeId": "DZ4BX4NYeCQbjGSj56lng",
+          "label": "Basics of OOP"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:o5yOEJFOR-wScK0GWPuQq",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "LenPrQwxFsE1UVbXO_dE7",
+          "label": "Classes and Objects"
+        },
+        {
+          "nodeId": "xTwJYcA6ldgaw3yGmbDEd",
+          "label": "Attributes and Methods"
+        },
+        {
+          "nodeId": "KYndNwfQcwRCf3zCXOwd_",
+          "label": "Access Specifiers"
+        },
+        {
+          "nodeId": "ZcNxO6qIXIg7RaWYnZj2e",
+          "label": "Static Keyword"
+        },
+        {
+          "nodeId": "Ajuc_rHObqMQBXLqRIuxh",
+          "label": "Final Keyword"
+        },
+        {
+          "nodeId": "zDBW20W2XMCtNTG3emJ_A",
+          "label": "Nested Classes"
+        },
+        {
+          "nodeId": "60POZOjwHSdKYL6rfkyEy",
+          "label": "Packages"
+        }
+      ]
+    },
+    {
+      "nodeId": "g9P3548F38tYGjevBc42w",
+      "label": "Exception Handling",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:FyTlaUqrK5h3e5mWwkvVg",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "qdA6bK9ZkP8p0_NH_wMuj",
+          "label": "Abstraction"
+        },
+        {
+          "nodeId": "3qowgj1pas1X7oRric9eU",
+          "label": "Object Lifecycle"
+        },
+        {
+          "nodeId": "PXpPEmCEBUKRjwP3B5LzJ",
+          "label": "Inheritance"
+        },
+        {
+          "nodeId": "Ax2ouIZgN1DpPzKDy4fwp",
+          "label": "Method Chaining"
+        },
+        {
+          "nodeId": "iH9wSsOK4a77pS7U0Yu5z",
+          "label": "Encapsulation"
+        },
+        {
+          "nodeId": "6wTRN2PYC6zM_Txkekx53",
+          "label": "Interfaces"
+        },
+        {
+          "nodeId": "ey1f8IsdAlDv1O3E_tNog",
+          "label": "Enums"
+        },
+        {
+          "nodeId": "VqLV7kolfRFnvOuJAvzlg",
+          "label": "Record"
+        },
+        {
+          "nodeId": "y-i56f1P_mMdvyBr7J4XE",
+          "label": "Method Overloading / Overriding"
+        },
+        {
+          "nodeId": "dg_UpaO8TzIN7w_QZ1n-6",
+          "label": "Initializer Block"
+        },
+        {
+          "nodeId": "Kjdj862xnz8fqDYE3HKhC",
+          "label": "Static vs Dynamic Binding"
+        },
+        {
+          "nodeId": "3r0Er9XZHovIZz3gNyj4A",
+          "label": "Pass by Value / Pass by Reference"
+        }
+      ]
+    },
+    {
+      "nodeId": "00_q6I95eO-PUUrKpPFY8",
+      "label": "Lambda Expressions",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "c--y6GcKj9am0CBdu_Hnt",
+      "label": "Annotations",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "kdxy8Zssnc5lJjdmjUyMc",
+      "label": "Modules",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "l9fxK8K9fcUqR7hs5TkWU",
+      "label": "Optionals",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:ekkBrbM8BtpMu3TpHadYb",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "a-EQiBUlSgdZba1mW36op",
+          "label": "Array vs ArrayList"
+        },
+        {
+          "nodeId": "XjkNd5WJ9yxW48dwHQNkZ",
+          "label": "Set"
+        },
+        {
+          "nodeId": "eKtdDtiJygKQ4PuEylFQY",
+          "label": "Map"
+        },
+        {
+          "nodeId": "ThoWhXb4vUvNfE70_wMfa",
+          "label": "Queue"
+        },
+        {
+          "nodeId": "DWO2-EPIUeKK5aQGiTuKc",
+          "label": "Dequeue"
+        },
+        {
+          "nodeId": "DzfE_9WLAp-BrG3C1-MwU",
+          "label": "Stack"
+        },
+        {
+          "nodeId": "-17LFO72I8RKjJRMXct9k",
+          "label": "Iterator"
+        },
+        {
+          "nodeId": "eL4pc6SaNiKP48PzN7mNe",
+          "label": "Generic Collections"
+        }
+      ]
+    },
+    {
+      "nodeId": "_wV2VQq6MIY1rVHjK8pfu",
+      "label": "Cryptography",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "U4Wx3MH3LgJLa0n9Ne0Br",
+          "label": "volatile keyword"
+        }
+      ]
+    },
+    {
+      "nodeId": "zItXmuluDtl6HkTYQ7qMh",
+      "label": "Dependency Injection",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "9h20XVRli7TDq0QIJwX2U",
+      "label": "Date and Time",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "wEc7pSVU5G2c6Zqmtb_1k",
+          "label": "Java Memory Model"
+        }
+      ]
+    },
+    {
+      "nodeId": "JeMG0gU8IVRBZgczjXmPi",
+      "label": "Networking",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "C7rB3jkshHFN7TkHRJPlz",
+      "label": "Regular Expressions",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "M0ybgK1JCycXhZ1dEpCFo",
+      "label": "I/O Operations",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "shqS9-hg__mkOtnnl_I4l",
+      "label": "Concurrency",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "vJSq1GJLIMQ6IIB8CMK8g",
+          "label": "Virtual Threads"
+        },
+        {
+          "nodeId": "u_YysD7Bpnq-xkFX5yJGz",
+          "label": "Threads"
+        },
+        {
+          "nodeId": "VdL_fAHxmRbuF0J627beA",
+          "label": "Maven"
+        }
+      ]
+    },
+    {
+      "nodeId": "NowpzyPVFcX082j5YS5i8",
+      "label": "File Operations",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "9UbRG752qxJdUwmqEAjN3",
+          "label": "JDBC"
+        },
+        {
+          "nodeId": "X2rJ3BY1ytFKsbJqJETFu",
+          "label": "EBean"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:ofYL6wlERXJaXuKL075zY",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "dz6bCmB4dgA7VVZ448cN6",
+          "label": "High Order Functions"
+        },
+        {
+          "nodeId": "SityDdjhhNZ9CO3Tg0VI9",
+          "label": "Functional Interfaces"
+        },
+        {
+          "nodeId": "1Mk_zXxCCcUoX-gFxtlnf",
+          "label": "Functional Composition"
+        },
+        {
+          "nodeId": "WHxAwfdKHQSOg0TLX05EG",
+          "label": "Stream API"
+        }
+      ]
+    },
+    {
+      "nodeId": "fV-gW51jhna2__Ln2HIIh",
+      "label": "Database Access",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "UEiDzzodyEu5O1xFAFDly",
+          "label": "Hibernate"
+        },
+        {
+          "nodeId": "WzWOxBUKKg6LeuBmVesc2",
+          "label": "Spring Data JPA"
+        }
+      ]
+    },
+    {
+      "nodeId": "_W84u4UXMSY0zvy6RJvFi",
+      "label": "Web Frameworks",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "xoryfi4SpJlkz-PV05ql6",
+          "label": "Spring (Spring Boot)"
+        },
+        {
+          "nodeId": "w-kcKPh8U0P_jtT90_1Xy",
+          "label": "Quarkus"
+        },
+        {
+          "nodeId": "OrkJa48HIDmrLOgCBpimA",
+          "label": "Javalin"
+        },
+        {
+          "nodeId": "kN-mXxqUPNJNsJGQ0U_7J",
+          "label": "Play Framework"
+        }
+      ]
+    },
+    {
+      "nodeId": "81N1cZLue_Ii0uD5CV6kZ",
+      "label": "Build Tools",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "rmDIm5dqtdlNfPhvpqS7-",
+          "label": "Gradle"
+        },
+        {
+          "nodeId": "6FMj9tMAQPii_1kLtHJLk",
+          "label": "Bazel"
+        }
+      ]
+    },
+    {
+      "nodeId": "vRZAtylN3zfHIv3SidYkA",
+      "label": "Documentation",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "d3Tsc7KPhtjS0eC4Zbq8B",
+          "label": "Javadoc"
+        }
+      ]
+    },
+    {
+      "nodeId": "d9F5Wt8onY125DLuzNULg",
+      "label": "Logging Frameworks",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "okC1uMdyfIJAhX_R9Npsw",
+          "label": "Logback"
+        },
+        {
+          "nodeId": "sFaNj_1MviaTc6UIfjXl6",
+          "label": "Log4j2"
+        },
+        {
+          "nodeId": "Fn7aAaGbwYsAp4xLuuFud",
+          "label": "TinyLog"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:phhoZcCGuVm_zYFfcArb8",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "hY1-sEpTmpaj1PregdkFf",
+          "label": "JUnit"
+        },
+        {
+          "nodeId": "XU2C8bF9ICej8LS7ZGTTv",
+          "label": "TestNG"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:8Ej86dM3j55V5r29WHTef",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "gB4XUR9nCdF1-dOEwGcHi",
+          "label": "REST Assured"
+        },
+        {
+          "nodeId": "U2BqOY49HaII6mKQB3SVt",
+          "label": "JMeter"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:VheIOU0XKrEw_5M-Wv4yv",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "UFDy19TNkykRsKv4vRsVJ",
+          "label": "Cucumber-JVM"
+        }
+      ]
+    },
+    {
+      "nodeId": "LgpsnXV0CTvTspjnsd0Rd",
+      "label": "Testing",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "LGlZHKqyQ-aWtHnhklhgn",
+          "label": "SLF4J"
+        },
+        {
+          "nodeId": "mLM1HJf6_pxrUDOmb45ew",
+          "label": "Mocking > Mockito"
+        }
+      ]
+    }
+  ]
+}

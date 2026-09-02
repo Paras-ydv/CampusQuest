@@ -1,0 +1,407 @@
+{
+  "slug": "react",
+  "title": "React Developer",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "tU4Umtnfu01t9gLlnlK6b",
+      "label": "CLI Tools",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "y9ToYDix-koRbR6FLydFw",
+          "label": "Vite"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:l4RmWQLIK1NOOm6QTQMBa",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "8mw4TxlLN4ZKAlLl-_NVV",
+          "label": "Functional Components"
+        },
+        {
+          "nodeId": "WREBxWSNQDD_6fzpHL6CE",
+          "label": "JSX"
+        },
+        {
+          "nodeId": "RFuy3Eho3mnW1GpP08BVw",
+          "label": "Props vs State"
+        },
+        {
+          "nodeId": "aE6XBgH23135_9QmD4ff2",
+          "label": "Conditional Rendering"
+        },
+        {
+          "nodeId": "4T59gdcwdXqj9kCuK7cfp",
+          "label": "Composition"
+        }
+      ]
+    },
+    {
+      "nodeId": "79K4xgljcoSHkCYI1D55O",
+      "label": "Components",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "8OBlgDRUg-CTgDXY-QHyO",
+          "label": "Component Lifecycle"
+        },
+        {
+          "nodeId": "HeWVCPHqVnnbOn6zIim4K",
+          "label": "Lists and Keys"
+        },
+        {
+          "nodeId": "vdumdIglnouf1KyGIGZnc",
+          "label": "Render Props"
+        }
+      ]
+    },
+    {
+      "nodeId": "0uiGsC5SWavNdlFqizkKe",
+      "label": "Rendering",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "_zNAOhFWMcWqP4oxNPCXF",
+          "label": "Refs"
+        },
+        {
+          "nodeId": "Nex2HcTOYIbfqUzXyxSMY",
+          "label": "Events"
+        },
+        {
+          "nodeId": "zOENl96GUZRw2PP2KxIck",
+          "label": "High Order Components"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:FkTj8n1pIAGa1nf93MUKC",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "FK59Zsm5ENA9g11XWCan_",
+          "label": "useState"
+        },
+        {
+          "nodeId": "8OnzX03hkZ9K9i__tjmFX",
+          "label": "useEffect"
+        },
+        {
+          "nodeId": "dgoDNDtW2_q9R9yhkXrcz",
+          "label": "useCallback"
+        },
+        {
+          "nodeId": "t_laNdMmdLApYszqXRdWg",
+          "label": "useRef"
+        },
+        {
+          "nodeId": "v48Mv0wQqjXbvy8x6gDjQ",
+          "label": "useReducer"
+        },
+        {
+          "nodeId": "w3bNp7OkehI1gjx8NzlC8",
+          "label": "useMemo"
+        },
+        {
+          "nodeId": "D5_O-uElftYGQr_bTU_se",
+          "label": "useContext"
+        }
+      ]
+    },
+    {
+      "nodeId": "LbLQhonBqzxHU6B-L--Vq",
+      "label": "Hooks",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "HX75SExuzR5AP7TQ94qid",
+          "label": "Creating Custom Hooks"
+        },
+        {
+          "nodeId": "mkyU0ug8MXxV4biHuOity",
+          "label": "Hooks Best Practices"
+        }
+      ]
+    },
+    {
+      "nodeId": "NStw6bi_pPB49K41BFSgo",
+      "label": "Routers",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "jvp43wFkKlGQX2y7IxkbM",
+          "label": "React Router"
+        },
+        {
+          "nodeId": "zWL8VLx_g0SWubavJDs6i",
+          "label": "Tanstack Router"
+        }
+      ]
+    },
+    {
+      "nodeId": "I7_mX4h-Yywp1YyTJRKXI",
+      "label": "State Management",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "nl5imPsdY2oEWlg-9TTuk",
+          "label": "Zustand"
+        },
+        {
+          "nodeId": "yI6XiNW04EL78UL4lkVgd",
+          "label": "Jotai"
+        },
+        {
+          "nodeId": "10uL0r388lKh8pWYWqRZD",
+          "label": "Context"
+        }
+      ]
+    },
+    {
+      "nodeId": "DfrCkbD-HEHwLymv10zb5",
+      "label": "Writing CSS",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "akVNUPOqaTXaSHoQFlkP_",
+          "label": "Panda CSS"
+        },
+        {
+          "nodeId": "1kbrCI5JS0c9wbzxXpgFU",
+          "label": "MobX"
+        },
+        {
+          "nodeId": "awoEhwPKjUcR84XGL6Som",
+          "label": "CSS Modules"
+        },
+        {
+          "nodeId": "KO3viVIJJREtxXxsocN7j",
+          "label": "Tailwind CSS"
+        }
+      ]
+    },
+    {
+      "nodeId": "thfnymb_UIiKxakKfiua5",
+      "label": "Component / Libraries",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "gy7eBxPOlwG8BvxHVLDQ9",
+          "label": "Material UI"
+        },
+        {
+          "nodeId": "uqphqAnlcJOLnwHZs5jWu",
+          "label": "Chakra UI"
+        },
+        {
+          "nodeId": "njKsYNkwTXPQ1NjlGKXab",
+          "label": "Shadcn UI"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:-AKmITUmSGIflJG-eGkm5",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "8nMbfGxe3STMbrAVcqHHh",
+          "label": "Apollo"
+        },
+        {
+          "nodeId": "cLfM342sZfsCwmPPxQpEI",
+          "label": "Relay"
+        },
+        {
+          "nodeId": "9M5jRu0pj8KMvg9f-2oqZ",
+          "label": "urql"
+        },
+        {
+          "nodeId": "5EPmbiNdP_vhIXclv_GjV",
+          "label": "Tanstack Query"
+        },
+        {
+          "nodeId": "ElqWQClryfSYdL7P_mgYK",
+          "label": "Axios"
+        },
+        {
+          "nodeId": "-ea1KsXEyz-4voHXklG_J",
+          "label": "swr"
+        },
+        {
+          "nodeId": "h49-tjEkKcq7d7ikRHIOx",
+          "label": "rtk-query"
+        }
+      ]
+    },
+    {
+      "nodeId": "MnDgQq9Vcxsu3wDqv5uh2",
+      "label": "Headless Components",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "XL9XOV2h0BAuA5cFcM5L_",
+          "label": "Radix UI"
+        },
+        {
+          "nodeId": "RvDfKoa_HIW3QDBfkPv3m",
+          "label": "React Aria"
+        },
+        {
+          "nodeId": "kiCTo0U6VgNON8rv_Ktlj",
+          "label": "Ark UI"
+        }
+      ]
+    },
+    {
+      "nodeId": "b4AP2OggxFAwsQtUwiUJJ",
+      "label": "API Calls",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "e_lwZ-a72-tAan2KDX6k3",
+      "label": "Testing",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "g39P0c6M2sHNoUPs0m8tr",
+          "label": "Playwright"
+        },
+        {
+          "nodeId": "LULjhsPNONyI5912DKzPw",
+          "label": "Vitest"
+        },
+        {
+          "nodeId": "cQllxv7qGbRtM9O5llgN6",
+          "label": "react-testing-library"
+        },
+        {
+          "nodeId": "opa61u9gYgSpoPtxp58wu",
+          "label": "Jest"
+        },
+        {
+          "nodeId": "zN7Ps1puD-YpHbKi1pHH8",
+          "label": "Cypress"
+        }
+      ]
+    },
+    {
+      "nodeId": "KHcC5pFN3qLnsbPPKpYd2",
+      "label": "Forms",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "_5ht0PAdVOJWPzTRS1mVg",
+          "label": "React Hook Form"
+        },
+        {
+          "nodeId": "_-2WpGnJ1CMj_acD1dr_i",
+          "label": "Formish"
+        }
+      ]
+    },
+    {
+      "nodeId": "W-atg_Msa9uPLr6RXAKSb",
+      "label": "Frameworks",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "-WjJBYCmRRj08n_9HxohY",
+          "label": "react-router"
+        },
+        {
+          "nodeId": "gr1CaLvL7tFOkIRywSsID",
+          "label": "Formik"
+        },
+        {
+          "nodeId": "_HoZkE7FH-v3wI_722ZTF",
+          "label": "Astro"
+        },
+        {
+          "nodeId": "HdWq9ue0JdwmwqSIN2OD_",
+          "label": "Next.js"
+        }
+      ]
+    },
+    {
+      "nodeId": "UNlvRp6k3_RDoTAAIEfJ1",
+      "label": "Types & Validation",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "ElgRwv5LSVg5FXGx-2K2s",
+          "label": "TypeScript"
+        },
+        {
+          "nodeId": "K3RZ8ESxWCpLKHePF87Hy",
+          "label": "Zod"
+        },
+        {
+          "nodeId": "EOQGj1ALgdp6u9thVHdmc",
+          "label": "Valibot"
+        }
+      ]
+    },
+    {
+      "nodeId": "bRpeoo9zXrnZ2IHSI7JX4",
+      "label": "Animation",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "H6-XGDjs4f-qbv13v5av0",
+          "label": "Framer Motion"
+        },
+        {
+          "nodeId": "WzoB5B6SdOI4Mzv6U51nY",
+          "label": "react spring"
+        },
+        {
+          "nodeId": "y2dI1DVLWKAkv6VRpgaQa",
+          "label": "GSock"
+        }
+      ]
+    },
+    {
+      "nodeId": "gMHMjsh0i8paLZUH5mDX3",
+      "label": "Error Boundaries",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "SUeXDkmOLipdRP4fSrZOH",
+      "label": "Server APIs",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "_F3WMxhzaK9F8_-zHDDMF",
+      "label": "Suspense",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "DcDggX4OmmwvJGHwuV86t",
+      "label": "Portals",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "txARr3lgTvy-vJCj5zAb1",
+      "label": "Mobile Applications",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "NvXAq1vN2wpncdW-yTL4c",
+          "label": "React Native"
+        }
+      ]
+    }
+  ]
+}

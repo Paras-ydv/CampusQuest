@@ -1,0 +1,453 @@
+{
+  "slug": "api-design",
+  "title": "API Design",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "section:IzMY2P54llvbVixWxAl7H",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "2HdKzAIQi15pr3YHHrbPp",
+          "label": "HTTP"
+        },
+        {
+          "nodeId": "ACALE93mL4gnX5ThRIdRp",
+          "label": "HTTP Versions"
+        },
+        {
+          "nodeId": "rADHM-6NAxEjzmgiHefDX",
+          "label": "HTTP Methods"
+        },
+        {
+          "nodeId": "7szYyzLifKsepNU0c2KnN",
+          "label": "HTTP Status Codes"
+        },
+        {
+          "nodeId": "rE-0yibRH6B2UBKp351cf",
+          "label": "HTTP Headers"
+        },
+        {
+          "nodeId": "UFuX8wcxZQ7dvaQF_2Yp8",
+          "label": "Cookies"
+        },
+        {
+          "nodeId": "GRlsBogOlOwuqhMMPyHN3",
+          "label": "CORS"
+        },
+        {
+          "nodeId": "qAolZHf_jp8hCdtqHZwC8",
+          "label": "HTTP Caching"
+        }
+      ]
+    },
+    {
+      "nodeId": "duKkpzPjUU_-8kyJGHqRX",
+      "label": "Learn the Basics",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "r8M3quACGO2piu0u_R4hO",
+          "label": "What are APIs"
+        },
+        {
+          "nodeId": "P-rGIk50Bg7nFmWieAW07",
+          "label": "URL, Query & Path Parameters"
+        },
+        {
+          "nodeId": "TX_hg7EobNJhmWKsMCaT1",
+          "label": "Content Negotiation"
+        },
+        {
+          "nodeId": "KG3wO86F8Of27fU7QRcsn",
+          "label": "Understand TCP / IP"
+        },
+        {
+          "nodeId": "v4nJYD9yiIEUviLPhVTCD",
+          "label": "Basics of DNS"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:U__KQcoak75M7CowfB_oO",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "9WI_z34jIFXwoUQuChyRU",
+          "label": "REST Principles"
+        },
+        {
+          "nodeId": "b3qRTLwCC_9uDoPGrd9Bu",
+          "label": "URI Design"
+        },
+        {
+          "nodeId": "8IDks2DNFZ5nER7wK2Bu4",
+          "label": "Resource modeling"
+        },
+        {
+          "nodeId": "0yY_lWzWVOC_WmPoyHw8W",
+          "label": "Naming Conventions"
+        },
+        {
+          "nodeId": "itILK2SXvLvAjk1Kul7EK",
+          "label": "Versioning Strategies"
+        },
+        {
+          "nodeId": "LByD1vhzunhY1uY1YGZHP",
+          "label": "HATEOAS"
+        },
+        {
+          "nodeId": "zXxEiM5HeOn7W-Vue0tQf",
+          "label": "CRUD Operations"
+        },
+        {
+          "nodeId": "dL3YellfAszBeJnm8KEYE",
+          "label": "Filtering, Sorting & Search "
+        },
+        {
+          "nodeId": "pgJDzP3pJjhjr5wTRtPJO",
+          "label": "Pagination"
+        },
+        {
+          "nodeId": "20KEgZH6cu_UokqWpV-9I",
+          "label": "Idempotency"
+        },
+        {
+          "nodeId": "O7wjldZ3yTA2s_F-UnJw_",
+          "label": "Rate Limiting"
+        },
+        {
+          "nodeId": "8tELdagrOaGCf3nMVs8t3",
+          "label": "Error Handling"
+        },
+        {
+          "nodeId": "5CxU3inGcSHp-TDg3BQiY",
+          "label": "RFC 7807 -  Problem Details"
+        }
+      ]
+    },
+    {
+      "nodeId": "o8i093VQv-T5Qf1yGqU0R",
+      "label": "Different API Styles",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "BvwdASMvuNQ9DNgzdSZ4o",
+          "label": "RESTful APIs"
+        },
+        {
+          "nodeId": "TVR-SkErlOHbDKLBGfxep",
+          "label": "Simple JSON APIs"
+        },
+        {
+          "nodeId": "Wwd-0PjrtViMFWxRGaQey",
+          "label": "SOAP APIs"
+        },
+        {
+          "nodeId": "1DrqtOwxCuFtWQXQ6ZALp",
+          "label": "gRPC APIs"
+        },
+        {
+          "nodeId": "MKVcPM2EzAr2_Ieyp9Fu3",
+          "label": "GraphQL APIs"
+        }
+      ]
+    },
+    {
+      "nodeId": "awdoiCHz7Yc3kYac_iy-a",
+      "label": "Building JSON / RESTful APIs",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "JE12g5cqnwmgeTle14Vxw",
+      "label": "Real-time APIs",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "UQ8N7gcVpRLAYXgUNHBt5",
+          "label": "Web Sockets"
+        },
+        {
+          "nodeId": "iNsXTtcIHsI_i-mCfjGYn",
+          "label": "Server Sent Events"
+        },
+        {
+          "nodeId": "zeYJPEduAmLQHqq4kNBdx",
+          "label": "Streaming Responses"
+        }
+      ]
+    },
+    {
+      "nodeId": "cQnQ9v3mH27MGNwetz3JW",
+      "label": "Authentication Methods",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "0FzHERK5AeYL5wv1FBJbH",
+          "label": "Basic Auth"
+        },
+        {
+          "nodeId": "tWg68AHLIr1gIZA1za3jp",
+          "label": "JWT "
+        },
+        {
+          "nodeId": "QTH7sy9uQZWl6ieBz7erY",
+          "label": "Token Based Auth"
+        },
+        {
+          "nodeId": "TLuNtQ6HKYQXmglyVk8-t",
+          "label": "OAuth 2.0"
+        },
+        {
+          "nodeId": "jWekRGRa1131w92oS1HeW",
+          "label": "OIDC"
+        },
+        {
+          "nodeId": "eQWoy4CpYP3TJL2bbhPB_",
+          "label": "Session Based Auth"
+        }
+      ]
+    },
+    {
+      "nodeId": "nHbn8_sMY7J8o6ckbD-ER",
+      "label": "Authorization Methods",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "dZTe_kxIUQsc9N3w920aR",
+          "label": "ABAC"
+        },
+        {
+          "nodeId": "_BXgYUlaYfpYrryXTw5n2",
+          "label": "DAC"
+        },
+        {
+          "nodeId": "nJWtUyn9bljh3T-q_adJK",
+          "label": "PBAC"
+        },
+        {
+          "nodeId": "wFsbmMi5Ey9UyDADdbdPW",
+          "label": "RBAC"
+        },
+        {
+          "nodeId": "tl1wXmOaj_zHL2o38VygO",
+          "label": "MAC"
+        },
+        {
+          "nodeId": "CCcY8UsGdd2pdBYHt9L4o",
+          "label": "ReBAC"
+        }
+      ]
+    },
+    {
+      "nodeId": "tzUJwXu_scwQHnPPT0oY-",
+      "label": "API Keys & Management",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "0fSfFtskcJ0HNUZPf998l",
+          "label": "Key Generation & Rotation"
+        },
+        {
+          "nodeId": "qjawwRcMl2-IDwk8ExpPL",
+          "label": "Scopes & Permissions"
+        }
+      ]
+    },
+    {
+      "nodeId": "5R9yKfN1vItuv__HgCwP7",
+      "label": "API Documentation Tools",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "5RY7AlfRQydjxWK65Z4cv",
+          "label": "Swagger / Open API"
+        },
+        {
+          "nodeId": "LxWHkhlikUaMT2G8YmVDQ",
+          "label": "Readme.com"
+        },
+        {
+          "nodeId": "OpS2NX1lPTOtfjV1wKtC4",
+          "label": "Stoplight"
+        },
+        {
+          "nodeId": "KQAus72RGqx5f-3-YeJby",
+          "label": "Postman"
+        }
+      ]
+    },
+    {
+      "nodeId": "qIJ6dUppjAjOTA8eQbp0n",
+      "label": "API Security",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "q1yaf-RbHIQsOqfzjn4k4",
+          "label": "Best Practices"
+        },
+        {
+          "nodeId": "G70wvcOM1Isrx5ZBvS2xP",
+          "label": "Common Vulnerabilities"
+        },
+        {
+          "nodeId": "nQpczZUcn-TvrfT80dv0Q",
+          "label": "Performance Metrics"
+        }
+      ]
+    },
+    {
+      "nodeId": "d9ZXdU73jiCdeNHQv1_DH",
+      "label": "API Performance",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "PrvRCR4HCdGar0vcUbG_a",
+          "label": "Caching Strategies"
+        },
+        {
+          "nodeId": "p5wsniYnOS7cbHd92RxGk",
+          "label": "Load Balancing"
+        },
+        {
+          "nodeId": "tPVtRV818D8zAAuNbqPNa",
+          "label": "Rate Limiting / Throttling"
+        },
+        {
+          "nodeId": "--mmTKhG58_elbUqyn90G",
+          "label": "Synchronous vs Asynchronous APIs"
+        },
+        {
+          "nodeId": "-qdwBg7HvwlbLy3IKCRij",
+          "label": "Profiling and Monitoring"
+        }
+      ]
+    },
+    {
+      "nodeId": "R3aRhqCslwhegMfHtxg5z",
+      "label": "API Integration Patterns",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "DQcAV59vr1-ZRnMfbLXpu",
+          "label": "Performance Testing"
+        },
+        {
+          "nodeId": "oMfOBkVsgiLvFLicOUdx6",
+          "label": "Event Driven Architecture"
+        },
+        {
+          "nodeId": "XD1vDtrRQFbLyKJaD1AlA",
+          "label": "Error Handling / Retries"
+        },
+        {
+          "nodeId": "MJeUD4fOHaJu1oxk4uQ-x",
+          "label": "API Gateways"
+        },
+        {
+          "nodeId": "PPeBbooE121zrgNwpVTiA",
+          "label": "Microservices Architecture"
+        }
+      ]
+    },
+    {
+      "nodeId": "Wpk4TvxcZOJgAoXjrOsZF",
+      "label": "API Testing",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "JvmW78cDm84GNhq8VEYZp",
+          "label": "Unit Testing"
+        },
+        {
+          "nodeId": "75NVxS0iwoQXxOHCkWQxH",
+          "label": "Webhooks vs Polling"
+        },
+        {
+          "nodeId": "qZELS5vw2feS7QfyD7spX",
+          "label": "Integration Testing"
+        },
+        {
+          "nodeId": "v8iYctF_k40ES0_hHXS9N",
+          "label": "BFF Pattern "
+        },
+        {
+          "nodeId": "6lm3wy9WTAERTqXCn6pFt",
+          "label": "Functional Testing"
+        },
+        {
+          "nodeId": "X68HXAAV-nKo-V4Fu1o72",
+          "label": "Batch Processing"
+        },
+        {
+          "nodeId": "7JNEx_cbqnAx3esvwZMOd",
+          "label": "Load Testing"
+        }
+      ]
+    },
+    {
+      "nodeId": "oIZimEuBHCBGsK6b-s57f",
+      "label": "Observability",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "IkPZel5zxXWIx90Qx7fZI",
+          "label": "Messaging Queues"
+        },
+        {
+          "nodeId": "bEVCT5QGY3uw0kIfAELKh",
+          "label": "Mocking APIs"
+        },
+        {
+          "nodeId": "NqeBglhzukVMMEF9p2CXc",
+          "label": "Contract Testing"
+        },
+        {
+          "nodeId": "boYX1QcJullypfX4sevdy",
+          "label": "Kafka"
+        },
+        {
+          "nodeId": "H22jAI2W5QLL-b1rq-c56",
+          "label": "Rabbit MQ"
+        }
+      ]
+    },
+    {
+      "nodeId": "At5exN7ZAx2IzY3cTCzHm",
+      "label": "API Lifecycle Management",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "vZxdswGLHCPi5GSuXEcHJ",
+          "label": "GDPR"
+        },
+        {
+          "nodeId": "a-_iIE7UdoXzD00fD9MxN",
+          "label": "CCPA"
+        }
+      ]
+    },
+    {
+      "nodeId": "yvdfoly5WHHTq2Puss355",
+      "label": "Standards and Compliance",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "mXCKtLUvwVJkHrpHzOecq",
+          "label": "PII"
+        },
+        {
+          "nodeId": "J0enF8UTVzY3H4n3pbPIF",
+          "label": "PCI DSS"
+        },
+        {
+          "nodeId": "W4WwTmgZGnWmiYsB0ezml",
+          "label": "HIPAA"
+        }
+      ]
+    }
+  ]
+}

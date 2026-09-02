@@ -3,6 +3,7 @@
 import type { ResearchMatch } from "@campusquest/shared";
 import { AnimatePresence, motion } from "motion/react";
 import { useMemo, useState } from "react";
+import { Pager, usePaged } from "@/components/ui/pager";
 import { clsx } from "clsx";
 import { ResearchCard } from "./research-card";
 import { Label } from "@/components/ui/primitives";
@@ -63,6 +64,8 @@ export function ResearchView({
       active ? "border-ink bg-ink text-paper" : "border-line-soft text-muted hover:border-ink hover:text-ink",
     );
 
+
+  const paged = usePaged(visible);
   return (
     <>
       <section className="flex flex-wrap items-center gap-3 border-b-2 border-ink px-5 py-5">
@@ -115,7 +118,7 @@ export function ResearchView({
         ) : (
           <motion.div layout className="grid gap-5 lg:grid-cols-2">
             <AnimatePresence mode="popLayout">
-              {visible.map((match) => (
+              {paged.items.map((match) => (
                 <motion.div
                   key={match.project.id}
                   layout
@@ -131,6 +134,8 @@ export function ResearchView({
             </AnimatePresence>
           </motion.div>
         )}
+
+        <Pager paged={paged} label="projects" />
       </section>
     </>
   );

@@ -1,0 +1,524 @@
+{
+  "slug": "mongodb",
+  "title": "MongoDB",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "z50iixpcCMe9sTh-gwTI3",
+      "label": "MongoDB Basics",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "F4W9XBSbkpzWIrAhRBSRS",
+          "label": "BSON vs JSON"
+        },
+        {
+          "nodeId": "cMfsRtvzvDZZJ0TqeUOxm",
+          "label": "SQL vs NoSQL"
+        },
+        {
+          "nodeId": "6MqhN-PTf1PRzYCTxC8pn",
+          "label": "Embedded Objects & Arrays"
+        },
+        {
+          "nodeId": "tJljSlb5S_tZLZhZHHd_I",
+          "label": "What is MongoDB?"
+        },
+        {
+          "nodeId": "eU4XCnrf27FO3KCda8QYw",
+          "label": "String"
+        },
+        {
+          "nodeId": "4Cf_wcoByPqpOOpdbAJuq",
+          "label": "Double"
+        },
+        {
+          "nodeId": "qh8MEbXKPVt8mqlarhUj0",
+          "label": "When to use MongoDB?"
+        },
+        {
+          "nodeId": "QcdZKNcCtKls6P4YNXR2W",
+          "label": "Object"
+        },
+        {
+          "nodeId": "q6ZKxFcSAQ8bgUdGaDpuu",
+          "label": "Array"
+        },
+        {
+          "nodeId": "1UXfFROvcunyhkx0zB_1S",
+          "label": "What is MongoDB Atlas?"
+        },
+        {
+          "nodeId": "1pCWjSvjvbox5OpyWJ8Kv",
+          "label": "MongoDB Terminology"
+        }
+      ]
+    },
+    {
+      "nodeId": "_UIfRdlj6BeEESw1FW9RH",
+      "label": "Data Model & Data Types",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "kx_GOr51UMpdUAnS5u9qZ",
+          "label": "Undefined"
+        },
+        {
+          "nodeId": "UM6jH6bAijYS0Hmw87UQ-",
+          "label": "Binary Data"
+        },
+        {
+          "nodeId": "hmo7zCZ1jKgobS5R0eBSD",
+          "label": "Boolean"
+        },
+        {
+          "nodeId": "mxd3-l3-NtPw53dEvhqm4",
+          "label": "Object ID"
+        },
+        {
+          "nodeId": "g6AKQiFcY_8lsWRbkbZSC",
+          "label": "Null"
+        },
+        {
+          "nodeId": "T6cq--pute6-8aG7z6QKN",
+          "label": "Date"
+        }
+      ]
+    },
+    {
+      "nodeId": "7SGYNo3oHlgm_1cwhWfw7",
+      "label": "Collections & Methods",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "hC83jKoO_XFI83WpsdN_Z",
+          "label": "Counting Documents"
+        },
+        {
+          "nodeId": "mXdn4u5CiQRDE83qMiWZX",
+          "label": "insert() and relevant"
+        },
+        {
+          "nodeId": "z6I9XgIGQYWUd5l9DIZRX",
+          "label": "Regular Expression"
+        },
+        {
+          "nodeId": "iMpCEXRDXg0Kq9OFNywbI",
+          "label": "find() and relevant"
+        },
+        {
+          "nodeId": "XAS4jQlsHkttLDuSSsD2o",
+          "label": "Symbol"
+        },
+        {
+          "nodeId": "UXO5i6nPa5CRW1z7FAn_S",
+          "label": "JavaScript"
+        },
+        {
+          "nodeId": "liGbnGyQaG-Vqt6cuB91N",
+          "label": "update() and relevant"
+        },
+        {
+          "nodeId": "xKFZSKG2GPD-phY2HLMsx",
+          "label": "Int32/Int"
+        },
+        {
+          "nodeId": "iJFDFdIN_N4-DlJwrFIiB",
+          "label": "Int64 / Long"
+        },
+        {
+          "nodeId": "qjoLxSkfKbzG1sZUXnyw9",
+          "label": "delete() and relevant"
+        },
+        {
+          "nodeId": "OGtR5D_DUCSci1lFBT83z",
+          "label": "Decimal128"
+        },
+        {
+          "nodeId": "zbFH2NRHZEOv5eKLL_HR0",
+          "label": "Timestamp"
+        },
+        {
+          "nodeId": "yc2HqhjhIV6UU_2P-ykKB",
+          "label": "bulkWrite() and relevant"
+        },
+        {
+          "nodeId": "QF7SL237FyBQdqvKUzop6",
+          "label": "Max Key"
+        },
+        {
+          "nodeId": "4h8NdcdXmNqJxLkVJqPtX",
+          "label": "validate()"
+        }
+      ]
+    },
+    {
+      "nodeId": "B8SFhoVV8ei1Yz6vl57l_",
+      "label": "Query Operators",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:MorGIP7KB2N9KpMSD5ECK",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "Wd20OKQYYuW_bT6U-yRxT",
+          "label": "$in"
+        },
+        {
+          "nodeId": "ZKHUCskdKQf4IaMUTN_e7",
+          "label": "$nin"
+        },
+        {
+          "nodeId": "hPPoO8ysGeEGEQhdveiDO",
+          "label": "$all"
+        },
+        {
+          "nodeId": "TJHVY8DRWbDKeT_pIPJay",
+          "label": "$elemMatch"
+        },
+        {
+          "nodeId": "-VMIkV6S6H1blngxLXk7Y",
+          "label": "$size"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:I4nV_ht5zBjcmqPR2vTLz",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "gakF5Zfgk7QIgg_UwqG_Y",
+          "label": "$project"
+        },
+        {
+          "nodeId": "sxDyp3bP-YhgmDMVUFTaA",
+          "label": "$include"
+        },
+        {
+          "nodeId": "nk0V3o3oKuIb8A0gDECFJ",
+          "label": "$exclude"
+        },
+        {
+          "nodeId": "9mmxYBtvPYZlvFjQvE-2N",
+          "label": "$slice"
+        }
+      ]
+    },
+    {
+      "nodeId": "haA1ltV6VzgJVJcJNMK0W",
+      "label": "Creating Indexes",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "jQSMLd6gG158tJDzo1k_1",
+          "label": "Min Key"
+        },
+        {
+          "nodeId": "thOckmrCJ45NVNPNxm4eg",
+          "label": "Read / Write Concerns"
+        },
+        {
+          "nodeId": "K9x7yQP59cB764Q5PqAs_",
+          "label": "Cursors"
+        },
+        {
+          "nodeId": "s8El0Q22GD_rOZGlDtkgH",
+          "label": "Retryable Reads / Writes"
+        },
+        {
+          "nodeId": "SjPzR6JjdBeiqFsrRJPfW",
+          "label": "Single Field"
+        },
+        {
+          "nodeId": "eSb4WAfWxJu6R95pPX6wm",
+          "label": "Compound"
+        },
+        {
+          "nodeId": "PV_3TEYdtVZ2VCDZEOsu_",
+          "label": "Text"
+        },
+        {
+          "nodeId": "butGgZXGPTZI-sWx24bOr",
+          "label": "Expiring"
+        },
+        {
+          "nodeId": "bqXlDnPuMQIKulD9cTvPf",
+          "label": "Geospatial Indexes"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:-F2qzAcXPHgbcs_ADll1G",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "12kfpSapv2uNxpHzLkFSL",
+          "label": "$exists"
+        },
+        {
+          "nodeId": "BxzMbF7cdvGPuy1EcRvWd",
+          "label": "$type"
+        },
+        {
+          "nodeId": "PmfjHFz-DW69pNh_t13Nm",
+          "label": "$regex"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:f9PDNUACdzBKUmz12jpbU",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "2h8z2mrgRKSLKI-eBc3zM",
+          "label": "$eq"
+        },
+        {
+          "nodeId": "wbZb0RwmANH4ssF07cAar",
+          "label": "$gt"
+        },
+        {
+          "nodeId": "5-MLEEigFPRloN7wLa05T",
+          "label": "$lt"
+        },
+        {
+          "nodeId": "eOfsrmOQI0dJW6HV_myVH",
+          "label": "$lte"
+        },
+        {
+          "nodeId": "kV5Tmu9ocDnuPQvkx2W0u",
+          "label": "$gte"
+        },
+        {
+          "nodeId": "Q8dr1JPEnLX0z4DiQwnAz",
+          "label": "$ne"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:P8q0Gc8jjCGizF17aNBho",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "-62S4wRxHpIM2I59xjGun",
+          "label": "$and"
+        },
+        {
+          "nodeId": "43BfjlUju-yJaGv-FaJty",
+          "label": "$or"
+        },
+        {
+          "nodeId": "qaUj9916Fh4BtiLz_pwQs",
+          "label": "$not"
+        },
+        {
+          "nodeId": "7xq_mdQOlUTuhfnogOl8h",
+          "label": "$nor"
+        }
+      ]
+    },
+    {
+      "nodeId": "A9W2LsivDc0ialLp83fYP",
+      "label": "Performance Optimization",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "YidhAuVk_VGukx_FfJSz2",
+          "label": "Atlas Search Indexes"
+        },
+        {
+          "nodeId": "kG0ZeGatgvC1azZKMQiA_",
+          "label": "Query Optimization"
+        },
+        {
+          "nodeId": "73REfcB_T0yBP-KQ0EYmF",
+          "label": "Language Drivers"
+        }
+      ]
+    },
+    {
+      "nodeId": "gpihoIJkzSS1WOvmH2ueo",
+      "label": "Aggregation",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "eDks8Jmsbq3_nHgLydyxP",
+          "label": "Pipelines, Stages and Operators"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:jUeL4fW8Xlr5iB6MvlvS1",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "_c7itVw1R1_UB-NPtL-WI",
+          "label": "$match"
+        },
+        {
+          "nodeId": "nz048lC4Q4S7fMVbxLGEk",
+          "label": "$group"
+        },
+        {
+          "nodeId": "BCWS8uV2pSWe7CX-VlnTg",
+          "label": "$sort"
+        },
+        {
+          "nodeId": "dO2mJejkWBH903LG0dWgN",
+          "label": "$project"
+        },
+        {
+          "nodeId": "4CjjGPOy-385Bco_PeQwa",
+          "label": "$skip"
+        },
+        {
+          "nodeId": "AzUVaGnGv9uypJ31alR9r",
+          "label": "$limit"
+        },
+        {
+          "nodeId": "AY-8KJGA9ZA6ay3rbURt3",
+          "label": "$unwind"
+        },
+        {
+          "nodeId": "strw_oGTkZEH-o8zA4IRP",
+          "label": "$lookup"
+        },
+        {
+          "nodeId": "CfM0iyd2bNRIiDWTUkspd",
+          "label": "$sum"
+        }
+      ]
+    },
+    {
+      "nodeId": "aHcmsaqAfG5fC90VV-EHP",
+      "label": "Transactions",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:1HBTZGBuT2cKNmwgFkGOF",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "JAosQ9tFj7y70lGQ0vHzC",
+          "label": "Kafka"
+        },
+        {
+          "nodeId": "K09-nD6xF5YJUQBBpFXMz",
+          "label": "Spark"
+        },
+        {
+          "nodeId": "kJJ-W6BV1ofIvuFT_PCcz",
+          "label": "Elastic Search"
+        }
+      ]
+    },
+    {
+      "nodeId": "6H2MMnEfS6uHGS-6pFo8u",
+      "label": "Developer Tools",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:dxWIRnCaguSoU4g2_DiOI",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "xaWDHCkcGm4oovPPxVMB9",
+          "label": "mongodump"
+        },
+        {
+          "nodeId": "TKngxMNGMgrdO26D7eeSg",
+          "label": "mongorestore"
+        }
+      ]
+    },
+    {
+      "nodeId": "cOKQQ7SaiawWF49MdCGTh",
+      "label": "Scaling MongoDB",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "QrHT-H12AV4-V-y_nzmNk",
+          "label": "Replicasets"
+        },
+        {
+          "nodeId": "CijW3HCjVRZHQIBsQ9_0H",
+          "label": "Sharded Clusters"
+        },
+        {
+          "nodeId": "iVDxuERBjKMBHueEfqP0x",
+          "label": "Tuning Configuration"
+        },
+        {
+          "nodeId": "XjB0uOnsYl4edzZWpQ-nm",
+          "label": "Indexing"
+        },
+        {
+          "nodeId": "4L9UQ4oaaK3wZwOLIMa6T",
+          "label": "Query Optimization"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:ZvC3oxZLBvXUjoWZqCWX2",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "iJjqlTgXxHWC-8bh6uCGQ",
+          "label": "Encryption at Rest"
+        },
+        {
+          "nodeId": "LpfuM6SuhlNNjBcHM68ee",
+          "label": "Queryable Encryption"
+        },
+        {
+          "nodeId": "YJiWemHO1l5q9WhgoHyYd",
+          "label": "Client-Side Field Level"
+        },
+        {
+          "nodeId": "5F7zAAnvnVTTnBzOB7TSu",
+          "label": "TLS / SSL Encryption"
+        }
+      ]
+    },
+    {
+      "nodeId": "LC923iJhfiUDIs_0-9rc7",
+      "label": "MongoDB Security",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "yRJ6jeysFXBpwLEqvrdKk",
+          "label": "Role-based Access Control"
+        },
+        {
+          "nodeId": "NV39oWwr7iB_dnlnD_Q6Y",
+          "label": "X.509 Certificate Auth"
+        },
+        {
+          "nodeId": "YuzMOO7kf2tO6V6WehqF_",
+          "label": "Kerberos Authentication"
+        },
+        {
+          "nodeId": "NoDNdno9UOlMrOC0Wga9E",
+          "label": "LDAP Proxy Auth"
+        },
+        {
+          "nodeId": "w1L-yFBM2AyeNBFyH5skW",
+          "label": "MongoDB Audit"
+        }
+      ]
+    }
+  ]
+}

@@ -2,6 +2,7 @@
 
 import type { Difficulty, Opportunity, OpportunityKind } from "@campusquest/shared";
 import { useMemo, useState } from "react";
+import { Pager, usePaged } from "@/components/ui/pager";
 import { AnimatePresence, motion } from "motion/react";
 import { clsx } from "clsx";
 import { OpportunityCard } from "./opportunity-card";
@@ -81,6 +82,8 @@ export function RadarView({
     (o) => o.deadline && daysUntil(o.deadline, now) >= 0 && daysUntil(o.deadline, now) <= 7,
   ).length;
 
+
+  const paged = usePaged(visible);
   return (
     <div className="mx-auto max-w-[1400px]">
       <section className="border-b-2 border-ink px-5 py-12">
@@ -191,7 +194,7 @@ export function RadarView({
         ) : (
           <motion.ul layout className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             <AnimatePresence mode="popLayout">
-              {visible.map((o) => (
+              {paged.items.map((o) => (
                 <motion.li
                   key={o.id}
                   layout
@@ -210,6 +213,8 @@ export function RadarView({
             </AnimatePresence>
           </motion.ul>
         )}
+
+        <Pager paged={paged} label="opportunities" />
       </section>
     </div>
   );

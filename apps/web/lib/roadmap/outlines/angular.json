@@ -1,0 +1,757 @@
+{
+  "slug": "angular",
+  "title": "Angular Developer",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "section:VBjI-LQstODfimbRlHUFi",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "Szgr8dnZNi-z5i6raIJzW",
+          "label": "Metadata"
+        },
+        {
+          "nodeId": "cDN0PGo-zkcLmttxCiAI-",
+          "label": "Selector"
+        },
+        {
+          "nodeId": "-gUpm3OLUJl9iAyx6fmHN",
+          "label": "Template"
+        },
+        {
+          "nodeId": "4XJKEmSrQfPxggHlAP30w",
+          "label": "Styles"
+        },
+        {
+          "nodeId": "RcNHEh6kmbBK1PICbhAwr",
+          "label": "Standalone"
+        },
+        {
+          "nodeId": "ghbrJhuGvscnNGCtVLh5_",
+          "label": "Imports"
+        },
+        {
+          "nodeId": "dOMvz__EQjO-3p-Nzm-7P",
+          "label": "Provider"
+        },
+        {
+          "nodeId": "doHDoAgp7T59KGSXPpQzZ",
+          "label": "viewProvider"
+        },
+        {
+          "nodeId": "ctigvSYeFa77y3v7m11gk",
+          "label": "Encapsulation"
+        },
+        {
+          "nodeId": "uYHy2yhtTm6fQkKpYx3lU",
+          "label": "changeDetection"
+        }
+      ]
+    },
+    {
+      "nodeId": "KDd40JOAvZ8O1mfhTYB3K",
+      "label": "Introduction to Angular",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "Mp056kNnwsRWeEXuhGPy-",
+          "label": "Component Anatomy"
+        },
+        {
+          "nodeId": "ex8FOKrUlbu4MuEq2czyW",
+          "label": "Creating Components"
+        },
+        {
+          "nodeId": "hpShWwL0M57ZAzqkB4I8t",
+          "label": "Angular and History"
+        },
+        {
+          "nodeId": "DE3cMpeRYuUPw2ADtfS-3",
+          "label": "Angular Architecture"
+        },
+        {
+          "nodeId": "EbFRcy4s6yzzIApBqU77Y",
+          "label": "Setting up a New Project"
+        }
+      ]
+    },
+    {
+      "nodeId": "kGnKzCkQCNFEdgCBRtNuW",
+      "label": "Components",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "19c7D-fWIJ3vYFT6h8ZfN",
+      "label": "Communication",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:HLnq8xMeb0NwnkVUtcFMj",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "TDyFjKrIZJnCjEZsojPNQ",
+          "label": "Parent-Child Interaction"
+        },
+        {
+          "nodeId": "v0XaLNZ-YrRqP-xv8wS43",
+          "label": "ViewChild"
+        },
+        {
+          "nodeId": "oQl9etjoHiU2JgxieUOEH",
+          "label": "ContentChild"
+        }
+      ]
+    },
+    {
+      "nodeId": "b_kdNS9PDupcUftslkf9i",
+      "label": "Modules",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "BCq5sgWQLiw0f7u7ZSAd2",
+          "label": "Module Architecture"
+        },
+        {
+          "nodeId": "9YhTXybJw2gszlqFeBtW3",
+          "label": "Creating Modules"
+        },
+        {
+          "nodeId": "w_BazXvINFyxDCHmlznfy",
+          "label": "Feature Modules"
+        },
+        {
+          "nodeId": "bLERvEERmNI5AgxtEYokZ",
+          "label": "Lazy Loading Modules"
+        },
+        {
+          "nodeId": "5b590c7s-2XJ0rgdCYxLa",
+          "label": "Dependencies"
+        }
+      ]
+    },
+    {
+      "nodeId": "WH5wlyOtrqFHBJx7RFJwS",
+      "label": "Understand Binding",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "XHpfHRIlFh19FJIE07u7i",
+          "label": "Interpolation"
+        },
+        {
+          "nodeId": "t2YOeMONlcnKBrVAo0JDc",
+          "label": "Template Statements"
+        },
+        {
+          "nodeId": "5vZkiH7HDwONIABLfNJ06",
+          "label": "Data Binding"
+        },
+        {
+          "nodeId": "TJOZfHtsLfwA0CZ2bd1b2",
+          "label": "Property Binding"
+        }
+      ]
+    },
+    {
+      "nodeId": "6fhe9xAi_RSVfa-KKbcbV",
+      "label": "Templates",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "xk3v8p6vf8ntGj5c-IU4U",
+          "label": "Structural Directives"
+        },
+        {
+          "nodeId": "xvwby0FTdIolRrV2j88fY",
+          "label": "Attribute Directives"
+        }
+      ]
+    },
+    {
+      "nodeId": "VsC7UmE_AumsBP8fC6to1",
+      "label": "Template Syntax",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "nCpfj_35ZvW-NTygg06XZ",
+          "label": "Component Lifecycle"
+        },
+        {
+          "nodeId": "tC5ETtOuuUcybj1jI4CuG",
+          "label": "Dynamic Components"
+        },
+        {
+          "nodeId": "ORdPDad4HWJAfcZuS-7yM",
+          "label": "@else"
+        },
+        {
+          "nodeId": "U1Zy2T-2ki9pDkXn9hn-I",
+          "label": "@if"
+        },
+        {
+          "nodeId": "ys5untkSppGMFK-VsfuRt",
+          "label": "@else if"
+        },
+        {
+          "nodeId": "2kYS9w1UzQFZ1zhf01m9L",
+          "label": "@for"
+        },
+        {
+          "nodeId": "nZuim4Fjq6jYOXcRTAEay",
+          "label": "@switch"
+        },
+        {
+          "nodeId": "cHC2MH50CbUSMRZV4QGJI",
+          "label": "@case"
+        },
+        {
+          "nodeId": "h4MMn0_qUN3YXEdMUJOyd",
+          "label": "@default"
+        },
+        {
+          "nodeId": "AwOM0ucg6W7TohdUd7KWT",
+          "label": "@let"
+        },
+        {
+          "nodeId": "ONy-0olujU_FGZM7Wvfr2",
+          "label": "@defer"
+        }
+      ]
+    },
+    {
+      "nodeId": "j99WQxuTzGeBBVoReDp_y",
+      "label": "Pipes",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "FgsSyM6To7irpbivtOLEE",
+          "label": "Attribute Binding"
+        },
+        {
+          "nodeId": "bKnpirSvex4oE4lAjiSSV",
+          "label": "Event Binding"
+        },
+        {
+          "nodeId": "2UH79nCjgtY1Qz1YjUJYL",
+          "label": "Two-way Binding"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:CshWtCCFHbYXtztr-2iU1",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "nZxZnzbQg9dz-SI65UHq9",
+          "label": "Pipes Precedence"
+        },
+        {
+          "nodeId": "_-mTs_FMeob-ZGK-bb3j-",
+          "label": "Change Detection"
+        },
+        {
+          "nodeId": "i2taHzQ5KLHjkkpbH4Ytd",
+          "label": "Common Pipes"
+        },
+        {
+          "nodeId": "BOYXGfULJRiP-XOo_lNX3",
+          "label": "Custom Pipes"
+        }
+      ]
+    },
+    {
+      "nodeId": "kGzlumFdZFxTRZ3HnCGFO",
+      "label": "Directives",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "7GUvTMVzfdVEDBOz-tHUT",
+          "label": "Custom Directives"
+        },
+        {
+          "nodeId": "dbAS-hN1hoCsNJhkxXcGq",
+          "label": "Configuration"
+        }
+      ]
+    },
+    {
+      "nodeId": "CpsoIVoCKaZnM_-BbXbCh",
+      "label": "Services  & Remote Data",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "VzvB_bads057YtG4ST4a2",
+          "label": "Control Flow"
+        },
+        {
+          "nodeId": "nyDry6ZWyEUuTq4pw-lU3",
+          "label": "Template Ref Vars"
+        },
+        {
+          "nodeId": "VsU6713jeIjAOEZnF6gWx",
+          "label": "@Input & @Output"
+        },
+        {
+          "nodeId": "8u9uHCRt9RU57erBy79PP",
+          "label": "Dependency Injection"
+        }
+      ]
+    },
+    {
+      "nodeId": "a74v78SvGtWduZpXs7wSq",
+      "label": "Routing",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "ewbDdPYv2SJl_jW3RVHQs",
+          "label": "Lazy Loading"
+        },
+        {
+          "nodeId": "1ZwdEL0Gx30Vv_Av3ZTGG",
+          "label": "Router Outlets"
+        },
+        {
+          "nodeId": "8lFyuSx4MUcYRY2L8bZrq",
+          "label": "Router Links"
+        }
+      ]
+    },
+    {
+      "nodeId": "Q36LQds8k_cSjijvXyWOM",
+      "label": "Forms",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "1d3Y4HVnqom8UOok-7EEf",
+          "label": "Reactive Forms"
+        },
+        {
+          "nodeId": "XC_K1Wahl2ySqOXoym4YU",
+          "label": "Typed Forms"
+        },
+        {
+          "nodeId": "uDx4lPavwsJFBMzdQ70CS",
+          "label": "Template-driven Forms"
+        },
+        {
+          "nodeId": "CpufN6DAOj5UNab9vnH0k",
+          "label": "Dynamic Forms"
+        },
+        {
+          "nodeId": "kxRtLsB3y_th8j-HjmJgK",
+          "label": "Custom Validators"
+        },
+        {
+          "nodeId": "m5dgKgUR3ZqI9sBAzToev",
+          "label": "Control Value Accessor"
+        }
+      ]
+    },
+    {
+      "nodeId": "8UY0HAvjY7bdbFpt-MM1u",
+      "label": "HTTP Client",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "AKPhbg10xXjccO7UBh5eJ",
+          "label": "Setting Up the Client"
+        },
+        {
+          "nodeId": "HjGAv3aV-p4ijYJ8XYIw3",
+          "label": "Making Requests"
+        }
+      ]
+    },
+    {
+      "nodeId": "lfp7PIjwITU5gBITQdirD",
+      "label": "RxJS Basics",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "YF_sG292HqawIX0siWhrv",
+          "label": "Router Events"
+        },
+        {
+          "nodeId": "PmC4zeaLpa5LoL4FhYXcG",
+          "label": "Guards"
+        },
+        {
+          "nodeId": "krXA6ua7E3m4IIpFkgQZe",
+          "label": "Observable Pattern"
+        }
+      ]
+    },
+    {
+      "nodeId": "m4WBnx_9h01Jl6Q1sxi4Y",
+      "label": "Zones",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "1x5pT607aKE-S-NCWB810",
+          "label": "Zoneless Applications"
+        }
+      ]
+    },
+    {
+      "nodeId": "Mqe_s-nwBqAL6X7OGRHEN",
+      "label": "State Management",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "xG7iSVOGcbxJbNv3xbNfc",
+          "label": "Writing Interceptors"
+        },
+        {
+          "nodeId": "N9ZCPgFnFIUv4jMv1w5qK",
+          "label": "NGXS"
+        }
+      ]
+    },
+    {
+      "nodeId": "u1TG8i145o0RKhOR_5epf",
+      "label": "Signals",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "b06Y5YrqBbHhWkK6Ws_1c",
+          "label": "Observable Lifecycle"
+        },
+        {
+          "nodeId": "e1ZmmxPZuogCNgtbPPWmd",
+          "label": "RxJS vs Promises"
+        },
+        {
+          "nodeId": "KAdtebWvgvMifIwd52yc4",
+          "label": "RxJS Interop"
+        },
+        {
+          "nodeId": "LcJyAfv9hjyUNXUVyPRP4",
+          "label": "Inputs as Signals"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:Ew6DgOvx6gtifE9v4YPkP",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "ihsjIcF0tkhjs56458teE",
+          "label": "Operators"
+        },
+        {
+          "nodeId": "nxUbl0eu3LsSL-Z8X6nP5",
+          "label": "Filtering"
+        },
+        {
+          "nodeId": "bJbbayFQ9WSJT9-qy0H5l",
+          "label": "Rate Limiting"
+        },
+        {
+          "nodeId": "kdMJHljMzGA3oRlh8Zvos",
+          "label": "Transformation"
+        },
+        {
+          "nodeId": "IgUHqfVhiGpwxT9tY8O88",
+          "label": "Combination"
+        }
+      ]
+    },
+    {
+      "nodeId": "EbJib-XfZFF9bpCtL3aBs",
+      "label": "Developer Tools",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "4YSk6I63Ew--zoXC3xmrC",
+          "label": "Angular CLI"
+        },
+        {
+          "nodeId": "T3MmS3bvMMgCUbOk3ktU7",
+          "label": "DevTools"
+        },
+        {
+          "nodeId": "FVH0lnbIZ2m5EfF2EJ2DW",
+          "label": "Local Setup"
+        },
+        {
+          "nodeId": "1fVi9AK6aLjt5QgAFbnGX",
+          "label": "Deployment"
+        }
+      ]
+    },
+    {
+      "nodeId": "jfHaS8TqE4tcAo59K8Nkn",
+      "label": "SSR",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "ir94IdkF1tVAA8ZTD9r0N",
+          "label": "NgRx"
+        },
+        {
+          "nodeId": "9HS9C3yq9EUcUy0ZUZk_H",
+          "label": "Queries as Signals"
+        },
+        {
+          "nodeId": "IeU6ClS_yp6BYKdkQOJVf",
+          "label": "Model Inputs"
+        }
+      ]
+    },
+    {
+      "nodeId": "b-0yQ74zHtAxI9aRLBohc",
+      "label": "SSG",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "kauQofxCmpktXPcnzid17",
+          "label": "AnalogJS"
+        },
+        {
+          "nodeId": "ql7SyxrRmjpiXJ9hQeWPq",
+          "label": "Language Service"
+        },
+        {
+          "nodeId": "cl89U8atD6gw5rMGUm4Ix",
+          "label": "Libraries"
+        }
+      ]
+    },
+    {
+      "nodeId": "mm6c7GLQEwoQdAHdAYzGh",
+      "label": "Security",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "yhNGhduk__ow8VTLc6inZ",
+          "label": "End-to-End Testing"
+        },
+        {
+          "nodeId": "YHV5oFwLwphXf1wJTDZuG",
+          "label": "Using Libraries"
+        },
+        {
+          "nodeId": "Uvr0pRk_fOzwRwqn0dQ6N",
+          "label": "Schematics"
+        },
+        {
+          "nodeId": "A1mYMg7cbcj6p_VkDf-Tz",
+          "label": "Creating Libraries"
+        },
+        {
+          "nodeId": "Ax-s_xw3FO3Ocv-AnLbQD",
+          "label": "Build Environments"
+        },
+        {
+          "nodeId": "TeWEy9I-hU6SH02Sy2S2S",
+          "label": "CLI Builders"
+        },
+        {
+          "nodeId": "MwtM1UAIfj4FJ-Y4CKDsP",
+          "label": "AoT Compilation"
+        }
+      ]
+    },
+    {
+      "nodeId": "VNG9DdXlS6R1OJ6Lrn4Lt",
+      "label": "Accessibility",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "0FvH7KPs9ag02QkD1HEJ-",
+          "label": "Attributes"
+        },
+        {
+          "nodeId": "CZ1YRyai8Ds-ry4A8jVbr",
+          "label": "UI Components"
+        },
+        {
+          "nodeId": "0s-QhN5aZh2F3tLJFKEyR",
+          "label": "Containers"
+        },
+        {
+          "nodeId": "8i_JD1P4gIhY1rdldwLC2",
+          "label": "Routing"
+        },
+        {
+          "nodeId": "5-RCB8AiDbkdIFYNXKWge",
+          "label": "Link Identification"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:ol_HobKV3LkBYvgVYWoGB",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "umUX4Hxk7srHlFR_Un-u7",
+          "label": "Cross-site Scripting"
+        },
+        {
+          "nodeId": "cgI9oeUHufA-ky_W1zENe",
+          "label": "Sanitization"
+        },
+        {
+          "nodeId": "XoYSuv1salCCHoI1cJkxv",
+          "label": "Trusting Safe Values"
+        },
+        {
+          "nodeId": "5h7U0spwEUhB-hbjSlaeB",
+          "label": "Enforce Trusted Types"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:rikJUpXHGXAEC74Szwj7s",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "xH3RHPhsaqD9zIMms5OmX",
+          "label": "HTTP Vulnerabilities"
+        },
+        {
+          "nodeId": "Z1DZBbFI4oU6-KQg3wqMm",
+          "label": "Cross-site Request Forgery"
+        },
+        {
+          "nodeId": "m2aw8vb4rz4IjshpoMyNx",
+          "label": "HttpClient CSRF"
+        },
+        {
+          "nodeId": "ni00edsphJd7uBLCn7-Vw",
+          "label": "XSRF protection"
+        },
+        {
+          "nodeId": "zd7YJGlcMFNFbsKUiW_XC",
+          "label": "Cross-site Script Inclusion"
+        }
+      ]
+    },
+    {
+      "nodeId": "STEHxJpwBZxFdQl0zUKxo",
+      "label": "Performance",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "CYjsXIOWtP5DJmYS-qR-s",
+          "label": "Deferrable Views"
+        },
+        {
+          "nodeId": "1WIKjn3nxYDMIhBL17aYQ",
+          "label": "Image Optimization"
+        },
+        {
+          "nodeId": "pRSR5PEbkJXAJ1LPyK-EE",
+          "label": "Zone Pollution"
+        },
+        {
+          "nodeId": "yxUtSBzJPRcS-IuPsyp-W",
+          "label": "Slow Computations"
+        }
+      ]
+    },
+    {
+      "nodeId": "Xxyx3uzy5TpNhgR1IysMN",
+      "label": "Internationalization",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "W8OwpEw00xn0GxidlJjdc",
+          "label": "Localize Package"
+        },
+        {
+          "nodeId": "dVKl3Z2Rnf6IB064v19Mi",
+          "label": "Locales by ID"
+        },
+        {
+          "nodeId": "jL5amGV1BAX_V5cyTIH7d",
+          "label": "Translation Files"
+        },
+        {
+          "nodeId": "9ISvaaJ815_cr_KW9vQhT",
+          "label": "Multiple Locales"
+        },
+        {
+          "nodeId": "Iv2d4sgODqMPzA9gH6RAw",
+          "label": "Transitions & Triggers"
+        },
+        {
+          "nodeId": "Unjknmb4b2LY-nUVvvF7_",
+          "label": "Complex Sequences"
+        }
+      ]
+    },
+    {
+      "nodeId": "lLa-OnHV6GzkNFZu29BIT",
+      "label": "Testing",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "HU1eTYB321C93qh_U7ioF",
+          "label": "Testing Services"
+        },
+        {
+          "nodeId": "rH13NBFG02hnn5eABSNCY",
+          "label": "Testing Pipes"
+        },
+        {
+          "nodeId": "NY_MfBNgNmloiRGcIvfJ1",
+          "label": "Hydration"
+        },
+        {
+          "nodeId": "4xt0m5jkUqB4Z-krcFBuL",
+          "label": "Testing Requests"
+        },
+        {
+          "nodeId": "SGqb5k6OmWit8PA6ZT3js",
+          "label": "Testing Directives"
+        },
+        {
+          "nodeId": "TGRZBizDy83JKg_MhnRdX",
+          "label": "Services with Dependencies"
+        },
+        {
+          "nodeId": "cXVy1lx2XqY_j8gxz-y60",
+          "label": "Component Bindings"
+        },
+        {
+          "nodeId": "f5v74Uw54LsB4FgdN6eCd",
+          "label": "Debugging Tests"
+        },
+        {
+          "nodeId": "0dYWO_Zvh9J5_6cRjRjvI",
+          "label": "Component Templates"
+        }
+      ]
+    },
+    {
+      "nodeId": "rYJq59Q0YdfK6n3x740Em",
+      "label": "Animation",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "M1CU2Yq6dLp4yOuGV0fhF",
+          "label": "Reusable Animations"
+        },
+        {
+          "nodeId": "bqA2bxPcZrqQ-6QE-YDK1",
+          "label": "Code Coverage"
+        },
+        {
+          "nodeId": "x91jWP81oCTeVEwzX8FbK",
+          "label": "Route Transitions"
+        }
+      ]
+    }
+  ]
+}

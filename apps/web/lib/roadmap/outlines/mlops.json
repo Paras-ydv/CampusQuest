@@ -1,0 +1,312 @@
+{
+  "slug": "mlops",
+  "title": "MLOps Roadmap",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "IghGpwAFVB067uOosmoDC",
+      "label": "What is MLOps?",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "iTsEHVCo6KGq7H2HMgy5S",
+          "label": "MLOps Principles"
+        },
+        {
+          "nodeId": "l1xasxQy2vAY34NWaqKEe",
+          "label": "MLOps Components"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:8N8Chrx3YslBB9ylIfLOj",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "kHDSwlSq8WkLey4EJIQSR",
+          "label": "Version Control"
+        },
+        {
+          "nodeId": "a6vawajw7BpL6plH_nuAz",
+          "label": "CI/CD"
+        },
+        {
+          "nodeId": "fes7M--Y8i08_zeP98tVV",
+          "label": "Orchestration"
+        },
+        {
+          "nodeId": "fGGWKmAJ50Ke6wWJBEgby",
+          "label": "Experiment Tracking"
+        },
+        {
+          "nodeId": "6XgP_2NLuiw654zvTyueT",
+          "label": "Data Lineage"
+        },
+        {
+          "nodeId": "zsW1NRb0dMgS-KzWsI0QU",
+          "label": "Model Training & Serving"
+        },
+        {
+          "nodeId": "r4fbUwD83uYumEO1X8f09",
+          "label": "Monitoring & Observability"
+        }
+      ]
+    },
+    {
+      "nodeId": "_NPGsGEjcLekjGisdDFWt",
+      "label": "Version Control Systems",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "06T5CbZAGJU6fJhCmqCC8",
+          "label": "Git"
+        },
+        {
+          "nodeId": "7t7jSb3YgyWlhgCe8Se1I",
+          "label": "GitHub"
+        },
+        {
+          "nodeId": "qLKM1zGUhuyBwh_uXSyJJ",
+          "label": "DVC"
+        }
+      ]
+    },
+    {
+      "nodeId": "_7uvOebQUI4xaSwtMjpEd",
+      "label": "Programming Fundamentals",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "mMzqJF2KQ49TDEk5F3VAI",
+          "label": "Bash"
+        },
+        {
+          "nodeId": "Vh81GnOUOZvDOlOyI5PwT",
+          "label": "Python"
+        },
+        {
+          "nodeId": "51x_5z0pHTE_yZoyvFUBy",
+          "label": "SQL"
+        },
+        {
+          "nodeId": "vdVq3RQvQF3mF8PQc6DMg",
+          "label": "Go"
+        },
+        {
+          "nodeId": "75mlW2JoUqSNFK2IDfqFP",
+          "label": "Jenkins"
+        },
+        {
+          "nodeId": "MLob7b468ZgNX7-cURqmJ",
+          "label": "CML"
+        }
+      ]
+    },
+    {
+      "nodeId": "oUhlUoWQQ1txx_sepD5ev",
+      "label": "CI/CD",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "mu56TlVkhhgVzzESDRobc",
+          "label": "GItLab"
+        },
+        {
+          "nodeId": "SCn-6w1UEQwoLQ_dOPpL5",
+          "label": "GitHub Actions"
+        }
+      ]
+    },
+    {
+      "nodeId": "ulka7VEVjz6ls5SnI6a6z",
+      "label": "Machine Learning Fundamentals",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:qA9VfMdltAz4eiRN6I82U",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "C4KbkZ7c8TspXa3RBOCug",
+          "label": "Maths & Statistics"
+        },
+        {
+          "nodeId": "6uGYeXZn5fW2qPfSb8GJb",
+          "label": "Machine Learning"
+        },
+        {
+          "nodeId": "1kk8KDWH-LrPt8SjkpTcX",
+          "label": "Deep Learning"
+        },
+        {
+          "nodeId": "nS4igSghzVFwamhVOwCjm",
+          "label": "Model Evaluation"
+        },
+        {
+          "nodeId": "T-pybEZVvvXopCTbDykR-",
+          "label": "Scikit-learn"
+        },
+        {
+          "nodeId": "so5IQDxKibaZlgoCh8tpQ",
+          "label": "TensorFlow"
+        },
+        {
+          "nodeId": "Zh7AfH6hJ6MMXiqSnQn7G",
+          "label": "PyTorch"
+        },
+        {
+          "nodeId": "93MPXEulKgPnuRlp7F-Nj",
+          "label": "MLFlow"
+        }
+      ]
+    },
+    {
+      "nodeId": "00GZcwe25QYi7rDzaOoMt",
+      "label": "Cloud Computing",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "u3E7FGW4Iwdsu61KYFxCX",
+          "label": "AWS / Azure / GCP"
+        },
+        {
+          "nodeId": "kbfucfIO5KCsuv3jKbHTa",
+          "label": "Cloud-native ML Services"
+        },
+        {
+          "nodeId": "dA9AE-3lTB6lN-X-_Byd2",
+          "label": "Terraform"
+        },
+        {
+          "nodeId": "-_obgPIUaZ4BVpg29xG_9",
+          "label": "Ansible"
+        }
+      ]
+    },
+    {
+      "nodeId": "tKeejLv8Q7QX40UtOjpav",
+      "label": "Containerization",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "XIdCvT-4HyyglHJLRrHlz",
+          "label": "Docker"
+        },
+        {
+          "nodeId": "XQoK9l-xtN2J8ZV8dw53X",
+          "label": "Kubernetes"
+        }
+      ]
+    },
+    {
+      "nodeId": "VykbCu7LWIx8fQpqKzoA7",
+      "label": "Data Engineering Fundamentals",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:whtfcDJRuMTu8l343tqgY",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "cOg3ejZRYE-u-M0c89IjM",
+          "label": "Data Pipelines"
+        },
+        {
+          "nodeId": "wOogVDV4FIDLXVPwFqJ8C",
+          "label": "Data Lakes & Warehouses"
+        },
+        {
+          "nodeId": "Berd78HvnulNEGOsHCf8n",
+          "label": "Data Ingestion Architecture"
+        },
+        {
+          "nodeId": "UljuqA89_SlCSDWWMD_C_",
+          "label": "Spark"
+        },
+        {
+          "nodeId": "fMNwzhgLgHlAZJ9NvKikR",
+          "label": "Kafka"
+        },
+        {
+          "nodeId": "o6GQ3-8DgDtHzdX6yeg1w",
+          "label": "Flink"
+        }
+      ]
+    },
+    {
+      "nodeId": "sf67bSL7HAx6iN7S6MYKs",
+      "label": "Infrastructure as Code",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "5VuCUCfb4DEi0HKW11PIX",
+      "label": "Orchestration & Deployment",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "AjZHJcxUY29WZbCvr3zrs",
+          "label": "Airflow"
+        },
+        {
+          "nodeId": "QEayqA8zYsJn0rQYz-4zv",
+          "label": "KubeFlow"
+        }
+      ]
+    },
+    {
+      "nodeId": "fR4Qr_ifoBLTpxdkJ50rB",
+      "label": "Monitoring & Observability",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "EIjo6iFrU8iDm36_ZtaW5",
+          "label": "Prometheus"
+        },
+        {
+          "nodeId": "YmRN43yAFF97c7MgNaiqs",
+          "label": "Grafana"
+        }
+      ]
+    },
+    {
+      "nodeId": "w8z91Hlqm0sPligYD3VCk",
+      "label": "Edge AI",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "YFo3NnwVst5EBTtLR-cJ1",
+          "label": "TFLite"
+        },
+        {
+          "nodeId": "qyNOEqp7hW_P7-Isz_v4o",
+          "label": "PyTorch Mobile"
+        },
+        {
+          "nodeId": "Wpv_zRshtTFXNqp1S7m0F",
+          "label": "Jetson"
+        }
+      ]
+    },
+    {
+      "nodeId": "qy37ppIWDT_we-duuHwgT",
+      "label": "Explainable AI",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "pVSlVHXIap0unFxLGM-lQ",
+          "label": "LIME"
+        },
+        {
+          "nodeId": "JQKEWz0-vIJoLimLKvIzz",
+          "label": "SHAP"
+        }
+      ]
+    }
+  ]
+}

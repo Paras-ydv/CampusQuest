@@ -1,0 +1,589 @@
+{
+  "slug": "javascript",
+  "title": "JavaScript Roadmap",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "6khAD6mzZ9S96JJuC5_j6",
+      "label": "Introduction to JavaScript",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "JSjeM8qnBg4onXq9mn5gB",
+          "label": "var"
+        },
+        {
+          "nodeId": "kDRa9G3pMp0Cb0mqYUawM",
+          "label": "let"
+        },
+        {
+          "nodeId": "q85z6x1Lc-yLWepwtIT2_",
+          "label": "const"
+        },
+        {
+          "nodeId": "UBB-8hUcwo4Mfd0cmEcdA",
+          "label": "What is JavaScript"
+        },
+        {
+          "nodeId": "l-GKzcsBNA0r6Jax8hwnP",
+          "label": "History of JavaScript"
+        },
+        {
+          "nodeId": "SFPsWnVpZBAw3_re7op4h",
+          "label": "JavaScript Versions"
+        },
+        {
+          "nodeId": "uXsWIUUxtc4H_iRx3uZv0",
+          "label": "How to run JavaScript"
+        }
+      ]
+    },
+    {
+      "nodeId": "kvActjpU4FUJdrmuFoFEe",
+      "label": "All about Variables",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "BqbAWt--Guqex-rrb4ZUv",
+          "label": "Variable Declarations"
+        },
+        {
+          "nodeId": "Lb5jLF91WO5V5CWpifciW",
+          "label": "Hoisting"
+        },
+        {
+          "nodeId": "HfieG3v3wnmpZDfNwEJvZ",
+          "label": "Variable Naming Rules"
+        },
+        {
+          "nodeId": "7iMJuaB7yKlSIbT4dBe5L",
+          "label": "Variable Scopes"
+        },
+        {
+          "nodeId": "0I6dJE0ygXPGjeRAe8AtT",
+          "label": "Object Prototype"
+        },
+        {
+          "nodeId": "uqEzHYx13Y2EpvTTRzykn",
+          "label": "Block"
+        },
+        {
+          "nodeId": "YMT7O6lrMSMtNo0EnmsnQ",
+          "label": "Function"
+        },
+        {
+          "nodeId": "oC4o6GLEES_nUgCJu9Q6I",
+          "label": "Global"
+        },
+        {
+          "nodeId": "Xge6eru1hRGobnOEHLZqv",
+          "label": "Prototypal Inheritance"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:SSqBPOJROQpX5poMFSJtJ",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "1RcwBHU3jzx0YxxUGZic4",
+          "label": "string"
+        },
+        {
+          "nodeId": "ZLs0NKM0lrnOy5ATDhlk0",
+          "label": "undefined"
+        },
+        {
+          "nodeId": "GZ_SXsWmP7AsXRTc4WUMw",
+          "label": "number"
+        },
+        {
+          "nodeId": "6lUF0neW1piiP1RsaVxEX",
+          "label": "bigint"
+        },
+        {
+          "nodeId": "b1HvkoWA2t4kt8mS6FySm",
+          "label": "boolean"
+        },
+        {
+          "nodeId": "CxyNyFMuTLS3owtRMgClD",
+          "label": "null"
+        },
+        {
+          "nodeId": "R6ICrk6vjoBxx5nRGo4Jg",
+          "label": "Symbol"
+        }
+      ]
+    },
+    {
+      "nodeId": "-jbPPuEXacBR0d0CWPHgd",
+      "label": "Data Types",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "xe8HZ8Mt1fK8yJMcDPYHJ",
+          "label": "Object"
+        },
+        {
+          "nodeId": "D95ndkkwmT5X_HqboEn6E",
+          "label": "Built-in Objects"
+        },
+        {
+          "nodeId": "RRACLQ6-aopkxImIp3Toc",
+          "label": "typeof operator"
+        }
+      ]
+    },
+    {
+      "nodeId": "XPmBieVCXvL3WbWkYRoKr",
+      "label": "Type Casting",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "_Bo2YZqZ_gY35SLPML4T6",
+          "label": "Type Conversion vs Coercion"
+        },
+        {
+          "nodeId": "pP42K_eH4RCdUdUS8BJlP",
+          "label": "Implicit Type Casting"
+        },
+        {
+          "nodeId": "1xhjrRN-Rfekei2JwwU7Y",
+          "label": "Explicit Type Casting"
+        }
+      ]
+    },
+    {
+      "nodeId": "ADarwihuI2nBq1C3U7-Zr",
+      "label": "Data Structures",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "bFNvtHp97OzKnPJgr7WaH",
+          "label": "JSON"
+        },
+        {
+          "nodeId": "Xc0jL4rafpI-ixIaAxo9O",
+          "label": "Map"
+        },
+        {
+          "nodeId": "JwLGAuSOTyZ5BHSqeBDU6",
+          "label": "Structured Data"
+        },
+        {
+          "nodeId": "6icsjC4aisDgPWasVuCOt",
+          "label": "Weak Map"
+        },
+        {
+          "nodeId": "sciU68E13mcfL577y6Vim",
+          "label": "Set"
+        },
+        {
+          "nodeId": "rhJrrqkRqy2Qw_he4SPGz",
+          "label": "Keyed Collections"
+        },
+        {
+          "nodeId": "DSFzj61N9ojz29mjExhVa",
+          "label": "Weak Set"
+        },
+        {
+          "nodeId": "8X1mdQ3NDBVOZZWBbAFRE",
+          "label": "Typed Arrays"
+        },
+        {
+          "nodeId": "lBOGoHZrmnIRatvryDwTm",
+          "label": "Indexed Collections"
+        },
+        {
+          "nodeId": "NZedBxG9B9TRVOf2QE2yL",
+          "label": "Arrays"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:iZjl6qe9LGLFqXyopMUFX",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "RonBj1htt6jnBt3W7zoTA",
+          "label": "=="
+        },
+        {
+          "nodeId": "lJwcc6JoUIQoiQ6FkV2KW",
+          "label": "==="
+        },
+        {
+          "nodeId": "ATma3bLKdmWY_WTsPIKxh",
+          "label": "Object.is"
+        }
+      ]
+    },
+    {
+      "nodeId": "23Xa6q5VvRVlzc6Dx8vST",
+      "label": "Equality Comparisons",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "2M211rcaPSWbZ-sPoSEVR",
+          "label": "for"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:JM16NHhFVOwwbwqCubmYw",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "PLallt_T33W6bUEn0Hc3W",
+          "label": "isLooselyEqual"
+        },
+        {
+          "nodeId": "pcILon_Jjm2_XS10iUJ0E",
+          "label": "isStrictlyEqual"
+        },
+        {
+          "nodeId": "fL3B2hkTgMb0oEwMiWJtK",
+          "label": "SameValueZero"
+        },
+        {
+          "nodeId": "nfMrC0eoXZl72H4o3VFEP",
+          "label": "SameValue"
+        }
+      ]
+    },
+    {
+      "nodeId": "YD-2l_amfqqqCdtc_Zdzo",
+      "label": "Loops and Iterations",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "4oHFzn7R7xLxfuLpsJjr-",
+          "label": "break / continue"
+        },
+        {
+          "nodeId": "57lO_3uxJaWsFXS-0J1AK",
+          "label": "do...while"
+        },
+        {
+          "nodeId": "FBz6h_AmTJBXoBN-a38a5",
+          "label": "for...of loop"
+        },
+        {
+          "nodeId": "9-MpHmzK_IiCi6IcvAlGM",
+          "label": "while"
+        },
+        {
+          "nodeId": "cq3vvFZoNnAAZJ6oEBUwb",
+          "label": "for...in loop"
+        },
+        {
+          "nodeId": "ndbDXAx6bL4lZmpXv16Y_",
+          "label": "if...else"
+        },
+        {
+          "nodeId": "H_QlcUlavKKfcNK8CYAvb",
+          "label": "Switch"
+        }
+      ]
+    },
+    {
+      "nodeId": "_6vZa43gWjxO2OcD1iCCQ",
+      "label": "Expressions & Operators",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "640mk-m5mB90Mme-7jcXV",
+          "label": "Conditional Operators"
+        },
+        {
+          "nodeId": "6_8EwyZY2jBkZr7xnfRY3",
+          "label": "Comma Operators"
+        },
+        {
+          "nodeId": "k9rSR-YQ8B_iRcXNm2btP",
+          "label": "Unary Operators"
+        },
+        {
+          "nodeId": "IvBtUzIGnkgGXrJjqmjf4",
+          "label": "Assignment Operators"
+        },
+        {
+          "nodeId": "-v4_V4UuoZSgUk2sqOCim",
+          "label": "Comparison Operators"
+        },
+        {
+          "nodeId": "0PK1NwlgkNe2Vf-We4uLH",
+          "label": "Arithmetic Operators"
+        },
+        {
+          "nodeId": "ghjNJW67Wj5L5QK46xwL-",
+          "label": "Bitwise Operators"
+        },
+        {
+          "nodeId": "bo4SvzU4BrPl3c99zW7Y5",
+          "label": "Logical Operators"
+        },
+        {
+          "nodeId": "udoz0DZi7f-vm30dSnYKu",
+          "label": "BigInt Operators"
+        },
+        {
+          "nodeId": "c38b6t5f17Zg2O2yg3eFP",
+          "label": "String Operators"
+        }
+      ]
+    },
+    {
+      "nodeId": "3tckJ2Sci7z-sNx9jx9eF",
+      "label": "Control Flow",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "ttCsd2_H2SuRivCjGv1OX",
+          "label": "Conditional Statements"
+        },
+        {
+          "nodeId": "34TKGxV9YziOWMh9rT_KE",
+          "label": "Exceptional Handling"
+        },
+        {
+          "nodeId": "8X8mRl-puL0Lp43dO5mha",
+          "label": "Default Params"
+        },
+        {
+          "nodeId": "-_6q0bIjQrvAaCWrVkASO",
+          "label": "Rest"
+        },
+        {
+          "nodeId": "ReGIniyLYl5hGExchrJd2",
+          "label": "throw statement"
+        },
+        {
+          "nodeId": "rbjEZe5vxCJ8reI1oZ-jf",
+          "label": "try/catch/finally"
+        },
+        {
+          "nodeId": "-z-4VTaC3tOThqChgyoMs",
+          "label": "Error Objects"
+        }
+      ]
+    },
+    {
+      "nodeId": "k8bJH9qydZm8I9rhH7rXw",
+      "label": "Functions",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "R1D4fsZliHv7wIo8Tj-kp",
+          "label": "Function Parameters"
+        },
+        {
+          "nodeId": "fr0NChxMXLpJizyMhXcXS",
+          "label": "Arrow Functions"
+        },
+        {
+          "nodeId": "YZlCoPvZuX5MmpLOTj5d4",
+          "label": "IIFEs"
+        },
+        {
+          "nodeId": "YJGhhFuWmFvhRKOg6nwON",
+          "label": "Recursion"
+        },
+        {
+          "nodeId": "QLC7bW-qHskLH2HOA-Sko",
+          "label": "arguments object"
+        },
+        {
+          "nodeId": "ISNzEYtrWe2v0R7Xfl5k-",
+          "label": "Scope & Function Stack"
+        },
+        {
+          "nodeId": "s8wUJivWmetysJ8bt9FBC",
+          "label": "Built-in Functions"
+        }
+      ]
+    },
+    {
+      "nodeId": "bhuGtcyqPFKu-900aESYz",
+      "label": "DOM APIs",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "Xw8lb0xCWKmNs4KZfhBUy",
+      "label": "Strict Mode",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "fm2CuL1IZp3hnrLrPUX7U",
+      "label": "Using (this) keyword",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "3E5MuxPvEJU-dwgTrbQAR",
+          "label": "in a method"
+        },
+        {
+          "nodeId": "azsXq6Y5iCvQDgTWZpWQ3",
+          "label": "in a function"
+        },
+        {
+          "nodeId": "qps2Mdm-lwa4Wr0IxKm0C",
+          "label": "using it alone"
+        },
+        {
+          "nodeId": "JVbEBtVrTTFnTF3_yUIAC",
+          "label": "in event handlers"
+        },
+        {
+          "nodeId": "EAN6DCiCfSq04R4vKgZ0q",
+          "label": "Function Borrowing"
+        },
+        {
+          "nodeId": "P0190rTm2wLQmCzWOKour",
+          "label": "in arrow functions"
+        },
+        {
+          "nodeId": "p2NhSwPYMtRiPRHjPaqmX",
+          "label": "Explicit Binding"
+        }
+      ]
+    },
+    {
+      "nodeId": "sFOqx6_7poVIVuXhJVY0E",
+      "label": "Asynchronous JavaScript",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "q7b5iMJ1Lfka5A-K-YcaN",
+          "label": "Lexical Scoping"
+        },
+        {
+          "nodeId": "itS6B12I8I1KNCPvc0KCQ",
+          "label": "Closures"
+        },
+        {
+          "nodeId": "PJSdqvh5OBwPCNpn3q_S5",
+          "label": "Callback Hell"
+        },
+        {
+          "nodeId": "_bs5NNHVdHLWGBmpYwHMi",
+          "label": "Event Loop"
+        },
+        {
+          "nodeId": "D8oGY7pdviRByaz6c9sU6",
+          "label": "Callbacks"
+        },
+        {
+          "nodeId": "yXSF5gGST7l2X-4z1g0d_",
+          "label": "Promises"
+        },
+        {
+          "nodeId": "wXypuqEmFLIubx-QQvDIr",
+          "label": "setTimeout"
+        },
+        {
+          "nodeId": "Dn872mgexmxoLtbkIgIgz",
+          "label": "async/await"
+        },
+        {
+          "nodeId": "jaC3XXudd7OBKwwCpoPFf",
+          "label": "setInterval"
+        }
+      ]
+    },
+    {
+      "nodeId": "hLnJlwnECFbVMeFpH0M5Q",
+      "label": "Modules in JavaScript",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "4EXeGkOpfAViB9Uo4zL6O",
+          "label": "CommonJS"
+        },
+        {
+          "nodeId": "jLNmYeo20Mbu4WRvVgvwU",
+          "label": "ESM"
+        }
+      ]
+    },
+    {
+      "nodeId": "TZ8XGdykSJjKBjX6Nivwo",
+      "label": "Iterators and Generators",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "gsyY3Oa3Jf0W5K_lyqBYO",
+          "label": "call"
+        },
+        {
+          "nodeId": "-BtF34cEzI6J8sZCDRlRE",
+          "label": "apply"
+        },
+        {
+          "nodeId": "dbercnxXVTJXMpYSDNGb2",
+          "label": "bind"
+        }
+      ]
+    },
+    {
+      "nodeId": "F_Lrj0F7UXriqJ0mhwxCy",
+      "label": "Classes",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "q6vciQb_Jk-Up16Pk5NeE",
+      "label": "Working with APIs",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "LiuhBE7dIlkoWkthSoCsa",
+          "label": "XMLHTTPRequest"
+        },
+        {
+          "nodeId": "kL5rfWxXe4J44ENru1uJS",
+          "label": "Fetch"
+        }
+      ]
+    },
+    {
+      "nodeId": "MatU4SthAAhByJ40XdZQn",
+      "label": "Memory Management",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "ZR2WfH1cerA-V_kaPwRvm",
+          "label": "Memory Lifecycle"
+        },
+        {
+          "nodeId": "KKyX8N4lTgN0w-Khm6Ztq",
+          "label": "Garbage Collection"
+        }
+      ]
+    },
+    {
+      "nodeId": "rc5WzBBOm2cus-rQl8EOE",
+      "label": "Using Browser DevTools",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "dhEtcgv7G9fNV-AUNJdWk",
+          "label": "Debugging Issues"
+        },
+        {
+          "nodeId": "BA_ArmZMnVMaL_zl3W3Pt",
+          "label": "Debugging Memory Leaks"
+        },
+        {
+          "nodeId": "ECxISKUAU7js_JsfSHzud",
+          "label": "Debugging Performance"
+        }
+      ]
+    }
+  ]
+}

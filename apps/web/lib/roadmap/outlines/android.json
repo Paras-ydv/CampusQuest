@@ -1,0 +1,544 @@
+{
+  "slug": "android",
+  "title": "Android Developer",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "Suws-7f_6Z1ChpfcnxX2M",
+      "label": "Pick a Language",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "qIzUv8-GgQnkqChEdgD50",
+          "label": "Kotlin"
+        },
+        {
+          "nodeId": "RBABbkzD_uNFwEO-hssZO",
+          "label": "Java"
+        }
+      ]
+    },
+    {
+      "nodeId": "HlUUGj3dOZ68t4gIjerXh",
+      "label": "The Fundamentals",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "ZRGsokU313Ky-anWbWK6q",
+          "label": "Development IDE"
+        },
+        {
+          "nodeId": "jl1FsQ5-WGKeFyaILNt_p",
+          "label": "Basics of Kotlin"
+        },
+        {
+          "nodeId": "j69erqfosSZMDlmKcnnn0",
+          "label": "Basics of OOP"
+        },
+        {
+          "nodeId": "cNeT1dJDfgn0ndPzSxhSL",
+          "label": "Data Structures and Algorithms"
+        },
+        {
+          "nodeId": "FVxNjbDBxgf6vkZWw1Awt",
+          "label": "What is and how to use Gradle?"
+        },
+        {
+          "nodeId": "5m_7DvInF8C_4Ml1xVI6L",
+          "label": "Create a Basic Hello World App"
+        }
+      ]
+    },
+    {
+      "nodeId": "5s1CqsYCOXjNroDHaGKGa",
+      "label": "Version Control",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "rqSZ2ATeHbOdIQE9Jlb0B",
+          "label": "Git"
+        },
+        {
+          "nodeId": "H-2eb8fLwz8IKYXbeSVKK",
+          "label": "GitHub"
+        },
+        {
+          "nodeId": "5LFZdUiFYYU_1sYsouyan",
+          "label": "Bitbucket"
+        },
+        {
+          "nodeId": "Q47BtQphp59NkkZoeNXmP",
+          "label": "GitLab"
+        }
+      ]
+    },
+    {
+      "nodeId": "5Li8J5iR_ZuyIlxX0LYei",
+      "label": "App Components",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "nwuVlPmzwJ17mtVQ8Hi9w",
+          "label": "Activity"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:cyl4Uo89KeOvjiBbltOCB",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "PcHmU1c9hqKyzSjwlRPHk",
+          "label": "Services"
+        },
+        {
+          "nodeId": "nkcdjrswv0WCzUs48BAt9",
+          "label": "Content Provider"
+        },
+        {
+          "nodeId": "tFuAToid1Fkmu96BDtW7K",
+          "label": "Broadcast Receiver"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:PF0TVwzQAg76Z1MdLNQk8",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "hv_9imIQpthxEaMLXEUHI",
+          "label": "Intent"
+        },
+        {
+          "nodeId": "gGdz3j33x0gfrFDp_rw8Z",
+          "label": "Implicit Intents"
+        },
+        {
+          "nodeId": "TmIeCF3xVCe5Sy3ITmM31",
+          "label": "Explicit Intents"
+        },
+        {
+          "nodeId": "b-sfh6NoS-APqaNKm5L5S",
+          "label": "Intent Filters"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:bt3bz2BrOfKDwgYGu6_6S",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "FVg438cVBBzqJFkGWVbQM",
+          "label": "Activity LifeCycle"
+        },
+        {
+          "nodeId": "oUjetA2eduvQIeLcQlLcu",
+          "label": "State Changes"
+        },
+        {
+          "nodeId": "-O-G9bg36ut8NnZcdOaop",
+          "label": "Tasks & Backstack"
+        }
+      ]
+    },
+    {
+      "nodeId": "4_e76QafrB419S2INOeKd",
+      "label": "Interface & Navigation",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "60Vm-77rseUqpMiFvp-dA",
+          "label": "Jetpack Compose"
+        },
+        {
+          "nodeId": "BVgO9n7tGlVdiS72-hFSd",
+          "label": "Text"
+        },
+        {
+          "nodeId": "Mtx0bY0drmaTw8sCM5YTl",
+          "label": "Image"
+        },
+        {
+          "nodeId": "yE0qAQZiEC9R8WvCdskpr",
+          "label": "Column / Row"
+        },
+        {
+          "nodeId": "Z4Tbd5ClnqCXGPGG09F-G",
+          "label": "BottomSheet"
+        },
+        {
+          "nodeId": "xV475jHTlLuHtpHZeXb7P",
+          "label": "App Shortcuts"
+        },
+        {
+          "nodeId": "mMKN4a8lqo38M0iL1Qwhy",
+          "label": "Lazy Column / Row"
+        },
+        {
+          "nodeId": "WhfzFOUpm0DFEj7Oeq21R",
+          "label": "Button"
+        },
+        {
+          "nodeId": "boMz0HZlMAsLdCZlpUo-H",
+          "label": "TextField"
+        },
+        {
+          "nodeId": "amTxz7mS98lkhOrNMJXG_",
+          "label": "TabRow"
+        },
+        {
+          "nodeId": "Xn1VQ-xOT67ZfJJTM4r1p",
+          "label": "Dialog"
+        },
+        {
+          "nodeId": "o5rzmnaQeiSh9ocvfJPpK",
+          "label": "Navigation Components"
+        },
+        {
+          "nodeId": "Dp2DOX10u2xJUjB8Okhzh",
+          "label": "Box"
+        },
+        {
+          "nodeId": "pEBpXv3Jf1AzBNHlvVrG8",
+          "label": "Icon"
+        },
+        {
+          "nodeId": "EzLjX4iRT7AxkAOsJYnSU",
+          "label": "Card"
+        },
+        {
+          "nodeId": "pHxtpvd7U8CbIW6yebcVX",
+          "label": "Animations"
+        },
+        {
+          "nodeId": "mhxUDPHI-6NHwOxsdVn65",
+          "label": "Drawer"
+        }
+      ]
+    },
+    {
+      "nodeId": "jePGzTejFe4ryA5qFFmjl",
+      "label": "Design & Architecture",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "U8iMGGOd2EgPxSuwSG39Z",
+          "label": "Scaffold"
+        },
+        {
+          "nodeId": "UAerxLQ1ZB6N6LS1IhfNk",
+          "label": "NavHost"
+        },
+        {
+          "nodeId": "lEdmnJhs-WN-A6glX2DeA",
+          "label": "ViewModel state"
+        },
+        {
+          "nodeId": "qNzC8sQqQaDnG1oy1jiO0",
+          "label": "ConstraintLayout"
+        },
+        {
+          "nodeId": "8axL6Fa5fm1xWPP07MUbD",
+          "label": "remember / State"
+        },
+        {
+          "nodeId": "XTMhA-rYiXP7aVFk2nDLY",
+          "label": "Side effects"
+        },
+        {
+          "nodeId": "znvZp24L-PcQwkSObtixs",
+          "label": "TextView"
+        },
+        {
+          "nodeId": "A4rtNULX_MoV93IH1Lgqw",
+          "label": "ImageView"
+        },
+        {
+          "nodeId": "2iDJrxjXOt7o2fPp2HfRl",
+          "label": "Fragments"
+        },
+        {
+          "nodeId": "xIvplWfe-uDr9iHjPT1Mx",
+          "label": "RecycleView"
+        },
+        {
+          "nodeId": "3fFNMhQIuuh-NRzSXYpXO",
+          "label": "Constraint"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:XmdyFfnM9BlqrEssRjczP",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "Xv0es_z64vh-QzivMeAT3",
+          "label": "Authentication"
+        },
+        {
+          "nodeId": "xB4evbD07n1VrHOIpowV4",
+          "label": "Crashlytics"
+        },
+        {
+          "nodeId": "1Tz-Shj_Tuz2U8llEAcLr",
+          "label": "Remote Config"
+        },
+        {
+          "nodeId": "e3vHFaFFMV7kI9q6yf5e9",
+          "label": "Cloud Messaging"
+        },
+        {
+          "nodeId": "3EEfKAd-ppIQpdQSEhbA1",
+          "label": "FireStore"
+        }
+      ]
+    },
+    {
+      "nodeId": "0fNQWRxst8xRstIfPaPO6",
+      "label": "Storage",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "PKql1HY0PLMfp50FRELXL",
+          "label": "Shared Preferences"
+        },
+        {
+          "nodeId": "GWq3s1iTxQOp1BstHscJ9",
+          "label": "DataStore"
+        },
+        {
+          "nodeId": "Bz-BkfzsDHAbAw3HD7WCd",
+          "label": "MVI"
+        },
+        {
+          "nodeId": "pSU-NZtjBh-u0WKTYfjk_",
+          "label": "MVVM"
+        },
+        {
+          "nodeId": "Bfg4So5RlI09zFNcburJd",
+          "label": "Room Database"
+        },
+        {
+          "nodeId": "aF_xFIqTjQbENtC7pkXvJ",
+          "label": "MVP"
+        },
+        {
+          "nodeId": "w1A6wPKSd3Yh2luuHV-aE",
+          "label": "MVC"
+        },
+        {
+          "nodeId": "A4kdaj6AFueUgPI7hwKi5",
+          "label": "File System"
+        }
+      ]
+    },
+    {
+      "nodeId": "j5qmSMOdhpGZo1XOUVx1k",
+      "label": "Security",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "cFYZ2C7yNnY6NHKUNP2Z4",
+      "label": "Asynchronism",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "i_cKmTnGAYw8xpHwZHjAd",
+          "label": "Coroutines"
+        },
+        {
+          "nodeId": "BeGrA5BDBMZP1Jy7n-wl-",
+          "label": "Threads"
+        },
+        {
+          "nodeId": "zXsNEyRbb8UpEOAUv6FpY",
+          "label": "RxJava"
+        },
+        {
+          "nodeId": "4h37WBpYxRRyw9oH8ge7o",
+          "label": "RxKotlin"
+        }
+      ]
+    },
+    {
+      "nodeId": "Yb6aKJMMCxU1QVltWg3Dr",
+      "label": "Network",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "ZF5XgO7I_J9928bD3CVXo",
+          "label": "Repository Pattern"
+        },
+        {
+          "nodeId": "784fiIdKrQDlIm3VIiJQN",
+          "label": "Builder Pattern"
+        },
+        {
+          "nodeId": "DeOxj6RzQBYfEWV-M1Ybm",
+          "label": "Factory Pattern"
+        },
+        {
+          "nodeId": "dDMRYiqrKyOBnRRQc8zsp",
+          "label": "Retro"
+        },
+        {
+          "nodeId": "N_auRfGKkeIIc-qiHLkR_",
+          "label": "Observer Pattern"
+        },
+        {
+          "nodeId": "5pVuwOItAhUxxJX8ysAsn",
+          "label": "OkHttp"
+        },
+        {
+          "nodeId": "ww0fTbdXwVr-QIOClU7ng",
+          "label": "Apollo-Android"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:cjH8XWlBk0ZBpvxGJ1gsn",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "W-WTIiQml8dLK6i_V69JK",
+          "label": "Flow"
+        },
+        {
+          "nodeId": "7rbsp1o5bzIJP11BRIoeG",
+          "label": "RxKotlin"
+        },
+        {
+          "nodeId": "xk0vnWr7uESdzYRxwFjoK",
+          "label": "RxJava"
+        },
+        {
+          "nodeId": "TiokceMGU9caqiR0lbFYL",
+          "label": "LiveData"
+        }
+      ]
+    },
+    {
+      "nodeId": "ZEdn2yy-IwHN3kOYr2ZbC",
+      "label": "Common Services",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "D4ZXQOKJkyFYNZIy-MJ9Y",
+          "label": "Google Admob"
+        },
+        {
+          "nodeId": "m5rumeynEbS8T27pelr0-",
+          "label": "Google Play Services"
+        },
+        {
+          "nodeId": "S5FVF9rMgVSSDKXJW2GYb",
+          "label": "Google Maps"
+        },
+        {
+          "nodeId": "-ONSC-ImGSELbamKmjIlH",
+          "label": "Espresso"
+        },
+        {
+          "nodeId": "gvGAwjk_nhEgxzZ_c3f6b",
+          "label": "JUnit"
+        }
+      ]
+    },
+    {
+      "nodeId": "77F9F3oI5CPgwgM_hxWfa",
+      "label": "Linting",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "OAb_JD64uGm2tPoue7w6t",
+          "label": "WorkManager"
+        },
+        {
+          "nodeId": "VFOD4JrV8kZ2583G3oT95",
+          "label": "Timber"
+        },
+        {
+          "nodeId": "3i4g9ZWgLxKb2UMgRJi4Q",
+          "label": "Leak Canary"
+        },
+        {
+          "nodeId": "zMbXQH17Q52opdbitPzj7",
+          "label": "Ktlint"
+        },
+        {
+          "nodeId": "RUvuCp_JK5MQQT13SSHUV",
+          "label": "Detekt"
+        }
+      ]
+    },
+    {
+      "nodeId": "ZOQm5OlzCA-h_yxywwDrW",
+      "label": "Testing",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:ZbuCx3ygIZPRS_9fp0AJg",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "CK7Ce632fdTgxeFsRUVvd",
+          "label": "Dagger"
+        },
+        {
+          "nodeId": "ooo_k2k_vUBR_jQ7Ke6Et",
+          "label": "Hilt"
+        },
+        {
+          "nodeId": "UMqZ-jmXKDXKuu8bzqDH_",
+          "label": "Koin"
+        }
+      ]
+    },
+    {
+      "nodeId": "6KbSUAoT_jTudFoIbwMpA",
+      "label": "Debugging",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "qtXM9K7wyjOFuEMlZrB3C",
+          "label": "Dependency Injection"
+        },
+        {
+          "nodeId": "7RKN1FNtRE_BE6QeAQrKb",
+          "label": "Chucker"
+        },
+        {
+          "nodeId": "ACUJlDDR0jqEohsFzWEoQ",
+          "label": "Jetpack Benchmark"
+        }
+      ]
+    },
+    {
+      "nodeId": "kc6buUsLAeZeUb4Tk0apM",
+      "label": "Distribution",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "T7q_quNaIAuGi96OdnDT1",
+          "label": "Firebase Distribution"
+        },
+        {
+          "nodeId": "_FSlD_qTz5Xo0x3pB6sZI",
+          "label": "Signed APK"
+        },
+        {
+          "nodeId": "HgRdgi2Hu4C8YLG5PXfoo",
+          "label": "Google Playstore"
+        }
+      ]
+    }
+  ]
+}

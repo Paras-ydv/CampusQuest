@@ -1,0 +1,463 @@
+{
+  "slug": "linux",
+  "title": "Linux Roadmap",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "y7KjVfSI6CAduyHd4mBFT",
+      "label": "Navigation Basics",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "qLeEEwBvlGt1fP5Qcreah",
+          "label": "Basic Commands"
+        },
+        {
+          "nodeId": "q-Ky0ietZGpyUcBQfh-BJ",
+          "label": "Moving Files / Directories"
+        },
+        {
+          "nodeId": "9oo2fxTM2_p0VYPBroqxa",
+          "label": "Creating & Deleting Files / Dirs"
+        },
+        {
+          "nodeId": "3fzuXKH7az_LVnmnoXB1p",
+          "label": "Directory Hierarchy Overview"
+        }
+      ]
+    },
+    {
+      "nodeId": "HGmeYvRf7_XusZl_K4x9k",
+      "label": "Editing Files",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "XiZz7EFIey1XKS292GN4t",
+          "label": "Vim"
+        },
+        {
+          "nodeId": "yqRwmcZThjQuqh2ao0dWK",
+          "label": "Nano"
+        }
+      ]
+    },
+    {
+      "nodeId": "8QBMyL8D5jPovxN8jyZW9",
+      "label": "Shell and Other Basics",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "moGMHNR58wFlzhS7je1wc",
+          "label": "Command Path"
+        },
+        {
+          "nodeId": "t3fxSgCgtxuMtHjclPHA6",
+          "label": "stdout / stdin / stderr"
+        },
+        {
+          "nodeId": "Z5Mf_e5G24IkmxEHgYBe2",
+          "label": "cut"
+        },
+        {
+          "nodeId": "zwXEmpPYjA7_msS43z7I0",
+          "label": "Environment Variables"
+        },
+        {
+          "nodeId": "5658kdqJw-pIOyyhll80a",
+          "label": "paste"
+        },
+        {
+          "nodeId": "1WRIy3xHtQfiQFZrprobP",
+          "label": "sort"
+        },
+        {
+          "nodeId": "O9Vci_WpUY-79AkA4HDx3",
+          "label": "tr"
+        },
+        {
+          "nodeId": "6xdkFk_GT93MigeTSSGCp",
+          "label": "head"
+        },
+        {
+          "nodeId": "KaMSsQnJzNqGHg0Oia4uy",
+          "label": "Command Help"
+        },
+        {
+          "nodeId": "Yyk28H6TiteZEGv6Aps1h",
+          "label": "tail"
+        },
+        {
+          "nodeId": "vfcCS1GoyKpU1rQaE8I5r",
+          "label": "join"
+        },
+        {
+          "nodeId": "JgoZzx4BfK7tmosgpZOsf",
+          "label": "Redirects"
+        },
+        {
+          "nodeId": "NIBSZGE9PskVrluJpdom0",
+          "label": "Super User"
+        }
+      ]
+    },
+    {
+      "nodeId": "RsOTPZPZGTEIt1Lk41bQV",
+      "label": "Working with Files",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "TnrT-cqMA8urew9nLv0Ns",
+          "label": "File Permissions"
+        },
+        {
+          "nodeId": "iD073xTmpzvQFfXwcwXcY",
+          "label": "Archiving and Compressing"
+        },
+        {
+          "nodeId": "abKO6KuuIfl9ruVxBw6t_",
+          "label": "Copying and Renaming"
+        },
+        {
+          "nodeId": "KaXHG_EKxI5PUXmcvlJt6",
+          "label": "Soft Links / Hard Links"
+        }
+      ]
+    },
+    {
+      "nodeId": "-B2Dvz7160Er0OBHzS6ro",
+      "label": "Text Processing",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "Pl9s2ti25hsSEljXJvBTj",
+          "label": "split"
+        },
+        {
+          "nodeId": "v32PJl4fzIFTOirOm6G44",
+          "label": "pipe"
+        },
+        {
+          "nodeId": "Bo9CdrGJej-QcNmw46k9t",
+          "label": "tee"
+        },
+        {
+          "nodeId": "YSfGrmT795miIeIZrtC3D",
+          "label": "nl"
+        },
+        {
+          "nodeId": "LIGOJwrXexnIcPyHVlhQ8",
+          "label": "wc"
+        },
+        {
+          "nodeId": "TZuDVFS7DZFBgaSYYXoGe",
+          "label": "expand"
+        },
+        {
+          "nodeId": "sKduFaX6xZaUUBdXRMKCL",
+          "label": "unexpand"
+        },
+        {
+          "nodeId": "qnBbzphImflQbEbtFub9x",
+          "label": "uniq"
+        },
+        {
+          "nodeId": "umlhxidsvtZG9k40Ca0Ac",
+          "label": "grep"
+        },
+        {
+          "nodeId": "QTmECqpRVMjNgQU70uCF8",
+          "label": "awk"
+        }
+      ]
+    },
+    {
+      "nodeId": "h01Y6dW09ChidlM2HYoav",
+      "label": "Process Management",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "mUKoiGUTpIaUgQNF3BND_",
+          "label": "Background / Foreground Processes"
+        },
+        {
+          "nodeId": "lf3_CRyOI2ZXGzz5ff451",
+          "label": "Listing / Finding Processes"
+        },
+        {
+          "nodeId": "0FLUI9r7znMqi6YKReLzD",
+          "label": "Killing Processes"
+        },
+        {
+          "nodeId": "5anSYRhaKIs3dCLWlvZfT",
+          "label": "Process Priorities"
+        },
+        {
+          "nodeId": "Rib7h9lh_ndiXkwNbftz_",
+          "label": "Process Forking"
+        }
+      ]
+    },
+    {
+      "nodeId": "jSzfQf0MlnXtWHCc-HYvr",
+      "label": "Server Review",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "19lTWqAvZFT2CDlhLlPSq",
+          "label": "Uptime and Load"
+        },
+        {
+          "nodeId": "WwybfdKuP9ogCGpT7d3NU",
+          "label": "Authentication Logs"
+        },
+        {
+          "nodeId": "ewUuI_x-YhOQIYd3MTgJJ",
+          "label": "Services Running"
+        },
+        {
+          "nodeId": "tx0nh6cbBjVxwNlyrBNYm",
+          "label": "Available Memory / Disk"
+        }
+      ]
+    },
+    {
+      "nodeId": "g6n7f1Qi0BPr_BGvisWuz",
+      "label": "User Management",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "R9TZfkgVUQNLnMpDhovJa",
+          "label": "Create / Delete / Update"
+        },
+        {
+          "nodeId": "VkLWTvKnRXzvLGWza2v45",
+          "label": "Process Signals"
+        },
+        {
+          "nodeId": "h8wc8XEwWYHErna68w7Mg",
+          "label": "Users and Groups"
+        },
+        {
+          "nodeId": "L6RMExeqi9501y-eCHDt1",
+          "label": "Managing Permissions"
+        }
+      ]
+    },
+    {
+      "nodeId": "F1sU3O1ouxTOvpidDfN3k",
+      "label": "Service Management (systemd)",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "34UUrc8Yjc_8lvTL8itc3",
+          "label": "Creating New Services"
+        },
+        {
+          "nodeId": "FStz-bftQBK0M6zz2Bxl4",
+          "label": "Checking Service Logs"
+        },
+        {
+          "nodeId": "DuEfJNrm4Jfmp8-8Pggrf",
+          "label": "Starting / Stopping Services"
+        },
+        {
+          "nodeId": "xk5Xgi797HlVjdZJRfwX1",
+          "label": "Checking Service Status"
+        }
+      ]
+    },
+    {
+      "nodeId": "4eINX8jYMJxfYh7ZV47YI",
+      "label": "Package Management",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "2oQiuQ2j02SCt9t5eV6hg",
+          "label": "Package Repositories"
+        },
+        {
+          "nodeId": "eKyMZn30UxQeBZQ7FxFbF",
+          "label": "Snap"
+        },
+        {
+          "nodeId": "Z23eJZjmWoeXQuezR9AhG",
+          "label": "Finding & Installing Packages"
+        },
+        {
+          "nodeId": "48wAoAAlCNt3j5mBpKTWC",
+          "label": "Listing Installed Packages"
+        },
+        {
+          "nodeId": "xEHiB-egkkcBuZmgMoqHT",
+          "label": "Install / Remove / Upgrade Packages"
+        }
+      ]
+    },
+    {
+      "nodeId": "Fn_uYKigJRgb7r_iYGVBr",
+      "label": "Disks and Filesystems",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "AwQJYL60NNbA5_z7iLcM7",
+          "label": "Inodes"
+        },
+        {
+          "nodeId": "LFPhSHOhUqM98fUxMjQUw",
+          "label": "Filesystems"
+        },
+        {
+          "nodeId": "zmb5lK_EGMAChPoPvP9E0",
+          "label": "Mounts"
+        },
+        {
+          "nodeId": "I3LNa1cM_zRkBy8wKdz3g",
+          "label": "LVM"
+        },
+        {
+          "nodeId": "4xBaZPk0eSsWG1vK3e2yW",
+          "label": "Adding Disks"
+        },
+        {
+          "nodeId": "AWosNs2nvDGV8r6WvgBI1",
+          "label": "Swap"
+        }
+      ]
+    },
+    {
+      "nodeId": "DQEa8LrJ9TVW4ULBE4aHJ",
+      "label": "Booting Linux",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "ru7mpLQZKE1QxAdiA1sS3",
+          "label": "Logs"
+        },
+        {
+          "nodeId": "o5lSQFW-V_PqndGqo1mp3",
+          "label": "Boot Loaders"
+        }
+      ]
+    },
+    {
+      "nodeId": "Mb42VFjCzMZn_PovKIfKx",
+      "label": "Networking",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "0pciSsiQqIGJh3x8465_s",
+          "label": "TCP/IP Stack"
+        },
+        {
+          "nodeId": "Xszo9vXuwwXZo26seHehD",
+          "label": "Subnetting"
+        },
+        {
+          "nodeId": "4ees23q281J1DPVAc7iXd",
+          "label": "Ethernet & arp/rarp"
+        },
+        {
+          "nodeId": "X6Jw95kbyPgsDNRhvkQP9",
+          "label": "DHCP"
+        },
+        {
+          "nodeId": "D0yUzzaJsfhtdBWMtquAj",
+          "label": "IP Routing"
+        },
+        {
+          "nodeId": "f5oQYhmjNM2_FD7Qe1zGK",
+          "label": "DNS Resolution"
+        },
+        {
+          "nodeId": "uk6UMuI8Uhf02TBAGVeLS",
+          "label": "SSH"
+        },
+        {
+          "nodeId": "tVrbVcNEfc11FbEUoO2Dk",
+          "label": "File Transfer"
+        }
+      ]
+    },
+    {
+      "nodeId": "4tFZ1PLpz50bddf7zSFrW",
+      "label": "Shell Programming",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "-pW7R76yNIeGf7TQoX4QL",
+          "label": "Literals"
+        },
+        {
+          "nodeId": "JyxvZOb7iusOSUYSlniGl",
+          "label": "Variables"
+        },
+        {
+          "nodeId": "WJT-yrMq8cEI87RHWA2jY",
+          "label": "Loops"
+        },
+        {
+          "nodeId": "rQxfp7UWqN72iqewZhOdc",
+          "label": "Conditionals"
+        },
+        {
+          "nodeId": "rOGnHbGIr3xPCFdpkqoeK",
+          "label": "Debugging"
+        },
+        {
+          "nodeId": "bZ8Yj6QfBeDdh8hRM_aZs",
+          "label": "Netfilter"
+        },
+        {
+          "nodeId": "Uc36t92UAlILgM3_XxcMG",
+          "label": "ping"
+        }
+      ]
+    },
+    {
+      "nodeId": "bdQNcr1sj94aX_gjwf2Fa",
+      "label": "Troubleshooting",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "Ymf3u_sG1dyt8ZR_LbwqJ",
+          "label": "ICMP"
+        },
+        {
+          "nodeId": "BnB3Rirh4R7a7LW7-k-95",
+          "label": "traceroute"
+        },
+        {
+          "nodeId": "yrxNYMluJ9OAQCKuM5W1u",
+          "label": "netstat"
+        },
+        {
+          "nodeId": "7seneb4TWts4v1_x8xlcZ",
+          "label": "Packet Analysis"
+        }
+      ]
+    },
+    {
+      "nodeId": "3OpGaQhyNtk1n1MLp-tlb",
+      "label": "Containerization",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "QgfenmhMc18cU_JngQ1n0",
+          "label": "ulimits"
+        },
+        {
+          "nodeId": "23lsrUw8ux6ZP9JlDNNu2",
+          "label": "cgroups"
+        },
+        {
+          "nodeId": "bVCwRoFsYb3HD8X4xuKOo",
+          "label": "Container Runtime"
+        },
+        {
+          "nodeId": "MfengY3ouz6sSOx3PXYf8",
+          "label": "Docker"
+        }
+      ]
+    }
+  ]
+}

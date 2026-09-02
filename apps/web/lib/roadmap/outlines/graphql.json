@@ -1,0 +1,346 @@
+{
+  "slug": "graphql",
+  "title": "GraphQL",
+  "reviewed": false,
+  "topics": [
+    {
+      "nodeId": "JfXwzkN29UGz17FYHHE3A",
+      "label": "Introduction",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "cMfsRtvzvDZZJ0TqeUOxm",
+          "label": "What is GraphQL"
+        },
+        {
+          "nodeId": "2rlmLn_yQQV-7DpX1qT98",
+          "label": "Problems GraphQL Solves"
+        },
+        {
+          "nodeId": "J5mU0v491qrm-mr1W3Msd",
+          "label": "Thinking in Graphs"
+        },
+        {
+          "nodeId": "6r9XbwlBtHmJrhviG2cTD",
+          "label": "GraphQL on Frontend"
+        },
+        {
+          "nodeId": "ODQ8zrHc2rsc8PN-APKvz",
+          "label": "GraphQL on Backend"
+        }
+      ]
+    },
+    {
+      "nodeId": "W_Lg8086ZhrIqtck1sgnb",
+      "label": "GraphQL Queries",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "2SU4dcaz7zwGsF7g8FjmI",
+          "label": "What are Queries?"
+        },
+        {
+          "nodeId": "Pc9H7AcoqJQkWnuhbytyD",
+          "label": "Fields"
+        },
+        {
+          "nodeId": "YZaFEK547FYricfOuANvH",
+          "label": "Variables"
+        },
+        {
+          "nodeId": "B77yLU4SuRChSjEbmYwc-",
+          "label": "Aliases"
+        },
+        {
+          "nodeId": "hrpb108R8Gyu3hhzkMYzL",
+          "label": "Arguments"
+        },
+        {
+          "nodeId": "MnmwccPahqPCzOhqjfbsY",
+          "label": "Directives"
+        },
+        {
+          "nodeId": "CehwjrCG_wbUU-TFNCuJn",
+          "label": "Fragments"
+        }
+      ]
+    },
+    {
+      "nodeId": "jy_91mhFWbpR6sYVbuX1x",
+      "label": "Mutations",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "9Q2pGidY-rfkltHq3vChp",
+          "label": "What are Mutations?"
+        },
+        {
+          "nodeId": "AySlY8AyI6jE-cy-qKKOU",
+          "label": "Multiple Fields in Mutation"
+        },
+        {
+          "nodeId": "q9TYEygvUyHourdZIvk8G",
+          "label": "Operation Name"
+        }
+      ]
+    },
+    {
+      "nodeId": "IbEqXlGjsyNLKE9dZrPPk",
+      "label": "Subscriptions",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "jpu0_FAlxtD-H80mPcod5",
+          "label": "Type System"
+        },
+        {
+          "nodeId": "RlBc-hWEUOPaEQLTgJa-K",
+          "label": "What are Subscriptions"
+        },
+        {
+          "nodeId": "HPdntdgTar1T34CZX8Y6y",
+          "label": "Fields"
+        },
+        {
+          "nodeId": "kJMyRhasBKfBypent3GxK",
+          "label": "Event Based Subscriptions"
+        },
+        {
+          "nodeId": "CHdzww8_TNfeM6Bp1oTPI",
+          "label": "Live Queries"
+        },
+        {
+          "nodeId": "t6XxFB_lx27kS4FE2_GMH",
+          "label": "@defer / @stream directives"
+        }
+      ]
+    },
+    {
+      "nodeId": "lj1WEh4WbfBsoZFYsi1Yz",
+      "label": "Schema",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "U-tLelmNQtR-pUq-sxU_2",
+          "label": "Scalars"
+        },
+        {
+          "nodeId": "wfOsfb0zSAIdNkwFHfBcw",
+          "label": "Enums"
+        },
+        {
+          "nodeId": "LX9vZpx7yKlf0iR6AtBWz",
+          "label": "Objects"
+        }
+      ]
+    },
+    {
+      "nodeId": "iYkHCKTsjtvo40f3eZoet",
+      "label": "Validation",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "AlJlHZD3_SPoLNaqdM-pB",
+          "label": "Root Fields"
+        },
+        {
+          "nodeId": "d2ikbo4sZq7PmaCi5znkd",
+          "label": "Lists"
+        },
+        {
+          "nodeId": "tc_rjJZrr2x3bp8mcoQ0F",
+          "label": "Interfaces"
+        },
+        {
+          "nodeId": "59COH3rerJJzKr6vrj4bF",
+          "label": "Unions"
+        },
+        {
+          "nodeId": "A54vi3Ao7fBHyTuqoH_it",
+          "label": "Arguments"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:C2zefkHdFZjID3CdqXmAy",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "VDur5xYBC0LJtQgDrSEyj",
+          "label": "Resolvers"
+        },
+        {
+          "nodeId": "uPpsj2kCdgKsJpmTaw86u",
+          "label": "Synchronous"
+        },
+        {
+          "nodeId": "tbDvQBtLRAcD-xYX9V7Va",
+          "label": "Asynchronous"
+        },
+        {
+          "nodeId": "QFUOmJlPkkjpcl1vJxg9h",
+          "label": "Scalar Coercion"
+        },
+        {
+          "nodeId": "sJ1_c3e08aehiqNMbIEEP",
+          "label": "Lists"
+        }
+      ]
+    },
+    {
+      "nodeId": "72wGg6yP8WnEdmkeKL9vh",
+      "label": "Execution",
+      "hasBody": true,
+      "subtopics": []
+    },
+    {
+      "nodeId": "section:QGWApwm1h5K_n0M81b9DH",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "V3bgswBFr1xames3F8S_V",
+          "label": "GraphQL Over HTTP Spec"
+        },
+        {
+          "nodeId": "UYwuUVTeurwODV4_Kdt_W",
+          "label": "Caching"
+        },
+        {
+          "nodeId": "v9gVexHfDkpG9z3NL5S-9",
+          "label": "Batching"
+        },
+        {
+          "nodeId": "i-zcfN6RNXhA_sb7DcIon",
+          "label": "Authorization"
+        }
+      ]
+    },
+    {
+      "nodeId": "inhjhH-7xJyX8o4DQqErF",
+      "label": "Serving over Internet",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "I4wNBXV4xEZ0LWBhv5FwF",
+          "label": "Validation"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:ud-BWNe_McqpZXHtlXPyr",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "A-PQ3_FVuCK3Eud75hsdj",
+          "label": "Specification"
+        },
+        {
+          "nodeId": "2YLm_S1j_832pb1OGSNaM",
+          "label": "Realtime"
+        },
+        {
+          "nodeId": "GzwPvLybxTJM96fUhQUOi",
+          "label": "Authorization"
+        }
+      ]
+    },
+    {
+      "nodeId": "Uf8XxJPs7RzKVhlxiQdbB",
+      "label": "Pagination",
+      "hasBody": true,
+      "subtopics": [
+        {
+          "nodeId": "zQHifboRreE4OgJ7GnUlp",
+          "label": "Producing the Result"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:BVXPP2J15hss2hF85urjN",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "9nVo95gRNGHGIbaJQPH1x",
+          "label": "GraphQL Go"
+        },
+        {
+          "nodeId": "jCzrMElTo-c9xGcpPOOPl",
+          "label": "GraphQL.js"
+        },
+        {
+          "nodeId": "7szipojhVb2VoL3VcS619",
+          "label": "GraphQL Java"
+        },
+        {
+          "nodeId": "r3Yf5pxzgSGAckOPr3eSt",
+          "label": "Graphene"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:cH2FSWgKxQbBoI0tI-QNH",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "O8k-m6s9B_uXkLsXKVFnL",
+          "label": "Specification"
+        },
+        {
+          "nodeId": "G50ZMlmP7Ru5LcFne5Rhu",
+          "label": "Authorization"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:SFhbL3KKBd053kCVToTm1",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "N-vsu-wvOikuoTbzdgX3X",
+          "label": "graphql-http"
+        },
+        {
+          "nodeId": "Gotb1xtxySCVC5MrnkPSs",
+          "label": "GraphQL Yoga"
+        },
+        {
+          "nodeId": "o_VkyoN6DmUUkfl0u0cro",
+          "label": "Apollo Server"
+        },
+        {
+          "nodeId": "iTV2H8clmRTOksul4v38p",
+          "label": "mercurius"
+        }
+      ]
+    },
+    {
+      "nodeId": "section:4IugiCX3rnKv5ak50sqGm",
+      "label": "Prerequisites",
+      "hasBody": false,
+      "subtopics": [
+        {
+          "nodeId": "datKo3vPDwXoyVskcrdkc",
+          "label": "graphql-http"
+        },
+        {
+          "nodeId": "Ab_ngkf6bmejvcp9okuw6",
+          "label": "Relay"
+        },
+        {
+          "nodeId": "D5O7ky5eXwm_Ys1IcFNaq",
+          "label": "Apollo Client"
+        },
+        {
+          "nodeId": "WP0Oo_YMfLBlXqDQQtKes",
+          "label": "Urql"
+        }
+      ]
+    }
+  ]
+}
