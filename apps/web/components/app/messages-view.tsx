@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Avatar, Label } from "@/components/ui/primitives";
 import { createThread, getMessages, sendMessage } from "@/lib/data/client";
 import { subscribeToThread } from "@/lib/supabase/realtime";
+import { useConnectionsChanged } from "@/lib/live-refresh";
 
 /**
  * The chat surface over P3's threads/messages routes. Realtime is additive: if
@@ -44,6 +45,26 @@ export function MessagesView({
   const [error, setError] = useState<string | null>(null);
   const [connected, setConnected] = useState(false);
   const [presentIds, setPresentIds] = useState<string[]>([]);
+  /*
+   * Who you may message, kept current after first paint. Accepting a request
+   * happens on People, so this pane was rendered before the connection existed
+   * and the new person only appeared after a manual reload. The plain
+   * connections route is cheap enough to poll, unlike the match list.
+   */
+  const [connectedPeers, setConnectedPeers] = useState<
+    { id: string; name: string; email: string; initials: string }[]
+  >(() => peers.filter((p) => p.connection === "connected"));
+
+  const loadConnections = useCallback(async () => {
+    try {
+      const response = await fetch("/api/people/connections", { cache: "no-store" });
+      if (!response.ok) return;
+      setConnectedPeers(await response.json());
+    } catch {
+      // A failed poll is not worth surfacing; the next one will retry.
+    }
+  }, []);
+  useConnectionsChanged(loadConnections);
 
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -55,9 +76,12 @@ export function MessagesView({
   const peerById = useMemo(() => {
     const map = new Map<string, { name: string; email: string; initials: string }>();
     for (const peer of peers) map.set(peer.id, { name: peer.name, email: peer.email, initials: peer.initials });
+    // A thread started this session is with someone the polled connection list
+    // knows about but the server-rendered directory does not yet.
+    for (const peer of connectedPeers) map.set(peer.id, { name: peer.name, email: peer.email, initials: peer.initials });
     for (const member of members) map.set(member.id, { name: member.name, email: member.email, initials: member.initials });
     return map;
-  }, [peers, members]);
+  }, [peers, connectedPeers, members]);
 
   /** A thread is named after whoever in it is not you. */
   const nameOf = useCallback(
@@ -242,8 +266,7 @@ export function MessagesView({
   const visibleThreads = threads.filter((t) => matchesQuery(nameOf(t), emailOf(t)));
   // Only connected peers: a direct thread now requires an accepted connection,
   // so offering anyone else would be a button that always fails.
-  const peersWithoutThread = peers
-    .filter((peer) => peer.connection === "connected")
+  const peersWithoutThread = connectedPeers
     .filter((peer) => !threads.some((t) => t.memberIds.includes(peer.id)))
     .filter((peer) => matchesQuery(peer.name, peer.email));
 

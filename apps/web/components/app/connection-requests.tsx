@@ -3,9 +3,10 @@
 import type { ConnectionRequestDetail } from "@campusquest/shared";
 import { AnimatePresence, motion } from "motion/react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { clsx } from "clsx";
 import { Avatar, Label } from "@/components/ui/primitives";
+import { announceConnectionsChanged, useConnectionsChanged } from "@/lib/live-refresh";
 
 /**
  * Incoming and outgoing connection requests.
@@ -19,6 +20,23 @@ export function ConnectionRequests({ requests }: { requests: ConnectionRequestDe
   const [items, setItems] = useState(requests);
   const [busy, setBusy] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+
+  /*
+   * The list arrives server-rendered, but a request sent from this same page —
+   * or one that arrives while you sit here — would otherwise stay invisible
+   * until a reload, because `router.refresh()` cannot replace client state that
+   * was seeded from props. So this owns its data after first paint.
+   */
+  const reload = useCallback(async () => {
+    try {
+      const response = await fetch("/api/people/requests", { cache: "no-store" });
+      if (!response.ok) return;
+      setItems((await response.json()) as ConnectionRequestDetail[]);
+    } catch {
+      // A failed poll is not worth surfacing; the next one will retry.
+    }
+  }, []);
+  useConnectionsChanged(reload);
 
   const incoming = items.filter((r) => r.direction === "incoming");
   const outgoing = items.filter((r) => r.direction === "outgoing");
@@ -38,8 +56,12 @@ export function ConnectionRequests({ requests }: { requests: ConnectionRequestDe
         const body = await response.json().catch(() => null);
         throw new Error(body?.message ?? `Could not update the request (${response.status}).`);
       }
-      // Accepting changes who you can message, so the shell has to re-read.
+      // Accepting changes who you can message, so the shell has to re-read,
+      // and any pane watching connections should catch up now, not on its
+      // next poll.
       router.refresh();
+      announceConnectionsChanged();
+      void reload();
     } catch (responseError) {
       setItems(previous);
       setError(responseError instanceof Error ? responseError.message : "Could not update the request.");

@@ -230,5 +230,27 @@ console.log("\n6. Requests cannot be acted on by the wrong person");
   }
 }
 
+console.log("\n7. The connections route reflects who you may message");
+{
+  /*
+   * The messages pane polls this instead of the match list, so that a person
+   * you just accepted appears without a reload. If it disagreed with the
+   * connection table, "Start a conversation" would offer buttons that fail.
+   */
+  const mine = await api(people.aarav, "/api/people/connections");
+  check("Aarav's connections load", mine.status === 200, `HTTP ${mine.status}`);
+  const ishita = (mine.body ?? []).find((p) => p.id === people.ishita.id);
+  check("Ishita is in it after accepting", Boolean(ishita));
+  check("with her name and email", ishita?.name?.length > 0 && ishita?.email?.includes("@"),
+        `${ishita?.name} <${ishita?.email}>`);
+
+  const meeras = await api(people.meera, "/api/people/connections");
+  check("someone who declined is not in it",
+        !(meeras.body ?? []).some((p) => p.id === people.kartikeya.id));
+
+  const anon = await fetch(`${BASE}/api/people/connections`);
+  check("and it is not readable signed out", anon.status === 401, `HTTP ${anon.status}`);
+}
+
 console.log(`\n${failures === 0 ? "All checks passed" : `${failures} FAILED`}`);
 process.exit(failures === 0 ? 0 : 1);

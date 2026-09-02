@@ -147,3 +147,43 @@ export async function listPendingRequests(
     } satisfies ConnectionRequestDetail;
   });
 }
+
+/**
+ * Everyone the caller is actually connected to, with just enough identity to
+ * name them.
+ *
+ * Deliberately separate from the matchmaker: "who can I message?" is a plain
+ * Supabase lookup, and clients poll it, so it must not drag the warehouse and
+ * embedding work of `/api/people/matches` along with it.
+ */
+export async function listConnectedPeers(
+  request: Request | undefined,
+  userId: string,
+): Promise<{ id: string; name: string; email: string; initials: string }[]> {
+  const supabase = await supabaseForCaller(request);
+  if (!supabase) return [];
+
+  const { data } = await supabase
+    .from("connections")
+    .select("user_a_id, user_b_id")
+    .or(`user_a_id.eq.${userId},user_b_id.eq.${userId}`);
+
+  const peerIds = [
+    ...new Set(
+      (data ?? [])
+        .map((row) => String(row.user_a_id) === userId ? String(row.user_b_id) : String(row.user_a_id))
+        .filter((id) => id !== userId),
+    ),
+  ];
+  if (!peerIds.length) return [];
+
+  // As in `listPendingRequests`, `profiles_owner` hides other students' rows,
+  // so identity comes from the service-role client for these ids only.
+  const admin = createAdminSupabaseClient();
+  if (!admin) return [];
+  const { data: people } = await admin.from("profiles").select("id, name, email, initials").in("id", peerIds);
+  return (people ?? []).map((row) => ({
+    id: String(row.id), name: String(row.name),
+    email: String(row.email), initials: String(row.initials),
+  }));
+}
