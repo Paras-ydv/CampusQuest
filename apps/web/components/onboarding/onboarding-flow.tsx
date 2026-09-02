@@ -6,10 +6,11 @@ import { BRANCHES, INTERESTS } from "@/lib/data/profile-options";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { clsx } from "clsx";
-import type { AcademicYear } from "@campusquest/shared";
+import type { AcademicYear, ResumeExtraction } from "@campusquest/shared";
 import { ALL_SKILLS } from "@/lib/data/skills";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/primitives";
+import { ResumeUpload } from "@/components/onboarding/resume-upload";
 
 
 
@@ -62,6 +63,18 @@ export function OnboardingFlow() {
 
   const [step, setStep] = useState(0);
   const [direction, setDirection] = useState(1);
+
+  /**
+   * The wizard itself is unchanged; `mode` gates it. Until the student picks a
+   * way in, the chooser renders instead of step 0 — so the manual path is
+   * exactly the flow that shipped, and a résumé is only ever a head start on
+   * the skills step.
+   */
+  const [mode, setMode] = useState<"choose" | "manual" | "resume">("choose");
+  /** Which of the selected skills came from the résumé, for the provenance note. */
+  const [fromResume, setFromResume] = useState<string[]>([]);
+  /** Which "about you" fields the résumé filled in, so the student knows to check them. */
+  const [prefilled, setPrefilled] = useState<string[]>([]);
 
   const [name, setName] = useState("");
   const [branch, setBranch] = useState<string | null>(null);
@@ -131,6 +144,98 @@ export function OnboardingFlow() {
     exit: (d: number) => ({ opacity: 0, x: d * -36 }),
   };
 
+  /**
+   * Accepts the extraction and enters the ordinary wizard with the matched
+   * skills already ticked. It deliberately starts at step 0 rather than
+   * skipping ahead to the skills step: name, branch, year and goal role are
+   * required by `OnboardingInput` and a résumé does not supply them, so
+   * jumping the queue would only fail validation at the end. The saving is
+   * that step 2 arrives pre-filled — every chip still toggles, and the "at
+   * least three" rule still applies, because the résumé is a starting point,
+   * not an authority.
+   */
+  function acceptResume(result: ResumeExtraction) {
+    setSkillIds(result.skillIds);
+    setFromResume(result.skillIds);
+    // Each of these is null whenever the résumé did not state it clearly, and
+    // a null must not overwrite anything — the student may have come back
+    // through the upload screen after typing.
+    if (result.name) setName(result.name);
+    if (result.branch) setBranch(result.branch);
+    if (result.year) setYear(result.year);
+    setPrefilled([result.name && "name", result.branch && "branch", result.year && "year"].filter(Boolean) as string[]);
+    setMode("resume");
+    setDirection(1);
+    setStep(0);
+  }
+
+  if (mode === "choose") {
+    return (
+      <div className="flex flex-1 items-start px-5 py-12 md:py-16">
+        <div className="mx-auto w-full max-w-[52rem]">
+          <Label className="mb-4">Getting started</Label>
+          <h1 className="k-display text-[clamp(2rem,6vw,3.4rem)]">
+            How should we
+            <br />
+            start your map?
+          </h1>
+          <p className="mt-5 max-w-[48ch] text-[0.92rem] leading-relaxed text-muted">
+            Either way you review everything before it&apos;s saved, and every
+            field stays editable from your profile afterwards.
+          </p>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            <button
+              type="button"
+              onClick={() => setMode("manual")}
+              className="border-2 border-line-soft p-6 text-left transition-[border-color,transform] duration-250 hover:-translate-y-0.5 hover:border-ink"
+            >
+              <span className="k-label">Add manually</span>
+              <p className="mt-3 text-[0.88rem] leading-relaxed text-muted">
+                Five short steps. Pick your skills from our list — most people
+                finish in a couple of minutes.
+              </p>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setMode("resume")}
+              className="border-2 border-ink p-6 text-left transition-transform duration-250 hover:-translate-y-0.5"
+            >
+              <span className="k-label">Start from your résumé</span>
+              <p className="mt-3 text-[0.88rem] leading-relaxed text-muted">
+                Upload a PDF and we&apos;ll pre-select the skills we recognise.
+                The file is never stored.
+              </p>
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Résumé mode before extraction: the upload screen stands in for the wizard.
+  if (mode === "resume" && !fromResume.length) {
+    return (
+      <div className="flex flex-1 items-start px-5 py-12 md:py-16">
+        <div className="mx-auto w-full max-w-[52rem]">
+          <Label className="mb-4">Your résumé</Label>
+          <h1 className="k-display text-[clamp(2rem,6vw,3.4rem)]">
+            Let&apos;s read what
+            <br />
+            you&apos;ve already done.
+          </h1>
+          <p className="mt-5 max-w-[48ch] text-[0.92rem] leading-relaxed text-muted">
+            We look for the skills in our catalogue and pre-tick them for you.
+            You&apos;ll review the list on the next screen — nothing is saved
+            until you finish.
+          </p>
+          <ResumeUpload onExtracted={acceptResume} onSkip={() => setMode("manual")} />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-1 flex-col">
       {/* ------------------------------------------------------ progress -- */}
@@ -179,6 +284,13 @@ export function OnboardingFlow() {
                     <br />
                     building this for?
                   </h1>
+
+                  {prefilled.length ? (
+                    <p className="mt-5 max-w-[48ch] text-[0.92rem] leading-relaxed text-muted">
+                      We filled in your {prefilled.join(", ").replace(/, ([^,]*)$/, " and $1")} from
+                      your résumé. Correct anything we got wrong.
+                    </p>
+                  ) : null}
 
                   <div className="mt-10 flex flex-col gap-8">
                     <div>
@@ -269,8 +381,9 @@ export function OnboardingFlow() {
                     already do?
                   </h1>
                   <p className="mt-5 max-w-[48ch] text-[0.92rem] leading-relaxed text-muted">
-                    Be honest rather than aspirational — the gap is the useful
-                    part. Pick at least three.
+                    {fromResume.length
+                      ? `We pre-selected ${fromResume.length} ${fromResume.length === 1 ? "skill" : "skills"} from your résumé. Untick anything you wouldn't be comfortable being asked about, and add what it missed — the gap is the useful part.`
+                      : "Be honest rather than aspirational — the gap is the useful part. Pick at least three."}
                   </p>
                   <div className="mt-9 flex flex-wrap gap-2">
                     {ALL_SKILLS.map((s) => (

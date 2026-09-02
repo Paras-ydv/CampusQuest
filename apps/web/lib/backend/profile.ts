@@ -231,21 +231,41 @@ export async function applyOnboarding(
   if (profileError) throw new Error(`Could not save onboarding: ${profileError.message}`);
 
   if (input.skillIds.length) {
+    // `user_skills.skill_id` is a foreign key, so a single id the `skills`
+    // table does not have fails the whole insert and loses the student's
+    // entire onboarding. That happens whenever the deployed database is behind
+    // the app's catalogue — a migration not yet applied, say. Dropping the
+    // unknown ids is strictly better than dropping the submission: the student
+    // keeps their profile and can add the skill later, once it exists.
+    const { data: known, error: catalogueError } = await supabase
+      .from("skills")
+      .select("id")
+      .in("id", input.skillIds);
+    if (catalogueError) throw new Error(`Could not read the skill catalogue: ${catalogueError.message}`);
+
+    const insertable = new Set((known ?? []).map((row) => row.id));
+    const skipped = input.skillIds.filter((id) => !insertable.has(id));
+    if (skipped.length) {
+      console.warn(`[onboarding] skills missing from the database, skipped: ${skipped.join(", ")}`);
+    }
+
     // Self-declared at onboarding; quests are what later upgrade a skill's
     // source to something more trustworthy. Re-running onboarding must not
     // downgrade a skill already earned, so existing rows are left alone.
-    const { error: skillsError } = await supabase
-      .from("user_skills")
-      .upsert(
-        input.skillIds.map((skillId) => ({
-          user_id: userId,
-          skill_id: skillId,
-          proficiency: "working",
-          source: "self",
-        })),
-        { onConflict: "user_id,skill_id", ignoreDuplicates: true },
-      );
-    if (skillsError) throw new Error(`Could not save skills: ${skillsError.message}`);
+    if (insertable.size) {
+      const { error: skillsError } = await supabase
+        .from("user_skills")
+        .upsert(
+          [...insertable].map((skillId) => ({
+            user_id: userId,
+            skill_id: skillId,
+            proficiency: "working",
+            source: "self",
+          })),
+          { onConflict: "user_id,skill_id", ignoreDuplicates: true },
+        );
+      if (skillsError) throw new Error(`Could not save skills: ${skillsError.message}`);
+    }
   }
 
   invalidateUser(userId);

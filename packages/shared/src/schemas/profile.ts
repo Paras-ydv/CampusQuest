@@ -72,3 +72,34 @@ export const OnboardingInput = z.object({
   interests: z.array(z.string()),
 });
 export type OnboardingInput = z.infer<typeof OnboardingInput>;
+
+/**
+ * What `POST /api/onboarding/resume` returns.
+ *
+ * Extraction only ever *suggests*: the student reviews these on the skills step
+ * and the existing `OnboardingInput` is still what writes anything. `skillIds`
+ * are canonical taxonomy ids, never free text, because gaps and quests join on
+ * them.
+ */
+export const ResumeExtraction = z.object({
+  skillIds: z.array(Id),
+  /** Per skill, the spelling found in the document — shown as provenance. */
+  matches: z.array(z.object({ skillId: Id, matchedOn: z.string() })),
+  /**
+   * The "about you" fields, each null when the résumé did not state it
+   * unambiguously. `branch` is always one of `BRANCHES` and `year` a valid
+   * `AcademicYear`, since onboarding renders both as fixed choices.
+   */
+  name: z.string().nullable(),
+  branch: z.string().nullable(),
+  year: AcademicYear.nullable(),
+  /**
+   * Technologies the résumé names that the catalogue has no entry for, after
+   * synonyms have been merged. Reported for visibility only — nothing is
+   * inserted from it, so the taxonomy stays under human control.
+   */
+  unknownSkills: z.array(z.string()).default([]),
+  /** True when the PDF carried no readable text, e.g. a scan. */
+  empty: z.boolean(),
+});
+export type ResumeExtraction = z.infer<typeof ResumeExtraction>;
