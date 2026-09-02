@@ -199,7 +199,15 @@ export function OnboardingFlow() {
 
             <button
               type="button"
-              onClick={() => setMode("resume")}
+              onClick={() => {
+                // Coming back here after an extraction and choosing résumé
+                // again means wanting to upload a different file, so the
+                // previous result is cleared — otherwise the upload screen is
+                // skipped and the old skills silently stand.
+                setFromResume([]);
+                setPrefilled([]);
+                setMode("resume");
+              }}
               className="border-2 border-ink p-6 text-left transition-transform duration-250 hover:-translate-y-0.5"
             >
               <span className="k-label">Start from your résumé</span>
@@ -231,6 +239,15 @@ export function OnboardingFlow() {
             until you finish.
           </p>
           <ResumeUpload onExtracted={acceptResume} onSkip={() => setMode("manual")} />
+
+          {/* Choosing a way in is not a commitment: picking résumé and then
+              deciding against it has to be undoable, or the only way out is a
+              page reload. */}
+          <div className="mt-10 border-t-2 border-ink pt-6">
+            <Button variant="ghost" onClick={() => setMode("choose")}>
+              Back
+            </Button>
+          </div>
         </div>
       </div>
     );
@@ -487,11 +504,13 @@ export function OnboardingFlow() {
           ) : null}
 
           <div className="mt-12 flex items-center gap-3 border-t-2 border-ink pt-6">
-            {step > 0 ? (
-              <Button variant="ghost" onClick={() => go(step - 1)}>
-                Back
-              </Button>
-            ) : null}
+            {/* Back leaves the wizard entirely at step 0, returning to the
+                choice of how to start. Without it a student who picked the
+                wrong way in had no route back short of reloading the page.
+                Answers already given are kept, so returning costs nothing. */}
+            <Button variant="ghost" onClick={() => (step > 0 ? go(step - 1) : setMode("choose"))}>
+              Back
+            </Button>
 
             <div className="ml-auto">
               {step < STEPS.length - 1 ? (
