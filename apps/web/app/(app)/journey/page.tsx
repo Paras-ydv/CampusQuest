@@ -7,7 +7,7 @@ import { GapList } from "@/components/app/gap-list";
 import { JourneyMascot } from "@/components/app/journey-mascot";
 import { GeniePanel } from "@/components/app/genie-panel";
 import { OpportunityCard } from "@/components/app/opportunity-card";
-import { PeerCard } from "@/components/app/peer-card";
+import { JourneyPeers } from "@/components/app/journey-peers";
 import { QuestCard } from "@/components/app/quest-card";
 import { StatRow } from "@/components/app/stat-row";
 
@@ -177,13 +177,7 @@ export default async function JourneyPage() {
             <Label rule className="mb-7">
               Build with — {peers.length} complementary peers
             </Label>
-            <div className="flex flex-col gap-5">
-              {peers.slice(0, 3).map((peer, i) => (
-                <Reveal key={peer.id} index={i}>
-                  <PeerCard peer={peer} />
-                </Reveal>
-              ))}
-            </div>
+            <JourneyPeers peers={peers} />
           </div>
 
           <div className="px-5 py-11">

@@ -1,7 +1,6 @@
 "use client";
 
 import type { PeerMatch } from "@campusquest/shared";
-import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import { Pager, usePaged } from "@/components/ui/pager";
 import { AnimatePresence, motion } from "motion/react";
@@ -11,15 +10,14 @@ import { PeerCard } from "./peer-card";
 import { Reveal } from "@/components/motion/reveal";
 import { WordRise } from "@/components/motion/word-rise";
 import { Label } from "@/components/ui/primitives";
-import { announceConnectionsChanged } from "@/lib/live-refresh";
+import { useConnect } from "./use-connect";
 
 export function PeopleView({ initialPeers }: { initialPeers: PeerMatch[] }) {
-  const [peers, setPeers] = useState(initialPeers);
+  // Shared with the Journey dashboard so both screens send requests the same
+  // way; Journey's Connect button was inert precisely because it did not.
+  const { peers, connect, send, connectError, pendingPeer, cancel } = useConnect(initialPeers);
   const [search, setSearch] = useState("");
   const [interest, setInterest] = useState<string | null>(null);
-  const [connectError, setConnectError] = useState<string | null>(null);
-  const [pendingPeerId, setPendingPeerId] = useState<string | null>(null);
-  const router = useRouter();
 
   // Interests are derived from the results rather than hard-coded, so the
   // filter row always reflects what is actually matchable.
@@ -44,52 +42,7 @@ export function PeopleView({ initialPeers }: { initialPeers: PeerMatch[] }) {
     });
   }, [peers, search, interest]);
 
-  /**
-   * Optimistic, then reconciled: the card flips to "requested" immediately and
-   * rolls back if POST /api/people/connection-requests rejects it, so a failed
-   * request never leaves the UI claiming a connection that does not exist.
-   */
-  /** Opening the dialog is the first half; `send` below is the second. */
-  function connect(peerId: string) {
-    setPendingPeerId(peerId);
-  }
-
-  async function send(note: string) {
-    const peerId = pendingPeerId;
-    if (!peerId) return;
-    setPendingPeerId(null);
-
-    const previous = peers;
-    setConnectError(null);
-    setPeers((prev) =>
-      prev.map((p) => (p.id === peerId ? { ...p, connection: "outgoing" } : p)),
-    );
-
-    try {
-      const response = await fetch("/api/people/connection-requests", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ peerId, message: note.trim() || undefined }),
-      });
-      if (!response.ok) {
-        const body = await response.json().catch(() => null);
-        throw new Error(body?.message ?? `Could not send the request (${response.status}).`);
-      }
-      // The requests section is server-rendered, so without this the request
-      // you just sent does not appear until the page is reloaded.
-      announceConnectionsChanged();
-      router.refresh();
-    } catch (error) {
-      setPeers(previous);
-      setConnectError(
-        error instanceof Error ? error.message : "Could not send the request.",
-      );
-    }
-  }
-
-
   const paged = usePaged(visible);
-  const pendingPeer = peers.find((p) => p.id === pendingPeerId) ?? null;
 
   return (
     <div className="mx-auto max-w-[1400px]">
@@ -98,7 +51,7 @@ export function PeopleView({ initialPeers }: { initialPeers: PeerMatch[] }) {
           name: pendingPeer.name, email: pendingPeer.email,
           initials: pendingPeer.initials, lookingFor: pendingPeer.lookingFor,
         }}
-        onCancel={() => setPendingPeerId(null)}
+        onCancel={cancel}
         onSend={(note) => void send(note)}
       />
 
