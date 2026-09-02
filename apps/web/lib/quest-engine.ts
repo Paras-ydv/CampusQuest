@@ -73,7 +73,9 @@ export async function getQuestRecords(request: Request | undefined, userId: stri
   if (!supabase) return localFallbackEnabled() ? demoQuestRecords(userId) : Promise.reject(new Error("SUPABASE_NOT_CONFIGURED"));
   const { data, error } = await supabase.from("quests").select("*, quest_steps(*), quest_skills(skills(*)), user_quests(status, repository_url, user_quest_steps(quest_step_id, verified_at, verified_commit, verification_message))");
   if (error) throw new Error(`Could not load quests: ${error.message}`);
-  const records = ((data ?? []) as unknown as Record<string, unknown>[]).map(toQuestRecord);
+  const records = ((data ?? []) as unknown as Record<string, unknown>[])
+    .filter((row) => row.is_retired !== true)
+    .map(toQuestRecord);
   const completed = new Set(records.filter((quest) => quest.status === "completed").map((quest) => quest.id));
   return records.filter((quest) => !quest.prerequisiteQuestId || completed.has(quest.prerequisiteQuestId));
 }

@@ -3,6 +3,8 @@
 -- path skill through quest_skills.
 -- Migrations run before seed.sql, so ensure every referenced vocabulary entry
 -- exists on fresh deployments as well as populated local databases.
+alter table public.quests add column if not exists is_retired boolean not null default false;
+
 insert into public.skills (id, name, category) values
   ('docker','Docker','infra'), ('systemdesign','System design','systems'),
   ('pytorch','PyTorch','ml'), ('git','Git','tooling'), ('sql','SQL','data'),
@@ -16,6 +18,12 @@ insert into public.skills (id, name, category) values
   ('testautomation','Test automation','practice'), ('dbt','dbt','data'),
   ('dataviz','Data visualization','data')
 on conflict (id) do update set name = excluded.name, category = excluded.category;
+
+-- Preserve old completion history, but do not offer the pre-path technical
+-- quests anymore: the progressive capstone is now the only route that awards
+-- a skill. The collaboration quest remains active and manual.
+update public.quests set is_retired = true
+where id in ('q_docker','q_sysdesign','q_oss','q_sql','q_pandas','q_numpy','q_java','q_aws','q_js');
 
 do $$
 declare

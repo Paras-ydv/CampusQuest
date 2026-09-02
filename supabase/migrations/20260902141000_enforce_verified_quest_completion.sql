@@ -8,6 +8,7 @@ begin
   if v_user is null then raise exception 'not authenticated'; end if;
   select * into v_quest from public.quests where id = p_quest_id;
   if not found then raise exception 'quest not found'; end if;
+  if v_quest.is_retired then raise exception 'quest has been replaced by a progressive skill path'; end if;
   insert into public.user_quests(user_id,quest_id,status) values(v_user,p_quest_id,'active')
     on conflict on constraint user_quests_user_id_quest_id_key do nothing;
   select uq.* into v_progress from public.user_quests uq where uq.user_id = v_user and uq.quest_id = p_quest_id for update;
