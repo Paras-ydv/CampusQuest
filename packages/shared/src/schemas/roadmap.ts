@@ -139,3 +139,95 @@ export const RoadmapWithProgress = z.object({
   progressAvailable: z.boolean().default(true),
 });
 export type RoadmapWithProgress = z.infer<typeof RoadmapWithProgress>;
+
+/* ----------------------------------------------------------- assessment -- */
+
+/**
+ * ===========================================================================
+ *  ASSESSMENTS
+ * ===========================================================================
+ * A ten-question check a student can take once they have ticked every leaf of
+ * a roadmap. Passing adds the skill to their profile and awards experience,
+ * so unlike the ticks it grades, this one has to be worth something.
+ *
+ * That is why the answer key is not in `Assessment`. The questions go out with
+ * a signed `token` that carries the key; the answers come back with the token
+ * and are marked on the server. Sending the key to the browser and grading it
+ * there would mean handing the student the answers to a test that pays.
+ *
+ * Questions are generated per attempt rather than drawn from a stored bank, so
+ * retaking is not a memory test of the last attempt.
+ */
+
+/** One question as the student sees it. The key is deliberately absent. */
+export const AssessmentQuestion = z.object({
+  id: z.string().min(1),
+  prompt: z.string().min(1),
+  /** Exactly four, in the order they are shown. */
+  options: z.array(z.string().min(1)).length(4),
+});
+export type AssessmentQuestion = z.infer<typeof AssessmentQuestion>;
+
+export const Assessment = z.object({
+  slug: z.string().min(1),
+  /** The subject the questions were generated for, e.g. "Docker". */
+  topic: z.string().min(1),
+  /** Percentage needed to pass. */
+  passMark: z.number().int().min(1).max(100),
+  questions: z.array(AssessmentQuestion).min(1),
+  /**
+   * The signed answer key for this attempt, opaque to the client and returned
+   * unmodified when submitting. Tampering with it fails the signature check.
+   */
+  token: z.string().min(1),
+});
+export type Assessment = z.infer<typeof Assessment>;
+
+export const GradeAssessmentInput = z.object({
+  token: z.string().min(1),
+  /** Chosen option index, keyed by question id. Missing ids count as wrong. */
+  answers: z.record(z.string().min(1), z.number().int().min(0).max(3)),
+});
+export type GradeAssessmentInput = z.infer<typeof GradeAssessmentInput>;
+
+/** The key, revealed with the result so the review can show what was right. */
+export const AssessmentAnswer = z.object({
+  id: z.string().min(1),
+  answerIndex: z.number().int().min(0).max(3),
+  explanation: z.string().nullable().default(null),
+});
+export type AssessmentAnswer = z.infer<typeof AssessmentAnswer>;
+
+/**
+ * What passing was worth.
+ *
+ * `skillId` is null when the roadmap only covers the skill broadly — passing a
+ * Machine Learning assessment is not evidence of PyTorch — and when the skill
+ * is already held by a stronger route than this one.
+ */
+export const AssessmentAward = z.object({
+  skillId: z.string().min(1).nullable().default(null),
+  skillName: z.string().min(1).nullable().default(null),
+  xpAwarded: z.number().int().nonnegative(),
+  xp: z.number().int().nonnegative(),
+  level: z.number().int().positive(),
+  leveledUp: z.boolean(),
+});
+export type AssessmentAward = z.infer<typeof AssessmentAward>;
+
+export const AssessmentResult = z.object({
+  passed: z.boolean(),
+  scorePct: z.number().int().min(0).max(100),
+  correctCount: z.number().int().nonnegative(),
+  total: z.number().int().positive(),
+  answers: z.array(AssessmentAnswer),
+  /** Null when the attempt did not pass, or when nothing could be recorded. */
+  award: AssessmentAward.nullable().default(null),
+});
+export type AssessmentResult = z.infer<typeof AssessmentResult>;
+
+/** Which roadmaps this student has ticked end to end — i.e. can be assessed. */
+export const CompletedRoadmaps = z.object({
+  slugs: z.array(z.string().min(1)).default([]),
+});
+export type CompletedRoadmaps = z.infer<typeof CompletedRoadmaps>;

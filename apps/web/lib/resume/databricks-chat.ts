@@ -32,24 +32,33 @@ export function databricksConfigured(): boolean {
  * Sends one chat completion. Returns null on any failure — missing
  * credentials, non-200, timeout, malformed body — so every caller degrades to
  * its deterministic behaviour instead of failing the request.
+ *
+ * `temperature` and `timeoutMs` default to the résumé settings this started
+ * as. The roadmap assessment overrides both: it wants a different set of
+ * questions on a retake rather than the same one, and it is a deliberate wait
+ * a student is watching, not a step inside onboarding.
  */
 export async function databricksChat({
   endpoint,
   system,
   user,
   maxTokens = 2000,
+  temperature = 0,
+  timeoutMs = TIMEOUT_MS,
 }: {
   endpoint: string;
   system: string;
   user: string;
   maxTokens?: number;
+  temperature?: number;
+  timeoutMs?: number;
 }): Promise<string | null> {
   const host = process.env.DATABRICKS_HOST?.replace(/\/$/, "");
   const token = process.env.DATABRICKS_TOKEN;
   if (!host || !token) return null;
 
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
     const response = await fetch(`${host}/serving-endpoints/${encodeURIComponent(endpoint)}/invocations`, {
       method: "POST",
@@ -59,8 +68,8 @@ export async function databricksChat({
           { role: "system", content: system },
           { role: "user", content: user },
         ],
-        // Deterministic, so the same résumé yields the same profile twice.
-        temperature: 0,
+        // Deterministic by default, so the same résumé yields the same profile twice.
+        temperature,
         // A reasoning model spends most of its budget before the answer; too
         // small a cap truncates the JSON and yields nothing.
         max_tokens: maxTokens,

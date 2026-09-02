@@ -7,13 +7,15 @@ to the workspace.
 
 ## What backs it
 
-`databricks/ddl/005_placement_insights.sql` creates seven aggregate views. They
+`databricks/ddl/005_placement_insights.sql` creates seven aggregate views, six
+of which the dashboard reads — `placement_skill_edge` is only meaningful on the
+synthetic set, so no panel uses it. They
 all read one source — `placement_fact`, from
 `databricks/ddl/004_placement_facts.sql` — so they are identical whether the
 live data is the placement cell's real records or the synthetic campus set.
 
-None of them projects a student key or a name; the branch and skill views
-suppress groups below five students. That is what makes the page safe to show
+None of them projects a student key or a name; the branch view suppresses
+groups below five students. That is what makes the page safe to show
 to the whole campus rather than to a placement cell.
 
 **Real records.** Drop the placement cell's export at
