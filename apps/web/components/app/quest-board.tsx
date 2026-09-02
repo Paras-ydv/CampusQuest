@@ -120,13 +120,23 @@ export function QuestBoard({
    */
   async function complete(quest: Quest) {
     if (busyId) return;
-    if (quest.steps.some((step) => !step.done)) return;
+    const requiresVerification = Boolean(quest.pathSkillId) || quest.steps.some((step) => step.verification === "github_file" || step.verification === "github_workflow");
+    if (requiresVerification && quest.steps.some((step) => !step.done)) return;
     setBusyId(quest.id);
 
     // Capture pre-completion state for a possible undo.
     const snapshot = { quest, xp, level };
     if (undoTimer.current) clearTimeout(undoTimer.current);
     setUndoState(null);
+
+    if (!requiresVerification) {
+      const stepDelay = reduced ? 0 : 320;
+      quest.steps.forEach((step, index) => {
+        setTimeout(() => setQuests((previous) => previous.map((item) => item.id === quest.id ? {
+          ...item, steps: item.steps.map((itemStep) => itemStep.id === step.id ? { ...itemStep, done: true } : itemStep),
+        } : item)), stepDelay * (index + 1));
+      });
+    }
 
     const result = await completeQuest(quest.id);
 
@@ -291,7 +301,7 @@ export function QuestBoard({
               {paged.items.map((quest) => {
                 const done = quest.status === "completed";
                 const busy = busyId === quest.id;
-                const technical = Boolean(quest.pathSkillId) || quest.steps.some((step) => step.verification);
+                const technical = Boolean(quest.pathSkillId) || quest.steps.some((step) => step.verification === "github_file" || step.verification === "github_workflow");
                 const verifiedCount = quest.steps.filter((step) => step.done).length;
                 const allVerified = verifiedCount === quest.steps.length;
 

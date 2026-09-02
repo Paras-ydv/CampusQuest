@@ -62,6 +62,9 @@ function toQuestRecord(row: Record<string, unknown>): QuestRecord {
     id: String(row.id), title: String(row.title), summary: String(row.summary), category: row.category as Quest["category"], rarity: row.rarity as Quest["rarity"], xp: Number(row.xp),
     skillsGained, steps, estimatedHours: Number(row.estimated_hours), why: String(row.why_template ?? "This quest advances a deterministic skill gap."), status: progress?.status ?? "available",
     difficulty: row.difficulty as QuestRecord["difficulty"], goalRoles: (row.goal_roles as string[]) ?? [], repositoryUrl: progress?.repository_url ?? null,
+    pathSkillId: row.path_skill_id ? String(row.path_skill_id) : null,
+    pathLevel: row.path_level ? Number(row.path_level) : null,
+    prerequisiteQuestId: row.prerequisite_quest_id ? String(row.prerequisite_quest_id) : null,
   };
 }
 
@@ -70,7 +73,9 @@ export async function getQuestRecords(request: Request | undefined, userId: stri
   if (!supabase) return localFallbackEnabled() ? demoQuestRecords(userId) : Promise.reject(new Error("SUPABASE_NOT_CONFIGURED"));
   const { data, error } = await supabase.from("quests").select("*, quest_steps(*), quest_skills(skills(*)), user_quests(status, repository_url, user_quest_steps(quest_step_id, verified_at, verified_commit, verification_message))");
   if (error) throw new Error(`Could not load quests: ${error.message}`);
-  return ((data ?? []) as unknown as Record<string, unknown>[]).map(toQuestRecord);
+  const records = ((data ?? []) as unknown as Record<string, unknown>[]).map(toQuestRecord);
+  const completed = new Set(records.filter((quest) => quest.status === "completed").map((quest) => quest.id));
+  return records.filter((quest) => !quest.prerequisiteQuestId || completed.has(quest.prerequisiteQuestId));
 }
 
 export async function listQuests(request: Request | undefined, userId: string): Promise<Quest[]> {
@@ -105,7 +110,8 @@ export async function completeQuest(request: Request | undefined, userId: string
   const [profile, quests] = await Promise.all([getBackendProfile(request, userId), getQuestRecords(request, userId)]);
   const quest = quests.find((item) => item.id === questId);
   if (!quest) throw new Error("NOT_FOUND");
-  if (quest.steps.some((step) => !step.done)) throw new Error("QUEST_STEPS_NOT_VERIFIED");
+  const requiresVerification = Boolean(quest.pathSkillId) || quest.steps.some((step) => step.verification === "github_file" || step.verification === "github_workflow");
+  if (requiresVerification && quest.steps.some((step) => !step.done)) throw new Error("QUEST_STEPS_NOT_VERIFIED");
   const gapsBefore = await getSkillGapContext(profile);
   const relevance = Math.max(0, ...quest.skillsGained.map((skill) => gapsBefore.gaps.find((gap) => gap.skillId === skill.id)?.impactPct ?? 0));
   const supabase = await supabaseForCaller(request);
@@ -173,8 +179,21 @@ export async function verifyQuestStep(request: Request | undefined, userId: stri
   if (!treeResponse.ok) throw new Error("GITHUB_UNAVAILABLE");
   const tree = await treeResponse.json() as { sha: string; tree: { path: string }[] };
   const paths = tree.tree.map((entry) => entry.path.toLowerCase());
-  const passed = step.verification === "github_workflow" ? paths.some((path) => path.startsWith(".github/workflows/")) : paths.includes("readme.md") && paths.some((path) => /\.(py|js|ts|java|sql|ipynb)$/.test(path));
-  const message = passed ? `Verified against commit ${tree.sha.slice(0, 7)}.` : "Add the required repository artifact and try again.";
+  let passed = paths.includes("readme.md") && paths.some((path) => /\.(py|js|ts|java|sql|ipynb)$/.test(path));
+  let message = passed ? `Verified against commit ${tree.sha.slice(0, 7)}.` : "Add the required repository artifact and try again.";
+  if (step.verification === "github_workflow") {
+    if (!paths.some((path) => path.startsWith(".github/workflows/"))) {
+      passed = false;
+      message = "Add a GitHub Actions workflow and try again.";
+    } else {
+      const runsResponse = await fetch(`https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo.replace(/\.git$/, ""))}/actions/runs?head_sha=${encodeURIComponent(tree.sha)}&per_page=20`, { headers });
+      if (!runsResponse.ok) throw new Error("GITHUB_UNAVAILABLE");
+      const runs = await runsResponse.json() as { workflow_runs?: { id: number; status: string; conclusion: string | null; html_url: string }[] };
+      const successfulRun = runs.workflow_runs?.find((run) => run.status === "completed" && run.conclusion === "success");
+      passed = Boolean(successfulRun);
+      message = successfulRun ? `Verified successful GitHub Actions run for commit ${tree.sha.slice(0, 7)}.` : "A successful GitHub Actions run is required for this commit.";
+    }
+  }
   await (supabase as any).rpc("verify_quest_step", { p_quest_id: questId, p_step_id: stepId, p_repository_url: repoUrl, p_passed: passed, p_commit: tree.sha, p_message: message });
   return { questId, stepId, passed, message, commit: tree.sha };
 }

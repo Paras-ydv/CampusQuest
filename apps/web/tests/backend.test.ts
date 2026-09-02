@@ -83,6 +83,12 @@ test("quest completion fallback is idempotent and never awards XP twice", async 
   assert.equal(first.xp, DEMO_PROFILE.xp + first.xpAwarded);
 });
 
+test("the collaboration quest remains manually completable", async () => {
+  const result = await completeQuest(request, "stu_team_completion_test", "q_team");
+  assert.equal(result.questId, "q_team");
+  assert.equal(result.xpAwarded, 80);
+});
+
 test("market goal aliases and specialist paths are complete", () => {
   assert.equal(resolveRoleFamily("AI Engineer"), "ML Engineer");
   assert.equal(resolveRoleFamily("Cybersecurity Engineer"), "DevOps Engineer");
