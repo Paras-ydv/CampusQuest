@@ -172,11 +172,11 @@
                   "datasetName": "ds_year_summary",
                   "fields": [
                     {
-                      "name": "placement_rate_pct",
-                      "expression": "`placement_rate_pct`"
+                      "name": "avg(placement_rate_pct)",
+                      "expression": "AVG(`placement_rate_pct`)"
                     }
                   ],
-                  "disaggregated": true
+                  "disaggregated": false
                 }
               }
             ],
@@ -185,7 +185,7 @@
               "widgetType": "counter",
               "encodings": {
                 "value": {
-                  "fieldName": "placement_rate_pct",
+                  "fieldName": "avg(placement_rate_pct)",
                   "displayName": "Placement rate %"
                 }
               },
@@ -212,11 +212,11 @@
                   "datasetName": "ds_year_summary",
                   "fields": [
                     {
-                      "name": "students_placed",
-                      "expression": "`students_placed`"
+                      "name": "sum(students_placed)",
+                      "expression": "SUM(`students_placed`)"
                     }
                   ],
-                  "disaggregated": true
+                  "disaggregated": false
                 }
               }
             ],
@@ -225,7 +225,7 @@
               "widgetType": "counter",
               "encodings": {
                 "value": {
-                  "fieldName": "students_placed",
+                  "fieldName": "sum(students_placed)",
                   "displayName": "Students placed"
                 }
               },
@@ -252,11 +252,11 @@
                   "datasetName": "ds_year_summary",
                   "fields": [
                     {
-                      "name": "highest_package_lpa",
-                      "expression": "`highest_package_lpa`"
+                      "name": "max(highest_package_lpa)",
+                      "expression": "MAX(`highest_package_lpa`)"
                     }
                   ],
-                  "disaggregated": true
+                  "disaggregated": false
                 }
               }
             ],
@@ -265,7 +265,7 @@
               "widgetType": "counter",
               "encodings": {
                 "value": {
-                  "fieldName": "highest_package_lpa",
+                  "fieldName": "max(highest_package_lpa)",
                   "displayName": "Highest package (LPA)"
                 }
               },
@@ -292,11 +292,11 @@
                   "datasetName": "ds_year_summary",
                   "fields": [
                     {
-                      "name": "companies_recruiting",
-                      "expression": "`companies_recruiting`"
+                      "name": "max(companies_recruiting)",
+                      "expression": "MAX(`companies_recruiting`)"
                     }
                   ],
-                  "disaggregated": true
+                  "disaggregated": false
                 }
               }
             ],
@@ -305,7 +305,7 @@
               "widgetType": "counter",
               "encodings": {
                 "value": {
-                  "fieldName": "companies_recruiting",
+                  "fieldName": "max(companies_recruiting)",
                   "displayName": "Companies recruiting"
                 }
               },
