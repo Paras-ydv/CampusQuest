@@ -90,13 +90,25 @@ export async function getAtsState(request: Request | undefined, userId: string):
     return { hasResume: Boolean(resume), fileName: resume?.fileName ?? null, score: null };
   }
 
-  const detail = scoreRow.detail as Omit<AtsScore, "overall" | "scoredAt" | "stale" | "fileName">;
+  // Rows written before the bonus was dropped carry a `bonus` key and an
+  // `overall` that includes it, so the stored total does not match the
+  // categories the screen draws. Recomputing from the parts rather than
+  // trusting the column keeps the displayed arithmetic self-consistent
+  // whatever wrote the row; `bonus` is discarded rather than migrated,
+  // because re-scoring produces a current number anyway.
+  const { bonus: _legacyBonus, ...detail } = scoreRow.detail as Omit<AtsScore, "overall" | "scoredAt" | "stale" | "fileName"> & { bonus?: unknown };
+  const categoryTotal = Object.values(detail.categories ?? {}).reduce(
+    (sum, category) => sum + (category?.score ?? 0),
+    0,
+  );
+  const overall = Math.max(0, Math.min(100, categoryTotal - (detail.deductions?.total ?? 0)));
+
   return {
     hasResume: Boolean(resume),
     fileName: resume?.fileName ?? null,
     score: {
       ...detail,
-      overall: scoreRow.overall,
+      overall,
       fileName: resume?.fileName ?? null,
       scoredAt: scoreRow.scored_at,
       stale: Boolean(resume && new Date(resume.updatedAt) > new Date(scoreRow.scored_at)),

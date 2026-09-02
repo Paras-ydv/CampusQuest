@@ -45,8 +45,10 @@ create trigger user_resumes_updated
 
 create table if not exists public.user_ats_scores (
   user_id uuid primary key references public.profiles(id) on delete cascade,
-  -- 0-120: four weighted categories plus bonuses, less deductions. Stored as
-  -- the model returned it, clamped by the application before it lands here.
+  -- The application scores out of 100 (four weighted categories, less
+  -- deductions) and clamps before writing. The column allows up to 120, which
+  -- is the source rubric's ceiling including bonus points: a wider bound costs
+  -- nothing and leaves room to reinstate them without a migration.
   overall integer not null check (overall between 0 and 120),
   -- Per-category scores, evidence, strengths and improvements. Kept as jsonb
   -- rather than columns because the rubric's shape belongs to the evaluator,

@@ -10,16 +10,14 @@ import { Reveal } from "@/components/motion/reveal";
 /**
  * The ATS screen.
  *
- * The score is HackerRank's rubric out of 120, but the page is ordered for the
+ * The score is HackerRank's rubric out of 100, but the page is ordered for the
  * person being scored rather than for a recruiter: what to fix comes first and
  * the number sits beside it as context. A student who opens this to a verdict
  * stops reading; one who opens it to four specific changes has something to do.
  */
 
-/** The bonus is the fifth twenty points of the total, drawn as its own bar. */
-const BONUS_MAX = 20;
-/** Four categories (100) plus the bonus (20). Deductions come off the total. */
-const TOTAL_MAX = 120;
+/** The four categories, which is the whole score. Deductions come off it. */
+const TOTAL_MAX = 100;
 
 const CATEGORY_LABELS: Record<string, string> = {
   openSource: "Open source",
@@ -107,10 +105,9 @@ export function AtsView({ initial }: { initial: AtsState }) {
         reads your résumé.
       </h1>
       <p className="mt-5 max-w-[54ch] text-[0.92rem] leading-relaxed text-muted">
-        Scored on the rubric HackerRank uses for intern applications: open
-        source, projects, experience and technical skills are worth 100 between
-        them, with 20 more available as bonuses — 120 in all. The number is
-        context; the changes below it are the point.
+        Scored on the rubric HackerRank uses for intern applications — open
+        source, projects, experience and technical skills, out of 100. The
+        number is context; the changes below it are the point.
       </p>
 
       {/* -------------------------------------------------- no résumé yet -- */}
@@ -225,11 +222,11 @@ export function AtsView({ initial }: { initial: AtsState }) {
               </div>
               {/* The five bars below sum to the headline, so the arithmetic is
                   stated rather than left for the reader to reconstruct. */}
-              <p className="mt-2 font-mono text-[0.6875rem] tracking-[0.06em] text-muted">
-                {categoryTotal} from the four categories
-                {score.bonus.total > 0 ? ` + ${score.bonus.total} bonus` : ""}
-                {score.deductions.total > 0 ? ` − ${score.deductions.total} deductions` : ""}
-              </p>
+              {score.deductions.total > 0 ? (
+                <p className="mt-2 font-mono text-[0.6875rem] tracking-[0.06em] text-muted">
+                  {categoryTotal} from the four categories − {score.deductions.total} deductions
+                </p>
+              ) : null}
 
               <dl className="mt-8 grid gap-5 sm:grid-cols-2">
                 {Object.entries(score.categories).map(([key, category]) => (
@@ -247,24 +244,6 @@ export function AtsView({ initial }: { initial: AtsState }) {
                   </div>
                 ))}
 
-                {/* Bonus is the fifth twenty points of the 120, so it is drawn
-                    as a bar like the rest. Leaving it out of this grid made the
-                    four bars appear to sum to a headline they could not reach. */}
-                <div>
-                  <div className="flex items-baseline justify-between gap-3">
-                    <dt className="k-label">Bonus</dt>
-                    <dd className="font-mono text-[0.72rem] tabular-nums">
-                      {score.bonus.total}/{BONUS_MAX}
-                    </dd>
-                  </div>
-                  <div className="mt-2">
-                    <ScoreBar score={score.bonus.total} max={BONUS_MAX} />
-                  </div>
-                  <p className="mt-2 text-[0.8rem] leading-relaxed text-muted">
-                    {score.bonus.breakdown ||
-                      "Awarded for GSoC, a startup founding or early-engineer role, a portfolio site, or a LinkedIn profile."}
-                  </p>
-                </div>
               </dl>
 
               {/* Deductions are the only adjustment left to state here: the

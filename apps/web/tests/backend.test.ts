@@ -450,17 +450,15 @@ test("ATS scoring clamps every number to the rubric's ceilings", () => {
       production: { score: 18, evidence: "Airtel internship" },
       technical_skills: { score: 8, evidence: "Python, PyTorch" },
     },
-    bonus_points: { total: 50, breakdown: "LinkedIn" },
     deductions: { total: -4, reasons: "no links" },
     key_strengths: ["a", "b", "c", "d", "e", "f", "g"],
     areas_for_improvement: [{ title: "Add demo links", detail: "", category: "self_projects", points: 3 }],
   });
   const score = parseEvaluation(reply)!;
   assert.equal(score.categories.openSource.score, 35, "open source capped at 35");
-  assert.equal(score.bonus.total, 20, "bonus capped at 20");
   // A negative deduction total is still a deduction, not a bonus.
   assert.equal(score.deductions.total, 4);
-  assert.equal(score.overall, 35 + 22 + 18 + 8 + 20 - 4);
+  assert.equal(score.overall, 35 + 22 + 18 + 8 - 4);
   assert.equal(score.strengths.length, 5, "at most five strengths");
 
   // An unusable reply yields null rather than a fabricated score.
@@ -478,7 +476,7 @@ test("extracted text carries no control characters", () => {
   assert.match(text, /Hello/);
 });
 
-test("an unexplained bonus or deduction is dropped, not shown", () => {
+test("an unexplained deduction is dropped, not shown", () => {
   // "-4 · None." told a student their score was cut and refused to say why.
   // Points with no stated reason are discarded instead.
   const reply = JSON.stringify({
@@ -486,14 +484,37 @@ test("an unexplained bonus or deduction is dropped, not shown", () => {
       open_source: { score: 5, evidence: "e" }, self_projects: { score: 10, evidence: "e" },
       production: { score: 5, evidence: "e" }, technical_skills: { score: 5, evidence: "e" },
     },
-    bonus_points: { total: 6, breakdown: "" },
     deductions: { total: 4, reasons: "   " },
     key_strengths: [], areas_for_improvement: [],
   });
   const score = parseEvaluation(reply)!;
   assert.equal(score.deductions.total, 0, "unexplained deduction dropped");
   assert.equal(score.deductions.reasons, "");
-  assert.equal(score.bonus.total, 0, "unexplained bonus dropped");
   // The overall is then just the categories.
   assert.equal(score.overall, 25);
+});
+
+test("an improvement cannot promise more points than its category has left", () => {
+  // The model suggested +5 for a category already scored 27/30. Points a
+  // student cannot actually gain make the whole list untrustworthy.
+  const reply = JSON.stringify({
+    scores: {
+      open_source: { score: 5, evidence: "e" }, self_projects: { score: 27, evidence: "e" },
+      production: { score: 5, evidence: "e" }, technical_skills: { score: 5, evidence: "e" },
+    },
+    deductions: { total: 0, reasons: "" },
+    key_strengths: [],
+    areas_for_improvement: [
+      { title: "Add demos", detail: "", category: "self_projects", points: 5 },
+      { title: "Add more demos", detail: "", category: "self_projects", points: 5 },
+      { title: "Contribute upstream", detail: "", category: "open_source", points: 12 },
+    ],
+  });
+  const score = parseEvaluation(reply)!;
+  const [first, second, third] = score.improvements;
+  // self_projects has 3 left: the first claims it all, the second gets none.
+  assert.equal(first.points, 3);
+  assert.equal(second.points, 0);
+  // open_source has 30 left, so a 12-point claim stands.
+  assert.equal(third.points, 12);
 });

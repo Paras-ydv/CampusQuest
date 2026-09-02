@@ -5,10 +5,11 @@ import { IsoDate } from "./common";
  * ATS résumé evaluation.
  *
  * The rubric is HackerRank's own, from `interviewstreet/hiring-agent`: four
- * weighted categories, bonuses capped at 20, and deductions, giving a score
- * out of 120. Keeping their weights means the number answers a real question —
- * "how would the system that screens 50,000 intern applications read this?" —
- * rather than being a scale we invented.
+ * weighted categories and deductions, giving a score out of 100. Keeping their
+ * weights means the number answers a real question — "how would the system
+ * that screens 50,000 intern applications read this?" — rather than being a
+ * scale we invented. Their bonus points are not carried over; almost none of
+ * what earns them is reachable by an undergraduate mid-degree.
  *
  * What differs is the audience. hiring-agent produces a ranking for
  * recruiters; here the same evaluation is shown to the student it describes,
@@ -38,15 +39,14 @@ export const AtsImprovement = z.object({
 export type AtsImprovement = z.infer<typeof AtsImprovement>;
 
 export const AtsScore = z.object({
-  /** 0-120: categories + bonus - deductions, clamped. */
-  overall: z.number().int().min(0).max(120),
+  /** 0-100: the four categories less deductions, clamped. */
+  overall: z.number().int().min(0).max(100),
   categories: z.object({
     openSource: AtsCategory,
     selfProjects: AtsCategory,
     production: AtsCategory,
     technicalSkills: AtsCategory,
   }),
-  bonus: z.object({ total: z.number().min(0).max(20), breakdown: z.string() }),
   deductions: z.object({ total: z.number().min(0), reasons: z.string() }),
   strengths: z.array(z.string()).max(5),
   improvements: z.array(AtsImprovement).max(6),

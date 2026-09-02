@@ -1,7 +1,7 @@
 /**
  * ATS résumé evaluation, on HackerRank's own rubric.
  *
- * The weights, category ceilings, bonus cap and deduction rules are taken from
+ * The weights, category ceilings and deduction rules are taken from
  * `interviewstreet/hiring-agent` — the evaluator HackerRank runs over its
  * intern applications. Reimplementing their scale rather than inventing one is
  * the point: a student learns how the system that actually screens them reads
@@ -21,9 +21,17 @@ import { chatEndpoint, databricksChat, jsonFromReply } from "@/lib/resume/databr
 
 /** Category ceilings, exactly as the rubric defines them. */
 const MAX = { openSource: 35, selfProjects: 30, production: 25, technicalSkills: 10 } as const;
-const BONUS_MAX = 20;
-/** Categories (100) plus bonus (20). Deductions bring it down from there. */
-const OVERALL_MAX = 120;
+
+/**
+ * The four categories, and nothing else.
+ *
+ * hiring-agent adds up to 20 bonus points on top, for GSoC, a founding role, a
+ * portfolio site and so on — a ceiling of 120. That is dropped here: almost
+ * none of it is reachable by an undergraduate inside a semester, so it mostly
+ * served to make the total look unattainable. Scoring the four categories out
+ * of 100 keeps every point something the student can actually move.
+ */
+const OVERALL_MAX = 100;
 
 const SYSTEM = [
   "You are evaluating a résumé for a Software Intern position, using HackerRank's rubric.",
@@ -46,17 +54,14 @@ const SYSTEM = [
   "  early-employee roles at startups earn extra.",
   `technical_skills (0-${MAX.technicalSkills}): breadth and evidence of problem-solving.`,
   "",
-  `BONUS (total <= ${BONUS_MAX}): GSoC +5, Girl Script Summer of Code +3, founder +3-5,`,
-  "  early-stage engineer +2-3, portfolio site +2, LinkedIn +1.",
-  "",
   "DEDUCTIONS: -3 to -5 per project with no link at all; -2 to -3 for a repository",
   "  link with no live demo; -1 per generically named project; -2 if every project",
   "  is a classroom or tutorial exercise.",
   "",
-  "Whenever `bonus_points.total` or `deductions.total` is not zero, the matching",
-  "`breakdown` or `reasons` MUST name what produced it and which project or item",
-  "it applies to — 'no live demo for the Brick Kiln Detection project (-3)'.",
-  "A non-zero total with no explanation is invalid; use 0 if you cannot say why.",
+  "Whenever `deductions.total` is not zero, `reasons` MUST name what produced it",
+  "and which project it applies to — 'no live demo for the Brick Kiln Detection",
+  "project (-3)'. A non-zero total with no explanation is invalid; use 0 if you",
+  "cannot say why.",
   "",
   "You are scoring the DOCUMENT ONLY. No GitHub or blog data is available, so do",
   "not assume contributions the résumé does not evidence, and do not deduct for",
@@ -68,6 +73,14 @@ const SYSTEM = [
   "do, not merely what is wrong — 'add a live demo link to the RAG project' rather",
   "than 'projects lack links'. `points` is your estimate of the gain.",
   "",
+  "Aim them where the points actually are. Before writing them, work out each",
+  "category's headroom (its max less the score you gave it) and spend your",
+  "suggestions in that order: a category 17 points short deserves more attention",
+  "than one already 27/30. Never suggest more points for a category than its",
+  "headroom allows. Where the biggest gap needs work no résumé edit can fix —",
+  "open source usually does — say what to contribute to and why it is worth the",
+  "most, rather than falling back on easier categories that have little left.",
+  "",
   "Output ONLY this JSON:",
   "{",
   '  "scores": {',
@@ -76,7 +89,6 @@ const SYSTEM = [
   '    "production": {"score": 0, "evidence": ""},',
   '    "technical_skills": {"score": 0, "evidence": ""}',
   "  },",
-  '  "bonus_points": {"total": 0, "breakdown": ""},',
   '  "deductions": {"total": 0, "reasons": ""},',
   '  "key_strengths": [""],',
   '  "areas_for_improvement": [{"title": "", "detail": "", "category": "self_projects", "points": 0}]',
@@ -144,17 +156,6 @@ export function parseEvaluation(reply: string): Omit<AtsScore, "scoredAt" | "sta
     };
   }
 
-  // An unexplained adjustment is not usable: "−4 · None." tells a student
-  // their score was cut and refuses to say why. Where the reason is missing,
-  // the points are dropped rather than shown unexplained — the score moves in
-  // the student's favour, which is the right direction to fail in.
-  const bonusRaw = (parsed as { bonus_points?: { total?: unknown; breakdown?: unknown } }).bonus_points;
-  const bonusBreakdown = text(bonusRaw?.breakdown);
-  const bonus = {
-    total: bonusBreakdown ? clamp(bonusRaw?.total, BONUS_MAX) : 0,
-    breakdown: bonusBreakdown,
-  };
-
   const deductionRaw = (parsed as { deductions?: { total?: unknown; reasons?: unknown } }).deductions;
   // The rubric states deductions as negatives in its prose ("-3 to -5 points")
   // and as a positive total in its JSON, so models return either sign. Take
@@ -163,6 +164,10 @@ export function parseEvaluation(reply: string): Omit<AtsScore, "scoredAt" | "sta
   const deductionMagnitude = typeof deductionRaw?.total === "number" && Number.isFinite(deductionRaw.total)
     ? Math.abs(deductionRaw.total)
     : 0;
+  // An unexplained deduction is not usable: "−4 · None." tells a student their
+  // score was cut and refuses to say why. Without a reason the points are
+  // dropped rather than shown — the score then moves in the student's favour,
+  // which is the right direction to fail in.
   const deductionReasons = text(deductionRaw?.reasons);
   const deductions = {
     total: deductionReasons ? clamp(deductionMagnitude, OVERALL_MAX) : 0,
@@ -170,12 +175,17 @@ export function parseEvaluation(reply: string): Omit<AtsScore, "scoredAt" | "sta
   };
 
   const categoryTotal = Object.values(categories).reduce((sum, entry) => sum + entry.score, 0);
-  const overall = Math.max(0, Math.min(OVERALL_MAX, categoryTotal + bonus.total - deductions.total));
+  const overall = Math.max(0, Math.min(OVERALL_MAX, categoryTotal - deductions.total));
 
   const strengths = asArray((parsed as { key_strengths?: unknown }).key_strengths)
     .map((item) => text(item))
     .filter(Boolean)
     .slice(0, 5);
+
+  // What each category still has to give, drawn down as suggestions claim it.
+  const headroomLeft = Object.fromEntries(
+    Object.entries(categories).map(([key, category]) => [key, category.max - category.score]),
+  ) as Record<keyof typeof categories, number>;
 
   const improvements = asArray((parsed as { areas_for_improvement?: unknown }).areas_for_improvement)
     .flatMap((item) => {
@@ -186,17 +196,23 @@ export function parseEvaluation(reply: string): Omit<AtsScore, "scoredAt" | "sta
       const record = item as { title?: unknown; detail?: unknown; category?: unknown; points?: unknown };
       const title = text(record.title);
       if (!title) return [];
-      return [{
-        title,
-        detail: text(record.detail),
-        category: text(record.category, "self_projects"),
-        points: clamp(record.points, 35),
-        questId: null,
-      }];
+      const category = text(record.category, "self_projects");
+      // A suggestion cannot be worth more than its category has left: the
+      // model happily promised +5 for projects already scored 27/30. Capping
+      // at the headroom keeps the arithmetic honest — a student who does
+      // everything listed should land on roughly the total they were shown.
+      const schemaKey = CATEGORY_KEYS[category as keyof typeof CATEGORY_KEYS];
+      // Headroom is consumed as it is spent, so three suggestions against a
+      // category with three points left cannot promise nine between them.
+      // Later ones fall to zero and simply show no figure.
+      const remaining = schemaKey ? Math.max(headroomLeft[schemaKey] ?? 0, 0) : 35;
+      const points = Math.min(clamp(record.points, 35), remaining);
+      if (schemaKey) headroomLeft[schemaKey] = remaining - points;
+      return [{ title, detail: text(record.detail), category, points, questId: null }];
     })
     .slice(0, 6);
 
-  return { overall, categories, bonus, deductions, strengths, improvements };
+  return { overall, categories, deductions, strengths, improvements };
 }
 
 function asArray(value: unknown): unknown[] {
