@@ -6,7 +6,7 @@ import test from "node:test";
 
 import { DEMO_PROFILE, DEMO_QUESTS, DEMO_RESEARCH } from "../lib/data/fixtures";
 import { deterministicEmbedding, EMBEDDING_DIMENSIONS, getOrCreateProfileEmbedding, validateEmbedding } from "../lib/embeddings";
-import { rankQuests, completeQuest, verifyQuestStep } from "../lib/quest-engine";
+import { rankQuests, completeQuest, verifyQuestStep, listQuests } from "../lib/quest-engine";
 import { resolveRoleFamily } from "../lib/data/role-families";
 import { ALL_SKILLS } from "../lib/data/skills";
 import { matchSkills } from "../lib/resume/skill-matcher";
@@ -517,4 +517,20 @@ test("an improvement cannot promise more points than its category has left", () 
   assert.equal(second.points, 0);
   // open_source has 30 left, so a 12-point claim stands.
   assert.equal(third.points, 12);
+});
+
+test("quests whose every reward is already held are hidden, with exceptions", async () => {
+  // The demo profile holds these; a capstone teaching only them is work the
+  // student has no reason to do, so the board must not offer it.
+  const held = new Set(DEMO_PROFILE.skills.map(({ skill }) => skill.id));
+  const quests = await listQuests(request, DEMO_PROFILE.id);
+  for (const quest of quests) {
+    const allHeld = quest.skillsGained.length > 0 && quest.skillsGained.every((s) => held.has(s.id));
+    // A held-skill quest may only remain if it is not simply available work.
+    if (allHeld) assert.notEqual(quest.status, "available", quest.title);
+  }
+  // A quest granting no skills at all (the collaboration one) is never hidden.
+  assert.ok(quests.some((quest) => quest.skillsGained.length === 0), "skill-less quest kept");
+  // And the board is not emptied: plenty of genuinely new work remains.
+  assert.ok(quests.length > 5, String(quests.length));
 });

@@ -14,7 +14,8 @@ import { GapList } from "./gap-list";
 import { Odometer } from "@/components/motion/odometer";
 import { Reveal } from "@/components/motion/reveal";
 import { WordRise } from "@/components/motion/word-rise";
-import { Label, SegmentBar } from "@/components/ui/primitives";
+import { Chip, Label, SegmentBar } from "@/components/ui/primitives";
+import { CONSTELLATION_NODES } from "@/lib/data/skill-graph";
 import { Pager, usePaged } from "@/components/ui/pager";
 
 export function TimeMachineView({
@@ -27,6 +28,10 @@ export function TimeMachineView({
   heldIds: string[];
 }) {
   const gapIds = alignment.gaps.map((g) => g.skill.id);
+  // Held skills the constellation has no coordinates for, listed beneath it so
+  // the "N held" count above the diagram matches what a student can see.
+  const plotted = new Set(CONSTELLATION_NODES.map((node) => node.id));
+  const unplotted = alignment.heldSkills.filter((skill) => !plotted.has(skill.id));
 
   const [selected, setSelected] = useState<string[]>([]);
   const [result, setResult] = useState<SimulateResponse | null>(null);
@@ -96,6 +101,23 @@ export function TimeMachineView({
             selectedIds={selected}
             onToggle={toggle}
           />
+
+          {/* The diagram is an authored layout, so it can only plot the skills
+              it has coordinates for. A student who arrives with two dozen
+              skills would otherwise see most of them counted above and none of
+              them drawn, with nothing to say why. */}
+          {unplotted.length ? (
+            <div className="mt-6 border-t-2 border-line-soft pt-5">
+              <Label className="mb-3">Also on your profile</Label>
+              <div className="flex flex-wrap gap-1.5">
+                {unplotted.map((skill) => (
+                  <Chip key={skill.id} tone="soft" className="text-[0.625rem]">
+                    {skill.name}
+                  </Chip>
+                ))}
+              </div>
+            </div>
+          ) : null}
         </div>
 
         {/* ------------------------------------------------------ simulator */}

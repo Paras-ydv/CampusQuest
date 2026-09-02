@@ -80,14 +80,50 @@ export async function getQuestRecords(request: Request | undefined, userId: stri
   return records.filter((quest) => !quest.prerequisiteQuestId || completed.has(quest.prerequisiteQuestId));
 }
 
+/**
+ * Quests whose every reward is a skill the student already holds are dropped.
+ *
+ * Ranking alone was not enough: a quest teaching Docker to someone who already
+ * knows Docker scores zero on gap but still sat in the list, so a student who
+ * onboarded with two dozen skills opened the board to work they had no reason
+ * to do. A quest is kept when *any* of its skills is new — a path that teaches
+ * something alongside a skill already held is still worth offering.
+ *
+ * Two things are never hidden: a quest already started or completed, because
+ * removing it would erase visible progress, and a quest that grants no skills
+ * at all, like the collaboration one.
+ */
 export async function listQuests(request: Request | undefined, userId: string): Promise<Quest[]> {
-  return (await getQuestRecords(request, userId)).map(({ difficulty: _difficulty, goalRoles: _goalRoles, ...quest }) => quest);
+  const [records, profile] = await Promise.all([
+    getQuestRecords(request, userId),
+    getBackendProfile(request, userId),
+  ]);
+  const held = new Set(profile.skills.map((skill) => skill.id));
+
+  return records
+    .filter((quest) =>
+      quest.status !== "available" ||
+      quest.skillsGained.length === 0 ||
+      quest.skillsGained.some((skill) => !held.has(skill.id)),
+    )
+    .map(({ difficulty: _difficulty, goalRoles: _goalRoles, ...quest }) => quest);
 }
 
 export async function nextQuest(request: Request | undefined, userId: string): Promise<Quest> {
   const [profile, quests] = await Promise.all([getBackendProfile(request, userId), getQuestRecords(request, userId)]);
   const gaps = await getSkillGapContext(profile);
-  const next = rankQuests(quests.filter((quest) => quest.status !== "completed"), profile, gaps)[0];
+  const held = new Set(profile.skills.map((skill) => skill.id));
+  // The recommendation follows the board: never propose a quest whose every
+  // reward the student already holds. A quest in progress stays eligible, so
+  // "what next" can be "finish what you started".
+  const candidates = quests.filter(
+    (quest) =>
+      quest.status !== "completed" &&
+      (quest.status !== "available" ||
+        quest.skillsGained.length === 0 ||
+        quest.skillsGained.some((skill) => !held.has(skill.id))),
+  );
+  const next = rankQuests(candidates, profile, gaps)[0];
   if (!next) throw new Error("NOT_FOUND");
   const { difficulty: _difficulty, goalRoles: _goalRoles, ...quest } = next;
   return quest;
