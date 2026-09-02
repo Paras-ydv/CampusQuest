@@ -11,6 +11,14 @@ export const Researcher = z.object({
   areas: z.array(z.string()),
   /** Whether they are currently taking students. */
   openToStudents: z.boolean(),
+  /**
+   * Where to write to them.
+   *
+   * A researcher is not an app user — no profile row, no account — so they
+   * cannot receive a connection request the way a peer does. Reaching them is
+   * an email, which is how a student would approach a professor anyway.
+   */
+  email: z.string(),
 });
 export type Researcher = z.infer<typeof Researcher>;
 

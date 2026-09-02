@@ -6,6 +6,7 @@ import { useMemo, useState } from "react";
 import { Pager, usePaged } from "@/components/ui/pager";
 import { clsx } from "clsx";
 import { ResearchCard } from "./research-card";
+import { ConnectDialog } from "./connect-dialog";
 import { Label } from "@/components/ui/primitives";
 
 /**
@@ -66,8 +67,56 @@ export function ResearchView({
 
 
   const paged = usePaged(visible);
+  /**
+   * Reaching a lead is an email, not a connection request: they have no
+   * account to receive one. The note the student writes becomes the body of a
+   * draft addressed to them, with the project already named in the subject so
+   * the professor knows what it is about.
+   */
+  const [contacting, setContacting] = useState<ResearchMatch | null>(null);
+
+  function draft(note: string) {
+    const match = contacting;
+    setContacting(null);
+    if (!match) return;
+    const subject = `Interest in your research: ${match.project.title}`;
+    const body = note.trim() || `Dear ${match.project.lead.name},
+
+I came across your work on ${match.project.title} and would like to ask about opportunities to contribute.
+
+Thank you for your time.`;
+    // Gmail's compose window rather than a `mailto:` link. A mailto hands the
+    // message to whatever the operating system has registered — on Windows
+    // that is an "Open Outlook?" prompt, and a student who does not use
+    // Outlook has no way through it. This opens in a tab they are already
+    // signed into, and it is a draft either way: the student sends it.
+    const compose = new URL("https://mail.google.com/mail/");
+    compose.searchParams.set("view", "cm");
+    compose.searchParams.set("fs", "1");
+    compose.searchParams.set("to", match.project.lead.email);
+    compose.searchParams.set("su", subject);
+    compose.searchParams.set("body", body);
+    window.open(compose.toString(), "_blank", "noopener,noreferrer");
+  }
+
   return (
     <>
+      <ConnectDialog
+        peer={contacting && {
+          name: contacting.project.lead.name,
+          email: contacting.project.lead.email,
+          initials: contacting.project.lead.initials,
+          lookingFor: contacting.project.title,
+        }}
+        onCancel={() => setContacting(null)}
+        onSend={draft}
+        copy={{
+          heading: "Email the project lead",
+          action: "Open draft",
+          placeholder: "Say what draws you to the project and what you could contribute.",
+          context: "Project",
+        }}
+      />
       <section className="flex flex-wrap items-center gap-3 border-b-2 border-ink px-5 py-5">
         <input
           value={search}
@@ -128,7 +177,7 @@ export function ResearchView({
                   transition={{ duration: 0.42, ease: [0.16, 1, 0.3, 1] }}
                   className="h-full"
                 >
-                  <ResearchCard match={match} heldIds={heldIds} />
+                  <ResearchCard match={match} heldIds={heldIds} onConnect={setContacting} />
                 </motion.div>
               ))}
             </AnimatePresence>

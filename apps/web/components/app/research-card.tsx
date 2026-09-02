@@ -1,4 +1,5 @@
 import type { ResearchMatch } from "@campusquest/shared";
+import { clsx } from "clsx";
 import { Avatar, Chip } from "@/components/ui/primitives";
 import { WhyThis } from "./why-this";
 
@@ -10,9 +11,12 @@ import { WhyThis } from "./why-this";
 export function ResearchCard({
   match,
   heldIds,
+  onConnect,
 }: {
   match: ResearchMatch;
   heldIds: string[];
+  /** Omitted where the card is read-only; the button is then disabled. */
+  onConnect?: (match: ResearchMatch) => void;
 }) {
   const { project } = match;
 
@@ -103,6 +107,23 @@ export function ResearchCard({
           </span>
           {" — "}{match.why}
         </p>
+
+        {/* A researcher has no account, so this cannot be a connection request
+            the way People's is: it opens a draft addressed to them instead,
+            which is how a student would approach a professor regardless. */}
+        <button
+          type="button"
+          onClick={() => onConnect?.(match)}
+          disabled={!onConnect}
+          className={clsx(
+            "mt-4 w-full border-2 py-2.5 font-mono text-[0.6875rem] font-bold tracking-[0.14em] uppercase transition-colors duration-300",
+            onConnect
+              ? "border-ink bg-transparent text-ink hover:bg-ink hover:text-paper"
+              : "border-line-soft text-faint",
+          )}
+        >
+          Connect
+        </button>
       </div>
 
       <div className="border-t-2 border-line-soft px-5 py-4">

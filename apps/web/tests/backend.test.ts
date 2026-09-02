@@ -21,7 +21,7 @@ import { BRANCHES } from "../lib/data/profile-options";
 import { skillPathQuests } from "../lib/skill-paths";
 import { peopleMatches, scorePeer } from "../lib/people-matchmaker";
 import { GET as getPeopleMatches } from "../app/api/people/matches/route";
-import { researchMatches, scoreResearch } from "../lib/research-repository";
+import { researchMatches, scoreResearch, campusEmailFor } from "../lib/research-repository";
 import { researchProfileQuery, searchResearchCandidates } from "../lib/databricks/ai-search";
 import { createThread, listMessages, sendMessage } from "../lib/chat";
 import { createConnectionRequest, respondToConnectionRequest } from "../lib/connection-requests";
@@ -567,4 +567,17 @@ test("font and image streams are not decoded as résumé text", () => {
   assert.match(text, /Python/);
   assert.doesNotMatch(text, /GARBAGEFONTDATA/, text);
   assert.doesNotMatch(text, /JPEGNOISE/, text);
+});
+
+test("a researcher's contact address is derived consistently", () => {
+  // Research leads have no account, so Connect opens an email draft rather
+  // than sending a request. No directory carries their address, so it is
+  // derived — sample data, in a form a student could actually write to.
+  assert.equal(campusEmailFor("Dr. Aditya Joshi"), "aditya.joshi@gmail.com");
+  assert.equal(campusEmailFor("Prof. Anjali Iyer"), "anjali.iyer@gmail.com");
+  assert.equal(campusEmailFor("Dr. Vikram Bose"), "vikram.bose@gmail.com");
+  // A single name still yields a usable address rather than an empty local part.
+  assert.equal(campusEmailFor("Priya"), "priya@gmail.com");
+  // Every project the app can show must be contactable.
+  for (const match of DEMO_RESEARCH) assert.match(match.project.lead.email, /@/);
 });

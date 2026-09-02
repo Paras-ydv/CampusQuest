@@ -16,11 +16,24 @@ export function ConnectDialog({
   peer,
   onCancel,
   onSend,
+  /**
+   * Wording, so the same dialog can compose an email to a researcher as well
+   * as a connection request to a peer. A professor has no account to receive a
+   * request, and telling a student they have "sent" one would be false.
+   */
+  copy,
 }: {
   peer: { name: string; email: string; initials: string; lookingFor?: string } | null;
   onCancel: () => void;
   onSend: (note: string) => void;
+  copy?: { heading: string; action: string; placeholder: string; context?: string };
 }) {
+  const wording = copy ?? {
+    heading: "Send a connection request",
+    action: "Send request",
+    placeholder: "Say what you'd like to build together.",
+    context: "Looking for",
+  };
   const [note, setNote] = useState("");
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -62,7 +75,7 @@ export function ConnectDialog({
             className="fixed top-1/2 left-1/2 z-50 w-[min(30rem,calc(100vw-2rem))] -translate-x-1/2 -translate-y-1/2 border-2 border-ink bg-paper shadow-[var(--shadow-hard)]"
           >
             <div className="border-b-2 border-ink px-5 py-4">
-              <Label>Send a connection request</Label>
+              <Label>{wording.heading}</Label>
             </div>
 
             <div className="p-5">
@@ -80,7 +93,7 @@ export function ConnectDialog({
 
               {peer.lookingFor ? (
                 <p className="mt-4 border-l-2 border-line-soft pl-3 text-[0.82rem] leading-relaxed text-muted">
-                  Looking for: {peer.lookingFor}
+                  {wording.context ?? "Looking for"}: {peer.lookingFor}
                 </p>
               ) : null}
 
@@ -101,7 +114,7 @@ export function ConnectDialog({
                 }}
                 rows={3}
                 maxLength={400}
-                placeholder="Say what you'd like to build together."
+                placeholder={wording.placeholder}
                 className="w-full resize-none border-2 border-ink bg-surface px-3 py-2.5 text-[0.9rem] outline-none focus-visible:border-volt"
               />
               <p className="mt-1.5 text-right font-mono text-[0.625rem] text-faint tabular-nums">
@@ -111,7 +124,7 @@ export function ConnectDialog({
 
             <div className="flex items-center gap-3 border-t-2 border-ink px-5 py-4">
               <Button onClick={() => onSend(note)} arrow>
-                Send request
+                {wording.action}
               </Button>
               <button
                 type="button"

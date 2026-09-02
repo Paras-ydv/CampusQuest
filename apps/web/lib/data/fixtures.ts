@@ -505,6 +505,7 @@ export const DEMO_RESEARCH: ResearchMatch[] = [
         department: "Computer Science",
         areas: ["Distributed systems", "Consensus", "Edge computing"],
         openToStudents: true,
+        email: "anjali.iyer@gmail.com",
       },
       requiredSkills: skills("distributed", "cpp", "linux"),
       publications: [
@@ -538,6 +539,7 @@ export const DEMO_RESEARCH: ResearchMatch[] = [
         department: "Mechanical Engineering",
         areas: ["Robot learning", "Reinforcement learning"],
         openToStudents: true,
+        email: "vikram.bose@gmail.com",
       },
       requiredSkills: skills("pytorch", "python", "ros"),
       publications: [

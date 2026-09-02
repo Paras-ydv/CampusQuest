@@ -88,6 +88,31 @@ LEFT JOIN area_skill sk ON sk.research_area = p.research_area
 LEFT JOIN area_pubs pb ON pb.professor_id = f.professor_id AND pb.research_area = p.research_area
 ORDER BY p.open_positions DESC, p.project_id`;
 
+/**
+ * A contact address for a researcher.
+ *
+ * Neither the warehouse nor the fixtures carry one, so this is derived from
+ * the name rather than known — sample data, in the shape of an address a
+ * student could actually write to. Gmail rather than a campus sub-domain
+ * because the compose window this feeds is Gmail's, and an address on some
+ * other host would look real without being deliverable.
+ *
+ * If the faculty directory ever carries genuine addresses, this is the single
+ * place to change.
+ */
+export function campusEmailFor(name: string): string {
+  const parts = name
+    .replace(/^(prof|dr)\.?\s*/i, "")
+    .replace(/[^a-zA-Z ]/g, "")
+    .trim()
+    .toLowerCase()
+    .split(/\s+/)
+    .filter(Boolean);
+  const local = parts.length > 1 ? `${parts[0]}.${parts[parts.length - 1]}` : parts[0] ?? "faculty";
+  return `${local}@gmail.com`;
+}
+
+
 function initialsOf(name: string): string {
   const letters = name.replace(/^Dr\.?\s*/i, "").replace(/[^a-zA-Z ]/g, "").trim().split(/\s+/);
   const value = ((letters[0]?.[0] ?? "") + (letters[1]?.[0] ?? letters[0]?.[1] ?? "")).toUpperCase();
@@ -122,6 +147,7 @@ function rowToProject(row: Record<string, unknown>): ResearchProject {
       department: String(row.department ?? ""),
       areas: parseSqlArray(row.lead_areas),
       openToStudents: row.accepting_students === true || row.accepting_students === "true",
+      email: campusEmailFor(leadName),
     },
     requiredSkills,
     publications,
