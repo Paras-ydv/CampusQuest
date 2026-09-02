@@ -534,3 +534,37 @@ test("quests whose every reward is already held are hidden, with exceptions", as
   // And the board is not emptied: plenty of genuinely new work remains.
   assert.ok(quests.length > 5, String(quests.length));
 });
+
+test("a graduated batch yields no academic year", () => {
+  // 2022-2026 read as "year 5", which is a real option in the form and so
+  // passed silently. Someone whose course has ended is in no year of it.
+  assert.equal(extractYear("B.Tech 2022 - 2026", new Date("2026-09-03")), null);
+  assert.equal(extractYear("B.Tech 2023 - 2027", new Date("2026-09-03")), 4);
+});
+
+test("a name does not run into the line after it", () => {
+  // Extraction flattens the document, so the next line abuts the name.
+  assert.equal(extractName("Priya Nair Bachelor of Technology in IT"), "Priya Nair");
+  assert.equal(extractName("Shivansh Bhageria Education Bangalore Institute"), "Shivansh Bhageria");
+});
+
+test("font and image streams are not decoded as résumé text", () => {
+  // A PDF is mostly embedded fonts and images. Decoding those as text buried
+  // the résumé under tens of thousands of junk characters — on a two-page CV
+  // the real prose ended after 193 of them, so the window sent for skill
+  // extraction saw no résumé at all. It also invented skills: "aws", "go" and
+  // "cv" all matched inside the noise on a résumé naming none of them.
+  const objects = [
+    // A font: identified by Length1, and never text.
+    "1 0 obj\n<< /Length1 857 /Length 40 >>\nstream\nBT (GARBAGEFONTDATA) Tj ET\nendstream\nendobj",
+    "2 0 obj\n<< /Subtype /Image /Length 30 >>\nstream\nBT (JPEGNOISE) Tj ET\nendstream\nendobj",
+    // The only real page content.
+    "3 0 obj\n<< /Length 40 >>\nstream\nBT (Priya Nair) Tj (Python) Tj ET\nendstream\nendobj",
+  ].join("\n");
+  const text = extractPdfText(new TextEncoder().encode(`%PDF-1.4\n${objects}\ntrailer\n<< >>\n%%EOF\n`));
+
+  assert.match(text, /Priya Nair/);
+  assert.match(text, /Python/);
+  assert.doesNotMatch(text, /GARBAGEFONTDATA/, text);
+  assert.doesNotMatch(text, /JPEGNOISE/, text);
+});

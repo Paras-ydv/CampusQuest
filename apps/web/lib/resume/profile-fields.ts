@@ -73,9 +73,19 @@ export function extractName(text: string): string | null {
   // Take the leading run of name-shaped words rather than requiring every word
   // to qualify: a stray token after the name (a degree suffix, a leftover
   // symbol) should not discard a name we read correctly.
+  // Words that begin the line *after* the name on essentially every résumé.
+  // Extraction flattens the document to one line, so without this a third
+  // capitalised word — "Priya Nair Bachelor" — reads as part of the name.
+  const NEXT_SECTION = /^(bachelor|master|b\.?tech|m\.?tech|b\.?e|b\.?sc|m\.?sc|education|experience|skills|summary|objective|profile|contact|projects?)$/i;
+
   const words: string[] = [];
   for (const word of candidate.split(" ").filter(Boolean)) {
-    if (!/^[A-Z][a-zA-Z'’.-]{1,20}$/.test(word)) break;
+    // Hyphenation ends the name. A double-barrelled surname is capitalised on
+    // both sides ("Smith-Jones"); a lower-case tail is a compound adjective
+    // starting the summary — "Shivansh Bhageria Pre-final-year" is a name and
+    // then a sentence.
+    if (/-[a-z]/.test(word) || word.endsWith("-")) break;
+    if (!/^[A-Z][a-zA-Z'’.-]{1,20}$/.test(word) || NEXT_SECTION.test(word)) break;
     words.push(word);
     if (words.length === 3) break;
   }
@@ -122,6 +132,10 @@ export function extractYear(text: string, now = new Date()): AcademicYear | null
   // their final year from mid-2026.
   const academicStart = now.getMonth() >= 6 ? now.getFullYear() : now.getFullYear() - 1;
   const yearsRemaining = graduationYear - academicStart;
+  // Someone whose course has already ended is not in any year of it. Without
+  // this a 2022-2026 graduate came out as "year 5", which is a real option in
+  // the form and so passes silently.
+  if (yearsRemaining <= 0) return null;
   const year = 4 - yearsRemaining + 1;
   return year >= 1 && year <= 5 ? (year as AcademicYear) : null;
 }
