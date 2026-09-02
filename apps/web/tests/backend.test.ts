@@ -6,7 +6,9 @@ import test from "node:test";
 
 import { DEMO_PROFILE, DEMO_QUESTS } from "../lib/data/fixtures";
 import { deterministicEmbedding, EMBEDDING_DIMENSIONS, getOrCreateProfileEmbedding, validateEmbedding } from "../lib/embeddings";
-import { rankQuests, completeQuest } from "../lib/quest-engine";
+import { rankQuests, completeQuest, verifyQuestStep } from "../lib/quest-engine";
+import { resolveRoleFamily } from "../lib/data/role-families";
+import { skillPathQuests } from "../lib/skill-paths";
 import { peopleMatches } from "../lib/people-matchmaker";
 import { researchMatches } from "../lib/research-repository";
 import { createThread, listMessages, sendMessage } from "../lib/chat";
@@ -71,11 +73,27 @@ test("research fallback ranks evidence from interests, skills, openings and lead
 });
 
 test("quest completion fallback is idempotent and never awards XP twice", async () => {
-  const id = "q_docker";
+  const id = "q_docker_l1";
+  for (const step of skillPathQuests().find((quest) => quest.id === id)!.steps) {
+    await verifyQuestStep(request, "stu_completion_test", id, step.id, "https://github.com/example/docker-path");
+  }
   const first = await completeQuest(request, "stu_completion_test", id);
   const second = await completeQuest(request, "stu_completion_test", id);
   assert.deepEqual(second, first);
   assert.equal(first.xp, DEMO_PROFILE.xp + first.xpAwarded);
+});
+
+test("market goal aliases and specialist paths are complete", () => {
+  assert.equal(resolveRoleFamily("AI Engineer"), "ML Engineer");
+  assert.equal(resolveRoleFamily("Cybersecurity Engineer"), "DevOps Engineer");
+  const specialistIds = ["llmapps", "rag", "aievals", "mlops", "kubernetes", "terraform", "cicd", "observability", "appsec", "testautomation", "dbt", "dataviz"];
+  for (const id of specialistIds) {
+    const path = skillPathQuests().filter((quest) => quest.pathSkillId === id);
+    assert.equal(path.length, 3);
+    assert.ok(path.every((quest) => quest.steps.length >= 5 && quest.steps.length <= 7));
+    assert.equal(path[2]?.rarity, "legendary");
+    assert.equal(path[2]?.skillsGained[0]?.id, id);
+  }
 });
 
 test("connection transitions and direct-message pagination enforce actor ownership", async () => {

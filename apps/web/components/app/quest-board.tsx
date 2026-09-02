@@ -5,17 +5,31 @@ import { Pager, usePaged } from "@/components/ui/pager";
 import { useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { clsx } from "clsx";
-import { completeQuest } from "@/lib/data/client";
+import { completeQuest, verifyQuestStep } from "@/lib/data/client";
 import { Odometer } from "@/components/motion/odometer";
 import { Reveal } from "@/components/motion/reveal";
 import { WordRise } from "@/components/motion/word-rise";
 import { Chip, Label, SegmentBar } from "@/components/ui/primitives";
 
 const RARITY_MARK: Record<Quest["rarity"], string> = {
-  common: "bg-line-soft",
-  rare: "bg-volt",
+  common: "bg-volt",
+  rare: "bg-warn",
   epic: "bg-hot",
-  legendary: "bg-ink",
+  legendary: "bg-hot",
+};
+
+const RARITY_LABEL: Record<Quest["rarity"], string> = {
+  common: "Basic",
+  rare: "Medium",
+  epic: "Epic",
+  legendary: "Legendary",
+};
+
+const RARITY_TEXT: Record<Quest["rarity"], string> = {
+  common: "text-volt",
+  rare: "text-warn",
+  epic: "text-hot",
+  legendary: "text-hot",
 };
 
 const STATUS_FILTERS: { key: QuestStatus | "all"; label: string }[] = [
@@ -51,6 +65,11 @@ export function QuestBoard({
   const [category, setCategory] = useState<QuestCategory | "all">("all");
   const [busyId, setBusyId] = useState<string | null>(null);
   const [levelUp, setLevelUp] = useState<number | null>(null);
+  const [repositoryUrls, setRepositoryUrls] = useState<Record<string, string>>(
+    () => Object.fromEntries(initialQuests.map((quest) => [quest.id, quest.repositoryUrl ?? ""])),
+  );
+  const [verifying, setVerifying] = useState<string | null>(null);
+  const [verificationMessage, setVerificationMessage] = useState<Record<string, string>>({});
 
   /**
    * Snapshot of state from just before the most recent completion, so a
@@ -101,6 +120,7 @@ export function QuestBoard({
    */
   async function complete(quest: Quest) {
     if (busyId) return;
+    if (quest.steps.some((step) => !step.done)) return;
     setBusyId(quest.id);
 
     // Capture pre-completion state for a possible undo.
@@ -108,28 +128,9 @@ export function QuestBoard({
     if (undoTimer.current) clearTimeout(undoTimer.current);
     setUndoState(null);
 
-    const stepDelay = reduced ? 0 : 320;
-    quest.steps.forEach((step, i) => {
-      setTimeout(() => {
-        setQuests((prev) =>
-          prev.map((q) =>
-            q.id === quest.id
-              ? {
-                  ...q,
-                  steps: q.steps.map((s) =>
-                    s.id === step.id ? { ...s, done: true } : s,
-                  ),
-                }
-              : q,
-          ),
-        );
-      }, stepDelay * (i + 1));
-    });
-
     const result = await completeQuest(quest.id);
 
-    setTimeout(
-      () => {
+    setTimeout(() => {
         setQuests((prev) =>
           prev.map((q) =>
             q.id === quest.id ? { ...q, status: "completed" as const } : q,
@@ -147,9 +148,30 @@ export function QuestBoard({
           () => setUndoState(null),
           reduced ? 4000 : 7000,
         );
-      },
-      stepDelay * (quest.steps.length + 1),
-    );
+      }, reduced ? 0 : 180);
+  }
+
+  async function verify(quest: Quest, stepId: string) {
+    if (verifying) return;
+    const repositoryUrl = repositoryUrls[quest.id]?.trim();
+    if (!repositoryUrl) {
+      setVerificationMessage((previous) => ({ ...previous, [quest.id]: "Enter your public GitHub repository first." }));
+      return;
+    }
+    setVerifying(`${quest.id}:${stepId}`);
+    setVerificationMessage((previous) => ({ ...previous, [quest.id]: "" }));
+    try {
+      const result = await verifyQuestStep(quest.id, stepId, repositoryUrl);
+      setVerificationMessage((previous) => ({ ...previous, [quest.id]: result.message }));
+      if (result.passed) {
+        setQuests((previous) => previous.map((item) => item.id === quest.id ? {
+          ...item, repositoryUrl, status: item.status === "available" ? "active" : item.status,
+          steps: item.steps.map((step) => step.id === stepId ? { ...step, done: true, verifiedAt: new Date().toISOString(), verifiedCommit: result.commit, verificationMessage: result.message } : step),
+        } : item));
+      }
+    } catch (error) {
+      setVerificationMessage((previous) => ({ ...previous, [quest.id]: error instanceof Error ? error.message : "Verification failed. Please try again." }));
+    } finally { setVerifying(null); }
   }
 
   const xpPct = Math.min(100, Math.round((xp / profile.xpToNext) * 100));
@@ -269,6 +291,9 @@ export function QuestBoard({
               {paged.items.map((quest) => {
                 const done = quest.status === "completed";
                 const busy = busyId === quest.id;
+                const technical = Boolean(quest.pathSkillId) || quest.steps.some((step) => step.verification);
+                const verifiedCount = quest.steps.filter((step) => step.done).length;
+                const allVerified = verifiedCount === quest.steps.length;
 
                 return (
                   <motion.li
@@ -283,12 +308,13 @@ export function QuestBoard({
                       done && "opacity-60",
                     )}
                   >
-                    <span className={clsx("h-1.5 w-full", RARITY_MARK[quest.rarity])} />
+                    <span className={clsx("h-2.5 w-full", RARITY_MARK[quest.rarity])} />
 
                     <div className="flex flex-1 flex-col p-6">
                       <div className="flex items-center justify-between gap-3">
-                        <span className="font-mono text-[0.625rem] tracking-[0.18em] text-muted uppercase">
-                          {quest.rarity} · {quest.category} · {quest.estimatedHours}h
+                        <span className="font-mono text-[0.625rem] tracking-[0.18em] uppercase">
+                          <span className={RARITY_TEXT[quest.rarity]}>{RARITY_LABEL[quest.rarity]}</span>
+                          <span className="text-muted"> · {quest.category} · {quest.estimatedHours}h</span>
                         </span>
                         <Chip tone={done ? "soft" : "hot"}>+{quest.xp} XP</Chip>
                       </div>
@@ -324,9 +350,37 @@ export function QuestBoard({
                             >
                               {step.label}
                             </span>
+                            {technical && !done ? (
+                              <button
+                                type="button"
+                                disabled={verifying !== null || step.done}
+                                onClick={() => void verify(quest, step.id)}
+                                className="ml-auto shrink-0 border border-ink px-2.5 py-1 font-mono text-[0.625rem] font-bold tracking-[0.12em] uppercase hover:bg-ink hover:text-paper disabled:opacity-45"
+                              >
+                                {verifying === `${quest.id}:${step.id}` ? "Checking..." : step.done ? "Verified" : "Verify"}
+                              </button>
+                            ) : null}
                           </li>
                         ))}
                       </ul>
+
+                      {technical ? (
+                        <div className="mt-6 border-t-2 border-line-soft pt-5">
+                          <label className="k-label mb-2 block" htmlFor={`repository-${quest.id}`}>
+                            Public GitHub repository
+                          </label>
+                          <input
+                            id={`repository-${quest.id}`}
+                            type="url"
+                            value={repositoryUrls[quest.id] ?? ""}
+                            onChange={(event) => setRepositoryUrls((previous) => ({ ...previous, [quest.id]: event.target.value }))}
+                            placeholder="https://github.com/you/project"
+                            className="w-full border-2 border-ink bg-transparent px-3 py-2.5 font-mono text-sm text-ink outline-none placeholder:text-faint focus:border-hot"
+                          />
+                          <p className="mt-2 text-[0.75rem] text-muted">{verifiedCount}/{quest.steps.length} tasks verified.</p>
+                          {verificationMessage[quest.id] ? <p className="mt-2 text-[0.75rem] text-hot">{verificationMessage[quest.id]}</p> : null}
+                        </div>
+                      ) : null}
 
                       {quest.skillsGained.length > 0 ? (
                         <div className="mt-5 flex flex-wrap gap-1.5">
@@ -354,7 +408,7 @@ export function QuestBoard({
                       ) : (
                         <button
                           type="button"
-                          disabled={done || busy}
+                          disabled={done || busy || (technical && !allVerified)}
                           onClick={() => void complete(quest)}
                           className={clsx(
                             "mt-6 w-full border-2 py-3 font-mono text-[0.6875rem] font-bold tracking-[0.14em] uppercase transition-colors duration-300",

@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ROLE_FAMILIES } from "@/lib/data/role-families";
+import { GOAL_ROLE_CHOICES } from "@/lib/data/role-families";
 import { BRANCHES, INTERESTS } from "@/lib/data/profile-options";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
@@ -13,10 +13,8 @@ import { Label } from "@/components/ui/primitives";
 
 
 
-// The eleven families the historical dataset can actually analyse. Offering a
-// title outside this list produces an empty Time Machine, so the vocabulary is
-// shared with the backend rather than duplicated here.
-const GOAL_ROLES = [...ROLE_FAMILIES];
+// Specializations are resolved to the warehouse's existing role families.
+const GOAL_ROLES = [...GOAL_ROLE_CHOICES];
 
 
 const STEPS = [
