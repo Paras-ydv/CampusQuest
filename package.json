@@ -11,6 +11,7 @@
     "build": "npm run build --workspace=@campusquest/web",
     "start": "npm run start --workspace=@campusquest/web",
     "typecheck": "npm run typecheck --workspaces --if-present",
+    "databricks:research-search": "node scripts/setup-research-ai-search.mjs",
     "db:reset": "supabase db reset",
     "db:types": "supabase gen types typescript --local --schema public > packages/db-types/src/database.types.ts",
     "db:types:check": "supabase gen types typescript --local --schema public | node scripts/check-db-types.mjs",

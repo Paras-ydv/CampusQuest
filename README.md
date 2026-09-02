@@ -138,6 +138,11 @@ P2's deployable assets are in `databricks/`:
 - `etl/sync_profiles/` contains the nightly job definition. Create its Databricks
   Job, set `DATABRICKS_PROFILE_SYNC_JOB_ID`, and configure the `campusquest`
   secret scope with `supabase-url` and `supabase-service-role-key`.
+- `ddl/004_research_search.sql` builds the Delta Sync source documents for
+  Research. After loading the dataset, run `npm run databricks:research-search`
+  to create and synchronize the optional Standard AI Search endpoint and hybrid
+  index. Set `DATABRICKS_RESEARCH_SEARCH_INDEX` to the printed index name for
+  semantic research-candidate retrieval in the app.
 
 The app's server-only P2 configuration is `DATABRICKS_HOST`,
 `DATABRICKS_TOKEN`, `DATABRICKS_SQL_WAREHOUSE_ID`, `DATABRICKS_CATALOG`,
