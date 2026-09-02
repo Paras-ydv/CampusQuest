@@ -13,6 +13,7 @@ const NAV = [
   { href: "/journey", label: "Journey" },
   { href: "/quests", label: "Quests" },
   { href: "/time-machine", label: "Machine" },
+  { href: "/ats", label: "ATS" },
   { href: "/people", label: "People" },
   { href: "/messages", label: "Messages" },
   { href: "/radar", label: "Radar" },

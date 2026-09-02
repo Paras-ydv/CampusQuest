@@ -709,6 +709,35 @@ export type Database = {
           },
         ]
       }
+      user_ats_scores: {
+        Row: {
+          detail: Json
+          overall: number
+          scored_at: string
+          user_id: string
+        }
+        Insert: {
+          detail: Json
+          overall: number
+          scored_at?: string
+          user_id: string
+        }
+        Update: {
+          detail?: Json
+          overall?: number
+          scored_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_ats_scores_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       user_badges: {
         Row: {
           awarded_at: string
@@ -906,6 +935,38 @@ export type Database = {
             foreignKeyName: "user_quests_user_id_fkey"
             columns: ["user_id"]
             isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      user_resumes: {
+        Row: {
+          content: string
+          created_at: string
+          file_name: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          file_name?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          file_name?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_resumes_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: true
             referencedRelation: "profiles"
             referencedColumns: ["id"]
           },

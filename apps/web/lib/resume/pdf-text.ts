@@ -203,5 +203,14 @@ export function extractPdfText(bytes: Uint8Array): string {
     text += ` ${textFromStream(stream.toString("latin1"))}`;
     if (text.length > MAX_TEXT_CHARS) break;
   }
-  return text.replace(/\s+/g, " ").trim().slice(0, MAX_TEXT_CHARS);
+  return text
+    // Font and glyph tables inside the content streams decode to control
+    // characters — a real résumé yields thousands, including NUL. They are not
+    // text, they break Postgres `text` columns outright ("unsupported Unicode
+    // escape sequence"), and they waste a model's context, so they are dropped
+    // to spaces here rather than at each consumer.
+    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, MAX_TEXT_CHARS);
 }
