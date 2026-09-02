@@ -88,7 +88,20 @@
             "name": "filter_year",
             "queries": [
               {
-                "name": "filter_top_offers",
+                "name": "filter_ds_year_summary",
+                "query": {
+                  "datasetName": "ds_year_summary",
+                  "fields": [
+                    {
+                      "name": "year",
+                      "expression": "`year`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "filter_ds_top_offers",
                 "query": {
                   "datasetName": "ds_top_offers",
                   "fields": [
@@ -101,7 +114,7 @@
                 }
               },
               {
-                "name": "filter_role_family",
+                "name": "filter_ds_role_family",
                 "query": {
                   "datasetName": "ds_role_family",
                   "fields": [
@@ -122,12 +135,17 @@
                   {
                     "fieldName": "year",
                     "displayName": "Year",
-                    "queryName": "filter_top_offers"
+                    "queryName": "filter_ds_year_summary"
                   },
                   {
                     "fieldName": "year",
                     "displayName": "Year",
-                    "queryName": "filter_role_family"
+                    "queryName": "filter_ds_top_offers"
+                  },
+                  {
+                    "fieldName": "year",
+                    "displayName": "Year",
+                    "queryName": "filter_ds_role_family"
                   }
                 ]
               },
@@ -151,7 +169,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "ds_latest_year",
+                  "datasetName": "ds_year_summary",
                   "fields": [
                     {
                       "name": "placement_rate_pct",
@@ -172,7 +190,7 @@
                 }
               },
               "frame": {
-                "title": "Placement rate, most recent year",
+                "title": "Placement rate",
                 "showTitle": true
               }
             }
@@ -191,7 +209,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "ds_latest_year",
+                  "datasetName": "ds_year_summary",
                   "fields": [
                     {
                       "name": "students_placed",
@@ -212,7 +230,7 @@
                 }
               },
               "frame": {
-                "title": "Students placed, most recent year",
+                "title": "Students placed",
                 "showTitle": true
               }
             }
@@ -231,7 +249,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "ds_latest_year",
+                  "datasetName": "ds_year_summary",
                   "fields": [
                     {
                       "name": "highest_package_lpa",
@@ -252,7 +270,7 @@
                 }
               },
               "frame": {
-                "title": "Highest package, most recent year",
+                "title": "Highest package",
                 "showTitle": true
               }
             }
@@ -271,7 +289,7 @@
               {
                 "name": "main_query",
                 "query": {
-                  "datasetName": "ds_latest_year",
+                  "datasetName": "ds_year_summary",
                   "fields": [
                     {
                       "name": "companies_recruiting",
@@ -292,7 +310,7 @@
                 }
               },
               "frame": {
-                "title": "Companies recruiting, most recent year",
+                "title": "Companies recruiting",
                 "showTitle": true
               }
             }
