@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import { clsx } from "clsx";
 import { CONSTELLATION_EDGES, CONSTELLATION_NODES } from "@/lib/data/skill-graph";
 import { SKILLS } from "@/lib/data/skills";
@@ -53,8 +53,8 @@ const NODE = 7; // square edge length in viewBox units
  * Wider and taller than the authored 320x200 because that box was sized for
  * thirteen nodes: a student holding two dozen skills needs room for every one
  * of them plus its label, and squeezing them into the old box is what left the
- * text piled on top of itself. The view is pannable, so the extra space costs
- * nothing on a small screen.
+ * text piled on top of itself. The svg scales to its container, so the larger
+ * canvas costs nothing on a small screen.
  */
 const VIEW_WIDTH = 560;
 const VIEW_HEIGHT = 320;
@@ -95,52 +95,6 @@ export function SkillConstellation({
 }: Props) {
   const reduced = useReducedMotion();
   const [hovered, setHovered] = useState<string | null>(null);
-
-  /**
-   * Pan offset, in viewBox units.
-   *
-   * Even with the wider canvas a student with many skills has more diagram
-   * than fits legibly on a phone, so the whole thing can be dragged. Panning
-   * rather than scrolling keeps it one object: the labels stay attached to
-   * their nodes and the edges stay straight.
-   */
-  const [pan, setPan] = useState({ x: 0, y: 0 });
-  const drag = useRef<{ x: number; y: number; from: { x: number; y: number } } | null>(null);
-  /** Whether the last gesture moved far enough to count as a pan, not a click. */
-  const moved = useRef(false);
-  const [dragging, setDragging] = useState(false);
-  const svgRef = useRef<SVGSVGElement>(null);
-
-  /** Screen pixels to viewBox units, so a drag tracks the cursor exactly. */
-  function toViewUnits(pixels: number): number {
-    const width = svgRef.current?.getBoundingClientRect().width ?? VIEW_WIDTH;
-    return (pixels / width) * VIEW_WIDTH;
-  }
-
-  function startPan(event: React.PointerEvent<SVGSVGElement>) {
-    drag.current = { x: event.clientX, y: event.clientY, from: pan };
-    moved.current = false;
-    setDragging(true);
-    event.currentTarget.setPointerCapture(event.pointerId);
-  }
-
-  function movePan(event: React.PointerEvent<SVGSVGElement>) {
-    const start = drag.current;
-    if (!start) return;
-    if (Math.hypot(event.clientX - start.x, event.clientY - start.y) > 3) moved.current = true;
-    setPan({
-      x: start.from.x - toViewUnits(event.clientX - start.x),
-      y: start.from.y - toViewUnits(event.clientY - start.y),
-    });
-  }
-
-  function endPan(event: React.PointerEvent<SVGSVGElement>) {
-    drag.current = null;
-    setDragging(false);
-    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
-      event.currentTarget.releasePointerCapture(event.pointerId);
-    }
-  }
 
   /**
    * Every skill the student holds or lacks, whether or not the layout has
@@ -222,16 +176,8 @@ export function SkillConstellation({
   return (
     <div className={clsx("relative", className)}>
       <svg
-        ref={svgRef}
-        viewBox={`${pan.x} ${pan.y} ${VIEW_WIDTH} ${VIEW_HEIGHT}`}
-        onPointerDown={startPan}
-        onPointerMove={movePan}
-        onPointerUp={endPan}
-        onPointerCancel={endPan}
-        className={clsx(
-          "h-auto w-full touch-none select-none",
-          dragging ? "cursor-grabbing" : "cursor-grab",
-        )}
+        viewBox={`0 0 ${VIEW_WIDTH} ${VIEW_HEIGHT}`}
+        className="h-auto w-full select-none"
         role="img"
         aria-label={`Skill constellation. Held: ${heldIds.map(label).join(", ")}. Missing: ${gapIds.map(label).join(", ")}.`}
       >
@@ -300,9 +246,7 @@ export function SkillConstellation({
                 )}
                 onMouseEnter={() => setHovered(n.id)}
                 onMouseLeave={() => setHovered(null)}
-                // A pan that ends on a node must not also toggle it, so the
-                // click is ignored when the pointer actually travelled.
-                onClick={clickable ? () => { if (!moved.current) onToggle!(n.id); } : undefined}
+                onClick={clickable ? () => onToggle!(n.id) : undefined}
               >
                 <rect
                   x={n.x - size / 2}
@@ -348,7 +292,7 @@ export function SkillConstellation({
           {gapIds.length})
         </span>
         {onToggle ? (
-          <span className="text-faint">Drag to pan · click a missing skill to simulate it</span>
+          <span className="text-faint">Click a missing skill to simulate it</span>
         ) : null}
       </div>
     </div>
