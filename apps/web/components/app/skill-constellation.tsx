@@ -1,21 +1,70 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { clsx } from "clsx";
 import { CONSTELLATION_EDGES, CONSTELLATION_NODES } from "@/lib/data/skill-graph";
 import { SKILLS } from "@/lib/data/skills";
 
-/** Full skill names are too long for a 320-unit canvas. */
+/**
+ * Labels are drawn beside their node, so a long name crosses the diagram and
+ * lands on top of whatever is next to it — "Retrieval-augmented generation"
+ * reached from one edge of the graph to the other. Anything that does not fit
+ * in roughly a dozen characters gets a short form here.
+ */
 const SHORT: Record<string, string> = {
   dsa: "DSA",
   systemdesign: "SYS DESIGN",
   kubernetes: "K8S",
   sklearn: "SCIKIT",
   fastapi: "FASTAPI",
+  rag: "RAG",
+  llmapps: "LLM APPS",
+  observability: "OBSERV.",
+  testautomation: "TEST AUTO",
+  os: "OS",
+  networks: "NETWORKS",
+  dbms: "DBMS",
+  javascript: "JS",
+  typescript: "TS",
+  postgres: "POSTGRES",
+  cv: "VISION",
+  nlp: "NLP",
+  aievals: "AI EVALS",
+  appsec: "APPSEC",
+  dataviz: "DATA VIZ",
+  springboot: "SPRING",
+  tensorflow: "TF",
+  transformers: "TRANSFORM.",
+  distributed: "DISTRIB.",
+  embedded: "EMBEDDED",
+  cicd: "CI/CD",
+  mongodb: "MONGO",
+  graphql: "GRAPHQL",
+  terraform: "TERRAFORM",
+  android: "ANDROID",
 };
 
 const NODE = 7; // square edge length in viewBox units
+
+/**
+ * The canvas the diagram is drawn on.
+ *
+ * Wider and taller than the authored 320x200 because that box was sized for
+ * thirteen nodes: a student holding two dozen skills needs room for every one
+ * of them plus its label, and squeezing them into the old box is what left the
+ * text piled on top of itself. The view is pannable, so the extra space costs
+ * nothing on a small screen.
+ */
+const VIEW_WIDTH = 560;
+const VIEW_HEIGHT = 320;
+/** The coordinate space `CONSTELLATION_NODES` was authored in. */
+const AUTHORED_WIDTH = 320;
+const AUTHORED_HEIGHT = 200;
+/** Wide enough for a label of about ten characters at this font size. */
+const COLUMN_WIDTH = 86;
+/** Rows per stacked column before it wraps into another. */
+const PER_COLUMN = 8;
 
 type Props = {
   heldIds: string[];
@@ -47,10 +96,105 @@ export function SkillConstellation({
   const reduced = useReducedMotion();
   const [hovered, setHovered] = useState<string | null>(null);
 
-  const nodes = useMemo(
-    () => CONSTELLATION_NODES.filter((n) => heldIds.includes(n.id) || gapIds.includes(n.id)),
-    [heldIds, gapIds],
-  );
+  /**
+   * Pan offset, in viewBox units.
+   *
+   * Even with the wider canvas a student with many skills has more diagram
+   * than fits legibly on a phone, so the whole thing can be dragged. Panning
+   * rather than scrolling keeps it one object: the labels stay attached to
+   * their nodes and the edges stay straight.
+   */
+  const [pan, setPan] = useState({ x: 0, y: 0 });
+  const drag = useRef<{ x: number; y: number; from: { x: number; y: number } } | null>(null);
+  /** Whether the last gesture moved far enough to count as a pan, not a click. */
+  const moved = useRef(false);
+  const [dragging, setDragging] = useState(false);
+  const svgRef = useRef<SVGSVGElement>(null);
+
+  /** Screen pixels to viewBox units, so a drag tracks the cursor exactly. */
+  function toViewUnits(pixels: number): number {
+    const width = svgRef.current?.getBoundingClientRect().width ?? VIEW_WIDTH;
+    return (pixels / width) * VIEW_WIDTH;
+  }
+
+  function startPan(event: React.PointerEvent<SVGSVGElement>) {
+    drag.current = { x: event.clientX, y: event.clientY, from: pan };
+    moved.current = false;
+    setDragging(true);
+    event.currentTarget.setPointerCapture(event.pointerId);
+  }
+
+  function movePan(event: React.PointerEvent<SVGSVGElement>) {
+    const start = drag.current;
+    if (!start) return;
+    if (Math.hypot(event.clientX - start.x, event.clientY - start.y) > 3) moved.current = true;
+    setPan({
+      x: start.from.x - toViewUnits(event.clientX - start.x),
+      y: start.from.y - toViewUnits(event.clientY - start.y),
+    });
+  }
+
+  function endPan(event: React.PointerEvent<SVGSVGElement>) {
+    drag.current = null;
+    setDragging(false);
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+  }
+
+  /**
+   * Every skill the student holds or lacks, whether or not the layout has
+   * coordinates for it.
+   *
+   * The authored positions cover thirteen skills and the catalogue has sixty,
+   * so filtering to the authored set silently dropped most of the picture — a
+   * student saw "19 missing" above a diagram showing ten. Skills without a
+   * position are placed on the side they belong to, held on the left and gaps
+   * on the right, keeping the composition the authored nodes establish.
+   */
+  const nodes = useMemo(() => {
+    const authored = new Set(CONSTELLATION_NODES.map((node) => node.id));
+    const heldLoose = heldIds.filter((id) => !authored.has(id));
+    const gapLoose = gapIds.filter((id) => !authored.has(id));
+
+    // Each side needs a column's worth of room, and a column is as wide as its
+    // labels rather than its markers — a label sits beside its node, so
+    // spacing the markers alone left the text overlapping everything.
+    const columns = (count: number) => Math.ceil(count / PER_COLUMN);
+    const leftColumns = columns(heldLoose.length);
+    const rightColumns = columns(gapLoose.length);
+    const left = leftColumns * COLUMN_WIDTH;
+    const right = rightColumns * COLUMN_WIDTH;
+
+    // The authored composition is preserved but compressed into whatever is
+    // left between the two margins.
+    const span = VIEW_WIDTH - left - right;
+    const squeeze = (x: number) => left + (x / AUTHORED_WIDTH) * span;
+    const placed = CONSTELLATION_NODES
+      .filter((node) => heldIds.includes(node.id) || gapIds.includes(node.id))
+      .map((node) => ({ ...node, x: squeeze(node.x), y: (node.y / AUTHORED_HEIGHT) * VIEW_HEIGHT }));
+
+    const stack = (ids: string[], side: "held" | "gap") =>
+      ids.map((id, index) => {
+        const column = Math.floor(index / PER_COLUMN);
+        const row = index % PER_COLUMN;
+        const rows = Math.min(ids.length - column * PER_COLUMN, PER_COLUMN);
+        const step = (VIEW_HEIGHT - 24) / Math.max(rows, 1);
+        const total = side === "held" ? leftColumns : rightColumns;
+        return {
+          id,
+          // Columns fill from the outside in, so the innermost sits nearest the
+          // diagram and the whole thing still reads as one picture.
+          x: side === "held"
+            ? 14 + (total - 1 - column) * COLUMN_WIDTH
+            : VIEW_WIDTH - 14 - (total - 1 - column) * COLUMN_WIDTH,
+          y: 16 + row * step + step / 2,
+          anchor: (side === "held" ? "start" : "end") as "start" | "end",
+        };
+      });
+
+    return [...placed, ...stack(heldLoose, "held"), ...stack(gapLoose, "gap")];
+  }, [heldIds, gapIds]);
   const present = useMemo(() => new Set(nodes.map((n) => n.id)), [nodes]);
   const byId = useMemo(
     () => new Map(nodes.map((n) => [n.id, n] as const)),
@@ -78,8 +222,16 @@ export function SkillConstellation({
   return (
     <div className={clsx("relative", className)}>
       <svg
-        viewBox="0 0 320 200"
-        className="h-auto w-full overflow-visible"
+        ref={svgRef}
+        viewBox={`${pan.x} ${pan.y} ${VIEW_WIDTH} ${VIEW_HEIGHT}`}
+        onPointerDown={startPan}
+        onPointerMove={movePan}
+        onPointerUp={endPan}
+        onPointerCancel={endPan}
+        className={clsx(
+          "h-auto w-full touch-none select-none",
+          dragging ? "cursor-grabbing" : "cursor-grab",
+        )}
         role="img"
         aria-label={`Skill constellation. Held: ${heldIds.map(label).join(", ")}. Missing: ${gapIds.map(label).join(", ")}.`}
       >
@@ -148,7 +300,9 @@ export function SkillConstellation({
                 )}
                 onMouseEnter={() => setHovered(n.id)}
                 onMouseLeave={() => setHovered(null)}
-                onClick={clickable ? () => onToggle!(n.id) : undefined}
+                // A pan that ends on a node must not also toggle it, so the
+                // click is ignored when the pointer actually travelled.
+                onClick={clickable ? () => { if (!moved.current) onToggle!(n.id); } : undefined}
               >
                 <rect
                   x={n.x - size / 2}
@@ -194,7 +348,7 @@ export function SkillConstellation({
           {gapIds.length})
         </span>
         {onToggle ? (
-          <span className="text-faint">Click a missing skill to simulate it</span>
+          <span className="text-faint">Drag to pan · click a missing skill to simulate it</span>
         ) : null}
       </div>
     </div>
