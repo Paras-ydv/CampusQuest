@@ -30,11 +30,28 @@ export const ROLE_FAMILIES = [
 
 export type RoleFamily = (typeof ROLE_FAMILIES)[number];
 
+/** Friendly specializations students can select while analytics remains on the
+ * warehouse's stable role-family vocabulary. */
+export const MARKET_GOAL_ROLES = [
+  "AI Engineer",
+  "Data Scientist",
+  "MLOps Engineer",
+  "Cloud Engineer",
+  "Site Reliability Engineer",
+  "Cybersecurity Engineer",
+  "Full-stack Engineer",
+  "Analytics Engineer",
+] as const;
+
+/** All choices shown in onboarding and profile settings. */
+export const GOAL_ROLE_CHOICES = [...ROLE_FAMILIES, ...MARKET_GOAL_ROLES] as const;
+
 /**
  * Titles that appear in existing profiles but are not themselves families.
  * Each maps to the family whose historical postings best represent it.
  */
 const ALIASES: Record<string, RoleFamily> = {
+  "ai engineer": "ML Engineer",
   "ai/ml engineer": "ML Engineer",
   "machine learning engineer": "ML Engineer",
   "computer vision engineer": "ML Engineer",
@@ -48,6 +65,8 @@ const ALIASES: Record<string, RoleFamily> = {
   "site reliability engineer": "DevOps Engineer",
   "sre": "DevOps Engineer",
   "cloud engineer": "DevOps Engineer",
+  "mlops engineer": "DevOps Engineer",
+  "cybersecurity engineer": "DevOps Engineer",
   "robotics engineer": "Embedded Engineer",
   "hardware engineer": "Embedded Engineer",
   "firmware engineer": "Embedded Engineer",

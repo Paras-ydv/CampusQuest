@@ -11,7 +11,7 @@ import { WordRise } from "@/components/motion/word-rise";
 import { Button } from "@/components/ui/button";
 import { Avatar, Chip, Label } from "@/components/ui/primitives";
 import { ACADEMIC_YEARS, BRANCHES, INTERESTS } from "@/lib/data/profile-options";
-import { ROLE_FAMILIES } from "@/lib/data/role-families";
+import { GOAL_ROLE_CHOICES } from "@/lib/data/role-families";
 
 /** A selectable option, styled like the rest of the Kinetic chip row. */
 function Option({
@@ -151,7 +151,7 @@ export function ProfileView({ profile, badges }: { profile: Profile; badges: Bad
               measured against this role. Changing it re-runs the analysis.
             </p>
             <div className="flex flex-wrap gap-2">
-              {ROLE_FAMILIES.map((r) => (
+              {GOAL_ROLE_CHOICES.map((r) => (
                 <Option key={r} active={goalRole === r} onClick={() => { setGoalRole(r); setSaved(false); }}>{r}</Option>
               ))}
             </div>

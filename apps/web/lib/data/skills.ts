@@ -62,6 +62,17 @@ export const SKILLS = {
   tensorflow: { id: "tensorflow", name: "TensorFlow", category: "ml" },
   nlp: { id: "nlp", name: "NLP", category: "ml" },
   android: { id: "android", name: "Android", category: "framework" },
+
+  // Current market-facing paths. These remain app taxonomy entries; the
+  // Databricks vocabulary is intentionally unchanged by this feature.
+  llmapps: { id: "llmapps", name: "LLM applications", category: "ml" },
+  rag: { id: "rag", name: "Retrieval-augmented generation", category: "ml" },
+  aievals: { id: "aievals", name: "AI evaluation", category: "ml" },
+  observability: { id: "observability", name: "Observability", category: "infra" },
+  appsec: { id: "appsec", name: "Application security", category: "practice" },
+  testautomation: { id: "testautomation", name: "Test automation", category: "practice" },
+  dbt: { id: "dbt", name: "dbt", category: "data" },
+  dataviz: { id: "dataviz", name: "Data visualization", category: "data" },
 } as const satisfies Record<string, Skill>;
 
 export type SkillKey = keyof typeof SKILLS;
