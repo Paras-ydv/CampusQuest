@@ -42,19 +42,6 @@ export default function SignInPage() {
               happens with Google.
             </p>
           </Reveal>
-
-          <Reveal index={6} className="mt-8 border-t-2 border-line-soft pt-6">
-            <p className="text-[0.85rem] text-muted">
-              Just looking?{" "}
-              <a
-                href="/journey"
-                className="font-semibold text-ink underline decoration-hot decoration-2 underline-offset-4"
-              >
-                Open the demo dashboard
-              </a>{" "}
-              — no account needed.
-            </p>
-          </Reveal>
         </div>
       </div>
 
@@ -72,11 +59,27 @@ export default function SignInPage() {
               ],
               [
                 "A next move, not a reading list",
-                "Every gap becomes a quest with a deliverable, an XP value and a skill at the end of it.",
+                "Every gap becomes a quest with a deliverable and an XP value, and finishing one is verified rather than self-reported.",
+              ],
+              [
+                "A résumé score, and the fixes",
+                "Upload a PDF and see it scored on the rubric intern applications are screened against, with the specific changes that would raise it.",
+              ],
+              [
+                "Ask it in plain English",
+                "Genie answers questions about your own standing from campus data — and shows you the SQL it ran to get there.",
+              ],
+              [
+                "What the roles actually asked for",
+                "Alignment measured against five years of campus hiring: who recruited, what they paid, and which skills the students with offers were carrying.",
+              ],
+              [
+                "Everything worth applying to",
+                "Internships, hackathons, competitions, open-source issues and workshops, plus the research groups currently taking students.",
               ],
               [
                 "The people who complete your team",
-                "Students whose skills fill your gaps, and who are looking for what you already have.",
+                "Students whose skills fill your gaps, and who are looking for what you already have. Connect, then message them here.",
               ],
             ].map(([title, body], i) => (
               <Reveal key={title} index={i + 2}>
