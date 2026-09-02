@@ -477,3 +477,23 @@ test("extracted text carries no control characters", () => {
   assert.ok(!/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/.test(text), JSON.stringify(text));
   assert.match(text, /Hello/);
 });
+
+test("an unexplained bonus or deduction is dropped, not shown", () => {
+  // "-4 · None." told a student their score was cut and refused to say why.
+  // Points with no stated reason are discarded instead.
+  const reply = JSON.stringify({
+    scores: {
+      open_source: { score: 5, evidence: "e" }, self_projects: { score: 10, evidence: "e" },
+      production: { score: 5, evidence: "e" }, technical_skills: { score: 5, evidence: "e" },
+    },
+    bonus_points: { total: 6, breakdown: "" },
+    deductions: { total: 4, reasons: "   " },
+    key_strengths: [], areas_for_improvement: [],
+  });
+  const score = parseEvaluation(reply);
+  assert.equal(score.deductions.total, 0, "unexplained deduction dropped");
+  assert.equal(score.deductions.reasons, "");
+  assert.equal(score.bonus.total, 0, "unexplained bonus dropped");
+  // The overall is then just the categories.
+  assert.equal(score.overall, 25);
+});

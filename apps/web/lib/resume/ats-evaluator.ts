@@ -53,6 +53,11 @@ const SYSTEM = [
   "  link with no live demo; -1 per generically named project; -2 if every project",
   "  is a classroom or tutorial exercise.",
   "",
+  "Whenever `bonus_points.total` or `deductions.total` is not zero, the matching",
+  "`breakdown` or `reasons` MUST name what produced it and which project or item",
+  "it applies to — 'no live demo for the Brick Kiln Detection project (-3)'.",
+  "A non-zero total with no explanation is invalid; use 0 if you cannot say why.",
+  "",
   "You are scoring the DOCUMENT ONLY. No GitHub or blog data is available, so do",
   "not assume contributions the résumé does not evidence, and do not deduct for",
   "the absence of data you were not given.",
@@ -139,8 +144,16 @@ export function parseEvaluation(reply: string): Omit<AtsScore, "scoredAt" | "sta
     };
   }
 
+  // An unexplained adjustment is not usable: "−4 · None." tells a student
+  // their score was cut and refuses to say why. Where the reason is missing,
+  // the points are dropped rather than shown unexplained — the score moves in
+  // the student's favour, which is the right direction to fail in.
   const bonusRaw = (parsed as { bonus_points?: { total?: unknown; breakdown?: unknown } }).bonus_points;
-  const bonus = { total: clamp(bonusRaw?.total, BONUS_MAX), breakdown: text(bonusRaw?.breakdown, "None.") };
+  const bonusBreakdown = text(bonusRaw?.breakdown);
+  const bonus = {
+    total: bonusBreakdown ? clamp(bonusRaw?.total, BONUS_MAX) : 0,
+    breakdown: bonusBreakdown,
+  };
 
   const deductionRaw = (parsed as { deductions?: { total?: unknown; reasons?: unknown } }).deductions;
   // The rubric states deductions as negatives in its prose ("-3 to -5 points")
@@ -150,7 +163,11 @@ export function parseEvaluation(reply: string): Omit<AtsScore, "scoredAt" | "sta
   const deductionMagnitude = typeof deductionRaw?.total === "number" && Number.isFinite(deductionRaw.total)
     ? Math.abs(deductionRaw.total)
     : 0;
-  const deductions = { total: clamp(deductionMagnitude, OVERALL_MAX), reasons: text(deductionRaw?.reasons, "None.") };
+  const deductionReasons = text(deductionRaw?.reasons);
+  const deductions = {
+    total: deductionReasons ? clamp(deductionMagnitude, OVERALL_MAX) : 0,
+    reasons: deductionReasons,
+  };
 
   const categoryTotal = Object.values(categories).reduce((sum, entry) => sum + entry.score, 0);
   const overall = Math.max(0, Math.min(OVERALL_MAX, categoryTotal + bonus.total - deductions.total));

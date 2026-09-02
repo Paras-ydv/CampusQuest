@@ -133,10 +133,12 @@ export function AtsView({ initial }: { initial: AtsState }) {
         <div className="mt-10 flex flex-wrap items-center gap-4 border-t-2 border-ink pt-6">
           <div className="flex-1">
             <p className="k-label">{state.fileName ?? "Your résumé"}</p>
-            {score ? (
+            {/* No "scored on <date>": the score is always of the résumé shown
+                above it, so the date says nothing a student needs. Staleness
+                does matter, and is called out on its own. */}
+            {score?.stale ? (
               <p className="mt-1.5 font-mono text-[0.6875rem] tracking-[0.06em] text-muted">
-                Scored {new Date(score.scoredAt).toLocaleDateString()}
-                {score.stale ? " · your résumé changed since — score again" : ""}
+                Your résumé changed since this score — score again
               </p>
             ) : null}
           </div>
@@ -230,14 +232,25 @@ export function AtsView({ initial }: { initial: AtsState }) {
                 ))}
               </dl>
 
-              <div className="mt-7 grid gap-3 border-t-2 border-line-soft pt-5 text-[0.82rem] text-muted sm:grid-cols-2">
-                <p>
-                  <span className="k-label mr-2">Bonus</span>+{score.bonus.total} · {score.bonus.breakdown}
-                </p>
-                <p>
-                  <span className="k-label mr-2">Deductions</span>−{score.deductions.total} · {score.deductions.reasons}
-                </p>
-              </div>
+              {/* Shown only when there is something to report. A zero line
+                  reading "None." is noise, and an adjustment with no reason is
+                  worse — the evaluator drops those rather than pass them on. */}
+              {score.bonus.total > 0 || score.deductions.total > 0 ? (
+                <div className="mt-7 grid gap-3 border-t-2 border-line-soft pt-5 text-[0.82rem] text-muted sm:grid-cols-2">
+                  {score.bonus.total > 0 ? (
+                    <p>
+                      <span className="k-label mr-2">Bonus</span>
+                      <span className="text-ok">+{score.bonus.total}</span> · {score.bonus.breakdown}
+                    </p>
+                  ) : null}
+                  {score.deductions.total > 0 ? (
+                    <p>
+                      <span className="k-label mr-2">Deductions</span>
+                      <span className="text-hot">−{score.deductions.total}</span> · {score.deductions.reasons}
+                    </p>
+                  ) : null}
+                </div>
+              ) : null}
             </div>
           </Reveal>
 
