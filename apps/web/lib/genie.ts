@@ -4,13 +4,27 @@ import type { GenieResultTable, GenieStatus, GenieStreamEvent } from "@campusque
 import { GENIE_DEMO_ANSWER, GENIE_DEMO_SQL, GENIE_DEMO_TABLE } from "@/lib/data/fixtures";
 import { createRequestSupabaseClient, localFallbackEnabled, supabaseForCaller } from "@/lib/supabase/server";
 
-type RunInput = { request: Request; userId: string; question: string; conversationId?: string };
+/** `context` is the student summary, passed down so it is built once a turn. */
+type RunInput = { request: Request; userId: string; question: string; conversationId?: string; context?: string };
 type CacheRecord = { conversationId: string; messageId: string; text: string; sql: string | null; table: GenieResultTable | null };
 const fallbackCache = new Map<string, CacheRecord>();
 const fallbackConversationById = new Map<string, string>();
 
 function configured(): boolean { return Boolean(process.env.DATABRICKS_HOST && process.env.DATABRICKS_TOKEN && process.env.DATABRICKS_GENIE_SPACE_ID); }
-function hashQuestion(userId: string, question: string): string { return createHash("sha256").update(`${userId}\n${question.trim().replace(/\s+/g, " ").toLowerCase()}`).digest("hex"); }
+/**
+ * Cache identity for one question asked by one student.
+ *
+ * `context` is the profile summary the question is answered against. Without
+ * it the key was user + question text alone, so changing your goal role kept
+ * serving the previous role's answer for ever: a student who switched to
+ * Frontend Engineer still got "the most valuable skills for you to learn next"
+ * computed over ML Engineer roles, with the SQL to match.
+ */
+function hashQuestion(userId: string, question: string, context = ""): string {
+  return createHash("sha256")
+    .update(`${userId}\n${question.trim().replace(/\s+/g, " ").toLowerCase()}\n${context}`)
+    .digest("hex");
+}
 function iso(): string { return new Date().toISOString(); }
 function toTable(table: ProviderTable | null): GenieResultTable | null {
   return table ? { columns: table.columns, rows: table.rows, truncated: table.truncated } : null;
@@ -99,14 +113,43 @@ async function studentContext(input: RunInput): Promise<string> {
     const { getBackendProfile } = await import("@/lib/backend/profile");
     const { resolveRoleFamily } = await import("@/lib/data/role-families");
     const profile = await getBackendProfile(input.request, input.userId);
-    const skills = profile.skills.map((skill) => skill.name).join(", ") || "none recorded";
+    /*
+     * Slugs, not display names.
+     *
+     * Sending names left Genie to guess the join key, and it guessed wrong:
+     * "REST APIs" became slug 'restapis' and "scikit-learn" became
+     * 'scikit-learn', neither of which exists in `skills`. Both silently
+     * dropped out of the held set, and "how many roles do I align with?"
+     * answered 4 when the true figure was 14 of 24. The ids the app stores are
+     * already the warehouse slugs, so there is nothing to guess.
+     */
+    const slugs = profile.skills.map((skill) => skill.id);
+    const held = slugs.length ? slugs.map((slug) => `'${slug}'`).join(", ") : "none";
+    const named = profile.skills.map((skill) => `${skill.name} (${skill.id})`).join(", ") || "none recorded";
     const interests = profile.interests.join(", ") || "none recorded";
     return [
       "CampusQuest student context — the person asking is an application user and has NO row in the `students` table.",
-      `Their target role family is "${resolveRoleFamily(profile.goalRole)}", which matches job_roles.role_family.`,
-      `Skills they already hold: ${skills}.`,
+      `Their target role family is "${resolveRoleFamily(profile.goalRole)}", which matches job_roles.role_family exactly.`,
+      `Skills they already hold, as skills.slug values: ${held}.`,
+      `The same skills by name: ${named}.`,
+      "Use those slug literals verbatim in `skills.slug IN (...)`. Do not derive a slug from a name and do not match on `skills.name`.",
       `Interests: ${interests}.`,
-      "Answer using these facts. Do not filter students, skill_gap_view or role_alignment by a student_id for this person, and never invent one.",
+      /*
+       * The app answers "am I aligned with this role?" one particular way, and
+       * the Journey screen shows the result. Genie inventing a second
+       * definition is how the same question gets two different numbers.
+       */
+      "When a question asks how many roles the student aligns with, use the app's rule: a requirement counts 2 when job_requirements.importance = 'core' and 1 otherwise, and the student is aligned with a role when the weight of the requirements they hold is at least 50% of that role's total requirement weight.",
+      /*
+       * `skill_gap_view` and `role_alignment` are keyed on the synthetic
+       * `students` table. Saying only "do not filter these by a student_id"
+       * was read as permission to query them unfiltered, which returned one
+       * arbitrary synthetic student's figures — "JavaScript appears in 14
+       * roles at 29% frequency" when the real answer over `job_requirements`
+       * was 21 roles. They have to be off limits for this person entirely.
+       */
+      "Never read skill_gap_view or role_alignment for this person, filtered or unfiltered: both are keyed on the synthetic `students` table and describe other people. Compute their figures from job_roles, job_requirements, role_requirement_weight, and skills, using the held slugs above.",
+      "Answer using these facts, and never invent a student_id.",
     ].join("\n");
   } catch {
     // Without a profile Genie can still answer aggregate questions, which is
@@ -134,7 +177,7 @@ async function createOrContinue(
     return { provider: null, answer: fallbackAnswer(input.question) };
   }
   const genie = client();
-  const context = `${await studentContext(input)}\n\n${input.question}`;
+  const context = `${input.context ?? await studentContext(input)}\n\n${input.question}`;
   let provider: { conversationId: string; messageId: string };
   if (input.conversationId) {
     const conversationId = await providerConversationId(input.request, input.userId, input.conversationId);
@@ -205,9 +248,13 @@ function eventBridge() {
 
 /** Returns the exact SSE event lifecycle rendered by P1's Genie panel. */
 export async function* runGenie(input: RunInput): AsyncGenerator<GenieStreamEvent> {
-  const requestHash = hashQuestion(input.userId, input.question);
+  // Built before the cache lookup so the key covers the profile the answer
+  // would be computed from, not just who asked and what they asked.
+  const context = await studentContext(input);
+  const requestHash = hashQuestion(input.userId, input.question, context);
   yield { type: "status", status: "pending" };
 
+  const run: RunInput = { ...input, context };
   const cached = fallbackCache.get(requestHash) ?? await cachedFromDatabase(input.request, input.userId, requestHash);
   if (cached) {
     yield { type: "status", status: "complete" };
@@ -221,7 +268,7 @@ export async function* runGenie(input: RunInput): AsyncGenerator<GenieStreamEven
   yield { type: "status", status: "interpreting" };
 
   const bridge = eventBridge();
-  const work = createOrContinue(input, bridge.emit);
+  const work = createOrContinue(run, bridge.emit);
   let settled = false;
   const tracked = work.then(
     (value) => { settled = true; bridge.emit({ type: "status", status: "complete" }); return value; },
