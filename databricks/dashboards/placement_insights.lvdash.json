@@ -1,0 +1,758 @@
+{
+  "datasets": [
+    {
+      "name": "ds_year_summary",
+      "displayName": "Placements by year",
+      "queryLines": [
+        "SELECT year, students_in_drive, students_placed, placement_rate_pct,\n",
+        "       offers, offer_conversion_pct, companies_recruiting,\n",
+        "       highest_package_lpa, median_package_lpa, average_package_lpa\n",
+        "FROM {{catalog}}.{{schema}}.placement_year_summary\n",
+        "ORDER BY year"
+      ]
+    },
+    {
+      "name": "ds_latest_year",
+      "displayName": "Most recent placement year",
+      "queryLines": [
+        "SELECT year, students_in_drive, students_placed, placement_rate_pct,\n",
+        "       offers, offer_conversion_pct, companies_recruiting,\n",
+        "       highest_package_lpa, median_package_lpa\n",
+        "FROM {{catalog}}.{{schema}}.placement_year_summary\n",
+        "WHERE year = (SELECT MAX(year) FROM {{catalog}}.{{schema}}.placement_year_summary)"
+      ]
+    },
+    {
+      "name": "ds_top_offers",
+      "displayName": "Highest packages by company",
+      "queryLines": [
+        "SELECT year, company_name, sector, tier, offers,\n",
+        "       highest_package_lpa, median_package_lpa, package_rank_in_year\n",
+        "FROM {{catalog}}.{{schema}}.placement_top_offers\n",
+        "WHERE package_rank_in_year <= 10\n",
+        "ORDER BY year DESC, package_rank_in_year"
+      ]
+    },
+    {
+      "name": "ds_recurrence",
+      "displayName": "Which companies keep coming back",
+      "queryLines": [
+        "SELECT company_name, sector, tier, return_outlook, years_recruited,\n",
+        "       years_in_window, presence_pct, last_seen_year, processes_run,\n",
+        "       total_offers, best_package_lpa\n",
+        "FROM {{catalog}}.{{schema}}.placement_company_recurrence\n",
+        "ORDER BY presence_pct DESC, best_package_lpa DESC"
+      ]
+    },
+    {
+      "name": "ds_role_family",
+      "displayName": "Role families hired for",
+      "queryLines": [
+        "SELECT year, role_family, companies_hiring, students_interviewed, offers,\n",
+        "       offer_conversion_pct, highest_package_lpa, median_package_lpa\n",
+        "FROM {{catalog}}.{{schema}}.placement_role_family_year\n",
+        "ORDER BY year DESC, offers DESC"
+      ]
+    },
+    {
+      "name": "ds_branch",
+      "displayName": "Outcomes by branch",
+      "queryLines": [
+        "SELECT branch, students_in_drive, students_placed, placement_rate_pct,\n",
+        "       offers, median_package_lpa, highest_package_lpa\n",
+        "FROM {{catalog}}.{{schema}}.placement_branch_summary\n",
+        "ORDER BY median_package_lpa DESC"
+      ]
+    },
+    {
+      "name": "ds_skill_edge",
+      "displayName": "Skills the placed students held",
+      "queryLines": [
+        "SELECT skill_name, category, placed_holders, campus_holders,\n",
+        "       placed_holding_pct, campus_holding_pct, lift_pct_points\n",
+        "FROM {{catalog}}.{{schema}}.placement_skill_edge\n",
+        "ORDER BY lift_pct_points DESC\n",
+        "LIMIT 15"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "placements",
+      "displayName": "Placements",
+      "layout": [
+        {
+          "widget": {
+            "name": "intro",
+            "textbox_spec": "# Campus placements\n\nWhat happened across the recruiting years on record \u2014 who hired, who kept coming back, and what they paid. Every number on this page is produced by SQL over the campus dataset; nothing here is a forecast.\n\n**Placement rate** counts *students* who left the drive with at least one offer. **Offer conversion** counts *processes* that ended in an offer. A student sits several company processes in a year, so the two are different numbers and are never mixed."
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 4
+          }
+        },
+        {
+          "widget": {
+            "name": "filter_year",
+            "queries": [
+              {
+                "name": "filter_top_offers",
+                "query": {
+                  "datasetName": "ds_top_offers",
+                  "fields": [
+                    {
+                      "name": "year",
+                      "expression": "`year`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              },
+              {
+                "name": "filter_role_family",
+                "query": {
+                  "datasetName": "ds_role_family",
+                  "fields": [
+                    {
+                      "name": "year",
+                      "expression": "`year`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "year",
+                    "displayName": "Year",
+                    "queryName": "filter_top_offers"
+                  },
+                  {
+                    "fieldName": "year",
+                    "displayName": "Year",
+                    "queryName": "filter_role_family"
+                  }
+                ]
+              },
+              "frame": {
+                "title": "Recruiting year",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 4,
+            "width": 3,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "counter_placement_rate",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "ds_latest_year",
+                  "fields": [
+                    {
+                      "name": "placement_rate_pct",
+                      "expression": "`placement_rate_pct`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "placement_rate_pct",
+                  "displayName": "Placement rate %"
+                }
+              },
+              "frame": {
+                "title": "Placement rate, most recent year",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 5,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "counter_students_placed",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "ds_latest_year",
+                  "fields": [
+                    {
+                      "name": "students_placed",
+                      "expression": "`students_placed`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "students_placed",
+                  "displayName": "Students placed"
+                }
+              },
+              "frame": {
+                "title": "Students placed, most recent year",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 5,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "counter_highest_package",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "ds_latest_year",
+                  "fields": [
+                    {
+                      "name": "highest_package_lpa",
+                      "expression": "`highest_package_lpa`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "highest_package_lpa",
+                  "displayName": "Highest package (LPA)"
+                }
+              },
+              "frame": {
+                "title": "Highest package, most recent year",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 5,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "counter_companies",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "ds_latest_year",
+                  "fields": [
+                    {
+                      "name": "companies_recruiting",
+                      "expression": "`companies_recruiting`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "companies_recruiting",
+                  "displayName": "Companies recruiting"
+                }
+              },
+              "frame": {
+                "title": "Companies recruiting, most recent year",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 9,
+            "y": 5,
+            "width": 3,
+            "height": 3
+          }
+        },
+        {
+          "widget": {
+            "name": "line_rate_by_year",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "ds_year_summary",
+                  "fields": [
+                    {
+                      "name": "year",
+                      "expression": "`year`"
+                    },
+                    {
+                      "name": "placement_rate_pct",
+                      "expression": "`placement_rate_pct`"
+                    },
+                    {
+                      "name": "offer_conversion_pct",
+                      "expression": "`offer_conversion_pct`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "year",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Year"
+                },
+                "y": {
+                  "fieldName": "placement_rate_pct",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Placement rate %"
+                }
+              },
+              "frame": {
+                "title": "Placement rate by year",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 8,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "line_package_by_year",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "ds_year_summary",
+                  "fields": [
+                    {
+                      "name": "year",
+                      "expression": "`year`"
+                    },
+                    {
+                      "name": "median_package_lpa",
+                      "expression": "`median_package_lpa`"
+                    },
+                    {
+                      "name": "highest_package_lpa",
+                      "expression": "`highest_package_lpa`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "line",
+              "encodings": {
+                "x": {
+                  "fieldName": "year",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Year"
+                },
+                "y": {
+                  "fieldName": "median_package_lpa",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Median package (LPA)"
+                }
+              },
+              "frame": {
+                "title": "Median package by year",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 8,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "bar_top_packages",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "ds_top_offers",
+                  "fields": [
+                    {
+                      "name": "company_name",
+                      "expression": "`company_name`"
+                    },
+                    {
+                      "name": "highest_package_lpa",
+                      "expression": "`highest_package_lpa`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "highest_package_lpa",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Highest package (LPA)"
+                },
+                "y": {
+                  "fieldName": "company_name",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Company"
+                }
+              },
+              "frame": {
+                "title": "Who paid the most",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 14,
+            "width": 6,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "table_recurrence",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "ds_recurrence",
+                  "fields": [
+                    {
+                      "name": "company_name",
+                      "expression": "`company_name`"
+                    },
+                    {
+                      "name": "return_outlook",
+                      "expression": "`return_outlook`"
+                    },
+                    {
+                      "name": "years_recruited",
+                      "expression": "`years_recruited`"
+                    },
+                    {
+                      "name": "presence_pct",
+                      "expression": "`presence_pct`"
+                    },
+                    {
+                      "name": "last_seen_year",
+                      "expression": "`last_seen_year`"
+                    },
+                    {
+                      "name": "best_package_lpa",
+                      "expression": "`best_package_lpa`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 1,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "company_name",
+                    "displayName": "Company",
+                    "type": "string",
+                    "order": 0
+                  },
+                  {
+                    "fieldName": "return_outlook",
+                    "displayName": "Pattern",
+                    "type": "string",
+                    "order": 1
+                  },
+                  {
+                    "fieldName": "years_recruited",
+                    "displayName": "Years on campus",
+                    "type": "integer",
+                    "order": 2
+                  },
+                  {
+                    "fieldName": "presence_pct",
+                    "displayName": "Presence %",
+                    "type": "integer",
+                    "order": 3
+                  },
+                  {
+                    "fieldName": "last_seen_year",
+                    "displayName": "Last seen",
+                    "type": "integer",
+                    "order": 4
+                  },
+                  {
+                    "fieldName": "best_package_lpa",
+                    "displayName": "Best package (LPA)",
+                    "type": "float",
+                    "order": 5
+                  }
+                ]
+              },
+              "frame": {
+                "title": "Who keeps coming back (historical recurrence, not a forecast)",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 14,
+            "width": 6,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "bar_role_family",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "ds_role_family",
+                  "fields": [
+                    {
+                      "name": "role_family",
+                      "expression": "`role_family`"
+                    },
+                    {
+                      "name": "offers",
+                      "expression": "`offers`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "role_family",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Role family"
+                },
+                "y": {
+                  "fieldName": "offers",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Offers"
+                }
+              },
+              "frame": {
+                "title": "What campus hired for",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 21,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "bar_branch",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "ds_branch",
+                  "fields": [
+                    {
+                      "name": "branch",
+                      "expression": "`branch`"
+                    },
+                    {
+                      "name": "median_package_lpa",
+                      "expression": "`median_package_lpa`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "branch",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Branch"
+                },
+                "y": {
+                  "fieldName": "median_package_lpa",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Median package (LPA)"
+                }
+              },
+              "frame": {
+                "title": "Median package by branch (all years pooled)",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 21,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "bar_skill_edge",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "ds_skill_edge",
+                  "fields": [
+                    {
+                      "name": "skill_name",
+                      "expression": "`skill_name`"
+                    },
+                    {
+                      "name": "lift_pct_points",
+                      "expression": "`lift_pct_points`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "lift_pct_points",
+                  "scale": {
+                    "type": "quantitative"
+                  },
+                  "displayName": "Points above campus average"
+                },
+                "y": {
+                  "fieldName": "skill_name",
+                  "scale": {
+                    "type": "categorical"
+                  },
+                  "displayName": "Skill"
+                }
+              },
+              "frame": {
+                "title": "Skills placed students held more often than campus",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 27,
+            "width": 12,
+            "height": 7
+          }
+        },
+        {
+          "widget": {
+            "name": "method",
+            "textbox_spec": "**How to read this page.** *Who keeps coming back* counts the years a company ran a process on campus, out of every year in the dataset \u2014 it describes the past and does not predict the next drive. *Skills placed students held* compares how often a skill appears among students who received an offer against the campus-wide rate; it is a correlation, not a cause, and that panel is empty whenever the placement cell's own records are loaded, because those records carry no skills. Branch figures pool every year and are hidden below five students, so no individual is identifiable from this page."
+          },
+          "position": {
+            "x": 0,
+            "y": 34,
+            "width": 12,
+            "height": 3
+          }
+        }
+      ]
+    }
+  ]
+}

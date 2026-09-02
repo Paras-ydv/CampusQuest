@@ -3,6 +3,7 @@ import { DEMO_RESEARCH } from "@/lib/data/fixtures";
 import { ALL_SKILLS } from "@/lib/data/skills";
 import type { BackendProfile } from "@/lib/backend/profile";
 import { analyticsTable, databricksSqlConfigured, executeDatabricksSql, parseSqlArray } from "@/lib/databricks/sql";
+import { searchResearchCandidates, type ResearchSearchProfile } from "@/lib/databricks/ai-search";
 
 type RawResearchProject = ResearchProject;
 function tokens(value: string): Set<string> {
@@ -143,7 +144,7 @@ export async function loadDatabricksResearchProjects(): Promise<ResearchProject[
     .map(rowToProject);
 }
 
-export async function researchMatches(profile: Pick<BackendProfile, "interests" | "skills">): Promise<ResearchMatch[]> {
+export async function researchMatches(profile: ResearchSearchProfile): Promise<ResearchMatch[]> {
   // Fixtures are the offline path only. When Databricks *is* configured, a
   // failed query is a real failure and must surface — silently serving demo
   // research is how this screen looked fine while being entirely fake.
@@ -153,7 +154,15 @@ export async function researchMatches(profile: Pick<BackendProfile, "interests" 
   } else {
     projects = DEMO_RESEARCH.map((match) => match.project);
   }
-  return projects.map((project) => {
+  const candidates = await searchResearchCandidates(profile);
+  const candidateRanks = candidates?.length ? new Map(candidates.map((candidate) => [candidate.projectId, candidate.rank])) : null;
+  // A non-empty candidate response is authoritative. Empty/error responses
+  // deliberately use the whole catalog so an index outage never blanks Research.
+  const selectedProjects = candidateRanks?.size
+    ? projects.filter((project) => candidateRanks.has(project.id))
+    : projects;
+
+  return selectedProjects.map((project) => {
     const { pct, viaInterests } = scoreResearch(profile, project);
     const held = new Set(profile.skills.map((skill) => skill.id));
     const heldNames = project.requiredSkills.filter((skill) => held.has(skill.id)).map((skill) => skill.name);
@@ -161,6 +170,13 @@ export async function researchMatches(profile: Pick<BackendProfile, "interests" 
       ? `${project.openings} ${project.openings === 1 ? "opening is" : "openings are"} available.`
       : "There are currently no openings.";
     const why = `${viaInterests.join(" and ") || project.area} aligns with this project${heldNames.length ? `, and you already hold ${heldNames.join(" and ")}` : ""}. ${openingText}`;
-    return { project, matchPct: pct, viaInterests, why } satisfies ResearchMatch;
-  }).sort((left, right) => right.matchPct - left.matchPct || left.project.title.localeCompare(right.project.title));
+    return {
+      project, matchPct: pct, viaInterests, why,
+      ...(candidateRanks ? { retrievalSource: "ai-search" as const } : { retrievalSource: "catalog" as const }),
+    } satisfies ResearchMatch;
+  }).sort((left, right) =>
+    right.matchPct - left.matchPct ||
+    (candidateRanks ? (candidateRanks.get(left.project.id)! - candidateRanks.get(right.project.id)!) : 0) ||
+    left.project.title.localeCompare(right.project.title),
+  );
 }

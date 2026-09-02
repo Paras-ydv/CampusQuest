@@ -19,11 +19,18 @@ export function ResearchCard({
   return (
     <article className="flex h-full flex-col border-2 border-ink bg-surface transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[var(--shadow-hard)]">
       <div className="flex items-start justify-between gap-4 border-b-2 border-line-soft p-5">
-        <div className="min-w-0">
-          <p className="font-mono text-[0.625rem] tracking-[0.16em] text-muted uppercase">
-            {project.area}
-          </p>
-          <h3 className="k-display mt-2 text-[1.35rem]">{project.title}</h3>
+        <div className="min-w-0 flex-1">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <p className="font-mono text-[0.625rem] tracking-[0.16em] text-muted uppercase">
+              {project.area}
+            </p>
+            {match.retrievalSource === "ai-search" ? (
+              <span className="border-l-2 border-hot pl-3 font-mono text-[0.5625rem] tracking-[0.13em] text-hot uppercase">
+                AI Search candidate
+              </span>
+            ) : null}
+          </div>
+          <h3 className="k-display mt-3 max-w-[28ch] text-[1.35rem] leading-[0.98]">{project.title}</h3>
         </div>
         <span className="shrink-0 font-mono text-[0.72rem] font-bold tabular-nums text-hot">
           {match.matchPct}%
@@ -91,12 +98,14 @@ export function ResearchCard({
         ) : null}
 
         <p className="mt-auto border-t-2 border-line-soft pt-4 text-[0.82rem] leading-relaxed text-muted">
-          <span className="font-semibold text-ink">Matched via</span>{" "}
-          {match.viaInterests.join(", ")} — {match.why}
+          <span className="font-semibold text-ink">
+            {match.viaInterests.length ? `Matched via ${match.viaInterests.join(", ")}` : "Recommendation rationale"}
+          </span>
+          {" — "}{match.why}
         </p>
       </div>
 
-      <div className="mt-3 border-t-2 border-line-soft pt-3">
+      <div className="border-t-2 border-line-soft px-5 py-4">
         <WhyThis
           kind="research"
           title={match.project.title}

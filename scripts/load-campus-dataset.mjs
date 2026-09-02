@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
- * Applies the fourteen-table DDL, loads databricks/seed/data/*.csv into it, and
- * creates the alignment views.
+ * Applies the fourteen-table DDL, loads databricks/seed/data/*.csv into it,
+ * loads databricks/data/placements.csv if the placement cell has provided one,
+ * and creates the alignment and placement-insight views.
  *
  *   node scripts/load-campus-dataset.mjs
  *
@@ -9,12 +10,15 @@
  * warehouse: no cluster, no notebook, no DBFS upload. Rows are sent as batched
  * INSERT ... VALUES, which is fine at this volume (~3.5k rows).
  */
-import { readFileSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const DATA_DIR = join(root, "databricks/seed/data");
+// The placement cell's own export, if they have handed one over. Gitignored:
+// see databricks/data/README.md.
+const REAL_PLACEMENTS = join(root, "databricks/data/placements.csv");
 
 const HOST = (process.env.DATABRICKS_HOST ?? "").replace(/\/$/, "");
 const TOKEN = process.env.DATABRICKS_TOKEN ?? "";
@@ -103,6 +107,12 @@ function sqlLiteral(value) {
 
 const BATCH = 250;
 
+/** Mirrors the `placements` table in 004 exactly. */
+const PLACEMENT_COLUMNS = [
+  "student_ref", "company_name", "company_sector", "company_tier", "role_family",
+  "branch", "location", "placement_year", "outcome", "package_lpa", "source",
+];
+
 async function loadTable(table, columns, rows) {
   await runSql(`DELETE FROM ${CATALOG}.${SCHEMA}.${table}`);
   for (let start = 0; start < rows.length; start += BATCH) {
@@ -132,6 +142,38 @@ for (const file of files) {
 }
 
 await runFile("databricks/ddl/003_alignment_views.sql");
+await runFile("databricks/ddl/004_research_search.sql");
+
+// Order matters below. 004 creates the `placements` table and the
+// `placement_fact` view that reads it; the real CSV has to land in that table
+// before 005 runs, because `placement_fact` decides which dataset is live from
+// whether the table has rows in it.
+await runFile("databricks/ddl/004_placement_facts.sql");
+
+if (existsSync(REAL_PLACEMENTS)) {
+  console.log("\nloading real placement records");
+  const [header, ...rows] = parseCsv(readFileSync(REAL_PLACEMENTS, "utf8"));
+  const unknown = header.filter((column) => !PLACEMENT_COLUMNS.includes(column));
+  if (unknown.length) {
+    // Loading a misspelled header would silently drop the column and publish a
+    // wrong number, which is worse than refusing to load.
+    console.error(`\nUnknown column(s) in placements.csv: ${unknown.join(", ")}`);
+    console.error(`Expected any of: ${PLACEMENT_COLUMNS.join(", ")}`);
+    process.exit(1);
+  }
+  const missing = ["company_name", "role_family", "branch", "placement_year", "outcome"]
+    .filter((column) => !header.includes(column));
+  if (missing.length) {
+    console.error(`\nplacements.csv is missing required column(s): ${missing.join(", ")}`);
+    process.exit(1);
+  }
+  await loadTable("placements", header, rows);
+  console.log("  real records are live — the synthetic set is now hidden from every view");
+} else {
+  console.log("\nno databricks/data/placements.csv — views stay on the synthetic set");
+}
+
+await runFile("databricks/ddl/005_placement_insights.sql");
 
 const counts = await runSql(
   files.map((f) => f.replace(/\.csv$/, ""))

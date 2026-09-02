@@ -42,5 +42,7 @@ export const ResearchMatch = z.object({
   why: z.string(),
   /** Which of the student's interests connected them to this project. */
   viaInterests: z.array(z.string()),
+  /** Candidate discovery path; the score itself is always deterministic. */
+  retrievalSource: z.enum(["ai-search", "catalog"]).optional(),
 });
 export type ResearchMatch = z.infer<typeof ResearchMatch>;
