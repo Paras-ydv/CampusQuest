@@ -16,6 +16,7 @@ import { parseSkillIds } from "../lib/resume/skill-resolver";
 import { messageText } from "../lib/resume/databricks-chat";
 import { parseVerdicts } from "../lib/resume/skill-dedupe";
 import { extractSkillCandidates } from "../lib/resume/skill-candidates";
+import { parseEvaluation } from "../lib/resume/ats-evaluator";
 import { BRANCHES } from "../lib/data/profile-options";
 import { skillPathQuests } from "../lib/skill-paths";
 import { peopleMatches, scorePeer } from "../lib/people-matchmaker";
@@ -372,4 +373,32 @@ test("candidate names are parsed from the skills section, not invented", () => {
   assert.ok(!candidates.some((name) => /^(languages|tools|skills)$/i.test(name)));
   // A résumé with no skills section yields nothing rather than guessing.
   assert.deepEqual(extractSkillCandidates("Worked at a company doing things.", []), []);
+});
+
+test("ATS scoring clamps every number to the rubric's ceilings", () => {
+  // A model that exceeds a category ceiling must not produce a score no
+  // student could reach; the totals are what the UI draws bars from.
+  const reply = JSON.stringify({
+    scores: {
+      open_source: { score: 99, evidence: "contributed to Phoenix" },
+      self_projects: { score: 22, evidence: "RAG abstention layer" },
+      production: { score: 18, evidence: "Airtel internship" },
+      technical_skills: { score: 8, evidence: "Python, PyTorch" },
+    },
+    bonus_points: { total: 50, breakdown: "LinkedIn" },
+    deductions: { total: -4, reasons: "no links" },
+    key_strengths: ["a", "b", "c", "d", "e", "f", "g"],
+    areas_for_improvement: [{ title: "Add demo links", detail: "", category: "self_projects", points: 3 }],
+  });
+  const score = parseEvaluation(reply)!;
+  assert.equal(score.categories.openSource.score, 35, "open source capped at 35");
+  assert.equal(score.bonus.total, 20, "bonus capped at 20");
+  // A negative deduction total is still a deduction, not a bonus.
+  assert.equal(score.deductions.total, 4);
+  assert.equal(score.overall, 35 + 22 + 18 + 8 + 20 - 4);
+  assert.equal(score.strengths.length, 5, "at most five strengths");
+
+  // An unusable reply yields null rather than a fabricated score.
+  assert.equal(parseEvaluation("no json here"), null);
+  assert.equal(parseEvaluation('{"unrelated": true}'), null);
 });

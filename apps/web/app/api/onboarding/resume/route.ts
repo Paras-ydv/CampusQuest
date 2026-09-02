@@ -9,6 +9,7 @@ import { resolveExtraSkills } from "@/lib/resume/skill-resolver";
 import { extractSkillCandidates } from "@/lib/resume/skill-candidates";
 import { classifyCandidates } from "@/lib/resume/skill-dedupe";
 import { SKILLS } from "@/lib/data/skills";
+import { saveResumeText } from "@/lib/backend/ats";
 
 export const dynamic = "force-dynamic";
 /** PDF parsing needs node:zlib and Buffer, so this route is not edge-safe. */
@@ -37,7 +38,7 @@ const Upload = z
  */
 export async function POST(request: Request) {
   try {
-    await requireUser(request);
+    const user = await requireUser(request);
 
     const file = Upload.parse((await request.formData()).get("resume"));
     const bytes = new Uint8Array(await file.arrayBuffer());
@@ -59,6 +60,11 @@ export async function POST(request: Request) {
     //     another name. Only those merges are applied: a genuinely new skill
     //     is reported but never inserted, because a model must not silently
     //     add rows that gaps and quests then join on.
+    // Kept so the ATS screen can score the same document later without asking
+    // the student to upload it again. Only the text is stored, never the file,
+    // and a failure here never fails the extraction.
+    await saveResumeText(request, user.id, text, file.name);
+
     const found = matches.map((match) => match.skillId);
     // Candidate names are parsed locally, so the only Databricks work is the
     // judgement itself. Both calls run together.

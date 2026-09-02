@@ -9,6 +9,7 @@
 export * from "./schemas/common";
 export * from "./schemas/skill";
 export * from "./schemas/profile";
+export * from "./schemas/ats";
 export * from "./schemas/quest";
 export * from "./schemas/timemachine";
 export * from "./schemas/opportunity";
