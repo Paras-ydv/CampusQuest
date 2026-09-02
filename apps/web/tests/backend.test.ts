@@ -402,3 +402,13 @@ test("ATS scoring clamps every number to the rubric's ceilings", () => {
   assert.equal(parseEvaluation("no json here"), null);
   assert.equal(parseEvaluation('{"unrelated": true}'), null);
 });
+
+test("extracted text carries no control characters", () => {
+  // Font tables inside a PDF decode to control characters — a real résumé
+  // yields thousands, including NUL. Postgres rejects NUL in a text column
+  // outright, so leaving them in made storing a résumé fail silently.
+  const stream = "BT (Hello) Tj (\\000World) Tj ET";
+  const text = extractPdfText(uncompressedPdf(stream));
+  assert.ok(!/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/.test(text), JSON.stringify(text));
+  assert.match(text, /Hello/);
+});

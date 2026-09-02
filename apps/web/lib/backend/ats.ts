@@ -17,22 +17,36 @@ export async function saveResumeText(
   userId: string,
   content: string,
   fileName: string | null,
+  /**
+   * When true a storage failure throws instead of warning. The ATS upload sets
+   * it, because there the stored résumé *is* the deliverable: a silent failure
+   * left the screen reporting success and then showing nothing. Onboarding
+   * leaves it false — the profile is what matters there, and the ATS screen
+   * can always ask for the file again.
+   */
+  required = false,
 ): Promise<void> {
   const trimmed = content.trim().slice(0, MAX_CONTENT);
-  if (!trimmed) return;
+  if (!trimmed) {
+    if (required) throw new Error("We couldn't read any text from that PDF.");
+    return;
+  }
 
   const supabase = await supabaseForCaller(request);
-  // In local-fallback mode there is nowhere to persist, and onboarding must
-  // still succeed — the ATS screen simply asks for an upload instead.
-  if (!supabase) return;
+  if (!supabase) {
+    // In local-fallback mode there is nowhere to persist. Onboarding continues
+    // regardless; an ATS upload has to say so rather than appear to work.
+    if (required) throw new Error("Résumé storage is not configured.");
+    return;
+  }
 
   const { error } = await supabase
     .from("user_resumes")
     .upsert({ user_id: userId, content: trimmed, file_name: fileName }, { onConflict: "user_id" });
-  // A résumé that could not be stored must not fail the onboarding it came
-  // from: the student's profile is the thing that matters, and re-uploading on
-  // the ATS screen recovers this entirely.
-  if (error) console.warn("[ats] could not store résumé text —", error.message);
+  if (error) {
+    console.warn("[ats] could not store résumé text —", error.message);
+    if (required) throw new Error(`Could not save your résumé: ${error.message}`);
+  }
 }
 
 /** The stored résumé, or null when the student has never uploaded one. */

@@ -36,7 +36,9 @@ export async function POST(request: Request) {
     z.literal(true, { message: "We couldn't find any text in that PDF — it may be a scan." })
       .parse(text.trim().length > 0);
 
-    await saveResumeText(request, user.id, text, file.name);
+    // Required here: a storage failure must surface, not leave the screen
+    // reporting success and then rendering nothing.
+    await saveResumeText(request, user.id, text, file.name, true);
     return Response.json(AtsState.parse(await getAtsState(request, user.id)));
   } catch (error) {
     return errorResponse(error, "Could not read that résumé");
