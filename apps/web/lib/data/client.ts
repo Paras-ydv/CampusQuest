@@ -118,6 +118,11 @@ export function completeQuest(questId: string): Promise<CompleteQuestResult> {
   // → POST /api/quests/:id/complete   (P3; also fires P2's profile sync)
   return apiFetch<CompleteQuestResult>(`/api/quests/${encodeURIComponent(questId)}/complete`, { method: "POST" });
 }
+/** Records the student's own claim on a step, or withdraws it. */
+export function setQuestStepDone(questId: string, stepId: string, done: boolean): Promise<{ done: boolean }> {
+  return apiFetch(`/api/quests/${encodeURIComponent(questId)}/steps/${encodeURIComponent(stepId)}/done`, { method: done ? "POST" : "DELETE" });
+}
+
 export function verifyQuestStep(questId: string, stepId: string, repositoryUrl?: string): Promise<VerifyQuestStepResult> { return apiFetch(`/api/quests/${encodeURIComponent(questId)}/steps/${encodeURIComponent(stepId)}/verify`, { method: "POST", body: JSON.stringify(repositoryUrl ? { repositoryUrl } : {}) }); }
 
 /* --------------------------------------------------------- Opportunities -- */

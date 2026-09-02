@@ -3,7 +3,7 @@ import { GenieDock } from "@/components/app/genie-dock";
 import { TopNav } from "@/components/app/top-nav";
 import { Marquee } from "@/components/motion/marquee";
 import { getCurrentProfile, getSession } from "@/lib/auth/session";
-import { TICKER_ITEMS } from "@/lib/data/fixtures";
+import { tickerItems } from "@/lib/data/ticker";
 
 /**
  * Everything behind the app shell is per-user and clock-sensitive — deadline
@@ -44,11 +44,11 @@ export default async function AppLayout({
         signedIn={signedIn}
       />
 
-      {/* Live campus data, always running. Doubles as the app's heartbeat. */}
+      {/* This student's own figures, always running. The app's heartbeat. */}
       <div className="border-b-2 border-ink bg-hot text-on-hot">
         <Marquee
           duration={52}
-          items={TICKER_ITEMS.map((t) => (
+          items={(await tickerItems()).map((t) => (
             <span
               key={t}
               className="font-mono text-[0.6875rem] tracking-[0.14em] uppercase"

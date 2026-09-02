@@ -853,6 +853,7 @@ export type Database = {
       user_quest_steps: {
         Row: {
           quest_step_id: string
+          self_reported_at: string | null
           user_quest_id: string
           verification_message: string | null
           verified_at: string | null
@@ -860,6 +861,7 @@ export type Database = {
         }
         Insert: {
           quest_step_id: string
+          self_reported_at?: string | null
           user_quest_id: string
           verification_message?: string | null
           verified_at?: string | null
@@ -867,6 +869,7 @@ export type Database = {
         }
         Update: {
           quest_step_id?: string
+          self_reported_at?: string | null
           user_quest_id?: string
           verification_message?: string | null
           verified_at?: string | null
@@ -1079,6 +1082,10 @@ export type Database = {
           isSetofReturn: false
         }
       }
+      clear_quest_step: {
+        Args: { p_quest_id: string; p_step_id: string }
+        Returns: undefined
+      }
       complete_quest: {
         Args: { p_quest_id: string }
         Returns: {
@@ -1106,6 +1113,10 @@ export type Database = {
           entity_id: string
           similarity: number
         }[]
+      }
+      self_report_quest_step: {
+        Args: { p_quest_id: string; p_step_id: string }
+        Returns: undefined
       }
       verify_quest_step: {
         Args: {
