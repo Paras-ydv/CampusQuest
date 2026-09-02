@@ -4,7 +4,7 @@ import "./env-setup";
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { DEMO_PROFILE, DEMO_QUESTS } from "../lib/data/fixtures";
+import { DEMO_PROFILE, DEMO_QUESTS, DEMO_RESEARCH } from "../lib/data/fixtures";
 import { deterministicEmbedding, EMBEDDING_DIMENSIONS, getOrCreateProfileEmbedding, validateEmbedding } from "../lib/embeddings";
 import { rankQuests, completeQuest, verifyQuestStep } from "../lib/quest-engine";
 import { resolveRoleFamily } from "../lib/data/role-families";
@@ -20,7 +20,8 @@ import { BRANCHES } from "../lib/data/profile-options";
 import { skillPathQuests } from "../lib/skill-paths";
 import { peopleMatches, scorePeer } from "../lib/people-matchmaker";
 import { GET as getPeopleMatches } from "../app/api/people/matches/route";
-import { researchMatches } from "../lib/research-repository";
+import { researchMatches, scoreResearch } from "../lib/research-repository";
+import { researchProfileQuery, searchResearchCandidates } from "../lib/databricks/ai-search";
 import { createThread, listMessages, sendMessage } from "../lib/chat";
 import { createConnectionRequest, respondToConnectionRequest } from "../lib/connection-requests";
 import { getAlignment, simulateTimeMachine } from "../lib/timemachine";
@@ -96,6 +97,70 @@ test("research fallback ranks evidence from interests, skills, openings and lead
   const matches = await researchMatches({ interests: DEMO_PROFILE.interests, skills: DEMO_PROFILE.skills.map(({ skill, proficiency, source }) => ({ ...skill, proficiency, source })) });
   assert.ok(matches.length >= 2);
   assert.ok(matches.every((match) => match.matchPct >= 0 && match.matchPct <= 100 && match.why.length > 0));
+});
+
+test("AI Search builds a stable profile query and returns unique project candidates", async () => {
+  const profile = {
+    goalRole: "ML Engineer",
+    interests: ["Robotics", "Machine Learning", "Robotics"],
+    skills: DEMO_PROFILE.skills.map(({ skill, proficiency, source }) => ({ ...skill, proficiency, source })),
+  };
+  assert.equal(researchProfileQuery(profile), researchProfileQuery({ ...profile, interests: [...profile.interests].reverse(), skills: [...profile.skills].reverse() }));
+
+  process.env.DATABRICKS_HOST = "https://workspace.invalid";
+  process.env.DATABRICKS_TOKEN = "token";
+  process.env.DATABRICKS_RESEARCH_SEARCH_INDEX = "workspace.campusquest.research_search_index";
+  const candidates = await searchResearchCandidates(profile, (async (_url, init) => {
+    const body = JSON.parse(String(init?.body));
+    assert.equal(body.query_type, "HYBRID");
+    assert.deepEqual(body.filters_json, JSON.stringify({ "open_positions >": 0 }));
+    return Response.json({ manifest: { columns: [{ name: "project_id" }] }, result: { data_array: [["rp-1"], ["rp-1"], ["rp-2"]] } });
+  }) as typeof fetch);
+  assert.deepEqual(candidates, [{ projectId: "rp-1", rank: 0 }, { projectId: "rp-2", rank: 2 }]);
+  delete process.env.DATABRICKS_HOST;
+  delete process.env.DATABRICKS_TOKEN;
+  delete process.env.DATABRICKS_RESEARCH_SEARCH_INDEX;
+});
+
+test("AI Search errors fall back without exposing semantic scores", async () => {
+  const profile = { goalRole: DEMO_PROFILE.goalRole, interests: DEMO_PROFILE.interests, skills: DEMO_PROFILE.skills.map(({ skill, proficiency, source }) => ({ ...skill, proficiency, source })) };
+  process.env.DATABRICKS_HOST = "https://workspace.invalid";
+  process.env.DATABRICKS_TOKEN = "token";
+  process.env.DATABRICKS_RESEARCH_SEARCH_INDEX = "workspace.campusquest.research_search_index";
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = (async () => new Response("unavailable", { status: 503 })) as typeof fetch;
+  const matches = await researchMatches(profile);
+  globalThis.fetch = originalFetch;
+  delete process.env.DATABRICKS_HOST;
+  delete process.env.DATABRICKS_TOKEN;
+  delete process.env.DATABRICKS_RESEARCH_SEARCH_INDEX;
+  assert.ok(matches.length >= 2);
+  assert.ok(matches.every((match) => match.retrievalSource === "catalog"));
+});
+
+test("AI Search candidates constrain research results without changing deterministic scores", async () => {
+  const profile = { goalRole: DEMO_PROFILE.goalRole, interests: DEMO_PROFILE.interests, skills: DEMO_PROFILE.skills.map(({ skill, proficiency, source }) => ({ ...skill, proficiency, source })) };
+  const candidateId = DEMO_RESEARCH[0]!.project.id;
+  const candidateProject = DEMO_RESEARCH.find((match) => match.project.id === candidateId)!.project;
+  const expectedScore = scoreResearch(profile, candidateProject).pct;
+  const originalFetch = globalThis.fetch;
+  process.env.DATABRICKS_HOST = "https://workspace.invalid";
+  process.env.DATABRICKS_TOKEN = "token";
+  process.env.DATABRICKS_RESEARCH_SEARCH_INDEX = "workspace.campusquest.research_search_index";
+  globalThis.fetch = (async () => Response.json({
+    manifest: { columns: [{ name: "project_id" }] }, result: { data_array: [[candidateId]] },
+  })) as typeof fetch;
+  try {
+    const matches = await researchMatches(profile);
+    assert.deepEqual(matches.map((match) => match.project.id), [candidateId]);
+    assert.equal(matches[0]?.retrievalSource, "ai-search");
+    assert.equal(matches[0]?.matchPct, expectedScore);
+  } finally {
+    globalThis.fetch = originalFetch;
+    delete process.env.DATABRICKS_HOST;
+    delete process.env.DATABRICKS_TOKEN;
+    delete process.env.DATABRICKS_RESEARCH_SEARCH_INDEX;
+  }
 });
 
 test("quest completion fallback is idempotent and never awards XP twice", async () => {

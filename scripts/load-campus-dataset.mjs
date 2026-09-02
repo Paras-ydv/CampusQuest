@@ -132,6 +132,7 @@ for (const file of files) {
 }
 
 await runFile("databricks/ddl/003_alignment_views.sql");
+await runFile("databricks/ddl/004_research_search.sql");
 
 const counts = await runSql(
   files.map((f) => f.replace(/\.csv$/, ""))
