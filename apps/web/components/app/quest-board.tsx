@@ -5,6 +5,7 @@ import { Pager, usePaged } from "@/components/ui/pager";
 import { useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { clsx } from "clsx";
+import { useRouter } from "next/navigation";
 import { completeQuest, setQuestStepDone, verifyQuestStep } from "@/lib/data/client";
 import { Odometer } from "@/components/motion/odometer";
 import { Reveal } from "@/components/motion/reveal";
@@ -71,6 +72,7 @@ export function QuestBoard({
   const [verifying, setVerifying] = useState<string | null>(null);
   const [toggling, setToggling] = useState<string | null>(null);
   const [verificationMessage, setVerificationMessage] = useState<Record<string, string>>({});
+  const router = useRouter();
 
   /**
    * Snapshot of state from just before the most recent completion, so a
@@ -139,7 +141,29 @@ export function QuestBoard({
       });
     }
 
-    const result = await completeQuest(quest.id);
+    /*
+     * The failure path matters as much as the success one. This call had no
+     * catch, so a rejected completion surfaced as an unhandled promise
+     * rejection in the console and left the button stuck on "Completing…"
+     * forever — the student saw a dead control and no reason for it.
+     *
+     * The server can legitimately refuse: it re-checks the steps, and this
+     * screen's copy of them may be stale if a tick failed to save.
+     */
+    let result;
+    try {
+      result = await completeQuest(quest.id);
+    } catch (error) {
+      setBusyId(null);
+      setVerificationMessage((previous) => ({
+        ...previous,
+        [quest.id]: error instanceof Error ? error.message : "Could not complete this quest.",
+      }));
+      // Re-read the steps rather than trusting the optimistic state that just
+      // proved wrong, so the boxes match what the server actually recorded.
+      router.refresh();
+      return;
+    }
 
     setTimeout(() => {
         setQuests((prev) =>
@@ -182,10 +206,17 @@ export function QuestBoard({
       : item));
     try {
       await setQuestStepDone(quest.id, step.id, next);
-    } catch {
+    } catch (error) {
       setQuests((previous) => previous.map((item) => item.id === quest.id
         ? { ...item, steps: item.steps.map((s) => (s.id === step.id ? { ...s, done: !next } : s)) }
         : item));
+      // Silently reverting the box taught the student nothing: they saw a tick
+      // that would not stick and then a refused completion with no connection
+      // between the two.
+      setVerificationMessage((previous) => ({
+        ...previous,
+        [quest.id]: error instanceof Error ? error.message : "That step could not be saved. Try again.",
+      }));
     } finally {
       setToggling(null);
     }
