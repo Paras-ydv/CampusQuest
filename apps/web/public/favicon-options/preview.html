@@ -1,0 +1,38 @@
+<!doctype html>
+<meta charset="utf-8"><title>CampusQuest favicon options</title>
+<style>
+  body{font:14px ui-sans-serif,system-ui,sans-serif;margin:0;padding:32px;background:#f1f1ee;color:#0a0a0a}
+  h1{font-size:18px;letter-spacing:-.02em;margin:0 0 4px}
+  p{color:#63635d;margin:0 0 28px}
+  table{border-collapse:collapse;width:100%;max-width:760px}
+  th{font:600 10px/1 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:#63635d;text-align:left;padding:0 0 10px}
+  td{border-top:2px solid #d2d2cc;padding:14px 0}
+  .name{font:600 13px ui-sans-serif,sans-serif}
+  .note{color:#63635d;font-size:12px}
+  .row{display:flex;align-items:center;gap:22px}
+  .chrome{display:flex;align-items:center;gap:8px;background:#e4e4df;padding:6px 12px;border:2px solid #d2d2cc}
+  .chrome.dark{background:#1b1b19;color:#f1f1ee;border-color:#2d2d29}
+  img{display:block;image-rendering:auto}
+</style>
+<h1>CampusQuest favicon options</h1>
+<p>Shown at the sizes a browser actually uses. The 16px column is the one that matters.</p>
+<table>
+<tr><th>Option</th><th>16</th><th>32</th><th>64</th><th>In a tab</th></tr>
+<tbody id="rows"></tbody>
+</table>
+<script>
+const opts=[["1-monogram","CQ monogram","The logo lockup, compressed"],
+["2-quest-q","Quest mark","A Q whose tail is the accent"],
+["3-offset-square","Offset square","The hard shadow the UI is built on"],
+["4-alignment","Alignment bars","Rising alignment, gap in vermilion"],
+["5-constellation","Constellation","Skills held, and the gap worth closing"]];
+document.getElementById("rows").innerHTML=opts.map(([f,n,d])=>`
+<tr><td><div class="name">${n}</div><div class="note">${d}</div></td>
+<td><img src="${f}.svg" width="16" height="16"></td>
+<td><img src="${f}.svg" width="32" height="32"></td>
+<td><img src="${f}.svg" width="64" height="64"></td>
+<td><div class="row">
+  <span class="chrome"><img src="${f}.svg" width="16" height="16">CampusQuest</span>
+  <span class="chrome dark"><img src="${f}.svg" width="16" height="16">CampusQuest</span>
+</div></td></tr>`).join("");
+</script>
