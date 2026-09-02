@@ -22,6 +22,10 @@ export const QuestStep = z.object({
   id: Id,
   label: z.string(),
   done: z.boolean().default(false),
+  verification: z.enum(["github_file", "github_workflow", "manual"]).optional(),
+  verifiedAt: IsoDate.nullable().optional(),
+  verifiedCommit: z.string().nullable().optional(),
+  verificationMessage: z.string().nullable().optional(),
 });
 export type QuestStep = z.infer<typeof QuestStep>;
 
@@ -42,6 +46,7 @@ export const Quest = z.object({
    */
   why: z.string(),
   status: QuestStatus.default("available"),
+  pathSkillId: Id.nullable().optional(), pathLevel: z.number().int().min(1).max(3).nullable().optional(), prerequisiteQuestId: Id.nullable().optional(), repositoryUrl: z.string().url().nullable().optional(),
 });
 export type Quest = z.infer<typeof Quest>;
 
@@ -58,3 +63,6 @@ export const CompleteQuestResult = z.object({
   completedAt: IsoDate,
 });
 export type CompleteQuestResult = z.infer<typeof CompleteQuestResult>;
+export const VerifyQuestStepInput = z.object({ repositoryUrl: z.string().url().optional() });
+export const VerifyQuestStepResult = z.object({ questId: Id, stepId: Id, passed: z.boolean(), message: z.string(), commit: z.string().nullable() });
+export type VerifyQuestStepResult = z.infer<typeof VerifyQuestStepResult>;
