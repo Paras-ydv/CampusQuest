@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import type { ChatMessage, PeerMatch, Thread } from "@campusquest/shared";
 import type { ThreadMember } from "@/lib/chat";
 import { clsx } from "clsx";
@@ -30,8 +31,13 @@ export function MessagesView({
   /** Everyone in the caller's threads, including non-matches. */
   members: ThreadMember[];
 }) {
+  const searchParams = useSearchParams();
   const [threads, setThreads] = useState(initialThreads);
-  const [activeId, setActiveId] = useState<string | null>(initialThreads[0]?.id ?? null);
+  // A notification links to ?thread=<id>, so arriving from one opens it.
+  const [activeId, setActiveId] = useState<string | null>(
+    searchParams.get("thread") ?? initialThreads[0]?.id ?? null,
+  );
+  const [threadSearch, setThreadSearch] = useState("");
   const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
   const [draft, setDraft] = useState("");
   const [pendingIds, setPendingIds] = useState<Set<string>>(new Set());
@@ -220,13 +226,26 @@ export function MessagesView({
       setThreads((prev) => (prev.some((t) => t.id === thread.id) ? prev : [thread, ...prev]));
       setActiveId(thread.id);
     } catch (createError) {
-      setError(createError instanceof Error ? createError.message : "Could not start that conversation.");
+      const raw = createError instanceof Error ? createError.message : "";
+      setError(
+        /not connected/i.test(raw)
+          ? "You need to be connected before messaging. Send a connection request from People."
+          : raw || "Could not start that conversation.",
+      );
     }
   }
 
-  const peersWithoutThread = peers.filter(
-    (peer) => !threads.some((t) => t.memberIds.includes(peer.id)),
-  );
+  const query = threadSearch.trim().toLowerCase();
+  const matchesQuery = (name: string, email: string) =>
+    !query || name.toLowerCase().includes(query) || email.toLowerCase().includes(query);
+
+  const visibleThreads = threads.filter((t) => matchesQuery(nameOf(t), emailOf(t)));
+  // Only connected peers: a direct thread now requires an accepted connection,
+  // so offering anyone else would be a button that always fails.
+  const peersWithoutThread = peers
+    .filter((peer) => peer.connection === "connected")
+    .filter((peer) => !threads.some((t) => t.memberIds.includes(peer.id)))
+    .filter((peer) => matchesQuery(peer.name, peer.email));
 
   const active = threads.find((t) => t.id === activeId) ?? null;
   const peerPresent = Boolean(
@@ -256,17 +275,25 @@ export function MessagesView({
       <div className="grid lg:h-[calc(100dvh-13.5rem)] lg:min-h-[30rem] lg:grid-cols-[20rem_1fr]">
         {/* ------------------------------------------------- thread list -- */}
         <aside className="flex min-h-0 flex-col overflow-y-auto border-b-2 border-ink lg:border-r-2 lg:border-b-0">
-          <p className="k-label border-b-2 border-line-soft px-5 py-4">
-            Conversations
-          </p>
+          <div className="border-b-2 border-line-soft px-5 py-4">
+            <p className="k-label mb-3">Conversations</p>
+            {/* Display names collide, so searching has to reach the address too. */}
+            <input
+              value={threadSearch}
+              onChange={(e) => setThreadSearch(e.target.value)}
+              placeholder="Search by name or email"
+              aria-label="Search conversations"
+              className="w-full border-2 border-line-soft bg-transparent px-3 py-2 font-mono text-[0.6875rem] placeholder:text-faint focus:border-ink focus:outline-none"
+            />
+          </div>
 
-          {threads.length === 0 ? (
+          {visibleThreads.length === 0 ? (
             <p className="px-5 py-6 font-mono text-[0.75rem] leading-relaxed text-muted">
-              No conversations yet. Start one from a match below.
+              {query ? "No conversations match that search." : "No conversations yet. Connect with someone to start one."}
             </p>
           ) : (
             <ul>
-              {threads.map((thread) => (
+              {visibleThreads.map((thread) => (
                 <li key={thread.id}>
                   <button
                     onClick={() => setActiveId(thread.id)}

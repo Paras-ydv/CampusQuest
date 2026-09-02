@@ -77,7 +77,14 @@ export async function createThread(request: Request | undefined, userId: string,
     fallbackThreads.set(result.id, result); return result;
   }
   const { data: id, error } = await supabase.rpc("create_direct_thread", { p_other_user_id: otherUserId });
-  if (error || !id) throw new Error(`Could not create thread: ${error?.message ?? "missing id"}`);
+  if (error || !id) {
+    // Being unconnected is an expected refusal, not a server fault — it should
+    // read as 403 with a usable message rather than a blank 500.
+    if (/not connected/i.test(error?.message ?? "")) {
+      throw new Error("FORBIDDEN");
+    }
+    throw new Error(`Could not create thread: ${error?.message ?? "missing id"}`);
+  }
   const { data: row, error: loadError } = await supabase.from("threads").select("*, thread_members(user_id)").eq("id", id).single();
   if (loadError || !row) throw new Error(`Could not load thread: ${loadError?.message ?? "missing"}`);
   return mapThread(row as unknown as Parameters<typeof mapThread>[0]);

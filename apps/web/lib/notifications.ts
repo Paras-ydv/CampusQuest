@@ -93,7 +93,8 @@ export async function listNotifications(
       kind: "connection_request" as const,
       title: `${nameOf(String(row.requester_id))} wants to connect`,
       body: row.message ? String(row.message) : "Open People to accept or decline.",
-      href: "/people",
+      // Straight to the requests section, where it can be acted on.
+      href: "/people#requests",
       createdAt: String(row.created_at),
     })),
     ...(connections.data ?? []).map((row) => ({
@@ -109,7 +110,8 @@ export async function listNotifications(
       kind: "message" as const,
       title: `${nameOf(String(row.sender_id))} sent you a message`,
       body: String(row.body).slice(0, 110),
-      href: "/messages",
+      // Open the thread the message arrived in, not just the inbox.
+      href: `/messages?thread=${encodeURIComponent(String(row.thread_id))}`,
       createdAt: String(row.created_at),
     })),
     ...(badges.data ?? []).map((row) => {

@@ -50,6 +50,19 @@ export const PeopleQuery = z.object({
 });
 export type PeopleQuery = z.infer<typeof PeopleQuery>;
 
+/** A pending request with enough of the other person to act on it. */
+export const ConnectionRequestDetail = z.object({
+  id: Id,
+  direction: z.enum(["incoming", "outgoing"]),
+  peerId: Id,
+  peerName: z.string(),
+  peerEmail: z.string(),
+  peerInitials: z.string(),
+  message: z.string().nullable().default(null),
+  createdAt: z.string(),
+});
+export type ConnectionRequestDetail = z.infer<typeof ConnectionRequestDetail>;
+
 export const ConnectionRequestInput = z.object({
   peerId: Id,
   message: z.string().max(400).optional(),

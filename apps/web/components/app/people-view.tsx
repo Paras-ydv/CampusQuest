@@ -45,6 +45,15 @@ export function PeopleView({ initialPeers }: { initialPeers: PeerMatch[] }) {
    * request never leaves the UI claiming a connection that does not exist.
    */
   async function connect(peerId: string) {
+    // Messaging now requires a connection, so the request itself is how you
+    // reach someone the first time — the note travels with it.
+    const peer = peers.find((p) => p.id === peerId);
+    const note = window.prompt(
+      `Send ${peer?.name ?? "this student"} a connection request. Add a note (optional):`,
+      "",
+    );
+    if (note === null) return; // cancelled
+
     const previous = peers;
     setConnectError(null);
     setPeers((prev) =>
@@ -55,7 +64,7 @@ export function PeopleView({ initialPeers }: { initialPeers: PeerMatch[] }) {
       const response = await fetch("/api/people/connection-requests", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ peerId }),
+        body: JSON.stringify({ peerId, message: note.trim() || undefined }),
       });
       if (!response.ok) {
         const body = await response.json().catch(() => null);

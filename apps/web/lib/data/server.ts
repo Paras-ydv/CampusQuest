@@ -8,6 +8,7 @@ import type { Badge } from "@/lib/badges";
 import { listBadges } from "@/lib/badges";
 import { getFullProfile } from "@/lib/backend/profile";
 import { listMessages, listThreads, threadMemberDirectory } from "@/lib/chat";
+import { listPendingRequests } from "@/lib/connection-requests";
 import { opportunityRadar } from "@/lib/opportunity-radar";
 import { peopleMatches } from "@/lib/people-matchmaker";
 import { listQuests, nextQuest } from "@/lib/quest-engine";
@@ -79,6 +80,11 @@ export const getNextQuestData = cache(async (): Promise<Quest> => {
 export const getPeersData = cache(async (): Promise<PeerMatch[]> => {
   const user = await currentUser();
   return cachedForUser(user.id, "peers", () => peopleMatches(undefined, user.id, {}));
+});
+
+export const getPendingRequestsData = cache(async () => {
+  const user = await currentUser();
+  return listPendingRequests(undefined, user.id);
 });
 
 export const getOpportunitiesData = cache(async (): Promise<Opportunity[]> => {

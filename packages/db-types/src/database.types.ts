@@ -7,6 +7,11 @@ export type Json =
   | Json[]
 
 export type Database = {
+  // Allows to automatically instantiate createClient with right options
+  // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
+  __InternalSupabase: {
+    PostgrestVersion: "14.5"
+  }
   public: {
     Tables: {
       badges: {
@@ -451,6 +456,7 @@ export type Database = {
           label: string
           quest_id: string
           sort_order: number
+          verification_type: string
         }
         Insert: {
           created_at?: string
@@ -458,6 +464,7 @@ export type Database = {
           label: string
           quest_id: string
           sort_order: number
+          verification_type?: string
         }
         Update: {
           created_at?: string
@@ -465,6 +472,7 @@ export type Database = {
           label?: string
           quest_id?: string
           sort_order?: number
+          verification_type?: string
         }
         Relationships: [
           {
@@ -484,6 +492,10 @@ export type Database = {
           estimated_hours: number
           goal_roles: string[]
           id: string
+          is_retired: boolean
+          path_level: number | null
+          path_skill_id: string | null
+          prerequisite_quest_id: string | null
           rarity: string
           summary: string
           title: string
@@ -498,6 +510,10 @@ export type Database = {
           estimated_hours: number
           goal_roles?: string[]
           id: string
+          is_retired?: boolean
+          path_level?: number | null
+          path_skill_id?: string | null
+          prerequisite_quest_id?: string | null
           rarity: string
           summary: string
           title: string
@@ -512,6 +528,10 @@ export type Database = {
           estimated_hours?: number
           goal_roles?: string[]
           id?: string
+          is_retired?: boolean
+          path_level?: number | null
+          path_skill_id?: string | null
+          prerequisite_quest_id?: string | null
           rarity?: string
           summary?: string
           title?: string
@@ -519,7 +539,22 @@ export type Database = {
           why_template?: string
           xp?: number
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "quests_path_skill_id_fkey"
+            columns: ["path_skill_id"]
+            isOneToOne: false
+            referencedRelation: "skills"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "quests_prerequisite_quest_id_fkey"
+            columns: ["prerequisite_quest_id"]
+            isOneToOne: false
+            referencedRelation: "quests"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       saved_opportunities: {
         Row: {
@@ -786,12 +821,52 @@ export type Database = {
           },
         ]
       }
+      user_quest_steps: {
+        Row: {
+          quest_step_id: string
+          user_quest_id: string
+          verification_message: string | null
+          verified_at: string | null
+          verified_commit: string | null
+        }
+        Insert: {
+          quest_step_id: string
+          user_quest_id: string
+          verification_message?: string | null
+          verified_at?: string | null
+          verified_commit?: string | null
+        }
+        Update: {
+          quest_step_id?: string
+          user_quest_id?: string
+          verification_message?: string | null
+          verified_at?: string | null
+          verified_commit?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_quest_steps_quest_step_id_fkey"
+            columns: ["quest_step_id"]
+            isOneToOne: false
+            referencedRelation: "quest_steps"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "user_quest_steps_user_quest_id_fkey"
+            columns: ["user_quest_id"]
+            isOneToOne: false
+            referencedRelation: "user_quests"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       user_quests: {
         Row: {
           completed_at: string | null
           created_at: string
           id: string
           quest_id: string
+          repository_url: string | null
           status: string
           updated_at: string
           user_id: string
@@ -802,6 +877,7 @@ export type Database = {
           created_at?: string
           id?: string
           quest_id: string
+          repository_url?: string | null
           status?: string
           updated_at?: string
           user_id: string
@@ -812,6 +888,7 @@ export type Database = {
           created_at?: string
           id?: string
           quest_id?: string
+          repository_url?: string | null
           status?: string
           updated_at?: string
           user_id?: string
@@ -922,6 +999,25 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      accept_connection_request: {
+        Args: { p_request_id: string }
+        Returns: {
+          created_at: string
+          id: string
+          message: string | null
+          recipient_id: string
+          requester_id: string
+          responded_at: string | null
+          status: string
+          updated_at: string
+        }
+        SetofOptions: {
+          from: "*"
+          to: "connection_requests"
+          isOneToOne: true
+          isSetofReturn: false
+        }
+      }
       complete_quest: {
         Args: { p_quest_id: string }
         Returns: {
@@ -950,6 +1046,17 @@ export type Database = {
           similarity: number
         }[]
       }
+      verify_quest_step: {
+        Args: {
+          p_commit: string
+          p_message: string
+          p_passed: boolean
+          p_quest_id: string
+          p_repository_url: string
+          p_step_id: string
+        }
+        Returns: undefined
+      }
     }
     Enums: {
       [_ in never]: never
@@ -968,12 +1075,12 @@ export type Tables<
   DefaultSchemaTableNameOrOptions extends
     | keyof (DefaultSchema["Tables"] & DefaultSchema["Views"])
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends DefaultSchemaTableNameOrOptions extends {
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
         DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
-    : never = never,
+    : never) = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -997,11 +1104,11 @@ export type TablesInsert<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends DefaultSchemaTableNameOrOptions extends {
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
-    : never = never,
+    : never) = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -1022,11 +1129,11 @@ export type TablesUpdate<
   DefaultSchemaTableNameOrOptions extends
     | keyof DefaultSchema["Tables"]
     | { schema: keyof DatabaseWithoutInternals },
-  TableName extends DefaultSchemaTableNameOrOptions extends {
+  TableName extends (DefaultSchemaTableNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
-    : never = never,
+    : never) = never,
 > = DefaultSchemaTableNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -1047,11 +1154,11 @@ export type Enums<
   DefaultSchemaEnumNameOrOptions extends
     | keyof DefaultSchema["Enums"]
     | { schema: keyof DatabaseWithoutInternals },
-  EnumName extends DefaultSchemaEnumNameOrOptions extends {
+  EnumName extends (DefaultSchemaEnumNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
-    : never = never,
+    : never) = never,
 > = DefaultSchemaEnumNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -1064,11 +1171,11 @@ export type CompositeTypes<
   PublicCompositeTypeNameOrOptions extends
     | keyof DefaultSchema["CompositeTypes"]
     | { schema: keyof DatabaseWithoutInternals },
-  CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
+  CompositeTypeName extends (PublicCompositeTypeNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
     ? keyof DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
-    : never = never,
+    : never) = never,
 > = PublicCompositeTypeNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
 }
@@ -1082,4 +1189,3 @@ export const Constants = {
     Enums: {},
   },
 } as const
-

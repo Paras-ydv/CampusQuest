@@ -1,5 +1,5 @@
-import type { ConnectionRequest as ConnectionRequestType, ConnectionRequestInput } from "@campusquest/shared";
-import { createRequestSupabaseClient, localFallbackEnabled, supabaseForCaller } from "@/lib/supabase/server";
+import type { ConnectionRequest as ConnectionRequestType, ConnectionRequestDetail, ConnectionRequestInput } from "@campusquest/shared";
+import { createAdminSupabaseClient, createRequestSupabaseClient, localFallbackEnabled, supabaseForCaller } from "@/lib/supabase/server";
 import { invalidateUser } from "@/lib/data/warehouse-cache";
 
 type StoredRequest = ConnectionRequestType;
@@ -29,12 +29,41 @@ export async function createConnectionRequest(request: Request, userId: string, 
     invalidateUser(userId);
   return result;
   }
-  const { data, error } = await supabase.from("connection_requests").upsert({ requester_id: userId, recipient_id: input.peerId, message: input.message ?? null, status: "pending" }, { onConflict: "requester_id,recipient_id", ignoreDuplicates: true }).select("*").maybeSingle();
-  if (error) throw new Error(`Could not create connection request: ${error.message}`);
-  if (data) return mapRequest(data);
-  const { data: existing, error: existingError } = await supabase.from("connection_requests").select("*").eq("requester_id", userId).eq("recipient_id", input.peerId).single();
-  if (existingError || !existing) throw new Error(`Could not read connection request: ${existingError?.message ?? "missing"}`);
-  return mapRequest(existing);
+  const { data: existing } = await supabase
+    .from("connection_requests").select("*")
+    .eq("requester_id", userId).eq("recipient_id", input.peerId).maybeSingle();
+
+  // Already pending, or already accepted: nothing to do either way.
+  if (existing && (existing.status === "pending" || existing.status === "accepted")) {
+    return mapRequest(existing);
+  }
+
+  if (existing) {
+    /*
+     * The row is rejected or cancelled. This used to upsert with
+     * ignoreDuplicates, which silently kept the old row and returned success —
+     * so once someone declined you, every later request appeared to send and
+     * never reached them again. Reopening the row is what lets people ask a
+     * second time after circumstances change.
+     */
+    const { data, error } = await supabase
+      .from("connection_requests")
+      .update({ status: "pending", message: input.message ?? null, responded_at: null })
+      .eq("id", existing.id).select("*").single();
+    if (error || !data) throw new Error(`Could not reopen connection request: ${error?.message ?? "missing"}`);
+    invalidateUser(userId);
+    invalidateUser(input.peerId);
+    return mapRequest(data);
+  }
+
+  const { data, error } = await supabase
+    .from("connection_requests")
+    .insert({ requester_id: userId, recipient_id: input.peerId, message: input.message ?? null, status: "pending" })
+    .select("*").single();
+  if (error || !data) throw new Error(`Could not create connection request: ${error?.message ?? "missing"}`);
+  invalidateUser(userId);
+  invalidateUser(input.peerId);
+  return mapRequest(data);
 }
 
 export async function respondToConnectionRequest(request: Request, userId: string, id: string, status: "accepted" | "rejected" | "cancelled"): Promise<ConnectionRequestType> {
@@ -50,7 +79,71 @@ export async function respondToConnectionRequest(request: Request, userId: strin
   if (lookupError || !current) throw new Error(lookupError?.code === "PGRST116" ? "NOT_FOUND" : `Could not load connection request: ${lookupError?.message}`);
   if ((status === "cancelled" ? current.requester_id : current.recipient_id) !== userId) throw new Error("FORBIDDEN");
   if (current.status !== "pending") return mapRequest(current);
-  const { data, error } = await supabase.from("connection_requests").update({ status }).eq("id", id).select("*").single();
+  if (status === "accepted") {
+    // Setting the status alone left `connections` empty, so nobody was ever
+    // actually connected. The RPC does both writes in one transaction.
+    const { data, error } = await supabase.rpc("accept_connection_request", { p_request_id: id } as never);
+    if (error) throw new Error(`Could not accept connection request: ${error.message}`);
+    invalidateUser(userId);
+    invalidateUser(String(current.requester_id));
+    return mapRequest((data ?? current) as typeof current);
+  }
+
+  const { data, error } = await supabase.from("connection_requests").update({ status, responded_at: new Date().toISOString() }).eq("id", id).select("*").single();
   if (error || !data) throw new Error(`Could not update connection request: ${error?.message ?? "missing"}`);
+  invalidateUser(userId);
   return mapRequest(data);
+}
+
+
+/**
+ * Pending requests in both directions, with the other person attached.
+ *
+ * `connection_requests` stores ids only, and `profiles_owner` stops a student
+ * reading a counterpart's row, so the names come from the service-role client —
+ * limited to id, name, email and initials, and only for people who have already
+ * sent or received a request from the caller.
+ */
+export async function listPendingRequests(
+  request: Request | undefined,
+  userId: string,
+): Promise<ConnectionRequestDetail[]> {
+  const supabase = await supabaseForCaller(request);
+  if (!supabase) return [];
+
+  const { data } = await supabase
+    .from("connection_requests")
+    .select("id, requester_id, recipient_id, message, created_at, status")
+    .eq("status", "pending")
+    .or(`requester_id.eq.${userId},recipient_id.eq.${userId}`)
+    .order("created_at", { ascending: false });
+
+  const rows = data ?? [];
+  if (!rows.length) return [];
+
+  const peerIds = [...new Set(rows.map((r) => String(r.requester_id === userId ? r.recipient_id : r.requester_id)))];
+  const admin = createAdminSupabaseClient();
+  const names = new Map<string, { name: string; email: string; initials: string }>();
+  if (admin) {
+    const { data: people } = await admin.from("profiles").select("id, name, email, initials").in("id", peerIds);
+    for (const row of people ?? []) {
+      names.set(String(row.id), { name: String(row.name), email: String(row.email), initials: String(row.initials) });
+    }
+  }
+
+  return rows.map((row) => {
+    const outgoing = String(row.requester_id) === userId;
+    const peerId = String(outgoing ? row.recipient_id : row.requester_id);
+    const peer = names.get(peerId);
+    return {
+      id: String(row.id),
+      direction: outgoing ? "outgoing" : "incoming",
+      peerId,
+      peerName: peer?.name ?? "Unknown student",
+      peerEmail: peer?.email ?? "",
+      peerInitials: peer?.initials ?? "??",
+      message: row.message ? String(row.message) : null,
+      createdAt: String(row.created_at),
+    } satisfies ConnectionRequestDetail;
+  });
 }
