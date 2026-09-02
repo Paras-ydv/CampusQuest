@@ -116,7 +116,7 @@ export async function peopleMatches(request: Request | undefined, userId: string
       const prioritySkills = complementary.filter((skill) => priorityGaps.has(skill.id));
       const leadSkills = (prioritySkills.length ? prioritySkills : complementary).slice(0, 2).map((skill) => skill.name);
       return {
-        id: candidate.id, name: candidate.name, initials: candidate.initials, branch: candidate.branch, year: candidate.year as PeerMatch["year"], goalRole: candidate.goalRole,
+        id: candidate.id, name: candidate.name, email: candidate.email, initials: candidate.initials, branch: candidate.branch, year: candidate.year as PeerMatch["year"], goalRole: candidate.goalRole,
         matchPct, sharedInterests, complementarySkills: complementary.map(toSkill), youBring,
         lookingFor: candidate.collaborationIntent ?? "Open to complementary collaborators",
         why: `${candidate.name.split(" ")[0] ?? candidate.name} can cover ${leadSkills.join(" and ")}; ${prioritySkills.length ? "these are skills you want to learn" : "these complement your current profile"}.`,

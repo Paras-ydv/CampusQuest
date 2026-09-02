@@ -19,6 +19,12 @@ export type ConnectionStatus = z.infer<typeof ConnectionStatus>;
 export const PeerMatch = z.object({
   id: Id,
   name: z.string(),
+  /**
+   * Shown wherever a person is named. Campus display names collide often —
+   * four accounts here share "Kartikeya Gupta" — and without this there is no
+   * way to tell which of them you are talking to.
+   */
+  email: z.string(),
   initials: z.string().length(2),
   branch: z.string(),
   year: AcademicYear,

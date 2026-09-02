@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
 import { MessagesView } from "@/components/app/messages-view";
 import { getCurrentProfile } from "@/lib/auth/session";
-import { getMessagesData, getPeersData, getThreadsData } from "@/lib/data/server";
+import { getMessagesData, getPeersData, getThreadMembersData, getThreadsData } from "@/lib/data/server";
 
 export const metadata: Metadata = { title: "Messages" };
 
 export default async function MessagesPage() {
   // Peers resolve member ids to names; threads carry ids only.
-  const [profile, threads, peers] = await Promise.all([
+  const [profile, threads, peers, members] = await Promise.all([
     getCurrentProfile(),
     getThreadsData(),
     getPeersData(),
+    // Names for everyone in a thread, including people who are not current
+    // matches — the peer list alone leaves those as "Unknown student".
+    getThreadMembersData(),
   ]);
 
   // Open on the most recently active thread so the pane is never empty when
@@ -25,6 +28,7 @@ export default async function MessagesPage() {
       initialThreads={ordered}
       initialMessages={initialMessages}
       peers={peers}
+      members={members}
     />
   );
 }

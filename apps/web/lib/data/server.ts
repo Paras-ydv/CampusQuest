@@ -7,7 +7,7 @@ import { requireUser } from "@/lib/auth/session";
 import type { Badge } from "@/lib/badges";
 import { listBadges } from "@/lib/badges";
 import { getFullProfile } from "@/lib/backend/profile";
-import { listMessages, listThreads } from "@/lib/chat";
+import { listMessages, listThreads, threadMemberDirectory } from "@/lib/chat";
 import { opportunityRadar } from "@/lib/opportunity-radar";
 import { peopleMatches } from "@/lib/people-matchmaker";
 import { listQuests, nextQuest } from "@/lib/quest-engine";
@@ -118,6 +118,11 @@ export const getSkillRoadmap = cache(async (skillId: string): Promise<SkillRoadm
     link: found.link,
     ...(await roadmapWithProgress(undefined, user.id, found.outline)),
   };
+});
+
+export const getThreadMembersData = cache(async () => {
+  const user = await currentUser();
+  return threadMemberDirectory(undefined, user.id);
 });
 
 export async function getMessagesData(threadId: string): Promise<ChatMessage[]> {

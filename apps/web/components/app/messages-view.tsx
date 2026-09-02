@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { ChatMessage, PeerMatch, Thread } from "@campusquest/shared";
+import type { ThreadMember } from "@/lib/chat";
 import { clsx } from "clsx";
 import { Reveal } from "@/components/motion/reveal";
 import { WordRise } from "@/components/motion/word-rise";
@@ -20,11 +21,14 @@ export function MessagesView({
   initialThreads,
   initialMessages,
   peers,
+  members,
 }: {
   userId: string;
   initialThreads: Thread[];
   initialMessages: ChatMessage[];
   peers: PeerMatch[];
+  /** Everyone in the caller's threads, including non-matches. */
+  members: ThreadMember[];
 }) {
   const [threads, setThreads] = useState(initialThreads);
   const [activeId, setActiveId] = useState<string | null>(initialThreads[0]?.id ?? null);
@@ -37,10 +41,17 @@ export function MessagesView({
 
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const peerById = useMemo(
-    () => new Map(peers.map((p) => [p.id, p])),
-    [peers],
-  );
+  /**
+   * Identity for anyone who appears in a thread. The thread directory is
+   * authoritative because it covers every member; the match list only fills in
+   * people the matcher happened to return.
+   */
+  const peerById = useMemo(() => {
+    const map = new Map<string, { name: string; email: string; initials: string }>();
+    for (const peer of peers) map.set(peer.id, { name: peer.name, email: peer.email, initials: peer.initials });
+    for (const member of members) map.set(member.id, { name: member.name, email: member.email, initials: member.initials });
+    return map;
+  }, [peers, members]);
 
   /** A thread is named after whoever in it is not you. */
   const nameOf = useCallback(
@@ -48,6 +59,16 @@ export function MessagesView({
       const others = thread.memberIds.filter((id) => id !== userId);
       const names = others.map((id) => peerById.get(id)?.name ?? "Unknown student");
       return names.length ? names.join(", ") : "Just you";
+    },
+    [peerById, userId],
+  );
+
+  /** The other member's email, for telling identical display names apart. */
+  const emailOf = useCallback(
+    (thread: Thread) => {
+      const others = thread.memberIds.filter((id) => id !== userId);
+      const emails = others.map((id) => peerById.get(id)?.email).filter(Boolean);
+      return emails.join(", ");
     },
     [peerById, userId],
   );
@@ -264,11 +285,11 @@ export function MessagesView({
                       </span>
                       <span
                         className={clsx(
-                          "block font-mono text-[0.625rem] tracking-[0.1em] uppercase",
-                          thread.id === activeId ? "text-paper/60" : "text-faint",
+                          "block truncate font-mono text-[0.625rem] tracking-[0.02em] lowercase",
+                          thread.id === activeId ? "text-paper/70" : "text-faint",
                         )}
                       >
-                        {thread.kind}
+                        {emailOf(thread) || thread.kind}
                       </span>
                     </span>
                   </button>
@@ -285,9 +306,14 @@ export function MessagesView({
                   <li key={peer.id}>
                     <button
                       onClick={() => startThreadWith(peer.id)}
-                      className="w-full border-2 border-line-soft px-3 py-2 text-left font-mono text-[0.6875rem] tracking-[0.08em] text-muted uppercase transition-colors duration-200 hover:border-ink hover:text-ink"
+                      className="flex w-full flex-col gap-0.5 border-2 border-line-soft px-3 py-2 text-left transition-colors duration-200 hover:border-ink"
                     >
-                      {peer.name}
+                      <span className="font-mono text-[0.6875rem] tracking-[0.08em] text-muted uppercase">
+                        {peer.name}
+                      </span>
+                      <span className="truncate font-mono text-[0.625rem] tracking-[0.02em] text-faint lowercase">
+                        {peer.email}
+                      </span>
                     </button>
                   </li>
                 ))}
@@ -302,7 +328,14 @@ export function MessagesView({
             <>
               <header className="flex shrink-0 items-center gap-3 border-b-2 border-line-soft px-5 py-4">
                 <Avatar initials={initialsOf(active)} size="sm" />
-                <span className="text-[0.95rem] font-semibold">{nameOf(active)}</span>
+                <span className="flex min-w-0 flex-col">
+                  <span className="truncate text-[0.95rem] font-semibold">{nameOf(active)}</span>
+                  {emailOf(active) ? (
+                    <span className="truncate font-mono text-[0.625rem] tracking-[0.02em] text-muted lowercase">
+                      {emailOf(active)}
+                    </span>
+                  ) : null}
+                </span>
                 {/* "Live" previously meant "our own websocket connected", which
                     is true for every thread the moment the page loads — so it
                     read as though everyone was always online. It now reflects

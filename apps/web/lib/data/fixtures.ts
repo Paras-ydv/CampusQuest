@@ -389,6 +389,7 @@ export const DEMO_PEERS: PeerMatch[] = [
   {
     id: "peer_1",
     name: "Aarav Sharma",
+    email: "aarav@campus.edu",
     initials: "AS",
     branch: "Electronics",
     year: 3,
@@ -404,6 +405,7 @@ export const DEMO_PEERS: PeerMatch[] = [
   {
     id: "peer_2",
     name: "Meera Raghavan",
+    email: "meera@campus.edu",
     initials: "MR",
     branch: "Computer Science",
     year: 4,
@@ -419,6 +421,7 @@ export const DEMO_PEERS: PeerMatch[] = [
   {
     id: "peer_3",
     name: "Dev Patel",
+    email: "dev@campus.edu",
     initials: "DP",
     branch: "Computer Science",
     year: 3,
@@ -434,6 +437,7 @@ export const DEMO_PEERS: PeerMatch[] = [
   {
     id: "peer_4",
     name: "Ishita Nair",
+    email: "ishita@campus.edu",
     initials: "IN",
     branch: "Computer Science",
     year: 4,
@@ -449,6 +453,7 @@ export const DEMO_PEERS: PeerMatch[] = [
   {
     id: "peer_5",
     name: "Rohan Verma",
+    email: "rohan@campus.edu",
     initials: "RV",
     branch: "Mathematics",
     year: 2,
@@ -464,6 +469,7 @@ export const DEMO_PEERS: PeerMatch[] = [
   {
     id: "peer_6",
     name: "Sara Fernandes",
+    email: "sara@campus.edu",
     initials: "SF",
     branch: "Electronics",
     year: 3,

@@ -1,5 +1,5 @@
 import type { ChatMessage, CreateThreadInput, MessagePage, Thread } from "@campusquest/shared";
-import { createRequestSupabaseClient, localFallbackEnabled, supabaseForCaller } from "@/lib/supabase/server";
+import { createAdminSupabaseClient, localFallbackEnabled, supabaseForCaller } from "@/lib/supabase/server";
 
 const fallbackThreads = new Map<string, Thread>();
 const fallbackMessages = new Map<string, ChatMessage[]>();
@@ -15,6 +15,45 @@ function parseCursor(cursor: string | null): { createdAt: string; id: string } |
   if (!cursor) return null; const index = cursor.lastIndexOf("|");
   if (index <= 0) throw new Error("INVALID_CURSOR");
   return { createdAt: cursor.slice(0, index), id: cursor.slice(index + 1) };
+}
+
+export type ThreadMember = { id: string; name: string; email: string; initials: string };
+
+/**
+ * Everyone the caller shares a thread with, by id.
+ *
+ * The messages screen used to name people from the peer-match list, which only
+ * contains current matches — so any thread with someone outside it rendered as
+ * "Unknown student" with no email, which is precisely the case where telling
+ * people apart matters most.
+ *
+ * Needs the service-role client: `profiles_owner` restricts a student to their
+ * own row, so the caller cannot read a counterpart's name. Only id, name, email
+ * and initials are selected, and only for people they already share a thread
+ * with.
+ */
+export async function threadMemberDirectory(
+  request: Request | undefined,
+  userId: string,
+): Promise<ThreadMember[]> {
+  const supabase = await supabaseForCaller(request);
+  if (!supabase) return [];
+
+  const { data: mine } = await supabase.from("thread_members").select("thread_id").eq("user_id", userId);
+  const threadIds = (mine ?? []).map((row) => String(row.thread_id));
+  if (!threadIds.length) return [];
+
+  const { data: members } = await supabase.from("thread_members").select("user_id").in("thread_id", threadIds);
+  const ids = [...new Set((members ?? []).map((row) => String(row.user_id)))].filter((id) => id !== userId);
+  if (!ids.length) return [];
+
+  const admin = createAdminSupabaseClient();
+  if (!admin) return [];
+  const { data } = await admin.from("profiles").select("id, name, email, initials").in("id", ids);
+  return (data ?? []).map((row) => ({
+    id: String(row.id), name: String(row.name),
+    email: String(row.email), initials: String(row.initials),
+  }));
 }
 
 export async function listThreads(request: Request | undefined, userId: string): Promise<Thread[]> {
