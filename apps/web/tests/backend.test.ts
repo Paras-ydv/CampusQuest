@@ -8,6 +8,15 @@ import { DEMO_PROFILE, DEMO_QUESTS } from "../lib/data/fixtures";
 import { deterministicEmbedding, EMBEDDING_DIMENSIONS, getOrCreateProfileEmbedding, validateEmbedding } from "../lib/embeddings";
 import { rankQuests, completeQuest, verifyQuestStep } from "../lib/quest-engine";
 import { resolveRoleFamily } from "../lib/data/role-families";
+import { ALL_SKILLS } from "../lib/data/skills";
+import { matchSkills } from "../lib/resume/skill-matcher";
+import { extractPdfText, looksLikePdf } from "../lib/resume/pdf-text";
+import { extractBranch, extractName, extractProfileFields, extractYear } from "../lib/resume/profile-fields";
+import { parseSkillIds } from "../lib/resume/skill-resolver";
+import { messageText } from "../lib/resume/databricks-chat";
+import { parseVerdicts } from "../lib/resume/skill-dedupe";
+import { extractSkillCandidates } from "../lib/resume/skill-candidates";
+import { BRANCHES } from "../lib/data/profile-options";
 import { skillPathQuests } from "../lib/skill-paths";
 import { peopleMatches } from "../lib/people-matchmaker";
 import { researchMatches } from "../lib/research-repository";
@@ -190,3 +199,160 @@ async function collectGenie(question: string) {
   for await (const event of runGenie({ request, userId: "stu_genie", question })) events.push(event);
   return events;
 }
+
+/* ------------------------------------------------------------- résumé -- */
+
+test("résumé matching resolves aliases to canonical ids and never invents one", () => {
+  const matched = matchSkills("Built REST APIs in Node.js and Next.js, deployed on K8s with CI/CD. Strong in C++ and DSA.");
+  const ids = matched.map((match) => match.skillId);
+  for (const expected of ["cpp", "node", "nextjs", "kubernetes", "cicd", "rest", "dsa"]) {
+    assert.ok(ids.includes(expected as (typeof ids)[number]), `expected ${expected}, got ${ids.join(",")}`);
+  }
+  // Every id must be a real taxonomy key, since gaps and quests join on it.
+  for (const id of ids) assert.ok(ALL_SKILLS.some((skill) => skill.id === id));
+  assert.deepEqual(matched, matchSkills("Built REST APIs in Node.js and Next.js, deployed on K8s with CI/CD. Strong in C++ and DSA."));
+});
+
+test("résumé matching respects word boundaries and empty input", () => {
+  // "go" inside "Google", "ts" inside "artifacts", "spring" inside "Springfield".
+  const ids = matchSkills("Interned at Google in Springfield, shipping build artifacts.").map((m) => m.skillId);
+  assert.ok(!ids.includes("go"));
+  assert.ok(!ids.includes("typescript"));
+  assert.ok(!ids.includes("springboot"));
+  assert.deepEqual(matchSkills(""), []);
+  assert.deepEqual(matchSkills("   "), []);
+});
+
+test("a résumé PDF's text is extracted and a non-PDF is rejected", () => {
+  assert.equal(looksLikePdf(new TextEncoder().encode("not a pdf")), false);
+  assert.equal(looksLikePdf(pdfWithText("Python")), true);
+  // A PDF carrying no text stream reads as empty rather than throwing, which
+  // is how the route tells a scanned résumé apart from an unreadable one.
+  assert.equal(extractPdfText(new TextEncoder().encode("%PDF-1.4\n%%EOF\n")), "");
+
+  const text = extractPdfText(pdfWithText("Skills: Python, PyTorch, Docker"));
+  assert.match(text, /Python/);
+  assert.deepEqual(
+    matchSkills(text).map((match) => match.skillId).sort(),
+    ["docker", "python", "pytorch"],
+  );
+});
+
+/** Builds a minimal uncompressed PDF whose content stream shows `body`. */
+function pdfWithText(body: string): Uint8Array {
+  const stream = `BT /F1 12 Tf 72 720 Td (${body.replace(/([()\\])/g, "\\$1")}) Tj ET`;
+  return new TextEncoder().encode(
+    `%PDF-1.4\n1 0 obj\n<< /Length ${stream.length} >>\nstream\n${stream}\nendstream\nendobj\ntrailer\n<< >>\n%%EOF\n`,
+  );
+}
+
+test("résumé profile fields resolve onto the onboarding vocabularies", () => {
+  // The text a real "Jake's Resume" PDF extracts to: one run, contact details
+  // on the name line, and a study range written with month names.
+  const resume = "Shivansh Bhageria +91 9462000063 | mail@example.com | github.com/Shivansh1205 Education Bangalore Institute of Technology Bengaluru, India Bachelor of Technology in Computer Science and Engineering; CGPA: 8.02 Aug 2023 -- Jun 2027";
+  const now = new Date("2026-09-02");
+  assert.deepEqual(extractProfileFields(resume, now), { name: "Shivansh Bhageria", branch: "Computer Science", year: 4 });
+
+  // Branch must be one onboarding actually offers, never raw résumé wording.
+  assert.ok(BRANCHES.includes(extractBranch("B.E. in ECE") as (typeof BRANCHES)[number]));
+  assert.equal(extractBranch("Bachelor of Arts in History"), null);
+
+  // An explicit statement wins over date arithmetic.
+  assert.equal(extractYear("Third-year student, expected graduation 2029", now), 3);
+  assert.equal(extractYear("Class of 2027", now), 4);
+  // Already graduated: better to leave it blank than to guess.
+  assert.equal(extractYear("B.Tech 2018 - 2022", now), null);
+  assert.equal(extractYear("no dates here", now), null);
+});
+
+test("résumé name extraction refuses anything that is not clearly a name", () => {
+  assert.equal(extractName("CURRICULUM VITAE"), null);
+  assert.equal(extractName("john"), null);
+  assert.equal(extractName(""), null);
+  // A heading that is not a person's name must not be adopted as one.
+  assert.equal(extractName("Software Engineer Resume"), "Software Engineer");
+});
+
+test("a TeX-produced résumé recovers word breaks from TJ kerning", () => {
+  // pdfLaTeX — what most student résumés are built with — emits no space
+  // characters at all: words are split across TJ array elements and the only
+  // evidence of a break is the kern between them. A small kern tightens a
+  // letter pair inside one word, a large one is a space.
+  const stream = "BT /F45 24 Tf [(Shiv)75(ansh)-250(Bha)45(geria)]TJ [(Bachelor)-250(of)-250(T)80(echnology)]TJ ET";
+  const text = extractPdfText(uncompressedPdf(stream));
+  assert.match(text, /Shivansh Bhageria/);
+  assert.match(text, /Bachelor of Technology/);
+  // The intra-word kerns must NOT become spaces.
+  assert.doesNotMatch(text, /Shiv ansh|Bha geria|T echnology/);
+});
+
+/** Wraps an already-built content stream in a minimal PDF container. */
+function uncompressedPdf(stream: string): Uint8Array {
+  return new TextEncoder().encode(
+    `%PDF-1.4\n1 0 obj\n<< /Length ${stream.length} >>\nstream\n${stream}\nendstream\nendobj\ntrailer\n<< >>\n%%EOF\n`,
+  );
+}
+
+test("the Databricks skill resolver never trusts an unverified answer", () => {
+  const resume = "Orchestrated containers across a cluster with automated rollouts.";
+  // A quote that really is in the résumé is accepted.
+  assert.deepEqual(
+    parseSkillIds('[{"id":"kubernetes","quote":"Orchestrated containers across a cluster"}]', resume),
+    ["kubernetes"],
+  );
+  // An id outside the catalogue is dropped, so the user_skills foreign key
+  // can never be violated by a hallucination.
+  assert.deepEqual(parseSkillIds('[{"id":"not_a_skill","quote":"Orchestrated containers"}]', resume), []);
+  // A fabricated quote is dropped even when the id is real — this is what
+  // stops the model listing plausible-sounding skills it did not find.
+  assert.deepEqual(parseSkillIds('[{"id":"kafka","quote":"streamed events through Kafka"}]', resume), []);
+  // A missing quote is not evidence either.
+  assert.deepEqual(parseSkillIds('[{"id":"kubernetes"}]', resume), []);
+  assert.deepEqual(parseSkillIds("not json at all", resume), []);
+
+  // A reasoning model returns its working as message parts, and the answer is
+  // the last array in it.
+  const reasoning = [{ type: "reasoning", summary: [{ type: "summary_text", text: "mongodb: no. kafka: no." }] }, { type: "text", text: '[{"id":"kubernetes","quote":"Orchestrated containers across a cluster"}]' }];
+  assert.deepEqual(parseSkillIds(messageText(reasoning), resume), ["kubernetes"]);
+});
+
+test("skill deduplication only accepts verdicts the catalogue can honour", () => {
+  const candidates = ["Retrieval Augmented Generation", "Rust", "Ghost Skill"];
+  // A duplicate must name a real catalogue id; a new skill a real category.
+  assert.deepEqual(
+    parseVerdicts('[{"candidate":"Retrieval Augmented Generation","duplicateOf":"rag"}]', candidates),
+    [{ kind: "duplicate", of: "rag", candidate: "Retrieval Augmented Generation" }],
+  );
+  assert.deepEqual(
+    parseVerdicts('[{"candidate":"Rust","duplicateOf":null,"category":"language"}]', candidates),
+    [{ kind: "new", candidate: "Rust", name: "Rust", category: "language" }],
+  );
+  // An id that is not in the catalogue cannot be merged into — that would
+  // write a dangling reference.
+  assert.deepEqual(parseVerdicts('[{"candidate":"Rust","duplicateOf":"not_a_skill"}]', candidates), []);
+  // A new skill with no usable category has nothing sensible to insert.
+  assert.deepEqual(parseVerdicts('[{"candidate":"Rust","duplicateOf":null,"category":"nonsense"}]', candidates), []);
+  // A verdict about something nobody asked about is ignored.
+  assert.deepEqual(parseVerdicts('[{"candidate":"Fabricated","duplicateOf":"rag"}]', candidates), []);
+  // The same candidate is decided once, not twice.
+  assert.equal(
+    parseVerdicts('[{"candidate":"Rust","duplicateOf":null,"category":"language"},{"candidate":"Rust","duplicateOf":"go"}]', candidates).length,
+    1,
+  );
+  // "skip" is neither merged nor added: a hosting platform is not a skill.
+  assert.deepEqual(parseVerdicts('[{"candidate":"Rust","duplicateOf":"skip"}]', candidates), []);
+  assert.deepEqual(parseVerdicts("not json", candidates), []);
+});
+
+test("candidate names are parsed from the skills section, not invented", () => {
+  const resume = "Technical Skills Languages : Python, Java, Rust Tools/Platforms : Git, Qdrant, Vercel Achievements ICPC 2025 : Regionalist";
+  // Skills the matcher already found are not candidates; the rest are.
+  const candidates = extractSkillCandidates(resume, ["python", "Python", "java", "Java", "git", "Git"]);
+  assert.ok(candidates.includes("Rust"), candidates.join(","));
+  assert.ok(candidates.includes("Qdrant"));
+  assert.ok(!candidates.some((name) => name.toLowerCase() === "python"));
+  // Section labels are not technologies.
+  assert.ok(!candidates.some((name) => /^(languages|tools|skills)$/i.test(name)));
+  // A résumé with no skills section yields nothing rather than guessing.
+  assert.deepEqual(extractSkillCandidates("Worked at a company doing things.", []), []);
+});
