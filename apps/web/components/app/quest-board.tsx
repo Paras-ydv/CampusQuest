@@ -6,6 +6,7 @@ import { useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { clsx } from "clsx";
 import { useRouter } from "next/navigation";
+import { announceProfileChanged } from "@/lib/live-refresh";
 import { completeQuest, setQuestStepDone, verifyQuestStep } from "@/lib/data/client";
 import { Odometer } from "@/components/motion/odometer";
 import { Reveal } from "@/components/motion/reveal";
@@ -179,6 +180,10 @@ export function QuestBoard({
         }
         setBusyId(null);
         setUndoState(snapshot);
+        // XP and level are rendered by server components on other screens;
+        // without this the Journey page keeps showing the figures it rendered
+        // at page load until the student reloads.
+        announceProfileChanged();
         undoTimer.current = setTimeout(
           () => setUndoState(null),
           reduced ? 4000 : 7000,

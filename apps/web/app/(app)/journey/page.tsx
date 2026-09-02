@@ -8,6 +8,7 @@ import { JourneyMascot } from "@/components/app/journey-mascot";
 import { GeniePanel } from "@/components/app/genie-panel";
 import { OpportunityCard } from "@/components/app/opportunity-card";
 import { JourneyPeers } from "@/components/app/journey-peers";
+import { ProfileRefresh } from "@/components/app/profile-refresh";
 import { QuestCard } from "@/components/app/quest-card";
 import { StatRow } from "@/components/app/stat-row";
 
@@ -41,6 +42,9 @@ export default async function JourneyPage() {
 
   return (
     <div className="mx-auto max-w-[1400px]">
+      {/* This page's XP and level come from the server render, so they would
+          otherwise stay at their page-load values until a reload. */}
+      <ProfileRefresh />
       {/* ------------------------------------------------------------ hero -- */}
       <section className="grid gap-8 border-b-2 border-ink px-5 py-12 lg:grid-cols-[auto_1fr_auto] lg:items-end lg:gap-16">
         <div>
