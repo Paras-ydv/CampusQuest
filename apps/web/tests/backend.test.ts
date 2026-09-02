@@ -490,7 +490,7 @@ test("an unexplained bonus or deduction is dropped, not shown", () => {
     deductions: { total: 4, reasons: "   " },
     key_strengths: [], areas_for_improvement: [],
   });
-  const score = parseEvaluation(reply);
+  const score = parseEvaluation(reply)!;
   assert.equal(score.deductions.total, 0, "unexplained deduction dropped");
   assert.equal(score.deductions.reasons, "");
   assert.equal(score.bonus.total, 0, "unexplained bonus dropped");

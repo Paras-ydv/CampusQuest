@@ -16,6 +16,11 @@ import { Reveal } from "@/components/motion/reveal";
  * stops reading; one who opens it to four specific changes has something to do.
  */
 
+/** The bonus is the fifth twenty points of the total, drawn as its own bar. */
+const BONUS_MAX = 20;
+/** Four categories (100) plus the bonus (20). Deductions come off the total. */
+const TOTAL_MAX = 120;
+
 const CATEGORY_LABELS: Record<string, string> = {
   openSource: "Open source",
   selfProjects: "Projects",
@@ -51,6 +56,9 @@ export function AtsView({ initial }: { initial: AtsState }) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const score: AtsScore | null = state.score;
+  const categoryTotal = score
+    ? Object.values(score.categories).reduce((sum, category) => sum + category.score, 0)
+    : 0;
 
   /** Reads the specific validation message the API returns, not the generic one. */
   async function failure(response: Response, fallback: string): Promise<string> {
@@ -99,9 +107,10 @@ export function AtsView({ initial }: { initial: AtsState }) {
         reads your résumé.
       </h1>
       <p className="mt-5 max-w-[54ch] text-[0.92rem] leading-relaxed text-muted">
-        Scored on the rubric HackerRank uses for intern applications — open
-        source, projects, experience and technical skills, out of 120. The
-        number is context; the changes below it are the point.
+        Scored on the rubric HackerRank uses for intern applications: open
+        source, projects, experience and technical skills are worth 100 between
+        them, with 20 more available as bonuses — 120 in all. The number is
+        context; the changes below it are the point.
       </p>
 
       {/* -------------------------------------------------- no résumé yet -- */}
@@ -212,8 +221,15 @@ export function AtsView({ initial }: { initial: AtsState }) {
             <div className="mt-14 border-2 border-ink p-6">
               <div className="flex flex-wrap items-baseline gap-3">
                 <span className="font-display text-[3rem] leading-none font-bold tabular-nums">{score.overall}</span>
-                <span className="font-mono text-[0.8rem] tracking-[0.1em] text-muted">/ 120</span>
+                <span className="font-mono text-[0.8rem] tracking-[0.1em] text-muted">/ {TOTAL_MAX}</span>
               </div>
+              {/* The five bars below sum to the headline, so the arithmetic is
+                  stated rather than left for the reader to reconstruct. */}
+              <p className="mt-2 font-mono text-[0.6875rem] tracking-[0.06em] text-muted">
+                {categoryTotal} from the four categories
+                {score.bonus.total > 0 ? ` + ${score.bonus.total} bonus` : ""}
+                {score.deductions.total > 0 ? ` − ${score.deductions.total} deductions` : ""}
+              </p>
 
               <dl className="mt-8 grid gap-5 sm:grid-cols-2">
                 {Object.entries(score.categories).map(([key, category]) => (
@@ -230,25 +246,35 @@ export function AtsView({ initial }: { initial: AtsState }) {
                     <p className="mt-2 text-[0.8rem] leading-relaxed text-muted">{category.evidence}</p>
                   </div>
                 ))}
+
+                {/* Bonus is the fifth twenty points of the 120, so it is drawn
+                    as a bar like the rest. Leaving it out of this grid made the
+                    four bars appear to sum to a headline they could not reach. */}
+                <div>
+                  <div className="flex items-baseline justify-between gap-3">
+                    <dt className="k-label">Bonus</dt>
+                    <dd className="font-mono text-[0.72rem] tabular-nums">
+                      {score.bonus.total}/{BONUS_MAX}
+                    </dd>
+                  </div>
+                  <div className="mt-2">
+                    <ScoreBar score={score.bonus.total} max={BONUS_MAX} />
+                  </div>
+                  <p className="mt-2 text-[0.8rem] leading-relaxed text-muted">
+                    {score.bonus.breakdown ||
+                      "Awarded for GSoC, a startup founding or early-engineer role, a portfolio site, or a LinkedIn profile."}
+                  </p>
+                </div>
               </dl>
 
-              {/* Shown only when there is something to report. A zero line
-                  reading "None." is noise, and an adjustment with no reason is
-                  worse — the evaluator drops those rather than pass them on. */}
-              {score.bonus.total > 0 || score.deductions.total > 0 ? (
-                <div className="mt-7 grid gap-3 border-t-2 border-line-soft pt-5 text-[0.82rem] text-muted sm:grid-cols-2">
-                  {score.bonus.total > 0 ? (
-                    <p>
-                      <span className="k-label mr-2">Bonus</span>
-                      <span className="text-ok">+{score.bonus.total}</span> · {score.bonus.breakdown}
-                    </p>
-                  ) : null}
-                  {score.deductions.total > 0 ? (
-                    <p>
-                      <span className="k-label mr-2">Deductions</span>
-                      <span className="text-hot">−{score.deductions.total}</span> · {score.deductions.reasons}
-                    </p>
-                  ) : null}
+              {/* Deductions are the only adjustment left to state here: the
+                  bonus has its own bar above. */}
+              {score.deductions.total > 0 ? (
+                <div className="mt-7 border-t-2 border-line-soft pt-5 text-[0.82rem] text-muted">
+                  <p>
+                    <span className="k-label mr-2">Deductions</span>
+                    <span className="text-hot">−{score.deductions.total}</span> · {score.deductions.reasons}
+                  </p>
                 </div>
               ) : null}
             </div>
