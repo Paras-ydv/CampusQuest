@@ -147,7 +147,7 @@ export function PeopleView({ initialPeers }: { initialPeers: PeerMatch[] }) {
 
         {visible.length === 0 ? (
           <p className="py-16 text-center font-mono text-[0.8rem] text-muted">
-            Nobody matches that yet. Try a broader search.
+            No complementary teammates match that yet. Add skills or interests to improve your recommendations.
           </p>
         ) : (
           <motion.ul layout className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">

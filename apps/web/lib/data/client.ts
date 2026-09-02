@@ -147,7 +147,7 @@ export function setOpportunitySaved(opportunityId: string, saved: boolean): Prom
 /* ----------------------------------------------------------------- Peers -- */
 
 export function getPeers(query: PeopleQuery = {}): Promise<PeerMatch[]> {
-  // → GET /api/people/matches   (P3: pgvector retrieval + Genie rerank)
+  // → GET /api/people/matches   (P3: deterministic complementary-skill ranking)
   const params = new URLSearchParams();
   if (query.interest) params.set("interest", query.interest);
   if (query.skillId) params.set("skillId", query.skillId);
